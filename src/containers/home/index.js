@@ -7,14 +7,12 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
-
-    console.log(window.blockstack)
   }
 
   render() {
     return (
       <div>
-        <Button>Hello</Button>
+        <Button>Hellox</Button>
       </div>)
   }
 }
