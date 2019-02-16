@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c5d1312-8939-44f9-9cfb-9f6b0a740f99" name="Default Changelist" comment="npm">
-      <change afterPath="$PROJECT_DIR$/src/helpers/storage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/storage.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/editor/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/editor/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/bg-images/images.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,7 +26,8 @@
         <counts>
           <entry key="get-base-url" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="69" />
+          <entry key="jpg" value="3" />
+          <entry key="js" value="70" />
           <entry key="json" value="10" />
           <entry key="lock" value="1" />
           <entry key="md" value="1" />
@@ -38,8 +36,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Image" value="3" />
           <entry key="JSON" value="10" />
-          <entry key="JavaScript" value="69" />
+          <entry key="JavaScript" value="70" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SCSS" value="4" />
           <entry key="yarn.lock" value="1" />
@@ -54,14 +53,14 @@
         <counts>
           <entry key="gitignore" value="7" />
           <entry key="js" value="2491" />
-          <entry key="json" value="45" />
+          <entry key="json" value="110" />
           <entry key="scss" value="70" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="45" />
+          <entry key="JSON" value="110" />
           <entry key="JavaScript" value="2491" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SCSS" value="70" />
@@ -75,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/src/containers/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="593">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -83,14 +82,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/editor/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="435">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/data/bg-images/images.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="24" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -142,6 +150,7 @@
         <option value="$PROJECT_DIR$/src/helpers/storage.js" />
         <option value="$PROJECT_DIR$/src/helpers/storage.test.js" />
         <option value="$PROJECT_DIR$/src/containers/editor/index.js" />
+        <option value="$PROJECT_DIR$/src/data/bg-images/images.json" />
       </list>
     </option>
   </component>
@@ -189,7 +198,20 @@
               <item name="landing" type="b2602c69:ProjectViewProjectNode" />
               <item name="landing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="landing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="bg-images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="landing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locales" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -242,12 +264,12 @@
       <option name="presentableId" value="Default" />
       <updated>1550240929722</updated>
       <workItem from="1550240931185" duration="12917000" />
-      <workItem from="1550319769087" duration="5743000" />
+      <workItem from="1550319769087" duration="6782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18660000" />
+    <option name="totallyTimeSpent" value="19699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="298" y="23" width="1378" height="1118" extended-state="0" />
@@ -483,7 +505,7 @@
     <entry file="file://$PROJECT_DIR$/src/containers/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="593">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -533,11 +555,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/editor/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="435">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/bg-images/dolomites.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/bg-images/landscape.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/bg-images/matterhorn.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/bg-images/images.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="24" />
         </state>
       </provider>
     </entry>
