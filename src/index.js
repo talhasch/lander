@@ -6,8 +6,6 @@ import store, {history} from './store'
 import App from './containers';
 import * as serviceWorker from './serviceWorker';
 
-// import App from './containers/app'
-
 import './index.css';
 //import 'typeface-roboto';
 import './style/style.scss';

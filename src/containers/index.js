@@ -8,7 +8,7 @@ import Home from "./home";
 import Editor from "./editor";
 import Profile from './profile'
 
-import en from "react-intl/locale-data/en";
+import en from 'react-intl/locale-data/en';
 
 addLocaleData([...en]);
 
@@ -20,14 +20,23 @@ export default class App extends Component {
       <IntlProvider locale={locale} messages={flattenMessages(messages[locale])}>
         <Fragment>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/app/auth" component={props => {
+            if (window.blockstack.isSignInPending()) {
+              window.blockstack.handlePendingSignIn()
+                .then(() => {
+                  const {history} = props;
+                  history.push('/app/editor');
+                });
+            }
+            return null;
+          }}/>
           <Route exact path="/app/editor" component={props => {
-
-            // login check
-            /*
-            const {history} = props;
-            history.push('/');
-            return '';
-            */
+            // Login check
+            if (!window.blockstack.isUserSignedIn()) {
+              const {history} = props;
+              history.push('/');
+              return null;
+            }
             return <Editor {...props} />;
           }}/>
           <Route exact path="/:username" component={Profile}/>
