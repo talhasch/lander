@@ -1,6 +1,7 @@
 @import 'bootstrap';
 
 @import '../containers/home/index';
+@import '../containers/1st/index';
 
 
 $box-shadow: 0 0 5px 2px rgba(134, 134, 134, 0.15);
@@ -11,12 +12,18 @@ html, body {
   width: 100%;
 }
 
-$logo-width: 128px;
-$logo-height: 128px;
-$line-width: 16px;
+.header {
+  align-items: center;
+  display: flex;
+  height: 200px;
 
-
-
+  .lander-logo {
+    color: #fff;
+    filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
+    font-size: 90px;
+    font-weight: 700;
+  }
+}
 
 
 #root {

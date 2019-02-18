@@ -2,19 +2,6 @@
   margin: auto;
   width: 900px;
 
-  .header {
-    align-items: center;
-    display: flex;
-    height: 200px;
-
-    .lander-logo {
-      color: #fff;
-      filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
-      font-size: 90px;
-      font-weight: 700;
-    }
-  }
-
   .content {
 
     .showcase {
@@ -35,7 +22,6 @@
       }
 
       .description {
-        color: #41454e;
         font-size: 1.6em;
         margin-bottom: 40px;
       }
