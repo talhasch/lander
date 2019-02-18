@@ -6,8 +6,18 @@
     color: #333740;
   }
 
-  .form-sub-title{
+  .form-sub-title {
     font-size: 1.3em;
     font-weight: 500;
+  }
+
+  .form-input {
+    margin-bottom: 12px;
+  }
+
+  .form-controls {
+    button {
+      margin-right: 10px;
+    }
   }
 }

@@ -8,17 +8,26 @@ import validateEmail from "../../utils/validate-email";
 
 import {injectIntl} from 'react-intl';
 
+
+import {account} from '../../helpers/data';
+
+
 class FirstForm extends Component {
 
   constructor(props) {
     super(props);
 
+    const {profile} = window.blockstack.loadUserData();
+
     this.state = {
-      name: '',
-      title: '',
-      email: '',
+      profile,
+      name: profile.name ? profile.name : '',
+      description: profile.description ? profile.description : '',
+      email: profile.email ? profile.email : '',
       step: 1
-    }
+    };
+
+    console.log(profile.account)
   }
 
   nameChanged = (e) => {
@@ -26,9 +35,9 @@ class FirstForm extends Component {
     this.setState({name});
   };
 
-  titleChanged = (e) => {
-    const title = e.target.value;
-    this.setState({title});
+  descriptionChanged = (e) => {
+    const description = e.target.value;
+    this.setState({description});
   };
 
   emailChanged = (e) => {
@@ -45,7 +54,7 @@ class FirstForm extends Component {
   };
 
   next2 = () => {
-    if (this.isTitleOK()) {
+    if (this.isDescriptionOK()) {
       this.setState({
         step: 3
       })
@@ -53,27 +62,44 @@ class FirstForm extends Component {
   };
 
   next3 = () => {
+    if (this.isEmailOK()) {
+      this.complete();
+    }
+  };
 
+  skipEmail = () => {
+    this.setState({
+      email: ''
+    }, () => {
+      this.complete();
+    })
+  };
+
+  complete = () => {
+    this.setState({step: 4});
+
+    const {profile} = this.state;
+    const photo = profile.image && profile.image[0] ? profile.image[0].contentUrl : '';
   };
 
   isNameOK = () => {
     const {name} = this.state;
-    return name.trim().length >= 2
+    return name && name.trim().length >= 2
   };
 
-  isTitleOK = () => {
-    const {title} = this.state;
-    return title.trim().length >= 4
+  isDescriptionOK = () => {
+    const {description} = this.state;
+    return description && description.trim().length >= 4
   };
 
   isEmailOK = () => {
     const {email} = this.state;
-    return validateEmail(email);
+    return email && validateEmail(email);
   };
 
   render() {
     const {intl} = this.props;
-    const {step, name, title, email} = this.state;
+    const {step, name, description, email} = this.state;
 
     return <div className="first-form-wrapper">
       <div className="header">
@@ -84,7 +110,7 @@ class FirstForm extends Component {
       {step === 1 &&
       <Fragment>
         <p className="form-label"><FormattedMessage id="first-form.name-label"/></p>
-        <InputGroup>
+        <div className="form-input">
           <FormControl
             placeholder={intl.formatMessage({'id': 'first-form.name-placeholder'})}
             id="name"
@@ -92,52 +118,72 @@ class FirstForm extends Component {
             value={name}
             onChange={this.nameChanged}
             maxLength={40}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                this.next1();
+              }
+            }}
           />
-          <InputGroup.Append>
-            <Button variant={this.isNameOK() ? 'primary' : 'outline-primary'} disabled={!this.isNameOK()}
-                    onClick={this.next1}><FormattedMessage id="g.next"/></Button>
-          </InputGroup.Append>
-        </InputGroup>
+        </div>
+        <div className="form-controls">
+          <Button variant={this.isNameOK() ? 'primary' : 'outline-primary'} disabled={!this.isNameOK()}
+                  onClick={this.next1}><FormattedMessage id="g.next"/></Button>
+        </div>
       </Fragment>
       }
       {step === 2 &&
       <Fragment>
-        <p className="form-label"><FormattedMessage id="first-form.title-label"/></p>
-        <InputGroup>
+        <p className="form-label"><FormattedMessage id="first-form.description-label"/></p>
+        <div className="form-input">
           <FormControl
-            placeholder={intl.formatMessage({'id': 'first-form.title-placeholder'})}
-            id="title"
+            placeholder={intl.formatMessage({'id': 'first-form.description-placeholder'})}
+            id="description"
             autoFocus
-            value={title}
-            onChange={this.titleChanged}
+            value={description}
+            onChange={this.descriptionChanged}
             maxLength={60}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                this.next2();
+              }
+            }}
           />
-          <InputGroup.Append>
-            <Button variant={this.isTitleOK() ? 'primary' : 'outline-primary'} disabled={!this.isTitleOK()}
-                    onClick={this.next2}><FormattedMessage id="g.next"/></Button>
-          </InputGroup.Append>
-        </InputGroup>
+        </div>
+        <div className="form-controls">
+          <Button variant={this.isDescriptionOK() ? 'primary' : 'outline-primary'} disabled={!this.isDescriptionOK()}
+                  onClick={this.next2}><FormattedMessage id="g.next"/></Button>
+        </div>
       </Fragment>
       }
       {step === 3 &&
       <Fragment>
         <p className="form-label"><FormattedMessage id="first-form.email-label"/></p>
-        <InputGroup>
+        <div className="form-input">
           <FormControl
             placeholder={intl.formatMessage({'id': 'first-form.email-placeholder'})}
+            type="email"
             id="email"
             autoFocus
             value={email}
             onChange={this.emailChanged}
             maxLength={60}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                if (email.trim() === '') {
+                  this.skipEmail();
+                } else {
+                  this.next3();
+                }
+              }
+            }}
           />
-          <InputGroup.Append>
-            <Button variant="outline-secondary"><FormattedMessage id="g.skip"/></Button>
-            <Button variant={this.isEmailOK() ? 'primary' : 'outline-primary'} disabled={!this.isEmailOK()}
-                    onClick={this.next3}><FormattedMessage
-              id="g.next"/></Button>
-          </InputGroup.Append>
-        </InputGroup>
+        </div>
+        <div className="form-controls">
+          <Button variant={this.isEmailOK() ? 'primary' : 'outline-primary'} disabled={!this.isEmailOK()}
+                  onClick={this.next3}><FormattedMessage
+            id="g.next"/></Button>
+          <Button variant="outline-secondary" onClick={this.skipEmail}><FormattedMessage id="g.skip"/></Button>
+        </div>
       </Fragment>
       }
     </div>
