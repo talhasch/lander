@@ -7,7 +7,7 @@ import messages from "../locales";
 import Home from "./home";
 import Editor from "./editor";
 import Profile from './profile'
-import FirstForm from './1st';
+import Welcome from './welcome';
 
 import en from 'react-intl/locale-data/en';
 
@@ -31,9 +31,9 @@ export default class App extends Component {
             }
             return null;
           }}/>
-          <Route exact path="/app/1st" component={props => {
+          <Route exact path="/app/welcome" component={props => {
 
-            return <FirstForm {...props} />;
+            return <Welcome {...props} />;
           }}/>
           <Route exact path="/app/editor" component={props => {
             // Login check

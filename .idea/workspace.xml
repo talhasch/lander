@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c5d1312-8939-44f9-9cfb-9f6b0a740f99" name="Default Changelist" comment="npm">
-      <change beforePath="$PROJECT_DIR$/src/containers/1st/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/1st/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/1st/_index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/1st/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/style.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,12 +34,12 @@
           <entry key="html" value="6" />
           <entry key="ico" value="1" />
           <entry key="jpg" value="14" />
-          <entry key="js" value="98" />
+          <entry key="js" value="100" />
           <entry key="json" value="14" />
           <entry key="lock" value="2" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
-          <entry key="scss" value="42" />
+          <entry key="scss" value="44" />
           <entry key="svg" value="7" />
           <entry key="ts" value="1" />
         </counts>
@@ -48,9 +50,9 @@
           <entry key="HTML" value="6" />
           <entry key="Image" value="16" />
           <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="98" />
+          <entry key="JavaScript" value="100" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="SCSS" value="42" />
+          <entry key="SCSS" value="44" />
           <entry key="SVG" value="7" />
           <entry key="TypeScript" value="1" />
           <entry key="yarn.lock" value="2" />
@@ -66,9 +68,9 @@
         <counts>
           <entry key="gitignore" value="7" />
           <entry key="html" value="32" />
-          <entry key="js" value="7915" />
+          <entry key="js" value="7945" />
           <entry key="json" value="415" />
-          <entry key="scss" value="1984" />
+          <entry key="scss" value="1986" />
           <entry key="svg" value="4" />
           <entry key="txt" value="3" />
         </counts>
@@ -77,9 +79,9 @@
         <counts>
           <entry key="HTML" value="32" />
           <entry key="JSON" value="415" />
-          <entry key="JavaScript" value="7915" />
+          <entry key="JavaScript" value="7945" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="SCSS" value="1984" />
+          <entry key="SCSS" value="1986" />
           <entry key="SVG" value="4" />
         </counts>
       </usages-collector>
@@ -87,23 +89,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/containers/1st/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="285">
+              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding>
-                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/1st/_index.scss">
+        <entry file="file://$PROJECT_DIR$/src/containers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="135">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/welcome/_index.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -193,16 +213,17 @@
         <option value="$PROJECT_DIR$/src/components/logo/_index.scss" />
         <option value="$PROJECT_DIR$/src/images/login.svg" />
         <option value="$PROJECT_DIR$/src/containers/home/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/index.js" />
         <option value="$PROJECT_DIR$/src/style/_bootstrap.scss" />
         <option value="$PROJECT_DIR$/src/containers/home/_index.scss" />
         <option value="$PROJECT_DIR$/src/utils/validate-email.js" />
         <option value="$PROJECT_DIR$/src/utils/validate-email.test.js" />
-        <option value="$PROJECT_DIR$/src/style/style.scss" />
         <option value="$PROJECT_DIR$/src/locales/en-US.json" />
         <option value="$PROJECT_DIR$/src/containers/1st/_index.scss" />
         <option value="$PROJECT_DIR$/src/helpers/data.js" />
         <option value="$PROJECT_DIR$/src/containers/1st/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/index.js" />
+        <option value="$PROJECT_DIR$/src/style/style.scss" />
+        <option value="$PROJECT_DIR$/src/containers/welcome/_index.scss" />
       </list>
     </option>
   </component>
@@ -251,6 +272,19 @@
               <item name="landing" type="b2602c69:ProjectViewProjectNode" />
               <item name="landing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="landing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="landing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="welcome" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="landing" type="b2602c69:ProjectViewProjectNode" />
@@ -333,15 +367,16 @@
       <workItem from="1550319769087" duration="14250000" />
       <workItem from="1550430043554" duration="7066000" />
       <workItem from="1550494932882" duration="13142000" />
-      <workItem from="1550525784585" duration="3140000" />
+      <workItem from="1550525784585" duration="3338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50515000" />
+    <option name="totallyTimeSpent" value="50713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="113" y="108" width="1569" height="1017" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.2861757" />
       <window_info id="Structure" order="1" sideWeight="0.501292" side_tool="true" weight="0.24075666" />
@@ -371,7 +406,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/utils/get-base-url-test.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/home/index.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -494,13 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/_root.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -556,13 +583,6 @@
     <entry file="file://$PROJECT_DIR$/src/containers/profile/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yarn.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -575,13 +595,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data/bg-images/water.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="74" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="74" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/es/FormControl.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -623,11 +636,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/1st/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="155">
+          <caret line="137" column="42" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="42" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/welcome/_index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>

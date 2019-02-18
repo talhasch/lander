@@ -12,7 +12,7 @@ import {injectIntl} from 'react-intl';
 import {makeAccount, createProfile} from '../../helpers/data';
 
 
-class FirstForm extends Component {
+class Welcome extends Component {
 
   constructor(props) {
     super(props);
@@ -135,7 +135,7 @@ class FirstForm extends Component {
     const {intl} = this.props;
     const {step, name, description, email} = this.state;
 
-    return <div className="first-form-wrapper">
+    return <div className="welcome-wrapper">
       <div className="header">
         <span className="lander-logo">L</span>
       </div>
@@ -224,4 +224,4 @@ class FirstForm extends Component {
   }
 }
 
-export default injectIntl(FirstForm)
+export default injectIntl(Welcome)
