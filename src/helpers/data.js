@@ -1,14 +1,15 @@
 export const id = () => '_' + Math.random().toString(36).substr(2, 9);
 
-export const account = (service, identifier) => {
+export const makeAccount = (service, identifier, identifier2 = null) => {
   return {
     id: id(),
     service,
-    identifier
+    identifier,
+    identifier2
   }
 };
 
-export const createProfile = (rootValues, socialAccounts = [], walletAccounts = []) => {
+export const createProfile = (rootProps, socialAccounts = [], walletAccounts = []) => {
   const def = {
     name: '',
     description: '',
@@ -24,5 +25,5 @@ export const createProfile = (rootValues, socialAccounts = [], walletAccounts = 
     }
   };
 
-  return Object.assign({}, def, rootValues);
+  return Object.assign({}, def, rootProps);
 };

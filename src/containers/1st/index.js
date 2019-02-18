@@ -9,7 +9,7 @@ import validateEmail from "../../utils/validate-email";
 import {injectIntl} from 'react-intl';
 
 
-import {account} from '../../helpers/data';
+import {makeAccount, createProfile} from '../../helpers/data';
 
 
 class FirstForm extends Component {
@@ -26,8 +26,6 @@ class FirstForm extends Component {
       email: profile.email ? profile.email : '',
       step: 1
     };
-
-    console.log(profile.account)
   }
 
   nameChanged = (e) => {
@@ -78,8 +76,44 @@ class FirstForm extends Component {
   complete = () => {
     this.setState({step: 4});
 
+    const {name, description, email} = this.state;
+
     const {profile} = this.state;
-    const photo = profile.image && profile.image[0] ? profile.image[0].contentUrl : '';
+    const {account} = profile;
+
+    const socialAccounts = [];
+    const walletAccounts = [];
+
+    const btcAccount = account ? makeAccount('bitcoin', account.find(x => x.service === 'bitcoin').identifier) : null;
+    const ethAccount = account ? makeAccount('ethereum', account.find(x => x.service === 'ethereum').identifier) : null;
+    const githubAccount = account ? makeAccount('github', account.find(x => x.service === 'github').identifier) : null;
+    const twitterAccount = account ? makeAccount('twitter', account.find(x => x.service === 'twitter').identifier) : null;
+    const facebookAccount = account ? makeAccount('facebook', account.find(x => x.service === 'facebook').identifier) : null;
+
+    const photo = profile.image && profile.image[0] ? profile.image[0].contentUrl : null;
+
+    [btcAccount, ethAccount].forEach(x => {
+      if (x) {
+        walletAccounts.push(x)
+      }
+    });
+
+    [githubAccount, twitterAccount, facebookAccount].forEach(x => {
+      if (x) {
+        socialAccounts.push(x)
+      }
+    });
+
+    const rootProps = {
+      name,
+      description,
+      email: email ? email : null,
+      photo
+    };
+
+    const prof = createProfile(rootProps, socialAccounts, walletAccounts);
+
+    console.log(prof);
   };
 
   isNameOK = () => {

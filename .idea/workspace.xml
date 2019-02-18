@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c5d1312-8939-44f9-9cfb-9f6b0a740f99" name="Default Changelist" comment="npm">
-      <change afterPath="$PROJECT_DIR$/src/helpers/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/1st/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/1st/_index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/1st/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/1st/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/en-US.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en-US.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/data.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +32,7 @@
           <entry key="html" value="6" />
           <entry key="ico" value="1" />
           <entry key="jpg" value="14" />
-          <entry key="js" value="97" />
+          <entry key="js" value="98" />
           <entry key="json" value="14" />
           <entry key="lock" value="2" />
           <entry key="md" value="1" />
@@ -51,7 +48,7 @@
           <entry key="HTML" value="6" />
           <entry key="Image" value="16" />
           <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="97" />
+          <entry key="JavaScript" value="98" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SCSS" value="42" />
           <entry key="SVG" value="7" />
@@ -69,7 +66,7 @@
         <counts>
           <entry key="gitignore" value="7" />
           <entry key="html" value="32" />
-          <entry key="js" value="7073" />
+          <entry key="js" value="7915" />
           <entry key="json" value="415" />
           <entry key="scss" value="1984" />
           <entry key="svg" value="4" />
@@ -80,7 +77,7 @@
         <counts>
           <entry key="HTML" value="32" />
           <entry key="JSON" value="415" />
-          <entry key="JavaScript" value="7073" />
+          <entry key="JavaScript" value="7915" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="SCSS" value="1984" />
           <entry key="SVG" value="4" />
@@ -93,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/1st/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+            <state relative-caret-position="-345">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -112,40 +109,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="41" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/locales/en-US.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/helpers/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="42" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/es/FormControl.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/editor/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -224,8 +200,8 @@
         <option value="$PROJECT_DIR$/src/utils/validate-email.test.js" />
         <option value="$PROJECT_DIR$/src/style/style.scss" />
         <option value="$PROJECT_DIR$/src/locales/en-US.json" />
-        <option value="$PROJECT_DIR$/src/helpers/data.js" />
         <option value="$PROJECT_DIR$/src/containers/1st/_index.scss" />
+        <option value="$PROJECT_DIR$/src/helpers/data.js" />
         <option value="$PROJECT_DIR$/src/containers/1st/index.js" />
       </list>
     </option>
@@ -357,16 +333,15 @@
       <workItem from="1550319769087" duration="14250000" />
       <workItem from="1550430043554" duration="7066000" />
       <workItem from="1550494932882" duration="13142000" />
-      <workItem from="1550525784585" duration="861000" />
+      <workItem from="1550525784585" duration="3140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48236000" />
+    <option name="totallyTimeSpent" value="50515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="113" y="108" width="1569" height="1017" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.2861757" />
       <window_info id="Structure" order="1" sideWeight="0.501292" side_tool="true" weight="0.24075666" />
@@ -382,7 +357,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50089127" side_tool="true" weight="0.3294347" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49910873" visible="true" weight="0.13837838" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49910873" visible="true" weight="0.28432432" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -608,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/locales/en-US.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/es/FormControl.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -632,13 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/1st/_index.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -646,10 +607,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/en-US.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/1st/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+        <state relative-caret-position="-345">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
