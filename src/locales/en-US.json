@@ -2,11 +2,27 @@
   "g": {
     "name": "Lander",
     "save": "Save",
-    "edit": "Edit"
+    "edit": "Edit",
+    "next": "Next",
+    "cancel": "Cancel",
+    "skip": "Skip"
   },
   "home": {
     "title": "Your landing page on the decentralized internet",
     "description": "Lander lets you build a minimalist landing page in seconds for your blockstack account.",
     "login": "Login with Blockstack"
+  },
+  "first-form": {
+    "form-title": "Welcome on board!",
+    "form-sub-title": "Before start, let's create your basic profile information.",
+
+    "name-label": "Please enter your name below:",
+    "name-placeholder": "Your name",
+
+    "title-label": "An awesome title for you profile:",
+    "title-placeholder": "Your profile title",
+
+    "email-label": "If you want to people contact you on your profile page you can enter your e-mail address:",
+    "email-placeholder": "Your e-mail address"
   }
 }

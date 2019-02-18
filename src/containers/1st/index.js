@@ -1,10 +1,10 @@
 import React, {Component, Fragment} from 'react';
 
-import {Form, InputGroup, FormControl, Button} from 'react-bootstrap'
+import {InputGroup, FormControl, Button} from 'react-bootstrap'
 
 import {FormattedMessage} from 'react-intl';
 
-import getBaseUrl from '../../utils/get-base-url';
+import validateEmail from "../../utils/validate-email";
 
 import {injectIntl} from 'react-intl';
 
@@ -63,29 +63,30 @@ class FirstForm extends Component {
 
   isTitleOK = () => {
     const {title} = this.state;
-    return title.trim().length >= 6
+    return title.trim().length >= 4
   };
 
   isEmailOK = () => {
-    return true;
+    const {email} = this.state;
+    return validateEmail(email);
   };
 
-
   render() {
+    const {intl} = this.props;
     const {step, name, title, email} = this.state;
 
     return <div className="first-form-wrapper">
       <div className="header">
         <span className="lander-logo">L</span>
       </div>
-      <h2 className="form-title">Welcome on board!</h2>
-      <p className="form-sub-title">Before start, let's create your basic profile information.</p>
+      <h2 className="form-title"><FormattedMessage id="first-form.form-title"/></h2>
+      <p className="form-sub-title"><FormattedMessage id="first-form.form-sub-title"/></p>
       {step === 1 &&
       <Fragment>
-        <p className="form-label">Please enter your name below</p>
+        <p className="form-label"><FormattedMessage id="first-form.name-label"/></p>
         <InputGroup>
           <FormControl
-            placeholder="Your name"
+            placeholder={intl.formatMessage({'id': 'first-form.name-placeholder'})}
             id="name"
             autoFocus
             value={name}
@@ -93,44 +94,48 @@ class FirstForm extends Component {
             maxLength={40}
           />
           <InputGroup.Append>
-            <Button variant={this.isNameOK() ? 'primary' : 'outline-primary'}
-                    onClick={this.next1}>Next</Button>
+            <Button variant={this.isNameOK() ? 'primary' : 'outline-primary'} disabled={!this.isNameOK()}
+                    onClick={this.next1}><FormattedMessage id="g.next"/></Button>
           </InputGroup.Append>
         </InputGroup>
       </Fragment>
       }
       {step === 2 &&
       <Fragment>
-        <p>An awesome title for you profile</p>
+        <p className="form-label"><FormattedMessage id="first-form.title-label"/></p>
         <InputGroup>
           <FormControl
-            placeholder="Your profile title"
+            placeholder={intl.formatMessage({'id': 'first-form.title-placeholder'})}
+            id="title"
             autoFocus
             value={title}
             onChange={this.titleChanged}
             maxLength={60}
           />
           <InputGroup.Append>
-            <Button variant={this.isTitleOK() ? 'primary' : 'outline-primary'}
-                    onClick={this.next2}>Next</Button>
+            <Button variant={this.isTitleOK() ? 'primary' : 'outline-primary'} disabled={!this.isTitleOK()}
+                    onClick={this.next2}><FormattedMessage id="g.next"/></Button>
           </InputGroup.Append>
         </InputGroup>
       </Fragment>
       }
       {step === 3 &&
       <Fragment>
-        <p>If you want to people contact you on your profile page you can enter your e-mail address. Or skip it.</p>
+        <p className="form-label"><FormattedMessage id="first-form.email-label"/></p>
         <InputGroup>
           <FormControl
-            placeholder="Your e-mail address"
+            placeholder={intl.formatMessage({'id': 'first-form.email-placeholder'})}
+            id="email"
             autoFocus
             value={email}
             onChange={this.emailChanged}
             maxLength={60}
           />
           <InputGroup.Append>
-            <Button variant="outline-secondary" >Skip</Button>
-            <Button variant={this.isEmailOK() ? 'primary' : 'outline-primary'} onClick={this.next3}>Next</Button>
+            <Button variant="outline-secondary"><FormattedMessage id="g.skip"/></Button>
+            <Button variant={this.isEmailOK() ? 'primary' : 'outline-primary'} disabled={!this.isEmailOK()}
+                    onClick={this.next3}><FormattedMessage
+              id="g.next"/></Button>
           </InputGroup.Append>
         </InputGroup>
       </Fragment>
