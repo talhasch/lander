@@ -37,6 +37,7 @@ export default class App extends Component {
               history.push('/');
               return null;
             }
+
             return <Editor {...props} />;
           }}/>
           <Route exact path="/:username" component={Profile}/>

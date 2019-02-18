@@ -1,2 +1,90 @@
 @import 'bootstrap';
+
 @import '../containers/home/index';
+
+
+$box-shadow: 0 0 5px 2px rgba(134, 134, 134, 0.15);
+
+html, body {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+$logo-width: 128px;
+$logo-height: 128px;
+$line-width: 16px;
+
+
+
+
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.main-wrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  min-height: 610px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg {
+  background-size: cover;
+  position: absolute;
+}
+
+.profile-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: $box-shadow;
+  height: 600px;
+  margin: auto;
+  padding: 26px;
+  position: relative;
+  width: 500px;
+  z-index: 2;
+
+  .profile-image {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    height: 140px;
+    margin: 0 auto 16px auto;
+    width: 140px;
+  }
+
+  .profile-name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .profile-title {
+    color: #adadad;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .social {
+
+  }
+
+  .profile-description {
+    color: #6c6c6c;
+    font-size: 14px;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+
+  .wallet {
+
+  }
+}

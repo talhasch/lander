@@ -58,6 +58,8 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.2",
+    "typeface-m-plus-rounded-1c": "^0.0.63",
+    "typeface-roboto": "^0.0.54",
     "url-loader": "1.1.2",
     "webpack": "4.28.3",
     "webpack-dev-server": "3.1.14",

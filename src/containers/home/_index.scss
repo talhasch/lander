@@ -1,4 +1,65 @@
 .home-wrapper {
-  padding: 10px;
-  text-align: center;
+  margin: auto;
+  width: 900px;
+
+  .header {
+    align-items: center;
+    display: flex;
+    height: 200px;
+
+    .lander-logo {
+      color: #fff;
+      filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
+      font-size: 90px;
+      font-weight: 700;
+    }
+  }
+
+  .content {
+
+    .showcase {
+      background: #c4c4c4;
+      border-radius: 12px;
+      float: left;
+      height: 500px;
+      width: 400px;
+    }
+
+    .text-content {
+      float: right;
+      width: 470px;
+
+      .main-title {
+        color: #333740;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+      }
+
+      .description {
+        color: #41454e;
+        font-size: 1.6em;
+        margin-bottom: 40px;
+      }
+
+      .login-btn{
+        align-items: center;
+        background: #230D2E;
+        border-radius: 6px;
+        color: #EAEAEA;
+        cursor: pointer;
+        display: flex;
+        font-family:  'M PLUS Rounded 1c', sans-serif;
+        font-size: 1.3em;
+        font-weight: 600;
+        margin-bottom: 30px;
+        padding: 6px;
+        width: 320px;
+
+        .bl-icon{
+          height: 50px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }

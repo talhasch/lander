@@ -1,6 +1,12 @@
 {
   "g": {
+    "name": "Lander",
     "save": "Save",
     "edit": "Edit"
+  },
+  "home": {
+    "title": "Your landing page on the decentralized internet",
+    "description": "Lander lets you build a minimalist landing page in seconds for your blockstack account.",
+    "login": "Login with Blockstack"
   }
 }
