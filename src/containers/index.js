@@ -1,11 +1,11 @@
-import React, {Component, Fragment} from "react";
-import {Route} from "react-router-dom";
-import {addLocaleData, IntlProvider} from "react-intl";
-import {flattenMessages} from "../utils/flatten-messages";
-import messages from "../locales";
+import React, {Component, Fragment} from 'react';
+import {Route} from 'react-router-dom';
+import {addLocaleData, IntlProvider} from 'react-intl';
+import {flattenMessages} from '../utils/flatten-messages';
+import messages from '../locales';
 
-import Home from "./home";
-import Editor from "./editor";
+import Home from './home';
+import Editor from './editor';
 import Profile from './profile'
 import Welcome from './welcome';
 

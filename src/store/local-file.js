@@ -1,7 +1,12 @@
+import md5 from 'blueimp-md5';
+import {getPrivateFile} from '../db';
+
+
 export const UPDATED = 'local-file/UPDATED';
 
+const initialState = getPrivateFile() || {};
 
-const initialState = {};
+/* Reducer */
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -16,7 +21,12 @@ export default (state = initialState, action) => {
 
 export const updateLocalFile = (obj) => {
   return (dispatch) => {
-    dispatch(updated(obj));
+    const hash = md5(JSON.stringify(obj));
+    const newObj = Object.assign({}, obj, {hash});
+
+    localStorage.setItem('lander-local-profile', JSON.stringify(newObj));
+
+    dispatch(updated(newObj));
   }
 };
 

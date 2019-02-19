@@ -14,7 +14,7 @@ import {updateLocalFile} from '../../store/local-file'
 
 import validateEmail from '../../utils/validate-email';
 
-import {accountModel, profileModel, putPrivateFile} from '../../db';
+import {accountModel, profileModel, putLocalFile} from '../../db';
 
 
 class Welcome extends Component {
@@ -126,11 +126,10 @@ class Welcome extends Component {
     };
 
     const obj = profileModel(rootProps, socialAccounts, walletAccounts);
-    const newObj = putPrivateFile(obj);
 
     const {updateLocalFile, history} = this.props;
 
-    updateLocalFile(newObj);
+    updateLocalFile(obj);
 
     history.push('/app/editor');
   };

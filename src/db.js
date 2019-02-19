@@ -30,11 +30,11 @@ export const profileModel = (rootProps, socialAccounts = [], walletAccounts = []
   return Object.assign({}, def, rootProps);
 };
 
-export const putPrivateFile = (obj) => {
+export const putLocalFile = (obj) => {
   const hash = md5(JSON.stringify(obj));
   const newObj = Object.assign({}, obj, {hash});
 
-  localStorage.setItem('lander-private-profile', JSON.stringify(newObj));
+  localStorage.setItem('lander-local-profile', JSON.stringify(newObj));
 
   return newObj;
 };
