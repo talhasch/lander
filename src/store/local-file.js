@@ -1,10 +1,12 @@
-export const UPDATED = 'local/UPDATED';
+export const UPDATED = 'local-file/UPDATED';
 
 
 const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case UPDATED:
+      return action.payload;
     default:
       return state;
   }
@@ -12,10 +14,9 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const updateProp = (prop, value) => {
-  return (dispatch, getState) => {
-    const data = {};
-    dispatch(updated(data));
+export const updateLocalFile = (obj) => {
+  return (dispatch) => {
+    dispatch(updated(obj));
   }
 };
 

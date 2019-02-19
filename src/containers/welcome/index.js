@@ -1,15 +1,20 @@
 import React, {Component, Fragment} from 'react';
 
-import {InputGroup, FormControl, Button} from 'react-bootstrap'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
+import {FormControl, Button} from 'react-bootstrap'
 
 import {FormattedMessage} from 'react-intl';
 
-import validateEmail from "../../utils/validate-email";
-
 import {injectIntl} from 'react-intl';
 
+import {updateLocalFile} from '../../store/local-file'
 
-import {makeAccount, createProfile} from '../../helpers/data';
+
+import validateEmail from '../../utils/validate-email';
+
+import {accountModel, profileModel, putPrivateFile} from '../../db';
 
 
 class Welcome extends Component {
@@ -17,16 +22,25 @@ class Welcome extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      profile: null,
+      name: '',
+      description: '',
+      email: '',
+      step: 1
+    };
+  }
+
+  componentDidMount() {
     const {profile} = window.blockstack.loadUserData();
 
-    this.state = {
+    this.setState({
       profile,
       name: profile.name ? profile.name : '',
       description: profile.description ? profile.description : '',
       email: profile.email ? profile.email : '',
-      step: 1
-    };
-  }
+    });
+  };
 
   nameChanged = (e) => {
     const name = e.target.value;
@@ -84,13 +98,13 @@ class Welcome extends Component {
     const socialAccounts = [];
     const walletAccounts = [];
 
-    const btcAccount = account ? makeAccount('bitcoin', account.find(x => x.service === 'bitcoin').identifier) : null;
-    const ethAccount = account ? makeAccount('ethereum', account.find(x => x.service === 'ethereum').identifier) : null;
-    const githubAccount = account ? makeAccount('github', account.find(x => x.service === 'github').identifier) : null;
-    const twitterAccount = account ? makeAccount('twitter', account.find(x => x.service === 'twitter').identifier) : null;
-    const facebookAccount = account ? makeAccount('facebook', account.find(x => x.service === 'facebook').identifier) : null;
+    const btcAccount = account ? accountModel('bitcoin', account.find(x => x.service === 'bitcoin').identifier) : null;
+    const ethAccount = account ? accountModel('ethereum', account.find(x => x.service === 'ethereum').identifier) : null;
+    const githubAccount = account ? accountModel('github', account.find(x => x.service === 'github').identifier) : null;
+    const twitterAccount = account ? accountModel('twitter', account.find(x => x.service === 'twitter').identifier) : null;
+    const facebookAccount = account ? accountModel('facebook', account.find(x => x.service === 'facebook').identifier) : null;
 
-    const photo = profile.image && profile.image[0] ? profile.image[0].contentUrl : null;
+    const photo = profile.image && profile.image[0] ? profile.image[0].contentUrl : '';
 
     [btcAccount, ethAccount].forEach(x => {
       if (x) {
@@ -107,13 +121,18 @@ class Welcome extends Component {
     const rootProps = {
       name,
       description,
-      email: email ? email : null,
+      email,
       photo
     };
 
-    const prof = createProfile(rootProps, socialAccounts, walletAccounts);
+    const obj = profileModel(rootProps, socialAccounts, walletAccounts);
+    const newObj = putPrivateFile(obj);
 
-    console.log(prof);
+    const {updateLocalFile, history} = this.props;
+
+    updateLocalFile(newObj);
+
+    history.push('/app/editor');
   };
 
   isNameOK = () => {
@@ -224,4 +243,17 @@ class Welcome extends Component {
   }
 }
 
-export default injectIntl(Welcome)
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      updateLocalFile
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(injectIntl(Welcome))
