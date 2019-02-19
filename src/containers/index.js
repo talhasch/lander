@@ -1,7 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {Route} from 'react-router-dom';
+
 import {addLocaleData, IntlProvider} from 'react-intl';
+
+import en from 'react-intl/locale-data/en';
+
 import {flattenMessages} from '../utils/flatten-messages';
+
+
 import messages from '../locales';
 
 import Home from './home';
@@ -9,11 +15,23 @@ import Editor from './editor';
 import Profile from './profile'
 import Welcome from './welcome';
 
-import en from 'react-intl/locale-data/en';
+import {bindActionCreators} from "redux";
+import {setActiveUser} from "../store/activeUser";
+import connect from "react-redux/es/connect/connect";
 
 addLocaleData([...en]);
 
-export default class App extends Component {
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    if (window.blockstack.isUserSignedIn()) {
+      const userData = window.blockstack.loadUserData();
+      const {setActiveUser} = props;
+      setActiveUser(userData.username);
+    }
+  }
+
   render() {
     let locale = 'en-US';
 
@@ -31,18 +49,8 @@ export default class App extends Component {
             }
             return null;
           }}/>
-          <Route exact path="/app/welcome" component={props => {
-
-            return <Welcome {...props} />;
-          }}/>
+          <Route exact path="/app/welcome" component={Welcome}/>
           <Route exact path="/app/editor" component={props => {
-            // Login check
-            if (!window.blockstack.isUserSignedIn()) {
-              const {history} = props;
-              history.push('/');
-              return null;
-            }
-
             return <Editor {...props} />;
           }}/>
           <Route exact path="/:username" component={Profile}/>
@@ -51,3 +59,18 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      setActiveUser
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

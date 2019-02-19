@@ -10,6 +10,7 @@ import blockstackLogo from '../../images/blockstack-bug-rev.svg'
 
 class Home extends Component {
   signIn = () => {
+    console.log("sss")
     if (window.blockstack.isUserSignedIn()) {
       const {history} = this.props;
       history.push('/app/editor');

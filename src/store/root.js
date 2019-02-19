@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
-import user from './user';
+import activeUser from './activeUser';
 import localFile from './local-file'
 
 
 export default combineReducers({
   localFile,
-  user
+  activeUser
 })

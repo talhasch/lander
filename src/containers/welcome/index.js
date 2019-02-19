@@ -14,7 +14,7 @@ import {updateLocalFile} from '../../store/local-file'
 
 import validateEmail from '../../utils/validate-email';
 
-import {accountModel, profileModel, putLocalFile} from '../../db';
+import {accountModel, profileModel} from '../../db';
 
 
 class Welcome extends Component {
@@ -32,6 +32,14 @@ class Welcome extends Component {
   }
 
   componentDidMount() {
+    // Check user login
+    const {activeUser, localFile, history} = this.props;
+    if (!activeUser) {
+      history.push('/');
+      return;
+    }
+
+
     const {profile} = window.blockstack.loadUserData();
 
     this.setState({
@@ -242,7 +250,10 @@ class Welcome extends Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({activeUser, localFile}) => ({
+  activeUser,
+  localFile
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

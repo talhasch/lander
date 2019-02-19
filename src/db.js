@@ -39,8 +39,8 @@ export const putLocalFile = (obj) => {
   return newObj;
 };
 
-export const getPrivateFile = () => {
-  const val = localStorage.getItem('lander-private-profile');
+export const getLocalFile = () => {
+  const val = localStorage.getItem('lander-local-profile');
 
   if (val) {
     return JSON.parse(val);

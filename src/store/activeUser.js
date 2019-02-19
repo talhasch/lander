@@ -1,4 +1,4 @@
-export const LOGGED_IN = 'user/LOGGED_IN';
+export const ACTIVE_USER_SET = 'active-user/SET';
 
 const initialState = null;
 
@@ -6,7 +6,7 @@ const initialState = null;
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOGGED_IN:
+    case ACTIVE_USER_SET:
       return action.payload;
     default:
       return state;
@@ -15,15 +15,15 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const login = (username) => {
+export const setActiveUser = (username) => {
   return (dispatch) => {
-    dispatch(loggedIn(username));
+    dispatch(activeUserSet(username));
   }
 };
 
 /* Action creators */
 
-export const loggedIn = (username) => ({
-  type: LOGGED_IN,
+export const activeUserSet = (username) => ({
+  type: ACTIVE_USER_SET,
   payload: username
 });
