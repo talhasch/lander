@@ -35,19 +35,25 @@ class Editor extends Component {
 
   componentDidMount() {
     const {localFile} = this.props;
-    const {bg} = localFile;
+    if (!localFile) {
+      const {history} = this.props;
+      history.push('/app/welcome');
+      return;
+    }
 
+    const {bg} = localFile;
     setBg(bg.image, bg.color, bg.blur);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate')
+
   }
 
-
   render() {
-
     const {localFile} = this.props;
+    if (!localFile) {
+      return null;
+    }
 
     const {name, description} = localFile;
     return (

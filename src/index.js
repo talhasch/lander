@@ -16,7 +16,7 @@ window.blockstack = require('blockstack');
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App/>
+      <App store={store}/>
     </ConnectedRouter>
   </Provider>,
   document.querySelector('#root')

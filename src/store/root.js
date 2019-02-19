@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import activeUser from './activeUser';
+import activeUser from './active-user';
 import localFile from './local-file'
 
 

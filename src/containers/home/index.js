@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import connect from 'react-redux/es/connect/connect';
+
 import {FormattedMessage} from 'react-intl';
 
 import getBaseUrl from '../../utils/get-base-url';
@@ -10,7 +12,6 @@ import blockstackLogo from '../../images/blockstack-bug-rev.svg'
 
 class Home extends Component {
   signIn = () => {
-    console.log("sss")
     if (window.blockstack.isUserSignedIn()) {
       const {history} = this.props;
       history.push('/app/editor');
@@ -26,6 +27,7 @@ class Home extends Component {
   };
 
   render() {
+
     return (
       <div className="home-wrapper">
         <div className="header">
@@ -48,4 +50,11 @@ class Home extends Component {
 }
 
 
-export default injectIntl(Home)
+const mapStateToProps = ({activeUser}) => ({
+  activeUser
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(injectIntl(Home))
