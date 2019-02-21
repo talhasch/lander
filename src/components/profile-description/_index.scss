@@ -1,0 +1,11 @@
+.profile-description {
+  color: #adadad;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+
+  &.empty {
+    color: #bbbbbb;
+  }
+}

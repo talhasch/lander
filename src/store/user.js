@@ -61,7 +61,8 @@ export const login = (userData) => {
 
     let privateData;
     try {
-      privateData = await blockstack.getFile('lander-private');
+      const file = await blockstack.getFile('lander-private');
+      privateData = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
       privateData = null;

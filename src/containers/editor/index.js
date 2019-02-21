@@ -4,8 +4,12 @@ import {injectIntl} from 'react-intl';
 
 
 import {bindActionCreators} from "redux";
-import {updateLocalFile} from "../../store/private-file";
+import {login} from "../../store/user";
 import connect from "react-redux/es/connect/connect";
+
+import ProfileImage from '../../components/profile-image';
+import ProfileName from '../../components/profile-name';
+import ProfileDescription from '../../components/profile-description';
 
 
 const setBg = (bgImage, bgColor, blur) => {
@@ -34,38 +38,51 @@ const setBg = (bgImage, bgColor, blur) => {
 class Editor extends Component {
 
   componentDidMount() {
-    const {localFile} = this.props;
-    if (!localFile) {
+    const {user} = this.props;
+    if (!user) {
       const {history} = this.props;
-      history.push('/app/welcome');
-      return;
+      history.push('/');
     }
 
-    const {bg} = localFile;
-    setBg(bg.image, bg.color, bg.blur);
+    /*
+    document.addEventListener("visibilitychange", function(a) {
+     // console.log(a)
+     // console.log( document.visibilityState );
+    });
+    */
   }
 
   componentDidUpdate(prevProps, prevState) {
 
+    const {user} = this.props;
+    if (!user.loaded) {
+      return;
+    }
+
+    const {bg} = user.privateData;
+    setBg(bg.image, bg.color, bg.blur);
   }
 
   render() {
-    const {localFile} = this.props;
-    if (!localFile) {
+    const {user} = this.props;
+    if (!(user && user.loaded)) {
       return null;
     }
 
-    const {name, description} = localFile;
+    const {name, description, image} = user.profile;
+
     return (
       <div className="main-wrapper">
         <div className="bg"/>
         <div className="profile-box">
-          <div className="profile-image"/>
-          <div className="profile-name">{name}</div>
-          <div className="profile-title">{description}</div>
-          <div className="profile-description">
+          <ProfileImage image={image} {...this.props} />
+          <ProfileName name={name} {...this.props}/>
+          <ProfileDescription description={description} {...this.props}/>
+          <div className="profile-bio">
 
           </div>
+
+
         </div>
       </div>
     )
@@ -80,7 +97,7 @@ const mapStateToProps = ({user}) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      updateLocalFile
+      login
     },
     dispatch
   );

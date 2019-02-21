@@ -1,0 +1,10 @@
+.profile-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+
+  &.empty {
+    color: #bbbbbb;
+  }
+}
