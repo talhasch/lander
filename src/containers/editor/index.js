@@ -11,7 +11,8 @@ import ProfileImage from '../../components/profile-image';
 import ProfileName from '../../components/profile-name';
 import ProfileDescription from '../../components/profile-description';
 import ProfileBg from '../../components/profile-bg';
-
+import SocialAccounts from '../../components/social-accounts';
+import WalletAccounts from '../../components/wallet-accounts';
 
 class Navbar extends Component {
   logout = (e) => {
@@ -68,9 +69,6 @@ class Editor extends Component {
 
   }
 
-  logout = () => {
-
-  };
 
   render() {
     const {user} = this.props;
@@ -78,7 +76,7 @@ class Editor extends Component {
       return null;
     }
 
-    const {name, description, image} = user.profile;
+    const {name, description, image, account} = user.profile;
 
 
     return (
@@ -95,8 +93,8 @@ class Editor extends Component {
           <div className="profile-bio">
 
           </div>
-
-
+          <SocialAccounts accounts={account} editMode/>
+          <WalletAccounts accounts={account} editMode/>
         </div>
       </div>
     )

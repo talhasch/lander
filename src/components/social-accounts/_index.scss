@@ -1,0 +1,23 @@
+
+.social-accounts {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .social-button {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: lighten($blue, 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      color: white;
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
