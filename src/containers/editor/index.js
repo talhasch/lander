@@ -4,36 +4,47 @@ import {injectIntl} from 'react-intl';
 
 
 import {bindActionCreators} from "redux";
-import {login} from "../../store/user";
+import {logout} from "../../store/user";
 import connect from "react-redux/es/connect/connect";
 
 import ProfileImage from '../../components/profile-image';
 import ProfileName from '../../components/profile-name';
 import ProfileDescription from '../../components/profile-description';
+import ProfileBg from '../../components/profile-bg';
 
 
-const setBg = (bgImage, bgColor, blur) => {
+class Navbar extends Component {
+  logout = (e) => {
+    e.preventDefault();
+    const {logout, history} = this.props;
+    logout();
+    history.push('/');
+  };
 
-  const bgImageUrl = require(`../../data/bg-images/${bgImage}`);
+  render() {
+    return (
+      <div className="editor-header">
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="/" onClick={(e) => {
+            e.preventDefault();
+            const {history} = this.props;
+            history.push('/')
+          }}>
+            <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30"
+                 className="d-inline-block align-top" alt=""/>
+            Lander
+          </a>
 
-  const el = document.querySelector('.bg');
-
-  el.style.backgroundColor = bgColor;
-  el.style.backgroundImage = `url('${bgImageUrl}')`;
-
-  const left = blur * 2;
-  const width = left * 2;
-
-  el.style.width = `calc(100% + ${width}px)`;
-  el.style.height = `calc(100% + ${width}px)`;
-
-  el.style.left = `-${left}px`;
-  el.style.top = `-${left}px`;
-
-  el.style.filter = `blur(${blur}px)`;
-
-};
-
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#" onClick={this.logout}>Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    )
+  }
+}
 
 class Editor extends Component {
 
@@ -54,14 +65,12 @@ class Editor extends Component {
 
   componentDidUpdate(prevProps, prevState) {
 
-    const {user} = this.props;
-    if (!user.loaded) {
-      return;
-    }
 
-    const {bg} = user.privateData;
-    setBg(bg.image, bg.color, bg.blur);
   }
+
+  logout = () => {
+
+  };
 
   render() {
     const {user} = this.props;
@@ -71,9 +80,14 @@ class Editor extends Component {
 
     const {name, description, image} = user.profile;
 
+
     return (
       <div className="main-wrapper">
         <div className="bg"/>
+        <ProfileBg bg={user.privateData.bg}/>
+        <Navbar {...this.props} />
+
+
         <div className="profile-box">
           <ProfileImage image={image} {...this.props} />
           <ProfileName name={name} {...this.props}/>
@@ -97,7 +111,7 @@ const mapStateToProps = ({user}) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      login
+      logout
     },
     dispatch
   );

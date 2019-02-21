@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import '../containers/home/index';
+@import '../containers/editor/index';
 
 $box-shadow: 0 0 5px 2px rgba(134, 134, 134, 0.15);
 
@@ -36,10 +37,7 @@ html, body {
   position: relative;
 }
 
-.bg {
-  background-size: cover;
-  position: absolute;
-}
+
 
 .profile-box {
   background: #fff;
@@ -60,18 +58,13 @@ html, body {
 
   }
 
-  .profile-description {
-    color: #6c6c6c;
-    font-size: 14px;
-    max-height: 180px;
-    overflow-y: auto;
-  }
 
   .wallet-accounts {
 
   }
 }
 
+@import '../components/profile-bg/index';
 @import '../components/profile-image/index';
 @import '../components/profile-name/index';
 @import '../components/profile-description/index';

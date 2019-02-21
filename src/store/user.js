@@ -2,7 +2,6 @@ import md5 from 'blueimp-md5';
 
 const blockstack = require('blockstack');
 
-
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/LOGOUT';
 
@@ -93,6 +92,7 @@ export const login = (userData) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(loggedOut());
+    blockstack.signUserOut();
   }
 };
 
