@@ -10,9 +10,11 @@ import {injectIntl} from 'react-intl';
 
 import blockstackLogo from '../../images/blockstack-bug-rev.svg'
 
+const blockstack = require('blockstack');
+
 class Home extends Component {
   signIn = () => {
-    if (window.blockstack.isUserSignedIn()) {
+    if (blockstack.isUserSignedIn()) {
       const {history} = this.props;
       history.push('/app/editor');
       return;
@@ -23,7 +25,7 @@ class Home extends Component {
     const manifest = `${base}/manifest.json`;
     const scope = ['store_write', 'publish_data'];
 
-    window.blockstack.redirectToSignIn(redir, manifest, scope);
+    blockstack.redirectToSignIn(redir, manifest, scope);
   };
 
   render() {

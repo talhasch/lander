@@ -4,7 +4,7 @@ import {injectIntl} from 'react-intl';
 
 
 import {bindActionCreators} from "redux";
-import {updateLocalFile} from "../../store/local-file";
+import {updateLocalFile} from "../../store/private-file";
 import connect from "react-redux/es/connect/connect";
 
 
@@ -73,8 +73,8 @@ class Editor extends Component {
 }
 
 
-const mapStateToProps = ({localFile}) => ({
-  localFile
+const mapStateToProps = ({user}) => ({
+  user
 });
 
 const mapDispatchToProps = dispatch =>

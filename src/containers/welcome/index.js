@@ -9,7 +9,7 @@ import {FormattedMessage} from 'react-intl';
 
 import {injectIntl} from 'react-intl';
 
-import {updateLocalFile} from '../../store/local-file'
+import {updateLocalFile} from '../../store/private-file'
 
 
 import validateEmail from '../../utils/validate-email';

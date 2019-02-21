@@ -1,8 +1,9 @@
 import md5 from 'blueimp-md5';
 
-import {ACTIVE_USER_SET} from './active-user';
+import {USER_LOGIN} from './user';
 
-export const UPDATED = 'local-file/UPDATED';
+export const LOADED = '@local-file/LOADED';
+export const UPDATED = '@local-file/UPDATED';
 
 const initialState = null;
 
@@ -22,7 +23,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATED:
       return action.payload;
-    case ACTIVE_USER_SET:
+    case USER_LOGIN:
       if (action.payload) {
         return getLocalFile(action.payload);
       }
