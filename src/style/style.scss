@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import './components';
 @import '../containers/home/index';
 @import '../containers/editor/index';
 
@@ -35,26 +36,22 @@ html, body {
   min-height: 610px;
   overflow: hidden;
   position: relative;
+  min-width: 700px;
 }
-
-
 
 .profile-box {
   background: #fff;
   border-radius: 16px;
   box-shadow: $box-shadow;
-  height: 600px;
   margin: auto;
   padding: 26px;
   position: relative;
   width: 500px;
   z-index: 2;
 
-
   .social-accounts {
 
   }
-
 
   .wallet-accounts {
 
@@ -67,3 +64,8 @@ html, body {
 @import '../components/profile-description/index';
 @import '../components/social-accounts/index';
 @import '../components/wallet-accounts/index';
+
+@import '../components/dialogs/settings/index';
+
+
+

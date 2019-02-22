@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+
+import connect from 'react-redux/es/connect/connect';
 
 import {injectIntl} from 'react-intl';
 
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
-import {bindActionCreators} from "redux";
-import {logout} from "../../store/user";
-import connect from "react-redux/es/connect/connect";
+import {logout} from '../../store/user';
+import {toggleSettings} from '../../store/dialogs';
 
 import ProfileImage from '../../components/profile-image';
 import ProfileName from '../../components/profile-name';
@@ -14,7 +17,19 @@ import ProfileBg from '../../components/profile-bg';
 import SocialAccounts from '../../components/social-accounts';
 import WalletAccounts from '../../components/wallet-accounts';
 
-class Navbar extends Component {
+import SettingsDialog from '../../components/dialogs/settings';
+
+class EditorHeader extends Component {
+
+  toggleSettings = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const {toggleSettings} = this.props;
+    toggleSettings();
+    return false;
+  };
+
   logout = (e) => {
     e.preventDefault();
     const {logout, history} = this.props;
@@ -23,25 +38,23 @@ class Navbar extends Component {
   };
 
   render() {
+    const {user, dialogs} = this.props;
+    const {username} = user;
     return (
       <div className="editor-header">
-        <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href="/" onClick={(e) => {
-            e.preventDefault();
-            const {history} = this.props;
-            history.push('/')
-          }}>
-            <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30"
-                 className="d-inline-block align-top" alt=""/>
-            Lander
-          </a>
-
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#" onClick={this.logout}>Logout</a>
-            </li>
-          </ul>
-        </nav>
+        <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings}/>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand href="/">Lander</Navbar.Brand>
+          <Navbar.Collapse id="navbar-nav">
+            <Nav className="ml-auto">
+              <NavDropdown title={username} id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
+                <NavDropdown.Item href="" onClick={this.logout}>Logout</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#features">Features</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     )
   }
@@ -64,12 +77,6 @@ class Editor extends Component {
     */
   }
 
-  componentDidUpdate(prevProps, prevState) {
-
-
-  }
-
-
   render() {
     const {user} = this.props;
     if (!(user && user.loaded)) {
@@ -78,14 +85,11 @@ class Editor extends Component {
 
     const {name, description, image, account} = user.profile;
 
-
     return (
+
       <div className="main-wrapper">
-        <div className="bg"/>
         <ProfileBg bg={user.privateData.bg}/>
-        <Navbar {...this.props} />
-
-
+        <EditorHeader {...this.props} />
         <div className="profile-box">
           <ProfileImage image={image} {...this.props} />
           <ProfileName name={name} {...this.props}/>
@@ -102,14 +106,16 @@ class Editor extends Component {
 }
 
 
-const mapStateToProps = ({user}) => ({
-  user
+const mapStateToProps = ({user, dialogs}) => ({
+  user,
+  dialogs
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      logout
+      logout,
+      toggleSettings
     },
     dispatch
   );

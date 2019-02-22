@@ -12,10 +12,6 @@ class WalletAccounts extends Component {
 
     const {accounts, editMode} = this.props;
 
-    if (!accounts) {
-      return '';
-    }
-
     const wAccounts = {
       bitcoin: accounts.find(x => x.service === 'bitcoin'),
       ethereum: accounts.find(x => x.service === 'ethereum')
@@ -25,15 +21,20 @@ class WalletAccounts extends Component {
       return <div className="wallet-accounts">
         <div className="wallet-account">
           <div className="icon">{bitcoinSvg}</div>
-          <div className="address">{wAccounts.bitcoin.identifier}</div>
+          <div className="address">{wAccounts.bitcoin ? wAccounts.bitcoin.identifier : 'sss'}</div>
         </div>
 
         <div className="wallet-account">
           <div className="icon">{ethereumSvg}</div>
-          <div className="address">{wAccounts.ethereum.identifier}</div>
+          <div className="address">{wAccounts.ethereum ? wAccounts.ethereum.identifier : 'sss'}</div>
         </div>
       </div>;
     }
+
+    if (!accounts) {
+      return '';
+    }
+
 
     return null
   }
@@ -41,7 +42,8 @@ class WalletAccounts extends Component {
 
 
 WalletAccounts.defaultProps = {
-  editMode: false
+  editMode: false,
+  accounts: []
 };
 
 WalletAccounts.propTypes = {

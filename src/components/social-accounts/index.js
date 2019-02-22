@@ -12,9 +12,6 @@ class SocialAccounts extends Component {
 
     const {accounts, editMode} = this.props;
 
-    if (!accounts) {
-      return '';
-    }
 
     const sAccounts = {
       github: accounts.find(x => x.service === 'github'),
@@ -35,12 +32,17 @@ class SocialAccounts extends Component {
         <div className="social-button">{hackerNewsSvg}</div>
       </div>;
     }
+
+    if (!accounts) {
+      return '';
+    }
   }
 }
 
 
 SocialAccounts.defaultProps = {
-  editMode: false
+  editMode: false,
+  accounts: []
 };
 
 SocialAccounts.propTypes = {
