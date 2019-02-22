@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import Color from 'color';
 
+import {detectBgImageUrl} from '../../helper';
+
 class ProfileBg extends Component {
 
   render() {
@@ -38,7 +40,7 @@ class ProfileBg extends Component {
     };
 
     if (image) {
-      const imageUrl = /^https?:\/\//.test(image) ? image : require(`../../data/bg-images/${image}`);
+      const imageUrl = detectBgImageUrl(image);
       style.backgroundImage = `url('${imageUrl}')`;
     }
 

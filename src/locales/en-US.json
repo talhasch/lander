@@ -12,14 +12,14 @@
     "description": "Lander lets you create a landing page in seconds for your blockstack account.",
     "login": "Login with Blockstack"
   },
-  "first-form": {
-    "form-title": "Welcome on board!",
-    "form-sub-title": "Before start, let's create your basic profile information.",
-    "name-label": "Please enter your name below:",
-    "name-placeholder": "Your name",
-    "description-label": "An awesome title for you profile:",
-    "description-placeholder": "Your profile title",
-    "email-label": "If you want to people contact you on your profile page you can enter your e-mail address:",
-    "email-placeholder": "Your e-mail address"
+  "style": {
+    "title": "Style",
+    "bg-image": "Background Image",
+    "bg-image-empty": "Not Set",
+    "bg-image-select": "Select",
+    "bg-image-upload": "Upload",
+    "bg-color": "Background Color",
+    "bg-blur": "Blur",
+    "bg-blur-hint": "Should be between 0-10"
   }
 }

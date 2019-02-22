@@ -55,7 +55,7 @@ class EditorHeader extends Component {
     return (
       <div className="editor-header">
         <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings} {...this.props}/>
-        {dialogs.style && <StyleDialog onHide={this.toggleStyle} {...this.props} />}
+        {dialogs.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">Lander</Navbar.Brand>
           <Navbar.Collapse id="navbar-nav">
