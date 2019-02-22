@@ -1,5 +1,7 @@
 import md5 from 'blueimp-md5';
 
+import {TOGGLE_STYLE} from './dialogs';
+
 const blockstack = require('blockstack');
 
 export const USER_LOGIN = '@user/LOGIN';
@@ -35,14 +37,30 @@ export default (state = initialState, action) => {
         publicData: null,
         loaded: false,
       };
-    case PROFILE_LOADED:
+    case PROFILE_LOADED: {
       return Object.assign({}, state, {profile: action.payload});
-    case DATA_LOADED:
+    }
+    case DATA_LOADED: {
       const {privateData, publicData} = action.payload;
 
       return Object.assign({}, state, {privateData, publicData, loaded: true});
-    case USER_LOGOUT:
+    }
+    case TOGGLE_STYLE: {
+      const {privateData} = state;
+      let newprivateData;
+      if (privateData.bgTemp) {
+        const {bgTemp} = privateData;
+        const {bgTemp: delTemp, ...privateData1} = privateData;
+        newprivateData = Object.assign({}, privateData1, {bg: bgTemp});
+      } else {
+        const {bg} = privateData;
+        newprivateData = Object.assign({}, privateData, {bgTemp: bg});
+      }
+      return Object.assign({}, state, {privateData: newprivateData});
+    }
+    case USER_LOGOUT: {
       return initialState;
+    }
     default:
       return state;
   }

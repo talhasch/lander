@@ -8,7 +8,7 @@ import {injectIntl} from 'react-intl';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 import {logout} from '../../store/user';
-import {toggleSettings} from '../../store/dialogs';
+import {toggleDialog} from '../../store/dialogs';
 
 import ProfileImage from '../../components/profile-image';
 import ProfileName from '../../components/profile-name';
@@ -18,6 +18,7 @@ import SocialAccounts from '../../components/social-accounts';
 import WalletAccounts from '../../components/wallet-accounts';
 
 import SettingsDialog from '../../components/dialogs/settings';
+import StyleDialog from '../../components/dialogs/style';
 
 class EditorHeader extends Component {
 
@@ -25,10 +26,20 @@ class EditorHeader extends Component {
     if (e) {
       e.preventDefault();
     }
-    const {toggleSettings} = this.props;
-    toggleSettings();
+    const {toggleDialog} = this.props;
+    toggleDialog('settings');
     return false;
   };
+
+  toggleStyle = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const {toggleDialog} = this.props;
+    toggleDialog('style');
+    return false;
+  };
+
 
   logout = (e) => {
     e.preventDefault();
@@ -40,18 +51,21 @@ class EditorHeader extends Component {
   render() {
     const {user, dialogs} = this.props;
     const {username} = user;
+
     return (
       <div className="editor-header">
-        <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings}/>
+        <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings} {...this.props}/>
+        {dialogs.style && <StyleDialog onHide={this.toggleStyle} {...this.props} />}
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">Lander</Navbar.Brand>
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ml-auto">
+              <Nav.Link href="#" onClick={this.toggleStyle}>Style</Nav.Link>
               <NavDropdown title={username} id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
                 <NavDropdown.Item href="" onClick={this.logout}>Logout</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#features">L</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -115,7 +129,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       logout,
-      toggleSettings
+      toggleDialog
     },
     dispatch
   );

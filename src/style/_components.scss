@@ -28,6 +28,7 @@
   }
 
   .modal-header {
+    flex-shrink: 0;
     border: none;
     background: darken($dark, 10);
     border-radius: 0 !important;

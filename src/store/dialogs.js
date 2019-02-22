@@ -1,12 +1,15 @@
 import {USER_LOGOUT} from './user';
 
 export const TOGGLE_SETTINGS = '@dialogs/TOGGLE_SETTINGS';
+export const TOGGLE_STYLE = '@dialogs/TOGGLE_STYLE';
 export const TOGGLE_DELETE = '@dialogs/TOGGLE_DELETE';
-
+export const TOGGLE_BIO = '@dialogs/TOGGLE_BIO';
 
 const initialState = {
   settings: false,
-  delete: false
+  delete: false,
+  style: false,
+  bio: false
 };
 
 /* Reducer */
@@ -17,6 +20,8 @@ export default (state = initialState, action) => {
       return initialState;
     case TOGGLE_SETTINGS:
       return Object.assign({}, state, {settings: action.payload});
+    case TOGGLE_STYLE:
+      return Object.assign({}, state, {style: action.payload});
     default:
       return state;
   }
@@ -24,13 +29,33 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const toggleSettings = () => {
+export const toggleDialog = (what) => {
   return async (dispatch, getState) => {
     const {dialogs} = getState();
 
+    let act;
+
+    switch (what) {
+      case 'settings':
+        act = TOGGLE_SETTINGS;
+        break;
+      case 'style':
+        act = TOGGLE_STYLE;
+        break;
+      case 'delete':
+        act = TOGGLE_DELETE;
+        break;
+      case 'bio':
+        act = TOGGLE_BIO;
+        break;
+      default:
+        act = '';
+        break;
+    }
+
     dispatch({
-      type: TOGGLE_SETTINGS,
-      payload: !dialogs.settings
+      type: act,
+      payload: !dialogs[what]
     });
   }
 };
