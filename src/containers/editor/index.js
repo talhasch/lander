@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
-import {logout} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor} from '../../store/user';
 import {toggleDialog} from '../../store/dialogs';
 
 import ProfileImage from '../../components/profile-image';
@@ -129,7 +129,10 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       logout,
-      toggleDialog
+      toggleDialog,
+      setBgBlur,
+      setBgImage,
+      setBgColor
     },
     dispatch
   );

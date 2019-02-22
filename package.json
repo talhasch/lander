@@ -16,6 +16,7 @@
     "blueimp-md5": "^2.10.0",
     "bootstrap": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "color": "^3.1.0",
     "connected-react-router": "4.4.1",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",

@@ -13,6 +13,8 @@ import './style/style.scss';
 
 window.blockstack = require('blockstack');
 
+require('./data/bg-images');
+
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

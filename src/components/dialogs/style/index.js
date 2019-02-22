@@ -21,15 +21,40 @@ class StyleDialog extends Component {
     onSave();
   };
 
+  imageSet = (url) => {
+    const {setBgImage} = this.props;
+    setBgImage(url);
+  };
+
+  imageTickChanged = (e) => {
+    if (e.target.checked) {
+      this.imageSet('recover');
+      return;
+    }
+
+    this.imageSet(null);
+  };
+
+  colorChanged = (e) => {
+    let val = e.target.value;
+    const {setBgColor} = this.props;
+
+    setBgColor(val);
+  };
+
   blurChanged = (e) => {
-    console.log(e.target.value)
+    let val = e.target.value;
+    if (val === '' || /^(?:[0-9]|0[0-9]|10)$/.test(val)) {
+      const {setBgBlur} = this.props;
+      setBgBlur(val);
+    }
   };
 
   render() {
     const {onHide, user} = this.props;
+    const {bg} = user.privateData;
 
-    const {bg} = user.privateData
-
+    const imageUrl = bg.image ? /^https?:\/\//.test(bg.image) ? bg.image : require(`../../../data/bg-images/${bg.image}`) : '';
     return (
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={onHide}>
@@ -41,21 +66,23 @@ class StyleDialog extends Component {
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label><Form.Check type="checkbox" checked/> Background Image</Form.Label>
-                    <div className="bg-image-list">
-                      {bgImages.map(i => <div key={i.name} className="image-item"
-                                              style={{backgroundImage: `url(${i.url})`}}>
-                        <div className="image-title">{i.title}</div>
-                      </div>)}
-                    </div>
+                    <Form.Label><Form.Check type="checkbox" checked={!!bg.image}
+                                            onChange={this.imageTickChanged}/> Background Image</Form.Label>
+                    {bg.image &&
+                    <div className="bg-image" style={{backgroundImage: `url(${imageUrl})`}}/>
+                    }
+
+                    {!bg.image &&
+                      <div className="text-muted">Not set</div>
+                    }
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Background Color</Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="text" value={bg.color} onChange={this.colorChanged}/>
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Blur</Form.Label>
-                    <Form.Control type="number" min={0} max={10} value={bg.blur} onChange={this.blurChanged}/>
+                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged}/>
                     <Form.Text className="text-muted">
                       Should be between 0-10
                     </Form.Text>

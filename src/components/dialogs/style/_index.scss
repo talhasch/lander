@@ -12,6 +12,13 @@
     }
   }
 
+  .bg-image {
+    height: 160px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 12px;
+  }
+
   .bg-image-list {
     height: 240px;
     overflow-y: auto;
