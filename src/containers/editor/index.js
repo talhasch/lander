@@ -19,6 +19,7 @@ import WalletAccounts from '../../components/wallet-accounts';
 
 import SettingsDialog from '../../components/dialogs/settings';
 import StyleDialog from '../../components/dialogs/style';
+import landerLogo from "../../images/lander-256.png";
 
 class EditorHeader extends Component {
 
@@ -48,6 +49,12 @@ class EditorHeader extends Component {
     history.push('/');
   };
 
+  goHome = (e) => {
+    e.preventDefault();
+    const {history} = this.props;
+    history.push('/');
+  };
+
   render() {
     const {user, dialogs} = this.props;
     const {username} = user;
@@ -57,7 +64,8 @@ class EditorHeader extends Component {
         <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings} {...this.props}/>
         {dialogs.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">Lander</Navbar.Brand>
+          <Navbar.Brand href="#" onClick={this.goHome}> <img src={landerLogo} height={30}
+                                                             className="d-inline-block align-top"/></Navbar.Brand>
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link href="#" onClick={this.toggleStyle}>Style</Nav.Link>

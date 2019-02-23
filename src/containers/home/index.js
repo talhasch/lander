@@ -10,6 +10,8 @@ import {injectIntl} from 'react-intl';
 
 import blockstackLogo from '../../images/blockstack-bug-rev.svg'
 
+import landerLogo from '../../images/lander-512.png';
+
 const blockstack = require('blockstack');
 
 class Home extends Component {
@@ -33,7 +35,7 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <div className="header">
-          <span className="lander-logo">L</span>
+          <img src={landerLogo} width={74} />
         </div>
         <div className="content">
           <div className="showcase">
