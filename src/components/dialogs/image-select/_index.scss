@@ -1,0 +1,30 @@
+.image-select-dialog-content {
+
+  .image-list {
+    height: 500px;
+    overflow-y: auto;
+
+    .image-item {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      cursor: pointer;
+      height: 240px;
+      margin-bottom: 12px;
+
+      .image-title {
+        background: rgba(255, 255, 255, 0.5);
+        font-weight: 700;
+        padding: 10px;
+        transition: background-color 300ms linear;
+        width: 100%;
+      }
+
+      &:hover {
+        .image-title {
+          background: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+  }
+}

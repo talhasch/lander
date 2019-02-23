@@ -19,36 +19,5 @@
     margin-bottom: 12px;
   }
 
-  .bg-image-list {
-    height: 240px;
-    overflow-y: auto;
 
-    .image-item {
-      height: 160px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      .image-title {
-
-        font-weight: 500;
-
-
-        padding: 10px;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.6);
-        text-align: center;
-      }
-
-      &:hover {
-        .image-title {
-          display: none;
-        }
-      }
-    }
-  }
 }

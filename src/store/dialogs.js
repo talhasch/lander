@@ -2,14 +2,17 @@ import {USER_LOGOUT} from './user';
 
 export const TOGGLE_SETTINGS = '@dialogs/TOGGLE_SETTINGS';
 export const TOGGLE_STYLE = '@dialogs/TOGGLE_STYLE';
+export const TOGGLE_IMAGE_SELECT = '@dialogs/IMAGE_SELECT';
 export const TOGGLE_DELETE = '@dialogs/TOGGLE_DELETE';
 export const TOGGLE_BIO = '@dialogs/TOGGLE_BIO';
+
 
 const initialState = {
   settings: false,
   delete: false,
   style: false,
-  bio: false
+  bio: false,
+  imageSelect: false
 };
 
 /* Reducer */
@@ -22,6 +25,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {settings: action.payload});
     case TOGGLE_STYLE:
       return Object.assign({}, state, {style: action.payload});
+    case TOGGLE_IMAGE_SELECT:
+      return Object.assign({}, state, {imageSelect: action.payload});
     default:
       return state;
   }
@@ -47,6 +52,9 @@ export const toggleDialog = (what) => {
         break;
       case 'bio':
         act = TOGGLE_BIO;
+        break;
+      case 'imageSelect':
+        act = TOGGLE_IMAGE_SELECT;
         break;
       default:
         act = '';

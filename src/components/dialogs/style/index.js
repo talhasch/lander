@@ -6,7 +6,11 @@ import {Modal, Button, Form, Col} from 'react-bootstrap';
 
 import {injectIntl, FormattedMessage} from 'react-intl';
 
+import ImageSelectDialog from '../image-select'
+
 import {detectBgImageUrl} from '../../../helper';
+
+import stringify from '../../../utils/stringify'
 
 class StyleDialog extends Component {
   cancel = () => {
@@ -50,13 +54,26 @@ class StyleDialog extends Component {
     }
   };
 
+  toggleImageSelect = () => {
+    const {toggleDialog} = this.props;
+    toggleDialog('imageSelect');
+  };
+
+  imageSelected = (im) => {
+    const {toggleDialog, setBgImage} = this.props;
+    // toggleDialog('imageSelect');
+    setBgImage(im);
+  };
+
   render() {
-    const {onHide, user} = this.props;
-    const {bg} = user.privateData;
+    const {user, dialogs} = this.props;
+    const {bg, bgTemp} = user.privateData;
+    const changed = stringify(bg) !== stringify(bgTemp);
 
     return (
       <>
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={onHide}>
+        {dialogs.imageSelect && <ImageSelectDialog onCancel={this.toggleImageSelect} onSelect={this.imageSelected}/>}
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.cancel}>
           <Modal.Header closeButton>
             <Modal.Title><FormattedMessage id="style.title"/></Modal.Title>
           </Modal.Header>
@@ -76,9 +93,10 @@ class StyleDialog extends Component {
                     {!bg.image &&
                     <p className="text-muted"><FormattedMessage id="style.bg-image-empty"/></p>
                     }
-                    <Button variant="outline-primary" size="sm"><FormattedMessage
+                    <Button variant="outline-primary" size="sm" onClick={this.toggleImageSelect}><FormattedMessage
                       id="style.bg-image-select"/></Button> &nbsp;
-                    <Button variant="outline-primary" size="sm"><FormattedMessage id="style.bg-image-upload"/></Button>
+                    <Button variant="outline-primary" size="sm"><FormattedMessage
+                      id="style.bg-image-upload"/></Button>
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-color"/></Form.Label>
@@ -99,7 +117,7 @@ class StyleDialog extends Component {
             <Button variant="secondary" onClick={this.cancel}>
               <FormattedMessage id="g.cancel"/>
             </Button>
-            <Button variant="primary" onClick={this.save}>
+            <Button variant="primary" onClick={this.save} disabled={!changed}>
               <FormattedMessage id="g.save"/>
             </Button>
           </Modal.Footer>
@@ -116,26 +134,32 @@ StyleDialog.defaultProps = {
   }
 };
 
+const bgProps = PropTypes.shape({
+  image: PropTypes.string,
+  color: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
+  blur: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired
+}).isRequired;
+
 StyleDialog.propTypes = {
   user: PropTypes.shape({
     privateData: PropTypes.shape({
-      bg: PropTypes.shape({
-        image: PropTypes.string,
-        color: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.number
-        ]).isRequired,
-        blur: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.number
-        ]).isRequired
-      }).isRequired
-
+      bg: bgProps,
+      bgTemp: bgProps
     }).isRequired
+  }).isRequired,
+  dialogs: PropTypes.shape({
+    imageSelect: PropTypes.bool.isRequired
   }).isRequired,
   setBgImage: PropTypes.func,
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
+  toggleDialog: PropTypes.func,
   onCancel: PropTypes.func,
   onSave: PropTypes.func
 };

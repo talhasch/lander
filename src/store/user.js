@@ -14,6 +14,7 @@ export const PROFILE_LOADED = '@user/PROFILE_LOADED';
 export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
+export const BG_SAVE = '@user/BG_SAVE';
 
 
 const dataModel = () => (
@@ -22,7 +23,7 @@ const dataModel = () => (
     bg: {
       image: 'wave.jpg',
       color: '#4a96f7',
-      blur: 2
+      blur: '2'
     },
     hash: '0101010'
   }
@@ -109,7 +110,7 @@ export const login = (userData) => {
 
     let privateData;
     try {
-      const file = await blockstack.getFile('lander-private');
+      const file = await blockstack.getFile('lander-private-file');
       privateData = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -119,7 +120,7 @@ export const login = (userData) => {
     if (privateData === null) {
       const obj = dataModel();
       try {
-        await blockstack.putFile('lander-private', JSON.stringify(obj), {encrypt: true});
+        await blockstack.putFile('lander-private-file', JSON.stringify(obj), {encrypt: true});
         privateData = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -128,7 +129,7 @@ export const login = (userData) => {
 
     let publicData;
     try {
-      publicData = await blockstack.getFile('lander-public');
+      publicData = await blockstack.getFile('lander-public-file');
     } catch (e) {
       console.error(`File get error. ${e}`);
       publicData = null;
@@ -168,6 +169,19 @@ export const setBgColor = (val) => {
     dispatch({
       type: BG_COLOR_SET,
       payload: val
+    });
+  }
+};
+
+export const saveBg = () => {
+  return (dispatch, getState) => {
+
+    const {privateData} = getState();
+
+    console.log(privateData);
+
+    dispatch({
+      type: BG_SAVE
     });
   }
 };
