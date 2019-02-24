@@ -1,12 +1,17 @@
 
 .wallet-accounts {
+  @include editable-control;
+
   .wallet-account {
-    margin-bottom: 10px;
     background-color: #f8f8f8;
     padding: 6px;
     align-items: center;
     display: flex;
     border-radius: $border-radius;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
 
     .icon {
       width: 32px;

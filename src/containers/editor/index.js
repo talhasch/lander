@@ -5,7 +5,7 @@ import connect from 'react-redux/es/connect/connect';
 
 import {injectIntl} from 'react-intl';
 
-import {Navbar, Nav, NavDropdown, Button} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import {logout, setBgBlur, setBgImage, setBgColor} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
@@ -95,7 +95,15 @@ class EditorHeader extends Component {
         }
 
         {ui.preview &&
-        <Button className="btn-preview-off" variant="light disabled" onClick={this.togglePreview}>{eyeSlashSvg}</Button>
+        <OverlayTrigger
+          placement="right"
+          delay={1000}
+          overlay={
+            <Tooltip>Toggle Preview Mode</Tooltip>
+          }>
+          <Button className="btn-preview-off" variant="light disabled"
+                  onClick={this.togglePreview}>{eyeSlashSvg}</Button>
+        </OverlayTrigger>
         }
       </div>
     )
@@ -121,7 +129,7 @@ class Editor extends Component {
 
   render() {
 
-    const {user} = this.props;
+    const {user, ui} = this.props;
     if (!(user && user.loaded)) {
       return null;
     }
@@ -135,14 +143,14 @@ class Editor extends Component {
         <ProfileBg bg={user.privateData.bg}/>
         <EditorHeader {...this.props} />
         <div className="profile-box">
-          <ProfileImage image={image} {...this.props} />
-          <ProfileName name={name} {...this.props}/>
-          <ProfileDescription description={description} {...this.props}/>
+          <ProfileImage image={image} editMode={!ui.preview}/>
+          <ProfileName name={name} editMode={!ui.preview}/>
+          <ProfileDescription description={description} editMode={!ui.preview}/>
           <div className="profile-bio">
 
           </div>
-          <SocialAccounts accounts={account} editMode/>
-          <WalletAccounts accounts={account} editMode/>
+          <SocialAccounts accounts={account} editMode={!ui.preview}/>
+          <WalletAccounts accounts={account} editMode={!ui.preview}/>
         </div>
       </div>
     )

@@ -1,19 +1,22 @@
 
 .social-accounts {
+  @include editable-control;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
-  position: relative;
+  margin-bottom: 22px;
 
   .social-button {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 50%;
-    background: lighten($blue, 2);
-    display: flex;
     align-items: center;
+    background: lighten($blue, 2);
+    border-radius: 50%;
+    display: flex;
+    height: 40px;
     justify-content: center;
+    width: 40px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
 
     &.not-set {
       background: lighten($blue, 22);
@@ -21,14 +24,13 @@
 
     svg {
       color: white;
-      width: 22px;
       height: 22px;
+      width: 22px;
     }
   }
 
   &.edit-mode {
-    &:hover {
-
-    }
+    margin-bottom: 14px;
   }
 }
+

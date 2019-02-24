@@ -1,27 +1,37 @@
 import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
+import {penSvg} from '../../svg';
 
 class ProfileName extends Component {
 
   render() {
-    const {name} = this.props;
+    const {name, editMode} = this.props;
+
+    let cls = `profile-name ${editMode ? 'edit-mode' : ''}`;
 
     if (name) {
+      return <div className={cls}>
+        {name}
 
-      return <div className="profile-name">{name}</div>
+        <div className="edit-btn">{penSvg}</div>
+      </div>
     }
 
-    return <div className="profile-name empty">Your name goes here...</div>
+    cls = `${cls} not-set`;
+
+    return <div className={cls}>Your name goes here...</div>
   }
 }
 
 
 ProfileName.defaultProps = {
+  editMode: false,
   name: ''
 };
 
 ProfileName.propTypes = {
+  editMode: PropTypes.bool,
   name: PropTypes.string
 };
 

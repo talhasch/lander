@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {bitcoinSvg, ethereumSvg} from '../../svg';
+import {bitcoinSvg, ethereumSvg, penSvg} from '../../svg';
 
 
 class WalletAccounts extends Component {
@@ -18,12 +18,13 @@ class WalletAccounts extends Component {
     };
 
     if (editMode) {
-      return <div className="wallet-accounts">
+      return <div className="wallet-accounts edit-mode">
+        <div className="edit-btn">{penSvg}</div>
+
         <div className="wallet-account">
           <div className="icon">{bitcoinSvg}</div>
           <div className="address">{wAccounts.bitcoin ? wAccounts.bitcoin.identifier : 'sss'}</div>
         </div>
-
         <div className="wallet-account">
           <div className="icon">{ethereumSvg}</div>
           <div className="address">{wAccounts.ethereum ? wAccounts.ethereum.identifier : 'sss'}</div>

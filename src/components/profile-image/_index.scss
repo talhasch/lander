@@ -1,22 +1,52 @@
 .profile-image {
+  align-items: center;
   background-color: #f1f1f1;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
   box-shadow: $box-shadow;
-  height: 140px;
-  margin: 0 auto 22px auto;
-  width: 140px;
-  user-select: none;
   display: flex;
-  align-items: center;
+  height: 140px;
   justify-content: center;
+  margin: 0 auto 16px auto;
+  position: relative;
+  width: 140px;
 
-  svg {
+  > svg {
     color: #bbbbbb;
-    width: 60px;
     height: 60px;
     opacity: 0.5;
+    width: 60px;
   }
+
+  .image-edit-overlay {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    svg {
+      color: #fff;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  &:hover {
+    .image-edit-overlay {
+      display: flex;
+    }
+
+  }
+
+  user-select: none;
+
 }

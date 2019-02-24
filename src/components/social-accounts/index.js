@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {githubSvg, twitterSvg, facebookSvg, instagramSvg, linkedInSvg, hackerNewsSvg} from '../../svg';
+import {githubSvg, twitterSvg, facebookSvg, instagramSvg, linkedInSvg, hackerNewsSvg, penSvg} from '../../svg';
 
 const accountTypes = [
   {id: 'github', name: 'Github', 'icon': githubSvg},
@@ -14,6 +14,25 @@ const accountTypes = [
   {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg},
   {id: 'hackerNews', name: 'Hacker News', 'icon': hackerNewsSvg}
 ];
+
+const accountLink = (ac) => {
+  switch (ac.service) {
+    case 'github':
+      return `https://github.com/${ac.identifier}`;
+    case 'twitter':
+      return `https://twitter.com/${ac.identifier}`;
+    case 'facebook':
+      return `https://facebook.com/${ac.identifier}`;
+    case 'instagram':
+      return `https://instagram.com/${ac.identifier}`;
+    case 'linkedIn':
+      return `https://linkedin.com/in/${ac.identifier}`;
+    case 'hackerNews':
+      return `https://news.ycombinator.com/user?id=${ac.identifier}`;
+    default:
+      return '';
+  }
+};
 
 class SocialAccounts extends Component {
 
@@ -29,7 +48,6 @@ class SocialAccounts extends Component {
 
     if (editMode) {
       return <div className="social-accounts edit-mode">
-
         {accountTypes.map((t) => {
           const ac = sAccounts[t.id];
 
@@ -54,10 +72,25 @@ class SocialAccounts extends Component {
             {btn}
           </OverlayTrigger>
         })}
+
+        <div className="edit-btn">{penSvg}</div>
       </div>
     }
 
-    return '';
+    const l = accountTypes.map((t) => {
+      const ac = sAccounts[t.id];
+      if (ac) {
+        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={accountLink(ac)}
+                  className="social-button">{t.icon}</a>;
+      }
+      return null;
+    }).filter(x => x !== null);
+
+    if (l.length > 0) {
+      return <div className="social-accounts">{l}</div>;
+    }
+
+    return null;
   }
 }
 

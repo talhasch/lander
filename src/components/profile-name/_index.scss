@@ -1,10 +1,15 @@
 .profile-name {
+  @include editable-control;
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 8px;
   text-align: center;
 
-  &.empty {
+  &.not-set {
     color: #bbbbbb;
+  }
+
+  &.edit-mode {
+    margin-bottom: 0;
   }
 }
