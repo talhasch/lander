@@ -22,6 +22,12 @@
     "bg-blur": "Blur",
     "bg-blur-hint": "Should be between 0-10"
   },
+  "account-edit": {
+    "title": "Edit Account",
+    "text-content": "<p> Lander works connected to your account.</p><p> Once you update your account on Blockstack Browser then it refresh automatically.</p>",
+    "go-button-title": "Go to Blockstack Browser",
+    "dont-show": "Don't show this again"
+  },
   "editor": {
     "name-placeholder": "Your name goes here...",
     "description-placeholder": "Your description goes here..."

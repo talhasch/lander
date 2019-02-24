@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import {injectIntl, FormattedMessage} from 'react-intl';
+import {injectIntl, FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 
 class AccountEditDialog extends Component {
 
@@ -22,22 +22,22 @@ class AccountEditDialog extends Component {
   };
 
   render() {
+    const {intl} = this.props;
     return (
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
-            <Modal.Title><FormattedMessage id="style.title"/></Modal.Title>
+            <Modal.Title><FormattedMessage id="account-edit.title"/></Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="account-edit-dialog-content">
-              <p> Lander works connected to your account.</p>
-              <p> Once you update your account on Blockstack Browser then it refresh automatically.</p>
-              <p><Button variant="danger" href="http://localhost:8888/profiles" target="_blank" onClick={this.hide}>Go
-                to Blockstack
-                Browser</Button></p>
+              <FormattedHTMLMessage id="account-edit.text-content"/>
+              <p><Button variant="danger" href="http://localhost:8888/profiles" target="_blank"
+                         onClick={this.hide}><FormattedMessage id="account-edit.go-button-title"/></Button></p>
               <Form>
                 <Form.Group controlId="dont-show">
-                  <Form.Check type="checkbox" label="Don't show this again" onChange={this.dontShow}/>
+                  <Form.Check type="checkbox" label={intl.formatMessage({id: 'account-edit.dont-show'})}
+                              onChange={this.dontShow}/>
                 </Form.Group>
               </Form>
             </div>
