@@ -28,6 +28,9 @@
     "go-button-title": "Go to Blockstack Browser",
     "dont-show": "Don't show this again"
   },
+  "wallet-accounts": {
+    "not-set": "You have'nt set your {n} account"
+  },
   "editor": {
     "name-placeholder": "Your name goes here...",
     "description-placeholder": "Your description goes here..."

@@ -2,42 +2,52 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {bitcoinSvg, ethereumSvg, penSvg} from '../../svg';
+import AccountEditBtn from '../elements/account-edit-btn';
 
+import {walletAccountTypes as accountTypes} from '../../constants';
 
 class WalletAccounts extends Component {
-
-
   render() {
 
-    const {accounts, editMode} = this.props;
+    const {accounts, editMode, intl} = this.props;
+    const wAccounts = {};
 
-    const wAccounts = {
-      bitcoin: accounts.find(x => x.service === 'bitcoin'),
-      ethereum: accounts.find(x => x.service === 'ethereum')
-    };
+    for (let x = 0; x < accountTypes.length; x++) {
+      const i = accountTypes[x];
+      wAccounts[i.id] = accounts.find(x => x.service === i.id)
+    }
 
     if (editMode) {
       return <div className="wallet-accounts edit-mode">
-        <div className="edit-btn">{penSvg}</div>
-
-        <div className="wallet-account">
-          <div className="icon">{bitcoinSvg}</div>
-          <div className="address">{wAccounts.bitcoin ? wAccounts.bitcoin.identifier : 'sss'}</div>
-        </div>
-        <div className="wallet-account">
-          <div className="icon">{ethereumSvg}</div>
-          <div className="address">{wAccounts.ethereum ? wAccounts.ethereum.identifier : 'sss'}</div>
-        </div>
+        <AccountEditBtn {...this.props} />
+        {accountTypes.map((t) => {
+          const ac = wAccounts[t.id];
+          return <div key={t.id} className="wallet-account">
+            <div className="icon">{t.icon}</div>
+            <div className="address">
+              {ac ? ac.identifier : intl.formatMessage({id: 'wallet-accounts.not-set'}, {n: t.name})}
+            </div>
+          </div>
+        })}
       </div>;
     }
 
-    if (!accounts) {
-      return '';
+    const l = accountTypes.map((t) => {
+      const ac = wAccounts[t.id];
+      if (ac) {
+        return <div key={t.id} className="wallet-account">
+          <div className="icon">{t.icon}</div>
+          <div className="address">{ac.identifier}</div>
+        </div>;
+      }
+      return null;
+    }).filter(x => x !== null);
+
+    if (l.length > 0) {
+      return <div className="wallet-accounts">{l}</div>;
     }
 
-
-    return null
+    return null;
   }
 }
 
@@ -48,6 +58,7 @@ WalletAccounts.defaultProps = {
 };
 
 WalletAccounts.propTypes = {
+  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.shape({
     service: PropTypes.string.isRequired,
