@@ -4,16 +4,11 @@ import PropTypes from 'prop-types';
 
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {githubSvg, twitterSvg, facebookSvg, instagramSvg, linkedInSvg, hackerNewsSvg, penSvg} from '../../svg';
+import {FormattedHTMLMessage} from 'react-intl';
 
-const accountTypes = [
-  {id: 'github', name: 'Github', 'icon': githubSvg},
-  {id: 'twitter', name: 'Twitter', 'icon': twitterSvg},
-  {id: 'facebook', name: 'Facebook', 'icon': facebookSvg},
-  {id: 'instagram', name: 'Instagram', 'icon': instagramSvg},
-  {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg},
-  {id: 'hackerNews', name: 'Hacker News', 'icon': hackerNewsSvg}
-];
+import {penSvg} from '../../svg';
+
+import {socialAccountTypes as accountTypes} from '../../constants';
 
 const accountLink = (ac) => {
   switch (ac.service) {
@@ -58,7 +53,7 @@ class SocialAccounts extends Component {
             toolTip = <Tooltip>{ac.identifier}</Tooltip>;
             btn = <div key={t.id} className="social-button">{t.icon}</div>;
           } else {
-            toolTip = <Tooltip>You haven't set you {t.name} account</Tooltip>;
+            toolTip = <Tooltip><FormattedHTMLMessage id="social-accounts.not-set" values={{n: t.name}}/></Tooltip>;
             btn = <div key={t.id} className="social-button not-set">{t.icon}</div>;
           }
 
@@ -101,6 +96,7 @@ SocialAccounts.defaultProps = {
 };
 
 SocialAccounts.propTypes = {
+  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.shape({
     service: PropTypes.string.isRequired,

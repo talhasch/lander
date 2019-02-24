@@ -31,6 +31,9 @@
   "wallet-accounts": {
     "not-set": "You have'nt set your {n} account"
   },
+  "social-accounts": {
+    "not-set": "You have'nt set your <strong>{n}</strong> account"
+  },
   "editor": {
     "name-placeholder": "Your name goes here...",
     "description-placeholder": "Your description goes here..."
