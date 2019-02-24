@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor, refreshUserProfile} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -125,13 +125,19 @@ class Editor extends Component {
       history.push('/');
     }
 
-    /*
-    document.addEventListener("visibilitychange", function(a) {
-     // console.log(a)
-     // console.log( document.visibilityState );
-    });
-    */
+    document.addEventListener('visibilitychange', this.visibilityChanged);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('visibilitychange', this.visibilityChanged);
+  }
+
+  visibilityChanged = () => {
+    if (document.visibilityState === 'visible') {
+      const {refreshUserProfile} = this.props;
+      refreshUserProfile();
+    }
+  };
 
   render() {
 
@@ -179,7 +185,8 @@ const mapDispatchToProps = dispatch =>
       toggleUiProp,
       setBgBlur,
       setBgImage,
-      setBgColor
+      setBgColor,
+      refreshUserProfile
     },
     dispatch
   );

@@ -186,6 +186,22 @@ export const saveBg = () => {
   }
 };
 
+
+export const refreshUserProfile = () => {
+  return (dispatch, getState) => {
+
+    const {user} = getState();
+
+    if (user.username) {
+      blockstack.lookupProfile(user.username).then(profile => {
+        if (profile) {
+          dispatch(profileLoaded(profile));
+        }
+      });
+    }
+  }
+};
+
 /* Action creators */
 
 export const loggedIn = (username) => ({
