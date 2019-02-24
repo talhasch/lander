@@ -17,6 +17,8 @@ class ProfileName extends Component {
     if (editMode && !name) {
       return <div className="profile-name edit-mode not-set">
         {intl.formatMessage({id: 'editor.name-placeholder'})}
+
+        <AccountEditBtn {...this.props} />
       </div>
     }
 

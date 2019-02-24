@@ -4,12 +4,19 @@ import {penSvg} from '../../../svg';
 
 class AccountEditBtn extends Component {
 
-  clicked = () => {
-    console.log("aa")
+  buttonClicked = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('accountEdit');
   };
 
   render() {
-    return <div onClick={this.clicked} className="edit-btn">{penSvg}</div>
+    const {ui} = this.props;
+
+    if (ui.skipAccountDialog) {
+      return <a href="http://localhost:8888/profiles" target="_blank" rel="noopener noreferrer"
+                className="edit-btn">{penSvg}</a>
+    }
+    return <div onClick={this.buttonClicked} className="edit-btn">{penSvg}</div>
   }
 }
 

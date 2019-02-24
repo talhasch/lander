@@ -19,6 +19,10 @@ import WalletAccounts from '../../components/wallet-accounts';
 
 import SettingsDialog from '../../components/dialogs/settings';
 import StyleDialog from '../../components/dialogs/style';
+
+import AccountEditDialog from '../../components/dialogs/account-edit';
+
+
 import landerLogo from '../../images/lander-256.png';
 
 import {eyeSvg, eyeSlashSvg, magicSvg} from '../../svg';
@@ -65,6 +69,8 @@ class EditorHeader extends Component {
 
     return (
       <div className="editor-header">
+
+
         <SettingsDialog visible={ui.settings} onHide={this.toggleSettings} {...this.props}/>
         {ui.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
         {!ui.preview &&
@@ -138,21 +144,24 @@ class Editor extends Component {
 
 
     return (
+      <>
+        {ui.accountEdit && <AccountEditDialog onCancel={this.toggleStyle} {...this.props} />}
 
-      <div className="main-wrapper">
-        <ProfileBg bg={user.privateData.bg}/>
-        <EditorHeader {...this.props} />
-        <div className="profile-box">
-          <ProfileImage image={image} editMode={!ui.preview}/>
-          <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
-          <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
-          <div className="profile-bio">
+        <div className="main-wrapper">
+          <ProfileBg bg={user.privateData.bg}/>
+          <EditorHeader {...this.props} />
+          <div className="profile-box">
+            <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
+            <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
+            <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
+            <div className="profile-bio">
 
+            </div>
+            <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+            <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
           </div>
-          <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
-          <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
         </div>
-      </div>
+      </>
     )
   }
 }
