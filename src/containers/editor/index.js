@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor, refreshUserProfile} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor, setBio, refreshUserProfile} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -16,12 +16,15 @@ import ProfileDescription from '../../components/profile-description';
 import ProfileBg from '../../components/profile-bg';
 import SocialAccounts from '../../components/social-accounts';
 import WalletAccounts from '../../components/wallet-accounts';
+import ProfileBio from '../../components/profile-bio';
 
 import SettingsDialog from '../../components/dialogs/settings';
 import StyleDialog from '../../components/dialogs/style';
 
 import AccountEditDialog from '../../components/dialogs/account-edit';
+import BioEditDialog from '../../components/dialogs/bio-edit'
 
+import fixClassNames from '../../utils/fix-class-names';
 
 import landerLogo from '../../images/lander-256.png';
 
@@ -148,21 +151,19 @@ class Editor extends Component {
 
     const {name, description, image, account} = user.profile;
 
-
     return (
       <>
-        {ui.accountEdit && <AccountEditDialog onCancel={this.toggleStyle} {...this.props} />}
+        {ui.accountEdit && <AccountEditDialog {...this.props} />}
+        {ui.bioEdit && <BioEditDialog {...this.props} />}
 
         <div className="main-wrapper">
           <ProfileBg bg={user.privateData.bg}/>
           <EditorHeader {...this.props} />
-          <div className="profile-box">
+          <div className={fixClassNames(`profile-box ${!ui.preview ? 'edit-mode' : ''}`)}>
             <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
             <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
             <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
-            <div className="profile-bio">
-
-            </div>
+            <ProfileBio bio={user.privateData.bio} editMode={!ui.preview} {...this.props}/>
             <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
             <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
           </div>
@@ -186,6 +187,7 @@ const mapDispatchToProps = dispatch =>
       setBgBlur,
       setBgImage,
       setBgColor,
+      setBio,
       refreshUserProfile
     },
     dispatch

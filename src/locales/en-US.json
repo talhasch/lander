@@ -34,6 +34,9 @@
   "social-accounts": {
     "not-set": "You have'nt set your <strong>{n}</strong> account"
   },
+  "bio": {
+    "not-set": "Add longer description to your profile"
+  },
   "editor": {
     "name-placeholder": "Your name goes here...",
     "description-placeholder": "Your description goes here..."

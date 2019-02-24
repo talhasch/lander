@@ -1,12 +1,21 @@
 
 .profile-bio {
   color: #adadad;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 18px;
   text-align: center;
 
-  &.empty {
+  &.not-set {
     color: #bbbbbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border: 4px dashed #e3e3e3;
+  }
+
+  &.edit-mode {
+    cursor: pointer;
   }
 }

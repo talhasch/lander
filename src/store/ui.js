@@ -4,7 +4,7 @@ export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
 export const TOGGLE_STYLE = '@ui/TOGGLE_STYLE';
 export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
 export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
-export const TOGGLE_BIO = '@ui/TOGGLE_BIO';
+export const TOGGLE_BIO_EDIT = '@ui/TOGGLE_BIO_EDIT';
 export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
 export const TOGGLE_ACCOUNT_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT';
 export const TOGGLE_SKIP_ACCOUNT_DIALOG = '@ui/TOGGLE_SKIP_ACCOUNT_DIALOG';
@@ -13,7 +13,7 @@ const initialState = {
   settings: false,
   delete: false,
   style: false,
-  bio: false,
+  bioEdit: false,
   imageSelect: false,
   preview: false,
   accountEdit: false,
@@ -38,6 +38,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {accountEdit: action.payload});
     case TOGGLE_SKIP_ACCOUNT_DIALOG:
       return Object.assign({}, state, {skipAccountDialog: action.payload});
+    case TOGGLE_BIO_EDIT:
+      return Object.assign({}, state, {bioEdit: action.payload});
     default:
       return state;
   }
@@ -61,8 +63,8 @@ export const toggleUiProp = (what) => {
       case 'delete':
         act = TOGGLE_DELETE;
         break;
-      case 'bio':
-        act = TOGGLE_BIO;
+      case 'bioEdit':
+        act = TOGGLE_BIO_EDIT;
         break;
       case 'imageSelect':
         act = TOGGLE_IMAGE_SELECT;

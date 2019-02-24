@@ -37,12 +37,8 @@ html, body {
   width: 500px;
   z-index: 2;
 
-  .social-accounts {
-
-  }
-
-  .wallet-accounts {
-
+  &.edit-mode {
+    padding: 22px;
   }
 }
 
@@ -50,6 +46,7 @@ html, body {
 @import '../components/profile-image/index';
 @import '../components/profile-name/index';
 @import '../components/profile-description/index';
+@import '../components/profile-bio/index';
 @import '../components/social-accounts/index';
 @import '../components/wallet-accounts/index';
 

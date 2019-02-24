@@ -1,6 +1,6 @@
 import md5 from 'blueimp-md5';
 
-import {TOGGLE_STYLE} from './ui';
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
 const blockstack = require('blockstack');
 
@@ -16,15 +16,18 @@ export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
 export const BG_SAVE = '@user/BG_SAVE';
 
+export const BIO_SET = '@user/BIO_SAVE';
+
 
 const dataModel = () => (
   {
-    email: null,
+    email: '',
     bg: {
       image: 'wave.jpg',
       color: '#4a96f7',
       blur: '2'
     },
+    bio: '',
     hash: '0101010'
   }
 );
@@ -64,6 +67,19 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {privateData: newPrivateData});
     }
+    case TOGGLE_BIO_EDIT: {
+      const {privateData} = state;
+      let newPrivateData;
+      if (privateData.bioTemp !== undefined) {
+        const {bioTemp} = privateData;
+        const {bioTemp: delTemp, ...privateData1} = privateData;
+        newPrivateData = Object.assign({}, privateData1, {bio: bioTemp});
+      } else {
+        const {bio} = privateData;
+        newPrivateData = Object.assign({}, privateData, {bioTemp: bio});
+      }
+      return Object.assign({}, state, {privateData: newPrivateData});
+    }
     case BG_BLUR_SET: {
       const {privateData} = state;
       const {bg} = privateData;
@@ -90,6 +106,11 @@ export default (state = initialState, action) => {
       const newPrivateData = Object.assign({}, privateData, {bg: Object.assign({}, bg, {color: action.payload})});
       return Object.assign({}, state, {privateData: newPrivateData});
     }
+    case BIO_SET: {
+      const {privateData} = state;
+      const newPrivateData = Object.assign({}, privateData, {bio: action.payload});
+      return Object.assign({}, state, {privateData: newPrivateData});
+    }
     case USER_LOGOUT: {
       return initialState;
     }
@@ -110,7 +131,7 @@ export const login = (userData) => {
 
     let privateData;
     try {
-      const file = await blockstack.getFile('lander-private-file');
+      const file = await blockstack.getFile('lander-private-f');
       privateData = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -120,7 +141,7 @@ export const login = (userData) => {
     if (privateData === null) {
       const obj = dataModel();
       try {
-        await blockstack.putFile('lander-private-file', JSON.stringify(obj), {encrypt: true});
+        await blockstack.putFile('lander-private-f', JSON.stringify(obj), {encrypt: true});
         privateData = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -129,7 +150,7 @@ export const login = (userData) => {
 
     let publicData;
     try {
-      publicData = await blockstack.getFile('lander-public-file');
+      publicData = await blockstack.getFile('lander-public-f');
     } catch (e) {
       console.error(`File get error. ${e}`);
       publicData = null;
@@ -182,6 +203,15 @@ export const saveBg = () => {
 
     dispatch({
       type: BG_SAVE
+    });
+  }
+};
+
+export const setBio = (val) => {
+  return (dispatch) => {
+    dispatch({
+      type: BIO_SET,
+      payload: val
     });
   }
 };
