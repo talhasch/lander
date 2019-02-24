@@ -8,6 +8,8 @@ import {FormattedMessage, injectIntl} from 'react-intl';
 
 import ConfirmDialog from '../confirm'
 
+const blockstack = require('blockstack');
+
 class SettingsDialog extends Component {
 
   constructor(props) {
@@ -32,7 +34,9 @@ class SettingsDialog extends Component {
   };
 
   deleteClicked = () => {
-    this.setState({deleteConfirm: true});
+    blockstack.deleteFile('lander-private-f').then(resp => {
+
+    })
   };
 
   deleteCancelled = () => {
