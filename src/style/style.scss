@@ -11,19 +11,6 @@ html, body {
   width: 100%;
 }
 
-.header {
-  align-items: center;
-  display: flex;
-  height: 200px;
-
-  .lander-logo {
-    color: #fff;
-    filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
-    font-size: 90px;
-    font-weight: 700;
-  }
-}
-
 #root {
   height: 100%;
   width: 100%;
@@ -68,6 +55,3 @@ html, body {
 @import '../components/dialogs/settings/index';
 @import '../components/dialogs/style/index';
 @import '../components/dialogs/image-select/index';
-
-
-

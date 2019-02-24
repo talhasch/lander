@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  position: relative;
 
   .social-button {
     width: 40px;
@@ -14,10 +15,20 @@
     align-items: center;
     justify-content: center;
 
+    &.not-set {
+      background: lighten($blue, 22);
+    }
+
     svg {
       color: white;
       width: 22px;
       height: 22px;
+    }
+  }
+
+  &.edit-mode {
+    &:hover {
+
     }
   }
 }

@@ -1,0 +1,12 @@
+
+.profile-bio {
+  color: #adadad;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  text-align: center;
+
+  &.empty {
+    color: #bbbbbb;
+  }
+}

@@ -1,6 +1,6 @@
 import md5 from 'blueimp-md5';
 
-import {TOGGLE_STYLE} from './dialogs';
+import {TOGGLE_STYLE} from './ui';
 
 const blockstack = require('blockstack');
 

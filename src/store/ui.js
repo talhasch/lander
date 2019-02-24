@@ -1,18 +1,19 @@
 import {USER_LOGOUT} from './user';
 
-export const TOGGLE_SETTINGS = '@dialogs/TOGGLE_SETTINGS';
-export const TOGGLE_STYLE = '@dialogs/TOGGLE_STYLE';
-export const TOGGLE_IMAGE_SELECT = '@dialogs/IMAGE_SELECT';
-export const TOGGLE_DELETE = '@dialogs/TOGGLE_DELETE';
-export const TOGGLE_BIO = '@dialogs/TOGGLE_BIO';
-
+export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
+export const TOGGLE_STYLE = '@ui/TOGGLE_STYLE';
+export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
+export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
+export const TOGGLE_BIO = '@ui/TOGGLE_BIO';
+export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
 
 const initialState = {
   settings: false,
   delete: false,
   style: false,
   bio: false,
-  imageSelect: false
+  imageSelect: false,
+  preview: false
 };
 
 /* Reducer */
@@ -27,6 +28,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {style: action.payload});
     case TOGGLE_IMAGE_SELECT:
       return Object.assign({}, state, {imageSelect: action.payload});
+    case TOGGLE_PREVIEW:
+      return Object.assign({}, state, {preview: action.payload});
     default:
       return state;
   }
@@ -34,9 +37,9 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const toggleDialog = (what) => {
+export const toggleUiProp = (what) => {
   return async (dispatch, getState) => {
-    const {dialogs} = getState();
+    const {ui} = getState();
 
     let act;
 
@@ -56,6 +59,9 @@ export const toggleDialog = (what) => {
       case 'imageSelect':
         act = TOGGLE_IMAGE_SELECT;
         break;
+      case 'preview':
+        act = TOGGLE_PREVIEW;
+        break;
       default:
         act = '';
         break;
@@ -63,7 +69,7 @@ export const toggleDialog = (what) => {
 
     dispatch({
       type: act,
-      payload: !dialogs[what]
+      payload: !ui[what]
     });
   }
 };

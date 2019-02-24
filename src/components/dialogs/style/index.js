@@ -55,24 +55,24 @@ class StyleDialog extends Component {
   };
 
   toggleImageSelect = () => {
-    const {toggleDialog} = this.props;
-    toggleDialog('imageSelect');
+    const {toggleUiProp} = this.props;
+    toggleUiProp('imageSelect');
   };
 
   imageSelected = (im) => {
-    const {toggleDialog, setBgImage} = this.props;
-    // toggleDialog('imageSelect');
+    const {toggleUiProp, setBgImage} = this.props;
+    // toggleUiProp('imageSelect');
     setBgImage(im);
   };
 
   render() {
-    const {user, dialogs} = this.props;
+    const {user, ui} = this.props;
     const {bg, bgTemp} = user.privateData;
     const changed = stringify(bg) !== stringify(bgTemp);
 
     return (
       <>
-        {dialogs.imageSelect && <ImageSelectDialog onCancel={this.toggleImageSelect} onSelect={this.imageSelected}/>}
+        {ui.imageSelect && <ImageSelectDialog onCancel={this.toggleImageSelect} onSelect={this.imageSelected}/>}
         <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.cancel}>
           <Modal.Header closeButton>
             <Modal.Title><FormattedMessage id="style.title"/></Modal.Title>
@@ -153,13 +153,13 @@ StyleDialog.propTypes = {
       bgTemp: bgProps
     }).isRequired
   }).isRequired,
-  dialogs: PropTypes.shape({
+  ui: PropTypes.shape({
     imageSelect: PropTypes.bool.isRequired
   }).isRequired,
   setBgImage: PropTypes.func,
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
-  toggleDialog: PropTypes.func,
+  toggleUiProp: PropTypes.func,
   onCancel: PropTypes.func,
   onSave: PropTypes.func
 };

@@ -1,6 +1,34 @@
 .editor-header {
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
+
+  .second-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 500px;
+
+    .btn {
+
+    }
+  }
+
+  .btn-preview, .btn-style, .btn-preview-off {
+    align-items: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+
+    svg {
+      height: 16px;
+      margin-right: 6px;
+      width: 16px;
+    }
+  }
+
+  .btn-preview-off {
+    border-bottom-left-radius: 0;
+  }
 }

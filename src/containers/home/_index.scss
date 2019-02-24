@@ -2,8 +2,13 @@
   margin: auto;
   width: 900px;
 
-  .content {
+  .header {
+    align-items: center;
+    display: flex;
+    height: 200px;
+  }
 
+  .content {
     .showcase {
       background: #c4c4c4;
       border-radius: 12px;
@@ -26,21 +31,21 @@
         margin-bottom: 40px;
       }
 
-      .login-btn{
+      .login-btn {
         align-items: center;
         background: #230D2E;
         border-radius: 6px;
         color: #EAEAEA;
         cursor: pointer;
         display: flex;
-        font-family:  'M PLUS Rounded 1c', sans-serif;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
         font-size: 1.3em;
         font-weight: 600;
         margin-bottom: 30px;
         padding: 6px;
         width: 320px;
 
-        .bl-icon{
+        .bl-icon {
           height: 50px;
           margin-right: 10px;
         }

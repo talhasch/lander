@@ -5,10 +5,10 @@ import connect from 'react-redux/es/connect/connect';
 
 import {injectIntl} from 'react-intl';
 
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown, Button} from 'react-bootstrap';
 
 import {logout, setBgBlur, setBgImage, setBgColor} from '../../store/user';
-import {toggleDialog} from '../../store/dialogs';
+import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
 import ProfileName from '../../components/profile-name';
@@ -19,7 +19,9 @@ import WalletAccounts from '../../components/wallet-accounts';
 
 import SettingsDialog from '../../components/dialogs/settings';
 import StyleDialog from '../../components/dialogs/style';
-import landerLogo from "../../images/lander-256.png";
+import landerLogo from '../../images/lander-256.png';
+
+import {eyeSvg, eyeSlashSvg, magicSvg} from '../../svg';
 
 class EditorHeader extends Component {
 
@@ -27,20 +29,22 @@ class EditorHeader extends Component {
     if (e) {
       e.preventDefault();
     }
-    const {toggleDialog} = this.props;
-    toggleDialog('settings');
+    const {toggleUiProp} = this.props;
+    toggleUiProp('settings');
     return false;
   };
 
-  toggleStyle = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    const {toggleDialog} = this.props;
-    toggleDialog('style');
+  toggleStyle = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('style');
     return false;
   };
 
+  togglePreview = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('preview');
+    return false;
+  };
 
   logout = (e) => {
     e.preventDefault();
@@ -56,27 +60,43 @@ class EditorHeader extends Component {
   };
 
   render() {
-    const {user, dialogs} = this.props;
+    const {user, ui} = this.props;
     const {username} = user;
 
     return (
       <div className="editor-header">
-        <SettingsDialog visible={dialogs.settings} onHide={this.toggleSettings} {...this.props}/>
-        {dialogs.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#" onClick={this.goHome}> <img src={landerLogo} height={30}
-                                                             className="d-inline-block align-top"/></Navbar.Brand>
-          <Navbar.Collapse id="navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link href="#" onClick={this.toggleStyle}>Style</Nav.Link>
-              <NavDropdown title={username} id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
-                <NavDropdown.Item href="" onClick={this.logout}>Logout</NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#features">L</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+        <SettingsDialog visible={ui.settings} onHide={this.toggleSettings} {...this.props}/>
+        {ui.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
+        {!ui.preview &&
+        <>
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#" onClick={this.goHome}>
+              <img src={landerLogo} height={50} className="d-inline-block align-top"/></Navbar.Brand>
+            <Navbar.Collapse id="navbar-nav">
+              <Nav className="ml-auto">
+                <NavDropdown title={username} id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
+                  <NavDropdown.Item href="" onClick={this.logout}>Logout</NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link href="#features">L</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+          <div className="second-nav">
+            <div className="left-menu">
+              <Button className="btn-preview" variant="light disabled"
+                      onClick={this.togglePreview}>{eyeSvg} Preview</Button>
+            </div>
+            <div className="right-menu">
+              <Button className="btn-style" variant="danger" onClick={this.toggleStyle}>{magicSvg} Style</Button>
+            </div>
+          </div>
+        </>
+        }
+
+        {ui.preview &&
+        <Button className="btn-preview-off" variant="light disabled" onClick={this.togglePreview}>{eyeSlashSvg}</Button>
+        }
       </div>
     )
   }
@@ -100,12 +120,14 @@ class Editor extends Component {
   }
 
   render() {
+
     const {user} = this.props;
     if (!(user && user.loaded)) {
       return null;
     }
 
     const {name, description, image, account} = user.profile;
+
 
     return (
 
@@ -128,16 +150,16 @@ class Editor extends Component {
 }
 
 
-const mapStateToProps = ({user, dialogs}) => ({
+const mapStateToProps = ({user, ui}) => ({
   user,
-  dialogs
+  ui
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       logout,
-      toggleDialog,
+      toggleUiProp,
       setBgBlur,
       setBgImage,
       setBgColor
