@@ -13,10 +13,10 @@ import {detectBgImageUrl} from '../../../helper';
 import stringify from '../../../utils/stringify'
 
 class StyleDialog extends Component {
-  cancel = () => {
-    const {onCancel} = this.props;
-
-    onCancel();
+  hide = () => {
+    const {afterHide, toggleUiProp} = this.props;
+    toggleUiProp('style');
+    afterHide();
   };
 
   save = () => {
@@ -73,7 +73,7 @@ class StyleDialog extends Component {
     return (
       <>
         {ui.imageSelect && <ImageSelectDialog onCancel={this.toggleImageSelect} onSelect={this.imageSelected}/>}
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.cancel}>
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.hide}>
           <Modal.Header closeButton>
             <Modal.Title><FormattedMessage id="style.title"/></Modal.Title>
           </Modal.Header>
@@ -114,7 +114,7 @@ class StyleDialog extends Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.cancel}>
+            <Button variant="secondary" onClick={this.hide}>
               <FormattedMessage id="g.cancel"/>
             </Button>
             <Button variant="primary" onClick={this.save} disabled={!changed}>
@@ -128,7 +128,7 @@ class StyleDialog extends Component {
 }
 
 StyleDialog.defaultProps = {
-  onCancel: () => {
+  afterHide: () => {
   },
   onSave: () => {
   }
@@ -160,7 +160,7 @@ StyleDialog.propTypes = {
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
   toggleUiProp: PropTypes.func,
-  onCancel: PropTypes.func,
+  afterHide: PropTypes.func,
   onSave: PropTypes.func
 };
 

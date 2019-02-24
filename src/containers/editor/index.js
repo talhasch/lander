@@ -41,7 +41,7 @@ class EditorHeader extends Component {
     return false;
   };
 
-  toggleStyle = () => {
+  showStyle = () => {
     const {toggleUiProp} = this.props;
     toggleUiProp('style');
     return false;
@@ -75,7 +75,7 @@ class EditorHeader extends Component {
 
 
         <SettingsDialog visible={ui.settings} onHide={this.toggleSettings} {...this.props}/>
-        {ui.style && <StyleDialog onCancel={this.toggleStyle} onSave={this.toggleStyle} {...this.props} />}
+
         {!ui.preview &&
         <>
           <Navbar bg="dark" variant="dark">
@@ -97,7 +97,7 @@ class EditorHeader extends Component {
                       onClick={this.togglePreview}>{eyeSvg} Preview</Button>
             </div>
             <div className="right-menu">
-              <Button className="btn-style" variant="danger" onClick={this.toggleStyle}>{magicSvg} Style</Button>
+              <Button className="btn-style" variant="danger" onClick={this.showStyle}>{magicSvg} Style</Button>
             </div>
           </div>
         </>
@@ -155,6 +155,7 @@ class Editor extends Component {
       <>
         {ui.accountEdit && <AccountEditDialog {...this.props} />}
         {ui.bioEdit && <BioEditDialog {...this.props} />}
+        {ui.style && <StyleDialog {...this.props} />}
 
         <div className="main-wrapper">
           <ProfileBg bg={user.privateData.bg}/>
