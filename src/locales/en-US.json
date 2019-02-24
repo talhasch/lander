@@ -21,5 +21,9 @@
     "bg-color": "Background Color",
     "bg-blur": "Blur",
     "bg-blur-hint": "Should be between 0-10"
+  },
+  "editor": {
+    "name-placeholder": "Your name goes here...",
+    "description-placeholder": "Your description goes here..."
   }
 }

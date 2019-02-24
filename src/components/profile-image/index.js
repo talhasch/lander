@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {imageSvg, penSvg} from '../../svg';
+import AccountEditBtn from '../../components/elements/account-edit-btn' ;
+
+import {imageSvg} from '../../svg';
 
 class ProfileImage extends Component {
 
   render() {
     const {image, editMode} = this.props;
 
-    const editOverlay = <div className="image-edit-overlay">{penSvg}</div>;
+    const editOverlay = <AccountEditBtn {...this.props}/>;
 
     if (image && image.length > 0) {
       const imageUrl = image[0].contentUrl;

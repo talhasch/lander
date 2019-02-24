@@ -2,21 +2,33 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import AccountEditBtn from '../elements/account-edit-btn';
+
+import fixClassNames from '../../utils/fix-class-names';
+
 class ProfileDescription extends Component {
 
   render() {
-    const {description, editMode} = this.props;
+    const {description, editMode, intl} = this.props;
 
-    let cls = `profile-description ${editMode ? 'edit-mode' : ''}`;
-
-    if (description) {
-      return <div className={cls}>{description}</div>
+    if (!editMode && !description) {
+      return null;
     }
 
-    cls = `${cls} not-set`;
+    if (editMode && !description) {
+      return <div className="profile-description edit-mode not-set">
+        {intl.formatMessage({id: 'editor.description-placeholder'})}
+      </div>
+    }
 
-    return <div className={cls}>Your description goes here...</div>
+    return <div className={fixClassNames(`profile-description ${editMode ? 'edit-mode' : ''}`)}>
+      {description}
+
+      {editMode && <AccountEditBtn {...this.props} />}
+    </div>;
   }
+
+
 }
 
 
@@ -26,6 +38,7 @@ ProfileDescription.defaultProps = {
 };
 
 ProfileDescription.propTypes = {
+  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   description: PropTypes.string
 };

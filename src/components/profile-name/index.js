@@ -1,26 +1,30 @@
 import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
-import {penSvg} from '../../svg';
+
+import AccountEditBtn from '../elements/account-edit-btn';
+
+import fixClassNames from '../../utils/fix-class-names';
 
 class ProfileName extends Component {
-
   render() {
-    const {name, editMode} = this.props;
+    const {name, editMode, intl} = this.props;
 
-    let cls = `profile-name ${editMode ? 'edit-mode' : ''}`;
+    if (!editMode && !name) {
+      return null;
+    }
 
-    if (name) {
-      return <div className={cls}>
-        {name}
-
-        <div className="edit-btn">{penSvg}</div>
+    if (editMode && !name) {
+      return <div className="profile-name edit-mode not-set">
+        {intl.formatMessage({id: 'editor.name-placeholder'})}
       </div>
     }
 
-    cls = `${cls} not-set`;
+    return <div className={fixClassNames(`profile-name ${editMode ? 'edit-mode' : ''}`)}>
+      {name}
 
-    return <div className={cls}>Your name goes here...</div>
+      {editMode && <AccountEditBtn {...this.props} />}
+    </div>;
   }
 }
 
@@ -31,6 +35,7 @@ ProfileName.defaultProps = {
 };
 
 ProfileName.propTypes = {
+  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   name: PropTypes.string
 };

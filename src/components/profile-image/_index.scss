@@ -12,6 +12,7 @@
   margin: 0 auto 16px auto;
   position: relative;
   width: 140px;
+  user-select: none;
 
   > svg {
     color: #bbbbbb;
@@ -20,7 +21,7 @@
     width: 60px;
   }
 
-  .image-edit-overlay {
+  .edit-btn {
     align-items: center;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 50%;
@@ -41,12 +42,8 @@
   }
 
   &:hover {
-    .image-edit-overlay {
+    .edit-btn {
       display: flex;
     }
-
   }
-
-  user-select: none;
-
 }

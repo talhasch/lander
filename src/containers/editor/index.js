@@ -144,13 +144,13 @@ class Editor extends Component {
         <EditorHeader {...this.props} />
         <div className="profile-box">
           <ProfileImage image={image} editMode={!ui.preview}/>
-          <ProfileName name={name} editMode={!ui.preview}/>
-          <ProfileDescription description={description} editMode={!ui.preview}/>
+          <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
+          <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
           <div className="profile-bio">
 
           </div>
-          <SocialAccounts accounts={account} editMode={!ui.preview}/>
-          <WalletAccounts accounts={account} editMode={!ui.preview}/>
+          <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+          <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
         </div>
       </div>
     )
