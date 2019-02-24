@@ -159,7 +159,7 @@ StyleDialog.propTypes = {
   setBgImage: PropTypes.func,
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
-  toggleUiProp: PropTypes.func,
+  toggleUiProp: PropTypes.func.isRequired,
   afterHide: PropTypes.func,
   onSave: PropTypes.func
 };

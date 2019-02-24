@@ -73,9 +73,6 @@ class EditorHeader extends Component {
     return (
       <div className="editor-header">
 
-
-        <SettingsDialog visible={ui.settings} onHide={this.toggleSettings} {...this.props}/>
-
         {!ui.preview &&
         <>
           <Navbar bg="dark" variant="dark">
@@ -156,6 +153,7 @@ class Editor extends Component {
         {ui.accountEdit && <AccountEditDialog {...this.props} />}
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
+        {ui.settings && <SettingsDialog {...this.props} />}
 
         <div className="main-wrapper">
           <ProfileBg bg={user.privateData.bg}/>

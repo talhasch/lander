@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button} from 'react-bootstrap';
 
-import {injectIntl} from 'react-intl';
+import {FormattedMessage, injectIntl} from 'react-intl';
 
 import ConfirmDialog from '../confirm'
 
@@ -24,10 +24,11 @@ class SettingsDialog extends Component {
     onHide();
   };
 
-  cancel = () => {
-    const {onHide} = this.props;
+  hide = () => {
+    const {afterHide, toggleUiProp} = this.props;
+    toggleUiProp('settings');
 
-    onHide();
+    afterHide();
   };
 
   deleteClicked = () => {
@@ -40,13 +41,12 @@ class SettingsDialog extends Component {
 
 
   render() {
-    const {visible, onHide} = this.props;
     const {deleteConfirm} = this.state;
 
     return (
       <>
         <ConfirmDialog visible={deleteConfirm} onCancel={this.deleteCancelled}/>
-        <Modal show={visible} className="drawer" backdropClassName="drawer-backdrop" onHide={onHide}>
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
             <Modal.Title>Settings</Modal.Title>
           </Modal.Header>
@@ -60,10 +60,10 @@ class SettingsDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.save}>
-              Cancel
+              <FormattedMessage id="g.cancel"/>
             </Button>
-            <Button variant="primary" onClick={this.cancel}>
-              Save
+            <Button variant="primary" onClick={this.hide}>
+              <FormattedMessage id="g.save"/>
             </Button>
           </Modal.Footer>
         </Modal>
@@ -73,14 +73,13 @@ class SettingsDialog extends Component {
 }
 
 SettingsDialog.defaultProps = {
-  visible: false,
-  onHide: () => {
+  afterHide: () => {
   }
 };
 
 SettingsDialog.propTypes = {
-  visible: PropTypes.bool,
-  onHide: PropTypes.func
+  toggleUiProp: PropTypes.func.isRequired,
+  afterHide: PropTypes.func
 };
 
 export default injectIntl(SettingsDialog)
