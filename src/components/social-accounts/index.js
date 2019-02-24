@@ -6,7 +6,7 @@ import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import {FormattedHTMLMessage} from 'react-intl';
 
-import {penSvg} from '../../svg';
+import AccountEditBtn from '../elements/account-edit-btn';
 
 import {socialAccountTypes as accountTypes} from '../../constants';
 
@@ -68,7 +68,7 @@ class SocialAccounts extends Component {
           </OverlayTrigger>
         })}
 
-        <div className="edit-btn">{penSvg}</div>
+        <AccountEditBtn {...this.props} />
       </div>
     }
 
