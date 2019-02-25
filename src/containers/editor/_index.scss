@@ -4,6 +4,14 @@
   top: 0;
   width: 100%;
 
+  .public-link {
+    svg {
+      color: #ced4da;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
   .info-nav {
     background: #495057;
     padding: 6px;

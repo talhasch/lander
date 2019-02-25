@@ -39,7 +39,7 @@ class SettingsDialog extends Component {
 
     try {
       await blockstack.putFile(draftFile, '', {encrypt: true});
-      await blockstack.putFile(publishedFile, '');
+      await blockstack.putFile(publishedFile, '', {encrypt: false});
     } catch (e) {
       return;
     }

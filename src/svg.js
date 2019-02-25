@@ -86,8 +86,17 @@ export const magicSvg = <svg aria-hidden="true" focusable="false" data-prefix="f
 </svg>;
 
 export const penSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen"
-                        className="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
+                           className="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                           viewBox="0 0 512 512">
   <path fill="currentColor"
         d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/>
 </svg>;
+
+
+export const linkExternal = <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                 data-icon="external-link-square-alt"
+                                 className="svg-inline--fa fa-external-link-square-alt fa-w-14" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <path fill="currentColor"
+        d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"/>
+</svg>

@@ -26,9 +26,11 @@ import BioEditDialog from '../../components/dialogs/bio-edit'
 
 import fixClassNames from '../../utils/fix-class-names';
 
+import getBaseUrl from '../../utils/get-base-url';
+
 import landerLogo from '../../images/lander-256.png';
 
-import {eyeSvg, eyeSlashSvg, magicSvg} from '../../svg';
+import {eyeSvg, eyeSlashSvg, magicSvg, linkExternal} from '../../svg';
 
 class EditorHeader extends Component {
 
@@ -94,7 +96,17 @@ class EditorHeader extends Component {
                   <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
                   <NavDropdown.Item href="" onClick={this.logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#features">L</Nav.Link>
+                {user.published &&
+                <OverlayTrigger
+                  placement="bottom"
+                  delay={1000}
+                  overlay={
+                    <Tooltip>Go to your public page</Tooltip>
+                  }>
+                  <Nav.Link href={`${getBaseUrl()}/${user.username}`} target="_blank"
+                            className="public-link">{linkExternal}</Nav.Link>
+                </OverlayTrigger>
+                }
               </Nav>
             </Navbar.Collapse>
           </Navbar>
