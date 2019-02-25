@@ -1,6 +1,6 @@
 import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
-import {draftFile, releaseFile} from '../constants';
+import {draftFile, publishedFile} from '../constants';
 
 const blockstack = require('blockstack');
 
@@ -13,7 +13,6 @@ export const PROFILE_LOADED = '@user/PROFILE_LOADED';
 export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
-export const BG_SAVE = '@user/BG_SAVE';
 
 export const BIO_SET = '@user/BIO_SAVE';
 
@@ -46,10 +45,10 @@ export default (state = initialState, action) => {
         username: action.payload,
         profile: null,
         draft: null,
-        publicData: null,
+        published: null,
         loaded: false,
-        draftSaving: false,
-        publicSaving: false
+        saving: false,
+        publishing: false
       };
     case PROFILE_LOADED: {
       return Object.assign({}, state, {profile: action.payload});
@@ -117,15 +116,15 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft: newDraft});
     }
     case DRAFT_SAVE: {
-      return Object.assign({}, state, {draftSaving: true});
+      return Object.assign({}, state, {saving: true});
     }
     case DRAFT_SAVED: {
       const {newData} = action.payload;
 
-      return Object.assign({}, state, {draft: newData, draftSaving: false});
+      return Object.assign({}, state, {draft: newData, saving: false});
     }
     case DRAFT_SAVE_ERR: {
-      return Object.assign({}, state, {draftSaving: false});
+      return Object.assign({}, state, {saving: false});
     }
     case USER_LOGOUT: {
       return initialState;
@@ -164,15 +163,15 @@ export const login = (userData) => {
       }
     }
 
-    let release;
+    let published;
     try {
-      release = await blockstack.getFile(releaseFile);
+      published = await blockstack.getFile(publishedFile);
     } catch (e) {
       console.error(`File get error. ${e}`);
-      release = null;
+      published = null;
     }
 
-    dispatch(dataLoaded(draft, release));
+    dispatch(dataLoaded(draft, published));
   }
 };
 
@@ -210,6 +209,15 @@ export const setBgColor = (val) => {
   }
 };
 
+export const setBio = (val) => {
+  return (dispatch) => {
+    dispatch({
+      type: BIO_SET,
+      payload: val
+    });
+  }
+};
+
 export const saveDraft = () => {
   return (dispatch, getState) => {
 
@@ -227,17 +235,7 @@ export const saveDraft = () => {
   }
 };
 
-export const setBio = (val) => {
-  return (dispatch) => {
-    dispatch({
-      type: BIO_SET,
-      payload: val
-    });
-  }
-};
-
-
-export const refreshUserProfile = () => {
+export const refreshProfile = () => {
   return (dispatch, getState) => {
 
     const {user} = getState();
@@ -259,21 +257,21 @@ export const loggedIn = (username) => ({
   payload: username
 });
 
+export const loggedOut = () => ({
+  type: USER_LOGOUT
+});
+
 export const profileLoaded = (profile) => ({
   type: PROFILE_LOADED,
   payload: profile
 });
 
-export const dataLoaded = (draft, publicData) => ({
+export const dataLoaded = (draft, published) => ({
   type: DATA_LOADED,
   payload: {
     draft,
-    publicData
+    published
   }
-});
-
-export const loggedOut = () => ({
-  type: USER_LOGOUT
 });
 
 export const draftSave = () => ({

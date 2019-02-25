@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor, saveDraft, setBio, refreshUserProfile} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor, saveDraft, setBio, refreshProfile} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -134,8 +134,8 @@ class Editor extends Component {
 
   visibilityChanged = () => {
     if (document.visibilityState === 'visible') {
-      const {refreshUserProfile} = this.props;
-      refreshUserProfile();
+      const {refreshProfile} = this.props;
+      refreshProfile();
     }
   };
 
@@ -188,7 +188,7 @@ const mapDispatchToProps = dispatch =>
       setBgColor,
       saveDraft,
       setBio,
-      refreshUserProfile
+      refreshProfile
     },
     dispatch
   );
