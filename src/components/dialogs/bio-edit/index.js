@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import {Modal, Button, Form, Alert} from 'react-bootstrap';
 
 import {injectIntl, FormattedMessage} from 'react-intl';
-import stringify from "../../../utils/stringify";
+
+import stringify from '../../../utils/stringify';
 
 class BioEditDialog extends Component {
 
@@ -65,7 +66,7 @@ class BioEditDialog extends Component {
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
-            <Modal.Title><FormattedMessage id="account-edit.title"/></Modal.Title>
+            <Modal.Title><FormattedMessage id="bio.title"/></Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="bio-edit-dialog-content">
@@ -78,8 +79,8 @@ class BioEditDialog extends Component {
               }}>{saveErr}</Alert>
               }
               <Form>
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Edit your longer description below</Form.Label>
+                <Form.Group>
+                  <Form.Label><small className="text-muted form-text"><FormattedMessage id="bio.help-text"/></small></Form.Label>
                   <Form.Control as="textarea" rows="10" value={bio} onChange={this.textChanged}/>
                 </Form.Group>
               </Form>

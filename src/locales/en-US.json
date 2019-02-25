@@ -29,17 +29,19 @@
     "go-button-title": "Go to Blockstack Browser",
     "dont-show": "Don't show this again"
   },
+  "bio": {
+    "title": "Longer Description",
+    "help-text": "Edit your longer description below"
+  },
   "wallet-accounts": {
     "not-set": "You have'nt set your {n} account"
   },
   "social-accounts": {
     "not-set": "You have'nt set your <strong>{n}</strong> account"
   },
-  "bio": {
-    "not-set": "Add longer description to your profile"
-  },
   "editor": {
     "name-placeholder": "Your name goes here...",
-    "description-placeholder": "Your description goes here..."
+    "description-placeholder": "Your description goes here...",
+    "bio-placeholder": "Add longer description to your profile"
   }
 }

@@ -25,7 +25,7 @@ class ProfileBio extends Component {
 
     if (editMode && !bio) {
       return <div className="profile-bio not-set edit-mode" onClick={this.edit}>
-        <FormattedMessage id="bio.not-set"/>
+        <FormattedMessage id="editor.bio-placeholder"/>
       </div>
     }
 
