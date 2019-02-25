@@ -60,7 +60,7 @@ export default (state = initialState, action) => {
     }
     case TOGGLE_STYLE: {
       if (!action.payload.effect) {
-        return;
+        return state;
       }
 
       const {draft} = state;
@@ -77,7 +77,7 @@ export default (state = initialState, action) => {
     }
     case TOGGLE_BIO_EDIT: {
       if (!action.payload.effect) {
-        return;
+        return state;
       }
 
       const {draft} = state;
@@ -127,8 +127,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {saving: true});
     }
     case DRAFT_SAVED: {
-      const {newData} = action.payload;
-
+      let {newData} = action.payload;
+      const {bg} = newData;
+      newData = Object.assign({}, newData, {bgTemp: bg});
       return Object.assign({}, state, {draft: newData, saving: false});
     }
     case DRAFT_SAVE_ERR: {
@@ -223,10 +224,14 @@ export const saveDraft = () => {
     const {bgTemp, bioTemp, ...draftData1} = user.draft;
     draftData1.updated = Date.now();
 
-    blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+    return blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then((resp) => {
       dispatch(draftSaved(draftData1));
-    }).catch(() => {
+      return resp
+    }).catch((err) => {
       dispatch(draftNotSaved());
+      return new Promise((resolve, reject) => {
+        reject(err);
+      });
     });
   }
 };

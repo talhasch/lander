@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, Form, Col} from 'react-bootstrap';
+import {Modal, Button, Form, Col, Alert} from 'react-bootstrap';
 
 import {injectIntl, FormattedMessage} from 'react-intl';
 
@@ -18,10 +18,18 @@ class StyleDialog extends Component {
     super(props);
 
     this.state = {
-      saving: false
-    }
+      saveErr: '',
+      saved: false
+    };
   }
 
+  componentDidMount() {
+    this.mounted = true;
+  };
+
+  componentWillUnmount() {
+    this.mounted = false;
+  };
 
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -30,16 +38,24 @@ class StyleDialog extends Component {
   };
 
   save = () => {
-    const {afterSave, saveBg, saveDraft} = this.props;
-    // toggleUiProp('style');
-    saveDraft();
+    const {afterSave, saveDraft} = this.props;
+    saveDraft().then(() => {
+      this.setState({saved: true});
+      setTimeout(() => {
+        if (this.mounted) {
+          this.setState({saved: false});
+        }
+      }, 3000);
+    }).catch(err => {
+      this.setState({saveErr: String(err)});
+    });
 
     afterSave();
   };
 
   imageSet = (url) => {
     const {setBgImage} = this.props;
-    setBgImage(url);
+    setBgImage(url)
   };
 
   imageTickChanged = (e) => {
@@ -89,14 +105,17 @@ class StyleDialog extends Component {
 
   imageSelected = (im) => {
     const {toggleUiProp, setBgImage} = this.props;
-    // toggleUiProp('imageSelect');
+    toggleUiProp('imageSelect');
     setBgImage(im);
   };
 
   render() {
+
+    const {saved, saveErr} = this.state;
     const {user, ui} = this.props;
     const {bg, bgTemp} = user.draft;
     const changed = stringify(bg) !== stringify(bgTemp);
+
 
     return (
       <>
@@ -107,6 +126,14 @@ class StyleDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="style-dialog-content">
+              {saved &&
+              <Alert variant="success"><FormattedMessage id="g.saved"/></Alert>
+              }
+              {saveErr &&
+              <Alert variant="danger" onClose={() => {
+                this.setState({saveErr: ''});
+              }}>{saveErr}</Alert>
+              }
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
@@ -146,8 +173,8 @@ class StyleDialog extends Component {
             <Button variant="secondary" onClick={this.hide}>
               <FormattedMessage id="g.cancel"/>
             </Button>
-            <Button variant="primary" onClick={this.save} disabled={!changed}>
-              <FormattedMessage id="g.save"/>
+            <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
+              <FormattedMessage id="g.save"/> {user.saving && '...'}
             </Button>
           </Modal.Footer>
         </Modal>
@@ -180,7 +207,8 @@ StyleDialog.propTypes = {
     draft: PropTypes.shape({
       bg: bgProps,
       bgTemp: bgProps
-    }).isRequired
+    }).isRequired,
+    saving: PropTypes.bool.isRequired
   }).isRequired,
   ui: PropTypes.shape({
     imageSelect: PropTypes.bool.isRequired

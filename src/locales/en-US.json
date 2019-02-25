@@ -2,6 +2,7 @@
   "g": {
     "name": "Lander",
     "save": "Save",
+    "saved": "Saved",
     "edit": "Edit",
     "next": "Next",
     "cancel": "Cancel",
