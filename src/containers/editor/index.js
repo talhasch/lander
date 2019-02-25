@@ -156,13 +156,13 @@ class Editor extends Component {
         {ui.settings && <SettingsDialog {...this.props} />}
 
         <div className="main-wrapper">
-          <ProfileBg bg={user.privateData.bg}/>
+          <ProfileBg bg={user.draft.bg}/>
           <EditorHeader {...this.props} />
           <div className={fixClassNames(`profile-box ${!ui.preview ? 'edit-mode' : ''}`)}>
             <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
             <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
             <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
-            <ProfileBio bio={user.privateData.bio} editMode={!ui.preview} {...this.props}/>
+            <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
             <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
             <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
           </div>

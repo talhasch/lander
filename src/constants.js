@@ -25,5 +25,5 @@ export const socialAccountTypes = [
 ];
 
 
-export const draftFile = 'lander-draft-file';
-export const publicFile = 'lander-public-file';
+export const draftFile = 'lander_draft_file';
+export const releaseFile = 'lander_release_file';

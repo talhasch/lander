@@ -95,7 +95,7 @@ class StyleDialog extends Component {
 
   render() {
     const {user, ui} = this.props;
-    const {bg, bgTemp} = user.privateData;
+    const {bg, bgTemp} = user.draft;
     const changed = stringify(bg) !== stringify(bgTemp);
 
     return (
@@ -177,7 +177,7 @@ const bgProps = PropTypes.shape({
 
 StyleDialog.propTypes = {
   user: PropTypes.shape({
-    privateData: PropTypes.shape({
+    draft: PropTypes.shape({
       bg: bgProps,
       bgTemp: bgProps
     }).isRequired

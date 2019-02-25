@@ -23,7 +23,7 @@ class BioEditDialog extends Component {
 
   render() {
     const {intl, user} = this.props;
-    const {bio, bioTemp} = user.privateData;
+    const {bio, bioTemp} = user.draft;
     const changed = stringify(bio) !== stringify(bioTemp);
 
     return (
@@ -64,7 +64,7 @@ BioEditDialog.defaultProps = {
 BioEditDialog.propTypes = {
   intl: PropTypes.instanceOf(Object).isRequired,
   user: PropTypes.shape({
-    privateData: PropTypes.shape({
+    draft: PropTypes.shape({
       bio: PropTypes.string.isRequired
     }).isRequired
   }).isRequired,

@@ -1,6 +1,6 @@
 import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
-import {draftFile, publicFile} from '../constants';
+import {draftFile, releaseFile} from '../constants';
 
 const blockstack = require('blockstack');
 
@@ -45,7 +45,7 @@ export default (state = initialState, action) => {
       return {
         username: action.payload,
         profile: null,
-        privateData: null,
+        draft: null,
         publicData: null,
         loaded: false,
         draftSaving: false,
@@ -55,66 +55,66 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {profile: action.payload});
     }
     case DATA_LOADED: {
-      const {privateData, publicData} = action.payload;
+      const {draft, release} = action.payload;
 
-      return Object.assign({}, state, {privateData, publicData, loaded: true});
+      return Object.assign({}, state, {draft, release, loaded: true});
     }
     case TOGGLE_STYLE: {
-      const {privateData} = state;
-      let newPrivateData;
-      if (privateData.bgTemp) {
-        const {bgTemp} = privateData;
-        const {bgTemp: delTemp, ...privateData1} = privateData;
-        newPrivateData = Object.assign({}, privateData1, {bg: bgTemp});
+      const {draft} = state;
+      let newDraft;
+      if (draft.bgTemp) {
+        const {bgTemp} = draft;
+        const {bgTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {bg: bgTemp});
       } else {
-        const {bg} = privateData;
-        newPrivateData = Object.assign({}, privateData, {bgTemp: bg});
+        const {bg} = draft;
+        newDraft = Object.assign({}, draft, {bgTemp: bg});
       }
-      return Object.assign({}, state, {privateData: newPrivateData});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case TOGGLE_BIO_EDIT: {
-      const {privateData} = state;
-      let newPrivateData;
-      if (privateData.bioTemp !== undefined) {
-        const {bioTemp} = privateData;
-        const {bioTemp: delTemp, ...privateData1} = privateData;
-        newPrivateData = Object.assign({}, privateData1, {bio: bioTemp});
+      const {draft} = state;
+      let newDraft;
+      if (draft.bioTemp !== undefined) {
+        const {bioTemp} = draft;
+        const {bioTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {bio: bioTemp});
       } else {
-        const {bio} = privateData;
-        newPrivateData = Object.assign({}, privateData, {bioTemp: bio});
+        const {bio} = draft;
+        newDraft = Object.assign({}, draft, {bioTemp: bio});
       }
-      return Object.assign({}, state, {privateData: newPrivateData});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case BG_BLUR_SET: {
-      const {privateData} = state;
-      const {bg} = privateData;
-      const newPrivateData = Object.assign({}, privateData, {bg: Object.assign({}, bg, {blur: action.payload})});
-      return Object.assign({}, state, {privateData: newPrivateData});
+      const {draft} = state;
+      const {bg} = draft;
+      const newDraft = Object.assign({}, draft, {bg: Object.assign({}, bg, {blur: action.payload})});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case BG_IMAGE_SET: {
 
-      const {privateData} = state;
-      const {bg} = privateData;
+      const {draft} = state;
+      const {bg} = draft;
 
       let newVal = action.payload;
       if (action.payload === 'recover') {
-        const {bgTemp} = privateData;
+        const {bgTemp} = draft;
         ({image: newVal} = bgTemp);
       }
 
-      const newPrivateData = Object.assign({}, privateData, {bg: Object.assign({}, bg, {image: newVal})});
-      return Object.assign({}, state, {privateData: newPrivateData});
+      const newDraft = Object.assign({}, draft, {bg: Object.assign({}, bg, {image: newVal})});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case BG_COLOR_SET: {
-      const {privateData} = state;
-      const {bg} = privateData;
-      const newPrivateData = Object.assign({}, privateData, {bg: Object.assign({}, bg, {color: action.payload})});
-      return Object.assign({}, state, {privateData: newPrivateData});
+      const {draft} = state;
+      const {bg} = draft;
+      const newDraft = Object.assign({}, draft, {bg: Object.assign({}, bg, {color: action.payload})});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case BIO_SET: {
-      const {privateData} = state;
-      const newPrivateData = Object.assign({}, privateData, {bio: action.payload});
-      return Object.assign({}, state, {privateData: newPrivateData});
+      const {draft} = state;
+      const newDraft = Object.assign({}, draft, {bio: action.payload});
+      return Object.assign({}, state, {draft: newDraft});
     }
     case DRAFT_SAVE: {
       return Object.assign({}, state, {draftSaving: true});
@@ -122,7 +122,7 @@ export default (state = initialState, action) => {
     case DRAFT_SAVED: {
       const {newData} = action.payload;
 
-      return Object.assign({}, state, {privateData: newData, draftSaving: false});
+      return Object.assign({}, state, {draft: newData, draftSaving: false});
     }
     case DRAFT_SAVE_ERR: {
       return Object.assign({}, state, {draftSaving: false});
@@ -145,34 +145,34 @@ export const login = (userData) => {
     dispatch(loggedIn(username));
     dispatch(profileLoaded(profile));
 
-    let privateData;
+    let draft;
     try {
       const file = await blockstack.getFile(draftFile);
-      privateData = JSON.parse(file);
+      draft = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
-      privateData = null;
+      draft = null;
     }
 
-    if (privateData === null) {
+    if (draft === null) {
       const obj = dataModel();
       try {
         await blockstack.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
-        privateData = Object.assign({}, obj);
+        draft = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
       }
     }
 
-    let publicData;
+    let release;
     try {
-      publicData = await blockstack.getFile(draftFile);
+      release = await blockstack.getFile(releaseFile);
     } catch (e) {
       console.error(`File get error. ${e}`);
-      publicData = null;
+      release = null;
     }
 
-    dispatch(dataLoaded(privateData, publicData));
+    dispatch(dataLoaded(draft, release));
   }
 };
 
@@ -216,7 +216,7 @@ export const saveDraft = () => {
     dispatch(draftSave());
 
     const {user} = getState();
-    const {bgTemp, bioTemp, ...draftData1} = user.privateData;
+    const {bgTemp, bioTemp, ...draftData1} = user.draft;
     draftData1.updated = Date.now();
 
     blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
@@ -264,10 +264,10 @@ export const profileLoaded = (profile) => ({
   payload: profile
 });
 
-export const dataLoaded = (privateData, publicData) => ({
+export const dataLoaded = (draft, publicData) => ({
   type: DATA_LOADED,
   payload: {
-    privateData,
+    draft,
     publicData
   }
 });
