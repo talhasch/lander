@@ -59,6 +59,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft, release, loaded: true});
     }
     case TOGGLE_STYLE: {
+      if (!action.payload.effect) {
+        return;
+      }
+
       const {draft} = state;
       let newDraft;
       if (draft.bgTemp) {
@@ -72,6 +76,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft: newDraft});
     }
     case TOGGLE_BIO_EDIT: {
+      if (!action.payload.effect) {
+        return;
+      }
+
       const {draft} = state;
       let newDraft;
       if (draft.bioTemp !== undefined) {

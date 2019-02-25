@@ -27,19 +27,19 @@ export default (state = initialState, action) => {
     case USER_LOGOUT:
       return initialState;
     case TOGGLE_SETTINGS:
-      return Object.assign({}, state, {settings: action.payload});
+      return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_STYLE:
-      return Object.assign({}, state, {style: action.payload});
+      return Object.assign({}, state, {style: action.payload.what});
     case TOGGLE_IMAGE_SELECT:
-      return Object.assign({}, state, {imageSelect: action.payload});
+      return Object.assign({}, state, {imageSelect: action.payload.what});
     case TOGGLE_PREVIEW:
-      return Object.assign({}, state, {preview: action.payload});
+      return Object.assign({}, state, {preview: action.payload.what});
     case TOGGLE_ACCOUNT_EDIT:
-      return Object.assign({}, state, {accountEdit: action.payload});
+      return Object.assign({}, state, {accountEdit: action.payload.what});
     case TOGGLE_SKIP_ACCOUNT_DIALOG:
-      return Object.assign({}, state, {skipAccountDialog: action.payload});
+      return Object.assign({}, state, {skipAccountDialog: action.payload.what});
     case TOGGLE_BIO_EDIT:
-      return Object.assign({}, state, {bioEdit: action.payload});
+      return Object.assign({}, state, {bioEdit: action.payload.what});
     default:
       return state;
   }
@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const toggleUiProp = (what) => {
+export const toggleUiProp = (what, effect = true) => {
   return async (dispatch, getState) => {
     const {ui} = getState();
 
@@ -85,7 +85,7 @@ export const toggleUiProp = (what) => {
 
     dispatch({
       type: act,
-      payload: !ui[what]
+      payload: {what: !ui[what], effect}
     });
   }
 };
