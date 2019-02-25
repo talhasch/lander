@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button} from 'react-bootstrap';
 
+import {FormattedMessage} from 'react-intl';
+
 import {injectIntl} from 'react-intl';
 
 
@@ -23,18 +25,17 @@ class ConfirmDialog extends Component {
   };
 
   render() {
-    const {visible} = this.props;
     return (
-      <Modal show={visible} onHide={this.cancel}>
+      <Modal show onHide={this.cancel}>
         <Modal.Body>
-          Are you sure?
+          <FormattedMessage id="g.are-you-sure"/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.cancel}>
-            Cancel
+            <FormattedMessage id="g.cancel"/>
           </Button>
           <Button variant="primary" onClick={this.confirm}>
-            Confirm
+            <FormattedMessage id="g.confirm"/>
           </Button>
         </Modal.Footer>
       </Modal>
@@ -43,7 +44,6 @@ class ConfirmDialog extends Component {
 }
 
 ConfirmDialog.defaultProps = {
-  visible: false,
   onConfirm: () => {
   },
   onCancel: () => {
@@ -51,9 +51,8 @@ ConfirmDialog.defaultProps = {
 };
 
 ConfirmDialog.propTypes = {
-  visible: PropTypes.bool,
   onConfirm: PropTypes.func,
   onCancel: PropTypes.func
 };
 
-export default injectIntl(ConfirmDialog)
+export default injectIntl(ConfirmDialog);

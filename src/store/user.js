@@ -174,7 +174,8 @@ export const login = (userData) => {
 
     let published;
     try {
-      published = await blockstack.getFile(publishedFile);
+      const file = await blockstack.getFile(publishedFile);
+      published = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
       published = null;

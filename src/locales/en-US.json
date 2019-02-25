@@ -6,7 +6,9 @@
     "edit": "Edit",
     "next": "Next",
     "cancel": "Cancel",
-    "skip": "Skip"
+    "skip": "Skip",
+    "are-you-sure": "Are you sure?",
+    "confirm": "Confirm"
   },
   "home": {
     "title": "Your landing page on the decentralized internet",
@@ -32,6 +34,10 @@
   "bio": {
     "title": "Longer Description",
     "help-text": "Edit your longer description below"
+  },
+  "settings": {
+    "title": "Settings",
+    "delete": "Delete my Lander page"
   },
   "wallet-accounts": {
     "not-set": "You have'nt set your {n} account"
