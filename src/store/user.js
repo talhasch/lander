@@ -184,37 +184,25 @@ export const logout = () => {
 
 export const setBgBlur = (val) => {
   return (dispatch) => {
-    dispatch({
-      type: BG_BLUR_SET,
-      payload: val
-    });
+    dispatch(bgBlurSet(val));
   }
 };
 
 export const setBgImage = (val) => {
   return (dispatch) => {
-    dispatch({
-      type: BG_IMAGE_SET,
-      payload: val
-    });
+    dispatch(bgImageSet(val));
   }
 };
 
 export const setBgColor = (val) => {
   return (dispatch) => {
-    dispatch({
-      type: BG_COLOR_SET,
-      payload: val
-    });
+    dispatch(bgColorSet(val));
   }
 };
 
 export const setBio = (val) => {
   return (dispatch) => {
-    dispatch({
-      type: BIO_SET,
-      payload: val
-    });
+    dispatch(bioSet(val));
   }
 };
 
@@ -261,17 +249,37 @@ export const loggedOut = () => ({
   type: USER_LOGOUT
 });
 
-export const profileLoaded = (profile) => ({
-  type: PROFILE_LOADED,
-  payload: profile
-});
-
 export const dataLoaded = (draft, published) => ({
   type: DATA_LOADED,
   payload: {
     draft,
     published
   }
+});
+
+export const bgBlurSet = (val) => ({
+  type: BG_BLUR_SET,
+  payload: val
+});
+
+export const bgImageSet = (val) => ({
+  type: BG_IMAGE_SET,
+  payload: val
+});
+
+export const bgColorSet = (val) => ({
+  type: BG_COLOR_SET,
+  payload: val
+});
+
+export const bioSet = (val) => ({
+  type: BIO_SET,
+  payload: val
+});
+
+export const profileLoaded = (profile) => ({
+  type: PROFILE_LOADED,
+  payload: profile
 });
 
 export const draftSave = () => ({
