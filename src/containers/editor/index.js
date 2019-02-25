@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor, saveDraft, setBio, refreshProfile} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor, setBio, saveDraft, publish, refreshProfile} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -67,7 +67,9 @@ class EditorHeader extends Component {
   };
 
   publish = () => {
-    console.log("publish");
+    const {publish} = this.props;
+
+    publish();
   };
 
   revert = () => {
@@ -77,7 +79,6 @@ class EditorHeader extends Component {
   render() {
     const {user, ui} = this.props;
     const {username} = user;
-
 
     return (
       <div className="editor-header">
@@ -98,13 +99,13 @@ class EditorHeader extends Component {
             </Navbar.Collapse>
           </Navbar>
 
-
           {!user.published &&
           <div className="info-nav">
             <div className="info-content">
               <div className="info-msg">Your Lander page hasn't published yet.</div>
               <div className="info-controls">
-                <Button variant="primary" onClick={this.publish}>Publish</Button>
+                <Button variant="primary" onClick={this.publish}
+                        disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
               </div>
             </div>
           </div>
@@ -114,16 +115,15 @@ class EditorHeader extends Component {
           <>
             <div className="info-nav">
               <div className="info-content">
-                <div className="info-msg">Last changes you have made hasn't publised</div>
+                <div className="info-msg">Last changes you have made hasn't published.</div>
                 <div className="info-controls">
-                  <Button variant="primary">Publish</Button>
-                  <Button variant="danger">Revert</Button>
+                  <Button variant="primary" onClick={this.publish}
+                          disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
                 </div>
               </div>
             </div>
           </>
           }
-
 
           <div className="second-nav">
             <div className="left-menu">
@@ -225,7 +225,8 @@ const mapDispatchToProps = dispatch =>
       setBgColor,
       saveDraft,
       setBio,
-      refreshProfile
+      refreshProfile,
+      publish
     },
     dispatch
   );

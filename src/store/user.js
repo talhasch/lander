@@ -21,6 +21,11 @@ export const DRAFT_SAVED = '@user/DRAFT_SAVED';
 export const DRAFT_SAVE_ERR = '@user/DRAFT_SAVE_ERR';
 
 
+export const PUBLISH_SAVE = '@user/PUBLISH_SAVE';
+export const PUBLISH_SAVED = '@user/PUBLISH_SAVED';
+export const PUBLISH_SAVE_ERR = '@user/PUBLISH_SAVE_ERR';
+
+
 const dataModel = () => (
   {
     email: '',
@@ -54,9 +59,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {profile: action.payload});
     }
     case DATA_LOADED: {
-      const {draft, release} = action.payload;
+      const {draft, published} = action.payload;
 
-      return Object.assign({}, state, {draft, release, loaded: true});
+      return Object.assign({}, state, {draft, published, loaded: true});
     }
     case TOGGLE_STYLE: {
       if (!action.payload.effect) {
@@ -135,6 +140,16 @@ export default (state = initialState, action) => {
     case DRAFT_SAVE_ERR: {
       return Object.assign({}, state, {saving: false});
     }
+    case PUBLISH_SAVE: {
+      return Object.assign({}, state, {publishing: true});
+    }
+    case PUBLISH_SAVED: {
+      let {newData} = action.payload;
+      return Object.assign({}, state, {published: newData, publishing: false});
+    }
+    case PUBLISH_SAVE_ERR: {
+      return Object.assign({}, state, {publishing: false});
+    }
     case USER_LOGOUT: {
       return initialState;
     }
@@ -174,7 +189,7 @@ export const login = (userData) => {
 
     let published;
     try {
-      const file = await blockstack.getFile(publishedFile);
+      const file = await blockstack.getFile(publishedFile, {decrypt: false});
       published = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -230,6 +245,27 @@ export const saveDraft = () => {
       return resp
     }).catch((err) => {
       dispatch(draftNotSaved());
+      return new Promise((resolve, reject) => {
+        reject(err);
+      });
+    });
+  }
+};
+
+
+export const publish = () => {
+  return (dispatch, getState) => {
+
+    dispatch(publishSave());
+
+    const {user} = getState();
+    const {bgTemp, bioTemp, ...publicData} = user.draft;
+
+    return blockstack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then((resp) => {
+      dispatch(publishSaved(publicData));
+      return resp
+    }).catch((err) => {
+      dispatch(publishNotSaved());
       return new Promise((resolve, reject) => {
         reject(err);
       });
@@ -308,5 +344,20 @@ export const draftSaved = (newData) => ({
 });
 
 export const draftNotSaved = () => ({
+  type: DRAFT_SAVE_ERR
+});
+
+export const publishSave = () => ({
+  type: PUBLISH_SAVE
+});
+
+export const publishSaved = (newData) => ({
+  type: PUBLISH_SAVED,
+  payload: {
+    newData
+  }
+});
+
+export const publishNotSaved = () => ({
   type: DRAFT_SAVE_ERR
 });
