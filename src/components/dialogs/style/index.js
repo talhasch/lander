@@ -110,7 +110,6 @@ class StyleDialog extends Component {
   };
 
   render() {
-
     const {saved, saveErr} = this.state;
     const {user, ui} = this.props;
     const {bg, bgTemp} = user.draft;
