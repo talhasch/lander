@@ -1,6 +1,6 @@
-import md5 from 'blueimp-md5';
-
 import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
+
+import {draftFile, publicFile} from '../constants';
 
 const blockstack = require('blockstack');
 
@@ -10,13 +10,16 @@ export const USER_LOGOUT = '@user/LOGOUT';
 export const DATA_LOADED = '@user/DATA_LOADED';
 export const PROFILE_LOADED = '@user/PROFILE_LOADED';
 
-
 export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
 export const BG_SAVE = '@user/BG_SAVE';
 
 export const BIO_SET = '@user/BIO_SAVE';
+
+export const DRAFT_SAVE = '@user/DRAFT_SAVE';
+export const DRAFT_SAVED = '@user/DRAFT_SAVED';
+export const DRAFT_SAVE_ERR = '@user/DRAFT_SAVE_ERR';
 
 
 const dataModel = () => (
@@ -28,7 +31,7 @@ const dataModel = () => (
       blur: '2'
     },
     bio: '',
-    hash: '0101010'
+    updated: Date.now()
   }
 );
 
@@ -45,6 +48,8 @@ export default (state = initialState, action) => {
         privateData: null,
         publicData: null,
         loaded: false,
+        draftSaving: false,
+        publicSaving: false
       };
     case PROFILE_LOADED: {
       return Object.assign({}, state, {profile: action.payload});
@@ -111,6 +116,17 @@ export default (state = initialState, action) => {
       const newPrivateData = Object.assign({}, privateData, {bio: action.payload});
       return Object.assign({}, state, {privateData: newPrivateData});
     }
+    case DRAFT_SAVE: {
+      return Object.assign({}, state, {draftSaving: true});
+    }
+    case DRAFT_SAVED: {
+      const {newData} = action.payload;
+
+      return Object.assign({}, state, {privateData: newData, draftSaving: false});
+    }
+    case DRAFT_SAVE_ERR: {
+      return Object.assign({}, state, {draftSaving: false});
+    }
     case USER_LOGOUT: {
       return initialState;
     }
@@ -131,7 +147,7 @@ export const login = (userData) => {
 
     let privateData;
     try {
-      const file = await blockstack.getFile('lander-private-f');
+      const file = await blockstack.getFile(draftFile);
       privateData = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -141,7 +157,7 @@ export const login = (userData) => {
     if (privateData === null) {
       const obj = dataModel();
       try {
-        await blockstack.putFile('lander-private-f', JSON.stringify(obj), {encrypt: true});
+        await blockstack.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
         privateData = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -150,7 +166,7 @@ export const login = (userData) => {
 
     let publicData;
     try {
-      publicData = await blockstack.getFile('lander-public-f');
+      publicData = await blockstack.getFile(draftFile);
     } catch (e) {
       console.error(`File get error. ${e}`);
       publicData = null;
@@ -194,15 +210,19 @@ export const setBgColor = (val) => {
   }
 };
 
-export const saveBg = () => {
+export const saveDraft = () => {
   return (dispatch, getState) => {
 
-    const {privateData} = getState();
+    dispatch(draftSave());
 
-    console.log(privateData);
+    const {user} = getState();
+    const {bgTemp, bioTemp, ...draftData1} = user.privateData;
+    draftData1.updated = Date.now();
 
-    dispatch({
-      type: BG_SAVE
+    blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+      dispatch(draftSaved(draftData1));
+    }).catch(() => {
+      dispatch(draftNotSaved());
     });
   }
 };
@@ -254,4 +274,19 @@ export const dataLoaded = (privateData, publicData) => ({
 
 export const loggedOut = () => ({
   type: USER_LOGOUT
+});
+
+export const draftSave = () => ({
+  type: DRAFT_SAVE
+});
+
+export const draftSaved = (newData) => ({
+  type: DRAFT_SAVED,
+  payload: {
+    newData
+  }
+});
+
+export const draftNotSaved = () => ({
+  type: DRAFT_SAVE_ERR
 });

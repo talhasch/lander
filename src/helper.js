@@ -1,3 +1,3 @@
 export const detectBgImageUrl = (image) => {
-  return image ? /^https?:\/\//.test(image) ? image : require(`./data/bg-images/${image}`) : '';
+  return image ? /^data:/.test(image) ? image : require(`./data/bg-images/${image}`) : '';
 };

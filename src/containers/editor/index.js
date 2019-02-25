@@ -7,7 +7,7 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor, setBio, refreshUserProfile} from '../../store/user';
+import {logout, setBgBlur, setBgImage, setBgColor, saveDraft, setBio, refreshUserProfile} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -186,6 +186,7 @@ const mapDispatchToProps = dispatch =>
       setBgBlur,
       setBgImage,
       setBgColor,
+      saveDraft,
       setBio,
       refreshUserProfile
     },

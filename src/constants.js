@@ -23,3 +23,7 @@ export const socialAccountTypes = [
   {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg},
   {id: 'hackerNews', name: 'Hacker News', 'icon': hackerNewsSvg}
 ];
+
+
+export const draftFile = 'lander-draft-file';
+export const publicFile = 'lander-public-file';

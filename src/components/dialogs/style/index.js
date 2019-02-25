@@ -13,6 +13,16 @@ import {detectBgImageUrl} from '../../../helper';
 import stringify from '../../../utils/stringify'
 
 class StyleDialog extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      saving: false
+    }
+  }
+
+
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
     toggleUiProp('style');
@@ -20,9 +30,11 @@ class StyleDialog extends Component {
   };
 
   save = () => {
-    const {onSave} = this.props;
+    const {afterSave, saveBg, saveDraft} = this.props;
+    // toggleUiProp('style');
+    saveDraft();
 
-    onSave();
+    afterSave();
   };
 
   imageSet = (url) => {
@@ -57,6 +69,22 @@ class StyleDialog extends Component {
   toggleImageSelect = () => {
     const {toggleUiProp} = this.props;
     toggleUiProp('imageSelect');
+  };
+
+  uploadClicked = () => {
+    document.querySelector('#image-upload').click();
+  };
+
+  fileChanged = (e) => {
+    const {setBgImage} = this.props;
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.onload = (m) => {
+      const imageContents = m.target.result;
+      setBgImage(imageContents);
+    };
+    reader.readAsDataURL(file);
   };
 
   imageSelected = (im) => {
@@ -95,9 +123,10 @@ class StyleDialog extends Component {
                     }
                     <Button variant="outline-primary" size="sm" onClick={this.toggleImageSelect}><FormattedMessage
                       id="style.bg-image-select"/></Button> &nbsp;
-                    <Button variant="outline-primary" size="sm"><FormattedMessage
+                    <Button variant="outline-primary" size="sm" onClick={this.uploadClicked}><FormattedMessage
                       id="style.bg-image-upload"/></Button>
                   </Form.Group>
+                  <input type="file" id="image-upload" accept="image/*" className="d-none" onChange={this.fileChanged}/>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-color"/></Form.Label>
                     <Form.Control type="text" value={bg.color} onChange={this.colorChanged}/>
@@ -130,7 +159,7 @@ class StyleDialog extends Component {
 StyleDialog.defaultProps = {
   afterHide: () => {
   },
-  onSave: () => {
+  afterSave: () => {
   }
 };
 
@@ -160,8 +189,9 @@ StyleDialog.propTypes = {
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
   toggleUiProp: PropTypes.func.isRequired,
+  saveDraft: PropTypes.func.isRequired,
   afterHide: PropTypes.func,
-  onSave: PropTypes.func
+  afterSave: PropTypes.func
 };
 
 export default injectIntl(StyleDialog)
