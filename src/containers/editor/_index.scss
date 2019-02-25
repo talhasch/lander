@@ -4,6 +4,30 @@
   top: 0;
   width: 100%;
 
+  .info-nav {
+    background: #495057;
+    padding: 6px;
+
+    .info-content {
+      width: 500px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .info-msg {
+        color: #ced4da;
+        margin: 0;
+        text-align: center;
+      }
+
+      .info-controls {
+
+      }
+    }
+
+  }
+
   .second-nav {
     display: flex;
     justify-content: space-between;

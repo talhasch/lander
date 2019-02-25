@@ -66,9 +66,18 @@ class EditorHeader extends Component {
     history.push('/');
   };
 
+  publish = () => {
+    console.log("publish");
+  };
+
+  revert = () => {
+
+  };
+
   render() {
     const {user, ui} = this.props;
     const {username} = user;
+
 
     return (
       <div className="editor-header">
@@ -77,7 +86,7 @@ class EditorHeader extends Component {
         <>
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#" onClick={this.goHome}>
-              <img src={landerLogo} height={50} className="d-inline-block align-top"/></Navbar.Brand>
+              <img src={landerLogo} height={30} className="d-inline-block align-top"/></Navbar.Brand>
             <Navbar.Collapse id="navbar-nav">
               <Nav className="ml-auto">
                 <NavDropdown title={username} id="collasible-nav-dropdown">
@@ -88,6 +97,34 @@ class EditorHeader extends Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+
+
+          {!user.published &&
+          <div className="info-nav">
+            <div className="info-content">
+              <div className="info-msg">Your Lander page hasn't published yet.</div>
+              <div className="info-controls">
+                <Button variant="primary" onClick={this.publish}>Publish</Button>
+              </div>
+            </div>
+          </div>
+          }
+
+          {(user.published && user.draft.updated !== user.published.updated) &&
+          <>
+            <div className="info-nav">
+              <div className="info-content">
+                <div className="info-msg">Last changes you have made hasn't publised</div>
+                <div className="info-controls">
+                  <Button variant="primary">Publish</Button>
+                  <Button variant="danger">Revert</Button>
+                </div>
+              </div>
+            </div>
+          </>
+          }
+
+
           <div className="second-nav">
             <div className="left-menu">
               <Button className="btn-preview" variant="light disabled"
