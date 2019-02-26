@@ -12,6 +12,8 @@ import blockstackLogo from '../../images/blockstack-bug-rev.svg'
 
 import landerLogo from '../../images/lander-512.png';
 
+import bitey from '../../images/bitey.jpg';
+
 const blockstack = require('blockstack');
 
 class Home extends Component {
@@ -35,10 +37,18 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <div className="header">
-          <img src={landerLogo} width={74} />
+          <img src={landerLogo} width={74}/>
         </div>
         <div className="content">
           <div className="showcase">
+            <div className="showcase-header">
+              <div className="address-bar">
+                https://landr.me/mrbitey.id
+              </div>
+            </div>
+            <div className="showcase-content">
+              <img src={bitey} />
+            </div>
           </div>
           <div className="text-content">
             <h1 className="main-title"><FormattedMessage id="home.title"/></h1>

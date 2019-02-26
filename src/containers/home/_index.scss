@@ -10,11 +10,46 @@
 
   .content {
     .showcase {
-      background: #c4c4c4;
-      border-radius: 12px;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
       float: left;
-      height: 500px;
+      height: 534px;
+      overflow: hidden;
       width: 400px;
+
+      .showcase-header {
+        align-items: center;
+        background: #A5C5E2;
+
+        display: flex;
+        height: 34px;
+        padding-left: 8px;
+
+        .address-bar {
+          align-items: center;
+          background: #fff;
+          border-radius: 8px;
+          color: #4e5d6b;
+          display: flex;
+          font-size: 12px;
+          height: 24px;
+          padding-left: 8px;
+          width: 300px;
+        }
+      }
+
+      .showcase-content {
+        background: #f7f7f7;
+        height: 500px;
+        width: 400px;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      user-select: none;
     }
 
     .text-content {
