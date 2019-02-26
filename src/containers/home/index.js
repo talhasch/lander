@@ -37,7 +37,7 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <div className="header">
-          <img src={landerLogo} width={74}/>
+          <img src={landerLogo} alt="Logo" width={74}/>
         </div>
         <div className="content">
           <div className="showcase">
@@ -47,14 +47,14 @@ class Home extends Component {
               </div>
             </div>
             <div className="showcase-content">
-              <img src={bitey} />
+              <img src={bitey} alt="Mr. Bitey"/>
             </div>
           </div>
           <div className="text-content">
             <h1 className="main-title"><FormattedMessage id="home.title"/></h1>
             <p className="description"><FormattedMessage id="home.description"/></p>
             <div onClick={this.signIn} className="login-btn">
-              <img src={blockstackLogo} className="bl-icon"/> <FormattedMessage id="home.login"/>
+              <img src={blockstackLogo} alt="Blockstack Logo" className="bl-icon"/> <FormattedMessage id="home.login"/>
             </div>
           </div>
         </div>

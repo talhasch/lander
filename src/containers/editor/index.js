@@ -131,7 +131,7 @@ class EditorHeader extends Component {
         <>
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#" onClick={this.goHome}>
-              <img src={landerLogo} height={30} className="d-inline-block align-top"/></Navbar.Brand>
+              <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/></Navbar.Brand>
             <Navbar.Collapse id="navbar-nav">
               <Nav className="ml-auto">
                 <NavDropdown title={username} id="collasible-nav-dropdown">
