@@ -42,6 +42,10 @@
   .info-nav {
     background: #495057;
     padding: 6px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .info-content {
       align-items: center;
@@ -61,6 +65,13 @@
       }
     }
 
+    .user-address {
+      color: #ced4da;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .second-nav {

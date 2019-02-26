@@ -28,10 +28,56 @@ import Spinner from '../../components/elements/spinner';
 import fixClassNames from '../../utils/fix-class-names';
 
 import getBaseUrl from '../../utils/get-base-url';
+import makeUserUrl from '../../utils/user-url';
 
 import landerLogo from '../../images/lander-256.png';
 
 import {eyeSvg, eyeSlashSvg, magicSvg, linkExternal} from '../../svg';
+
+
+class InfoNav extends Component {
+
+  publish = () => {
+    const {publish} = this.props;
+
+    publish();
+  };
+
+  render() {
+    const {user} = this.props;
+
+    const userUrl = makeUserUrl(user.username);
+
+    if (!user.published) {
+      return <div className="info-nav">
+        <div className="info-content">
+          <div className="info-msg">Your Lander page hasn't published yet.</div>
+          <div className="info-controls">
+            <Button variant="primary" onClick={this.publish}
+                    disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
+          </div>
+        </div>
+      </div>
+    }
+
+    if (user.published && user.draft.updated !== user.published.updated) {
+      return <div className="info-nav">
+        <div className="info-content">
+          <div className="info-msg">Last changes you have made hasn't published.</div>
+          <div className="info-controls">
+            <Button variant="primary" onClick={this.publish}
+                    disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
+          </div>
+        </div>
+      </div>;
+    }
+
+
+    return <div className="info-nav">
+      <a className="user-address" href={userUrl} target="_blank" rel="noopener noreferrer">{userUrl}</a>
+    </div>;
+  }
+}
 
 class EditorHeader extends Component {
 
@@ -69,11 +115,6 @@ class EditorHeader extends Component {
     history.push('/');
   };
 
-  publish = () => {
-    const {publish} = this.props;
-
-    publish();
-  };
 
   revert = () => {
 
@@ -112,31 +153,7 @@ class EditorHeader extends Component {
             </Navbar.Collapse>
           </Navbar>
 
-          {!user.published &&
-          <div className="info-nav">
-            <div className="info-content">
-              <div className="info-msg">Your Lander page hasn't published yet.</div>
-              <div className="info-controls">
-                <Button variant="primary" onClick={this.publish}
-                        disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
-              </div>
-            </div>
-          </div>
-          }
-
-          {(user.published && user.draft.updated !== user.published.updated) &&
-          <>
-            <div className="info-nav">
-              <div className="info-content">
-                <div className="info-msg">Last changes you have made hasn't published.</div>
-                <div className="info-controls">
-                  <Button variant="primary" onClick={this.publish}
-                          disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
-                </div>
-              </div>
-            </div>
-          </>
-          }
+          <InfoNav {...this.props} />
 
           <div className="second-nav">
             <div className="left-menu">
@@ -193,7 +210,7 @@ class Editor extends Component {
 
     const {user, ui} = this.props;
     if (!(user && user.loaded)) {
-      return <Spinner />;
+      return <Spinner/>;
     }
 
     const {name, description, image, account} = user.profile;
