@@ -82,15 +82,17 @@ class Profile extends Component {
 
     const {name, description, image, account} = user.profile;
 
-    return <div className="main-wrapper">
+    return <div className="main-wrapper-profile">
       <ProfileBg bg={user.published.bg}/>
-      <div className="profile-box">
-        <ProfileImage image={image} {...this.props}/>
-        <ProfileName name={name} {...this.props}/>
-        <ProfileDescription description={description} {...this.props}/>
-        <ProfileBio bio={user.published.bio} {...this.props}/>
-        <SocialAccounts accounts={account} {...this.props}/>
-        <WalletAccounts accounts={account} {...this.props}/>
+      <div className="inner-wrapper">
+        <div className="profile-box">
+          <ProfileImage image={image} {...this.props}/>
+          <ProfileName name={name} {...this.props}/>
+          <ProfileDescription description={description} {...this.props}/>
+          <ProfileBio bio={user.published.bio} {...this.props}/>
+          <SocialAccounts accounts={account} {...this.props}/>
+          <WalletAccounts accounts={account} {...this.props}/>
+        </div>
       </div>
     </div>
   }

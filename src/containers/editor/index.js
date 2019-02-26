@@ -204,16 +204,18 @@ class Editor extends Component {
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
 
-        <div className="main-wrapper">
+        <div className="main-wrapper-editor">
           <ProfileBg bg={user.draft.bg}/>
-          <EditorHeader {...this.props} />
-          <div className={fixClassNames(`profile-box ${!ui.preview ? 'edit-mode' : ''}`)}>
-            <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
-            <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
-            <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
-            <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
-            <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
-            <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+          <div className="inner-wrapper">
+            <EditorHeader {...this.props} />
+            <div className={fixClassNames(`profile-box ${!ui.preview ? 'edit-mode' : ''}`)}>
+              <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
+              <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
+              <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
+              <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
+              <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+              <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+            </div>
           </div>
         </div>
       </>

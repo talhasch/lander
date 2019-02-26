@@ -1,0 +1,25 @@
+.main-wrapper-profile {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .inner-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .profile-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: $box-shadow;
+    margin: 10% auto 100px auto;
+    position: relative;
+    width: 500px;
+    z-index: 2;
+    padding: 26px;
+  }
+}
