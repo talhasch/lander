@@ -1,6 +1,6 @@
 .home-wrapper {
   margin: auto;
-  width: 900px;
+  width: 90%;
 
   .header {
     align-items: center;
@@ -12,7 +12,7 @@
     .showcase {
       border-radius: 8px;
       box-shadow: $box-shadow;
-      float: left;
+      display: none;
       height: 534px;
       overflow: hidden;
       width: 400px;
@@ -53,12 +53,12 @@
     }
 
     .text-content {
-      float: right;
-      width: 470px;
+      width: 90%;
 
       .main-title {
         color: #333740;
         margin-bottom: 30px;
+        font-size: 2em;
       }
 
       .description {
@@ -74,15 +74,103 @@
         cursor: pointer;
         display: flex;
         font-family: 'M PLUS Rounded 1c', sans-serif;
-        font-size: 1.3em;
+        font-size: 1em;
         font-weight: 600;
         margin-bottom: 30px;
         padding: 6px;
-        width: 320px;
+        width: 280px;
 
         .bl-icon {
           height: 50px;
           margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "md")) {
+  .home-wrapper {
+    margin: auto;
+    width: 760px;
+
+    .content {
+      .showcase {
+        float: left;
+        display: block;
+      }
+
+      .text-content {
+        float: right;
+        width: 340px;
+
+        .main-title {
+          font-size: 2em;
+        }
+
+        .description {
+          font-size: 1.4em;
+        }
+
+        .login-btn {
+          font-size: 1.2em;
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "md")) {
+  .home-wrapper {
+    margin: auto;
+    width: 760px;
+
+    .content {
+      .showcase {
+        float: left;
+        display: block;
+      }
+
+      .text-content {
+        float: right;
+        width: 340px;
+
+        .main-title {
+          font-size: 2em;
+        }
+
+        .description {
+          font-size: 1.4em;
+        }
+
+        .login-btn {
+          font-size: 1.2em;
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "lg")) {
+  .home-wrapper {
+    width: 900px;
+    .content {
+      .text-content {
+        width: 470px;
+
+        .main-title {
+          font-size: 2.2em;
+        }
+
+        .description {
+          font-size: 1.6em;
+        }
+
+        .login-btn {
+          font-size: 1.3em;
+          width: 320px;
         }
       }
     }
