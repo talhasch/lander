@@ -28,7 +28,7 @@ import Spinner from '../../components/elements/spinner';
 import fixClassNames from '../../utils/fix-class-names';
 
 import getBaseUrl from '../../utils/get-base-url';
-import makeUserUrl from '../../utils/user-url';
+import makeUserUrl from '../../helper/user-url';
 
 import landerLogo from '../../images/lander-256.png';
 
