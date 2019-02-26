@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, Form, Col, Alert} from 'react-bootstrap';
+import {Modal, Button, Form, Col} from 'react-bootstrap';
 
 import {injectIntl, FormattedMessage} from 'react-intl';
 
@@ -10,18 +10,11 @@ import ImageSelectDialog from '../image-select'
 
 import detectBgImageUrl from '../../../helper/detect-bg-image-url';
 
+import showError from '../../../utils/show-error';
+
 import stringify from '../../../utils/stringify'
 
 class StyleDialog extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      saveErr: ''
-    };
-  }
-
   componentDidMount() {
     this.mounted = true;
   };
@@ -41,7 +34,7 @@ class StyleDialog extends Component {
     saveDraft().then(() => {
       toggleUiProp('style');
     }).catch(err => {
-      this.setState({saveErr: String(err)});
+      showError(String(err));
     });
 
     afterSave();
@@ -104,11 +97,9 @@ class StyleDialog extends Component {
   };
 
   render() {
-    const {saveErr} = this.state;
     const {user, ui} = this.props;
     const {bg, bgTemp} = user.draft;
     const changed = stringify(bg) !== stringify(bgTemp);
-
 
     return (
       <>
@@ -119,11 +110,6 @@ class StyleDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="style-dialog-content">
-              {saveErr &&
-              <Alert variant="danger" onClose={() => {
-                this.setState({saveErr: ''});
-              }}>{saveErr}</Alert>
-              }
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">

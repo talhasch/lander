@@ -26,7 +26,6 @@ import BioEditDialog from '../../components/dialogs/bio-edit';
 import Spinner from '../../components/elements/spinner';
 
 import fixClassNames from '../../utils/fix-class-names';
-import showError from '../../utils/show-error';
 
 import getBaseUrl from '../../utils/get-base-url';
 import makeUserUrl from '../../utils/user-url';
@@ -81,10 +80,6 @@ class InfoNav extends Component {
 }
 
 class EditorHeader extends Component {
-
-  componentDidMount() {
-    showError('sss')
-  }
 
   toggleSettings = (e) => {
     if (e) {

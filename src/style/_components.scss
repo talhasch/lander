@@ -1,42 +1,43 @@
 /* Additional components */
 
+// Custom modal
 .modal.drawer {
   .modal-dialog {
-    position: fixed;
-    margin: auto;
-    width: 320px;
+    background-color: rgba(255, 255, 255, 0.9);
     height: 100%;
-    -webkit-transform: translate3d(0%, 0, 0);
+    margin: auto;
+    position: fixed;
+    transform: translate3d(0%, 0, 0);
     -ms-transform: translate3d(0%, 0, 0);
     -o-transform: translate3d(0%, 0, 0);
-    transform: translate3d(0%, 0, 0);
-    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-transform: translate3d(0%, 0, 0);
+    width: 320px;
 
   }
 
   .modal-content {
-    height: 100%;
-    overflow-y: auto;
     background: transparent;
     border: none;
     border-radius: 0;
+    height: 100%;
+    overflow-y: auto;
   }
 
   .modal-body {
-    padding: 15px 15px 80px;
     border: none;
     border-right: 1px solid #d8d8d8;
+    padding: 15px 15px 80px;
   }
 
   .modal-header {
-    flex-shrink: 0;
-    border: none;
-    background: darken($dark, 10);
-    border-radius: 0 !important;
-    padding: 0 10px;
-    height: 107px;
     align-items: center;
+    background: darken($dark, 10);
+    border: none;
+    border-radius: 0 !important;
     color: $navbar-dark-color;
+    flex-shrink: 0;
+    height: 107px;
+    padding: 0 10px;
 
     .close {
       color: $navbar-dark-color;
@@ -50,10 +51,10 @@
 
   &.fade .modal-dialog {
     left: -320px;
-    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
-    transition: opacity 0.3s linear, left 0.3s ease-out;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
   }
 
   &.show .modal-dialog {
@@ -63,4 +64,26 @@
 
 .drawer-backdrop {
   opacity: 0 !important;
+}
+
+// Error messages
+._error-message {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+
+  ._message {
+    background: #bf0000;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    color: lighten(#bf0000, 50);
+    display: block;
+    margin: auto;
+    max-width: 500px;
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+  }
 }

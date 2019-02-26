@@ -27,26 +27,6 @@ html, body {
   }
 }
 
-._error-message {
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  z-index: 99999;
-  width: 100%;
-
-  ._message {
-    display: block;
-    width: 300px;
-    margin: auto;
-    background: #bf0000;
-    color: lighten(#bf0000, 50);
-    padding: 10px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-  }
-}
-
 @import '../containers/home/index';
 @import '../containers/editor/index';
 @import '../containers/profile/index';
