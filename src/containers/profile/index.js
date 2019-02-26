@@ -50,6 +50,8 @@ class Profile extends Component {
     const {match} = this.props;
     const {username} = match.params;
 
+    console.log(match);
+
     let profile;
     let published;
 
@@ -70,13 +72,17 @@ class Profile extends Component {
 
   render() {
     const {loading, notFound} = this.state;
+    const {location} = this.props;
 
     if (loading) {
       return <Spinner/>;
     }
 
     if (notFound) {
-      return '404';
+      return <div className="not-found-error">
+        <h1>404</h1>
+        <strong>{location.pathname} not found</strong>
+      </div>;
     }
 
     const {user} = this.state;

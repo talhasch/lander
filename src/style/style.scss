@@ -1,5 +1,4 @@
 @import 'bootstrap';
-
 @import './mixins';
 @import './components';
 
@@ -14,6 +13,18 @@ html, body {
 #root {
   height: 100%;
   width: 100%;
+}
+
+.not-found-error {
+  text-align: center;
+  margin: 60px 0 0 0;
+  h1 {
+    color: #fff;
+    filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
+    font-size: 90px;
+    font-weight: 700;
+    margin: 0;
+  }
 }
 
 @import '../containers/home/index';
