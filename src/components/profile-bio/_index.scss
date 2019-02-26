@@ -6,6 +6,10 @@
   margin-bottom: 24px;
   text-align: center;
 
+  p {
+    margin-bottom: 6px;
+  }
+
   &.not-set {
     color: #bbbbbb;
     display: flex;
@@ -17,11 +21,11 @@
 
   &.edit-mode {
     cursor: pointer;
-  }
 
-  &:not(.not-set) {
-    &:hover {
-      background: #fdffc7;
+    &:not(.not-set) {
+      &:hover {
+        background: #fdffc7;
+      }
     }
   }
 }
