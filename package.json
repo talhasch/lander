@@ -1,7 +1,10 @@
 {
-  "name": "landing",
+  "name": "lander",
+  "productName": "Lander",
   "version": "0.1.0",
   "private": true,
+  "author": "Talha Buğra Bulut <talhabugrabulut@gmail.com>",
+  "homepage": "https://landr.me",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
