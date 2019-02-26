@@ -41,7 +41,7 @@ class Profile extends Component {
 
       // TODO: Find better approach
       document.title = `${resp.profile.name} - ${document.title}`;
-    }).finally(() => {
+    }).then(() => {
       this.setState({loading: false});
     })
   }
