@@ -1,8 +1,16 @@
 export default [
   {
-    'name': 'air-bubbles.jpg',
-    'title': 'Air Bubbles',
-    'url': require('./air-bubbles.jpg')
+    'name': 'wave.jpg',
+    'title': 'Wave',
+    'url': require('./wave.jpg')
+  }, {
+    'name': 'forest.jpg',
+    'title': 'Forest',
+    'url': require('./forest.jpg')
+  }, {
+    'name': 'fuji.jpg',
+    'title': 'Fuji Mountain',
+    'url': require('./fuji.jpg')
   }, {
     'name': 'denali.jpg',
     'title': 'Denali',
@@ -12,17 +20,9 @@ export default [
     'title': 'Dolomites',
     'url': require('./dolomites.jpg')
   }, {
-    'name': 'dolphins.jpg',
-    'title': 'Dolphins',
-    'url': require('./dolphins.jpg')
-  }, {
     'name': 'fryxellsee.jpg',
     'title': 'Fryxellsee',
     'url': require('./fryxellsee.jpg')
-  }, {
-    'name': 'fuji.jpg',
-    'title': 'Fuji Mountain',
-    'url': require('./fuji.jpg')
   }, {
     'name': 'hayden-valley.jpg',
     'title': 'Hayden Valley',
@@ -48,12 +48,20 @@ export default [
     'title': 'Water',
     'url': require('./water.jpg')
   }, {
-    'name': 'water-light.jpg',
-    'title': 'Light Water',
-    'url': require('./water-light.jpg')
+    'name': 'wall.jpg',
+    'title': 'Wall',
+    'url': require('./wall.jpg')
   }, {
-    'name': 'wave.jpg',
-    'title': 'Wave',
-    'url': require('./wave.jpg')
+    'name': 'aqua.jpg',
+    'title': 'Aqua',
+    'url': require('./aqua.jpg')
+  }, {
+    'name': 'desert.jpg',
+    'title': 'Desert',
+    'url': require('./desert.jpg')
+  }, {
+    'name': 'norway.jpg',
+    'title': 'Norway',
+    'url': require('./norway.jpg')
   }
 ]
