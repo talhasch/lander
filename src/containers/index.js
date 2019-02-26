@@ -12,7 +12,7 @@ import Auth from './auth';
 import Editor from './editor';
 import Profile from './profile'
 
-import {login} from '../store/user';
+import {login, refreshProfile} from '../store/user';
 
 import messages from '../locales';
 
@@ -28,6 +28,7 @@ export default class App extends Component {
       const userData = blockstack.loadUserData();
       const {store} = this.props;
       store.dispatch(login(userData));
+      store.dispatch(refreshProfile());
     }
   }
 
