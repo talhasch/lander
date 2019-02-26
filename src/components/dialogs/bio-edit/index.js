@@ -2,30 +2,15 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, Form, Alert} from 'react-bootstrap';
+import {Modal, Button, Form} from 'react-bootstrap';
 
-import {injectIntl, FormattedMessage} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import stringify from '../../../utils/stringify';
 
+import showError from '../../../utils/show-error';
+
 class BioEditDialog extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      saveErr: '',
-      saved: false
-    };
-  }
-
-  componentDidMount() {
-    this.mounted = true;
-  };
-
-  componentWillUnmount() {
-    this.mounted = false;
-  };
 
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -40,25 +25,18 @@ class BioEditDialog extends Component {
   };
 
   save = () => {
-    const {afterSave, saveDraft} = this.props;
+    const {afterSave, saveDraft, toggleUiProp} = this.props;
     saveDraft().then(() => {
-      this.setState({saved: true});
-      setTimeout(() => {
-        if (this.mounted) {
-          this.setState({saved: false});
-        }
-      }, 3000);
+      toggleUiProp('bioEdit');
     }).catch(err => {
-      this.setState({saveErr: String(err)});
+      showError(String(err));
     });
 
     afterSave();
   };
 
   render() {
-    const {saved, saveErr} = this.state;
-
-    const {intl, user} = this.props;
+    const {user} = this.props;
     const {bio, bioTemp} = user.draft;
     const changed = stringify(bio) !== stringify(bioTemp);
 
@@ -70,17 +48,11 @@ class BioEditDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="bio-edit-dialog-content">
-              {saved &&
-              <Alert variant="success"><FormattedMessage id="g.saved"/></Alert>
-              }
-              {saveErr &&
-              <Alert variant="danger" onClose={() => {
-                this.setState({saveErr: ''});
-              }}>{saveErr}</Alert>
-              }
               <Form>
                 <Form.Group>
-                  <Form.Label><small className="text-muted form-text"><FormattedMessage id="bio.help-text"/></small></Form.Label>
+                  <Form.Label>
+                    <small className="text-muted form-text"><FormattedMessage id="bio.help-text"/></small>
+                  </Form.Label>
                   <Form.Control as="textarea" rows="10" value={bio} onChange={this.textChanged}/>
                 </Form.Group>
               </Form>
@@ -108,7 +80,6 @@ BioEditDialog.defaultProps = {
 };
 
 BioEditDialog.propTypes = {
-  intl: PropTypes.instanceOf(Object).isRequired,
   user: PropTypes.shape({
     draft: PropTypes.shape({
       bio: PropTypes.string.isRequired
@@ -121,4 +92,4 @@ BioEditDialog.propTypes = {
   afterSave: PropTypes.func
 };
 
-export default injectIntl(BioEditDialog)
+export default BioEditDialog;

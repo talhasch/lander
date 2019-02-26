@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form, Col} from 'react-bootstrap';
 
-import {injectIntl, FormattedMessage} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import ImageSelectDialog from '../image-select'
 
@@ -15,13 +15,6 @@ import showError from '../../../utils/show-error';
 import stringify from '../../../utils/stringify'
 
 class StyleDialog extends Component {
-  componentDidMount() {
-    this.mounted = true;
-  };
-
-  componentWillUnmount() {
-    this.mounted = false;
-  };
 
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -198,4 +191,4 @@ StyleDialog.propTypes = {
   afterSave: PropTypes.func
 };
 
-export default injectIntl(StyleDialog)
+export default StyleDialog;
