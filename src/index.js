@@ -11,8 +11,6 @@ import 'typeface-m-plus-rounded-1c';
 import './index.css';
 import './style/style.scss';
 
-window.blockstack = require('blockstack');
-
 require('./data/bg-images');
 
 render(
