@@ -16,10 +16,18 @@
     background: #fff;
     border-radius: 16px;
     box-shadow: $box-shadow;
-    margin: 10% auto 100px auto;
+    margin: 40px auto 40px auto;
     position: relative;
-    width: 500px;
     z-index: 2;
-    padding: 26px;
+    padding: 14px;
+    width: 95%;
+    font-size: 80%;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      width: 500px;
+      padding: 26px;
+      margin: 180px auto 180px auto;
+      font-size: 100%;
+    }
   }
 }
