@@ -203,8 +203,7 @@ class Editor extends Component {
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
-
-        <div className="main-wrapper-editor">
+        <div className={ui.preview ? ' main-wrapper-profile' : 'main-wrapper-editor'}>
           <ProfileBg bg={user.draft.bg}/>
           <div className="inner-wrapper">
             <EditorHeader {...this.props} />

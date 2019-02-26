@@ -3,81 +3,14 @@
   overflow: hidden;
   position: relative;
 
-  .editor-header {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    .public-link {
-      svg {
-        color: #ced4da;
-        width: 22px;
-        height: 22px;
-      }
-    }
-
-    .info-nav {
-      background: #495057;
-      padding: 6px;
-
-      .info-content {
-        width: 500px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .info-msg {
-          color: #ced4da;
-          margin: 0;
-          text-align: center;
-        }
-
-        .info-controls {
-
-        }
-      }
-
-    }
-
-    .second-nav {
-      display: flex;
-      justify-content: space-between;
-      margin: auto;
-      width: 500px;
-
-      .btn {
-
-      }
-    }
-
-    .btn-preview, .btn-style, .btn-preview-off {
-      align-items: center;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      display: flex;
-
-      svg {
-        height: 16px;
-        margin-right: 6px;
-        width: 16px;
-      }
-    }
-
-    .btn-preview-off {
-      border-bottom-left-radius: 0;
-    }
-  }
-
   .inner-wrapper {
-    position: absolute;
+    height: 100%;
     left: 0;
+    min-width: 700px;
+    overflow-y: auto;
+    position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    min-width: 700px;
   }
 
   .profile-box {
@@ -85,10 +18,77 @@
     border-radius: 16px;
     box-shadow: $box-shadow;
     margin: 180px auto 100px auto;
+    padding: 22px;
     position: relative;
     width: 500px;
     z-index: 2;
-    padding: 22px;
+  }
+}
+
+.editor-header {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .public-link {
+    svg {
+      color: #ced4da;
+      height: 22px;
+      width: 22px;
+    }
+  }
+
+  .info-nav {
+    background: #495057;
+    padding: 6px;
+
+    .info-content {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      width: 500px;
+
+      .info-msg {
+        color: #ced4da;
+        margin: 0;
+        text-align: center;
+      }
+
+      .info-controls {
+
+      }
+    }
+
+  }
+
+  .second-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 500px;
+
+    .btn {
+
+    }
+  }
+
+  .btn-preview, .btn-style, .btn-preview-off {
+    align-items: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+
+    svg {
+      height: 16px;
+      margin-right: 6px;
+      width: 16px;
+    }
+  }
+
+  .btn-preview-off {
+    border-bottom-left-radius: 0;
   }
 }
 
