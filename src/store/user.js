@@ -1,6 +1,6 @@
 import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
-import {draftFile, publishedFile} from '../constants';
+import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
 const blockstack = require('blockstack');
 
@@ -30,7 +30,7 @@ const dataModel = () => (
   {
     email: '',
     bg: {
-      image: 'wave.jpg',
+      image: defaultBgImage,
       color: '#4a96f7',
       blur: '2'
     },
@@ -112,6 +112,9 @@ export default (state = initialState, action) => {
       if (action.payload === 'recover') {
         const {bgTemp} = draft;
         ({image: newVal} = bgTemp);
+        if (!newVal) {
+          newVal = defaultBgImage;
+        }
       }
 
       const newDraft = Object.assign({}, draft, {bg: Object.assign({}, bg, {image: newVal})});

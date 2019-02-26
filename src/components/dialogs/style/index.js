@@ -18,8 +18,7 @@ class StyleDialog extends Component {
     super(props);
 
     this.state = {
-      saveErr: '',
-      saved: false
+      saveErr: ''
     };
   }
 
@@ -38,14 +37,9 @@ class StyleDialog extends Component {
   };
 
   save = () => {
-    const {afterSave, saveDraft} = this.props;
+    const {afterSave, saveDraft, toggleUiProp} = this.props;
     saveDraft().then(() => {
-      this.setState({saved: true});
-      setTimeout(() => {
-        if (this.mounted) {
-          this.setState({saved: false});
-        }
-      }, 3000);
+      toggleUiProp('style');
     }).catch(err => {
       this.setState({saveErr: String(err)});
     });
@@ -110,7 +104,7 @@ class StyleDialog extends Component {
   };
 
   render() {
-    const {saved, saveErr} = this.state;
+    const {saveErr} = this.state;
     const {user, ui} = this.props;
     const {bg, bgTemp} = user.draft;
     const changed = stringify(bg) !== stringify(bgTemp);
@@ -125,9 +119,6 @@ class StyleDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="style-dialog-content">
-              {saved &&
-              <Alert variant="success"><FormattedMessage id="g.saved"/></Alert>
-              }
               {saveErr &&
               <Alert variant="danger" onClose={() => {
                 this.setState({saveErr: ''});
