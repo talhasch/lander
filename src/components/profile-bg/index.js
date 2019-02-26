@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Color from 'color';
 
-import {detectBgImageUrl} from '../../helper';
+import detectBgImageUrl from '../../helper/detect-bg-image-url';
 
 class ProfileBg extends Component {
 

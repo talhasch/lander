@@ -8,7 +8,7 @@ import {injectIntl, FormattedMessage} from 'react-intl';
 
 import ImageSelectDialog from '../image-select'
 
-import {detectBgImageUrl} from '../../../helper';
+import detectBgImageUrl from '../../../helper/detect-bg-image-url';
 
 import stringify from '../../../utils/stringify'
 
