@@ -18,4 +18,10 @@
   &.edit-mode {
     cursor: pointer;
   }
+
+  &:not(.not-set) {
+    &:hover {
+      background: #fdffc7;
+    }
+  }
 }
