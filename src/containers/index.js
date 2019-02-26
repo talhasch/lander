@@ -51,7 +51,12 @@ export default class App extends Component {
           <Route exact path="/app/editor" component={props => {
             return <Editor {...props} />;
           }}/>
-          <Route exact path="/:username" component={Profile}/>
+          <Route exact path="/:username" component={props => (
+            <Profile
+              timestamp={new Date().toString()}
+              {...props}
+            />
+          )}/>
         </Fragment>
       </IntlProvider>
     );
