@@ -74,9 +74,6 @@ class SettingsDialog extends Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.save}>
-              <FormattedMessage id="g.cancel"/>
-            </Button>
             <Button variant="primary" onClick={this.hide}>
               <FormattedMessage id="g.save"/>
             </Button>

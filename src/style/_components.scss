@@ -25,6 +25,7 @@
   .modal-body {
     padding: 15px 15px 80px;
     border: none;
+    border-right: 1px solid #d8d8d8;
   }
 
   .modal-header {
@@ -33,7 +34,7 @@
     background: darken($dark, 10);
     border-radius: 0 !important;
     padding: 0 10px;
-    height: 57px;
+    height: 107px;
     align-items: center;
     color: $navbar-dark-color;
 
@@ -44,6 +45,7 @@
 
   .modal-footer {
     border: none;
+    border-right: 1px solid #ccc;
   }
 
   &.fade .modal-dialog {
