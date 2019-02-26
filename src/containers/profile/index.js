@@ -13,6 +13,7 @@ import ProfileDescription from '../../components/profile-description';
 import ProfileBio from '../../components/profile-bio';
 import SocialAccounts from '../../components/social-accounts';
 import WalletAccounts from '../../components/wallet-accounts';
+import Spinner from '../../components/elements/spinner';
 
 const axios = require('axios');
 const blockstack = require('blockstack');
@@ -71,7 +72,7 @@ class Profile extends Component {
     const {loading, notFound} = this.state;
 
     if (loading) {
-      return '...';
+      return <Spinner/>;
     }
 
     if (notFound) {

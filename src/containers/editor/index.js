@@ -22,7 +22,8 @@ import SettingsDialog from '../../components/dialogs/settings';
 import StyleDialog from '../../components/dialogs/style';
 
 import AccountEditDialog from '../../components/dialogs/account-edit';
-import BioEditDialog from '../../components/dialogs/bio-edit'
+import BioEditDialog from '../../components/dialogs/bio-edit';
+import Spinner from '../../components/elements/spinner';
 
 import fixClassNames from '../../utils/fix-class-names';
 
@@ -192,7 +193,7 @@ class Editor extends Component {
 
     const {user, ui} = this.props;
     if (!(user && user.loaded)) {
-      return null;
+      return <Spinner />;
     }
 
     const {name, description, image, account} = user.profile;
