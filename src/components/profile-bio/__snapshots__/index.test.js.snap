@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bio is not empty in edit mode. should render bio 1`] = `
+<div
+  className="profile-bio edit-mode"
+  onClick={[Function]}
+>
+  <p>
+    Lorem ipsum dolor sit amet
+  </p>
+</div>
+`;
+
+exports[`bio is not empty in not edit mode. should render bio (without onclick event) 1`] = `
+<div
+  className="profile-bio"
+>
+  <p>
+    Lorem ipsum dolor sit amet
+  </p>
+</div>
+`;
+
+exports[`in edit mode. bio is empty. should show placeholder 1`] = `
+<div
+  className="profile-bio not-set edit-mode"
+  onClick={[Function]}
+>
+  <span>
+    Add longer description to your profile
+  </span>
+</div>
+`;
+
+exports[`not in edit mode and bio is empty. should render null 1`] = `null`;

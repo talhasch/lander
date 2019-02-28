@@ -11,7 +11,9 @@ class ProfileBio extends Component {
   edit = () => {
     const {toggleUiProp} = this.props;
 
-    toggleUiProp('bioEdit');
+    if (toggleUiProp) {
+      toggleUiProp('bioEdit');
+    }
   };
 
   render() {
@@ -29,22 +31,29 @@ class ProfileBio extends Component {
       </div>
     }
 
-    return <div className={fixClassNames(`profile-bio ${editMode ? 'edit-mode' : ''}`)} onClick={this.edit}>
-      {renderBio}
-    </div>;
+    const eProps = {
+      className: fixClassNames(`profile-bio ${editMode ? 'edit-mode' : ''}`)
+    };
+
+    if (editMode) {
+      eProps.onClick = this.edit;
+    }
+
+    return <div {...eProps}>{renderBio}</div>;
   }
 }
 
 
 ProfileBio.defaultProps = {
   editMode: false,
-  bio: ''
+  bio: '',
+  toggleUiProp: null
 };
 
 ProfileBio.propTypes = {
   editMode: PropTypes.bool,
   bio: PropTypes.string,
-  toggleUiProp: PropTypes.func.isRequired
+  toggleUiProp: PropTypes.func
 };
 
 export default ProfileBio;
