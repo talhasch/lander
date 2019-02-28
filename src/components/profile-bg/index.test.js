@@ -2,8 +2,6 @@ import React from 'react';
 import ProfileBg from './index';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../utils/test-helper';
-
 it('render component', () => {
 
   const props = {
@@ -14,7 +12,7 @@ it('render component', () => {
     }
   };
 
-  const component = wrapWithIntl(<ProfileBg {...props} />);
+  const component = <ProfileBg {...props} />;
 
   const tree = renderer
     .create(component)
