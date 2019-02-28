@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render component 1`] = `
+<div
+  className="spinner"
+>
+  <div
+    className="double-bounce1"
+  />
+  <div
+    className="double-bounce2"
+  />
+</div>
+`;
