@@ -127,8 +127,7 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/talhasch/Desktop/landing/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/talhasch/Desktop/landing/node_modules/jest-watch-typeahead/testname.js"
+
     ]
   },
   "babel": {
