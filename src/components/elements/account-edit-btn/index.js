@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {penSvg} from '../../../svg';
+import PropTypes from "prop-types";
 
 class AccountEditBtn extends Component {
 
@@ -23,6 +24,10 @@ class AccountEditBtn extends Component {
 
 AccountEditBtn.defaultProps = {};
 
-AccountEditBtn.propTypes = {};
+AccountEditBtn.propTypes = {
+  ui: PropTypes.shape({
+    skipAccountDialog: PropTypes.bool.isRequired
+  })
+};
 
 export default AccountEditBtn;
