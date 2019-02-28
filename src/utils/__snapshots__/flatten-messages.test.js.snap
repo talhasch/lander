@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should flatten messages 1`] = `
+Object {
+  "g.bar": "bar",
+  "g.baz.lorem": "ipsum",
+  "g.foo": "foo",
+}
+`;

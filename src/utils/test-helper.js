@@ -1,6 +1,6 @@
 import React from 'react';
 import {addLocaleData, IntlProvider} from "react-intl";
-import {flattenMessages} from "./flatten-messages";
+import flattenMessages from "./flatten-messages";
 import messages from "../locales/index";
 
 import en from "react-intl/locale-data/en";

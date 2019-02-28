@@ -5,7 +5,7 @@ import {addLocaleData, IntlProvider} from 'react-intl';
 
 import en from 'react-intl/locale-data/en';
 
-import {flattenMessages} from '../utils/flatten-messages';
+import flattenMessages from '../utils/flatten-messages';
 
 import Home from './home';
 import Auth from './auth';
