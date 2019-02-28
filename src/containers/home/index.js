@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import connect from 'react-redux/es/connect/connect';
 
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 
 import getBaseUrl from '../../utils/get-base-url';
 
@@ -56,6 +56,13 @@ class Home extends Component {
             <div onClick={this.signIn} className="login-btn">
               <img src={blockstackLogo} alt="Blockstack Logo" className="bl-icon"/> <FormattedMessage id="home.login"/>
             </div>
+            <p className="contact">
+              <FormattedHTMLMessage id="home.contact" values={{link: 'https://landr.me/talhasch.id.blockstack'}}/>
+            </p>
+            <p className="open-source">
+              <FormattedHTMLMessage id="home.open-source"
+                                    values={{link: 'https://landr.me/talhasch.id.blockstack'}}/>
+            </p>
           </div>
         </div>
       </div>

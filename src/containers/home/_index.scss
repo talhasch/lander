@@ -76,13 +76,26 @@
         font-family: 'M PLUS Rounded 1c', sans-serif;
         font-size: 1em;
         font-weight: 600;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         padding: 6px;
         width: 280px;
 
         .bl-icon {
           height: 50px;
           margin-right: 10px;
+        }
+      }
+
+      .contact {
+        font-size: 1.1em;
+      }
+
+      .open-source {
+        font-size: 0.9em;
+
+        svg {
+          width: 1.1em;
+          height: 1.1em;
         }
       }
     }
