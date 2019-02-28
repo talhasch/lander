@@ -50,7 +50,7 @@ class ProfileBg extends Component {
 
 
 ProfileBg.defaultProps = {
-  image: null
+
 };
 
 ProfileBg.propTypes = {

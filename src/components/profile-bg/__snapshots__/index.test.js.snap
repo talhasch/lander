@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render component 1`] = `
+<div
+  className="bg"
+  style={
+    Object {
+      "backgroundColor": "#cccccc",
+      "backgroundImage": "url('wave.jpg')",
+      "filter": "blur(3px)",
+      "height": "calc(100% + 12px)",
+      "left": "-6px",
+      "top": "-6px",
+      "width": "calc(100% + 12px)",
+    }
+  }
+/>
+`;
