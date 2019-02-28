@@ -128,8 +128,6 @@ export default (state = initialState, action) => {
     }
     case DRAFT_SAVED: {
       let {newData} = action.payload;
-      const {bg} = newData;
-      newData = Object.assign({}, newData, {bgTemp: bg});
       return Object.assign({}, state, {draft: newData, saving: false});
     }
     case DRAFT_SAVE_ERR: {
