@@ -1,0 +1,724 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1 default state 1`] = `null`;
+
+exports[`2 login 1`] = `
+Object {
+  "draft": null,
+  "loaded": false,
+  "profile": null,
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`3 profile data loaded 1`] = `
+Object {
+  "draft": null,
+  "loaded": false,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`4 draft and public data loaded 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`5 style dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`6 bg image set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`7 bg color set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`8 bg blur set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`9 style dialog closed 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`10 bio dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "bioTemp": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`11 bio set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "bioTemp": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`12 bio dialog closed 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`13 style dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`14 bg image set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`15 bg color set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": "2",
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`16 bg blur set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`17 save draft clicked 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": true,
+  "username": "foo",
+}
+`;
+
+exports[`18 draft not saved due to an error 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bgTemp": Object {
+      "blur": "2",
+      "color": "#4a96f7",
+      "image": "wave.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "010101",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`19 draft saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`20 publish clicked 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": true,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`21 publish not saved due to an error 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": null,
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`22 publish saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`23 bio dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "bioTemp": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`24 bio set 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "bioTemp": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`25 save draft clicked 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "bioTemp": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": false,
+  "saving": true,
+  "username": "foo",
+}
+`;
+
+exports[`26 draft saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "email": "",
+    "updated": "821e1dde224192e7349cf8e5c47006d8",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`27 publish clicked 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "email": "",
+    "updated": "821e1dde224192e7349cf8e5c47006d8",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "",
+    "email": "",
+    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+  },
+  "publishing": true,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`28 publish saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "email": "",
+    "updated": "821e1dde224192e7349cf8e5c47006d8",
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "email": "",
+    "updated": "821e1dde224192e7349cf8e5c47006d8",
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`50 logout 1`] = `null`;

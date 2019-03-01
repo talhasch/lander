@@ -1,3 +1,5 @@
+import md5 from 'blueimp-md5';
+
 import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
@@ -25,8 +27,7 @@ export const PUBLISH_SAVE = '@user/PUBLISH_SAVE';
 export const PUBLISH_SAVED = '@user/PUBLISH_SAVED';
 export const PUBLISH_SAVE_ERR = '@user/PUBLISH_SAVE_ERR';
 
-
-const dataModel = () => (
+export const dataModel = () => (
   {
     email: '',
     bg: {
@@ -35,9 +36,20 @@ const dataModel = () => (
       blur: '2'
     },
     bio: '',
-    updated: Date.now()
+    updated: '010101'
   }
 );
+
+export const prepareDraftForSave = (draft, update = false) => {
+  const {bgTemp, bioTemp, ...draftData} = draft;
+
+  if (update) {
+    draftData.updated = md5(JSON.stringify(draftData));
+  }
+
+  return draftData;
+};
+
 
 const initialState = null;
 
@@ -230,8 +242,7 @@ export const saveDraft = () => {
     dispatch(draftSave());
 
     const {user} = getState();
-    const {bgTemp, bioTemp, ...draftData1} = user.draft;
-    draftData1.updated = Date.now();
+    const draftData1 = prepareDraftForSave(user.draft, true);
 
     return blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then((resp) => {
       dispatch(draftSaved(draftData1));
@@ -245,14 +256,13 @@ export const saveDraft = () => {
   }
 };
 
-
 export const publish = () => {
   return (dispatch, getState) => {
 
     dispatch(publishSave());
 
     const {user} = getState();
-    const {bgTemp, bioTemp, ...publicData} = user.draft;
+    const publicData = prepareDraftForSave(user.draft, false);
 
     return blockstack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then((resp) => {
       dispatch(publishSaved(publicData));
@@ -352,5 +362,5 @@ export const publishSaved = (newData) => ({
 });
 
 export const publishNotSaved = () => ({
-  type: DRAFT_SAVE_ERR
+  type: PUBLISH_SAVE_ERR
 });
