@@ -45,6 +45,8 @@ import fixClassNames from '../../utils/fix-class-names';
 import getBaseUrl from '../../utils/get-base-url';
 import makeUserUrl from '../../helper/user-url';
 
+import showError from '../../utils/show-error';
+
 import landerLogo from '../../images/lander-256.png';
 
 import {eyeSvg, eyeSlashSvg, magicSvg, linkExternal} from '../../svg';
@@ -53,9 +55,13 @@ import {eyeSvg, eyeSlashSvg, magicSvg, linkExternal} from '../../svg';
 class InfoNav extends Component {
 
   publish = () => {
-    const {publish} = this.props;
-
-    publish();
+    const {publish, publishDone, publishError} = this.props;
+    publish().then((newData) => {
+      publishDone(newData);
+    }).catch(err => {
+      publishError();
+      showError(String(err));
+    });
   };
 
   render() {
