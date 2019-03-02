@@ -57,11 +57,7 @@ class Home extends Component {
               <img src={blockstackLogo} alt="Blockstack Logo" className="bl-icon"/> <FormattedMessage id="home.login"/>
             </div>
             <p className="contact">
-              <FormattedHTMLMessage id="home.contact" values={{link: 'https://landr.me/talhasch.id.blockstack'}}/>
-            </p>
-            <p className="open-source">
-              <FormattedHTMLMessage id="home.open-source"
-                                    values={{link: 'https://landr.me/talhasch.id.blockstack'}}/>
+              <FormattedHTMLMessage id="home.contact" values={{link: 'https://landr.me/lander.id.blockstack'}}/>
             </p>
           </div>
         </div>
