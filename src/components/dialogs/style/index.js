@@ -25,7 +25,7 @@ class StyleDialog extends Component {
   save = () => {
     const {afterSave, saveDraft, toggleUiProp} = this.props;
     saveDraft().then(() => {
-      toggleUiProp('style');
+      toggleUiProp('style', false);
     }).catch(err => {
       showError(String(err));
     });

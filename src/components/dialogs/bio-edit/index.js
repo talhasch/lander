@@ -27,7 +27,7 @@ class BioEditDialog extends Component {
   save = () => {
     const {afterSave, saveDraft, toggleUiProp} = this.props;
     saveDraft().then(() => {
-      toggleUiProp('bioEdit');
+      toggleUiProp('bioEdit', false);
     }).catch(err => {
       showError(String(err));
     });

@@ -44,7 +44,7 @@ it('4 draft and public data loaded', () => {
 });
 
 it('5 style dialog opened', () => {
-  const act = {type: TOGGLE_STYLE};
+  const act = {type: TOGGLE_STYLE, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
@@ -68,13 +68,13 @@ it('8 bg blur set', () => {
 });
 
 it('9 style dialog closed', () => {
-  const act = {type: TOGGLE_STYLE};
+  const act = {type: TOGGLE_STYLE, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
 
 it('10 bio dialog opened', () => {
-  const act = {type: TOGGLE_BIO_EDIT};
+  const act = {type: TOGGLE_BIO_EDIT, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
@@ -86,13 +86,13 @@ it('11 bio set', () => {
 });
 
 it('12 bio dialog closed', () => {
-  const act = {type: TOGGLE_BIO_EDIT};
+  const act = {type: TOGGLE_BIO_EDIT, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
 
 it('13 style dialog opened', () => {
-  const act = {type: TOGGLE_STYLE};
+  const act = {type: TOGGLE_STYLE, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
@@ -152,7 +152,7 @@ it('22 publish saved successfully', () => {
 });
 
 it('23 bio dialog opened', () => {
-  const act = {type: TOGGLE_BIO_EDIT};
+  const act = {type: TOGGLE_BIO_EDIT, payload: {affectUser: true}};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
