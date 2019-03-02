@@ -25,10 +25,12 @@ class BioEditDialog extends Component {
   };
 
   save = () => {
-    const {afterSave, saveDraft, toggleUiProp} = this.props;
-    saveDraft().then(() => {
-      toggleUiProp('bioEdit', false);
+    const {afterSave, saveDraft, saveDraftDone, saveDraftError, toggleUiProp} = this.props;
+    saveDraft().then((newData) => {
+      toggleUiProp('bioEdit');
+      saveDraftDone(newData);
     }).catch(err => {
+      saveDraftError();
       showError(String(err));
     });
 
@@ -86,8 +88,10 @@ BioEditDialog.propTypes = {
     }).isRequired
   }).isRequired,
   toggleUiProp: PropTypes.func.isRequired,
-  saveDraft: PropTypes.func.isRequired,
   setBio: PropTypes.func.isRequired,
+  saveDraft: PropTypes.func.isRequired,
+  saveDraftDone: PropTypes.func.isRequired,
+  saveDraftError: PropTypes.func.isRequired,
   afterHide: PropTypes.func,
   afterSave: PropTypes.func
 };

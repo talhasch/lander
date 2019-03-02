@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
@@ -7,7 +8,21 @@ import {injectIntl} from 'react-intl';
 
 import {Navbar, Nav, NavDropdown, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {logout, setBgBlur, setBgImage, setBgColor, setBio, saveDraft, publish, refreshProfile} from '../../store/user';
+import {
+  logout,
+  setBgBlur,
+  setBgImage,
+  setBgColor,
+  setBio,
+  saveDraft,
+  saveDraftDone,
+  saveDraftError,
+  publish,
+  publishDone,
+  publishError,
+  loadProfile
+} from '../../store/user';
+
 import {toggleUiProp} from '../../store/ui';
 
 import ProfileImage from '../../components/profile-image';
@@ -201,8 +216,8 @@ class Editor extends Component {
 
   visibilityChanged = () => {
     if (document.visibilityState === 'visible') {
-      const {refreshProfile} = this.props;
-      refreshProfile();
+      const {loadProfile} = this.props;
+      loadProfile();
     }
   };
 
@@ -250,14 +265,18 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       logout,
+      loadProfile,
       toggleUiProp,
       setBgBlur,
       setBgImage,
       setBgColor,
-      saveDraft,
       setBio,
-      refreshProfile,
-      publish
+      saveDraft,
+      saveDraftDone,
+      saveDraftError,
+      publish,
+      publishDone,
+      publishError
     },
     dispatch
   );

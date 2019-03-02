@@ -15,13 +15,11 @@ export const PROFILE_LOADED = '@user/PROFILE_LOADED';
 export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
-
 export const BIO_SET = '@user/BIO_SAVE';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
 export const DRAFT_SAVE_ERR = '@user/DRAFT_SAVE_ERR';
-
 
 export const PUBLISH_SAVE = '@user/PUBLISH_SAVE';
 export const PUBLISH_SAVED = '@user/PUBLISH_SAVED';
@@ -76,9 +74,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft, published, loaded: true});
     }
     case TOGGLE_STYLE: {
-      if (!action.payload.affectUser) {
-        return state;
-      }
       const {draft} = state;
       let newDraft;
       if (draft.bgTemp) {
@@ -92,9 +87,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft: newDraft});
     }
     case TOGGLE_BIO_EDIT: {
-      if (!action.payload.affectUser) {
-        return state;
-      }
       const {draft} = state;
       let newDraft;
       if (draft.bioTemp !== undefined) {
@@ -176,8 +168,8 @@ export const login = (userData) => {
 
     const {username, profile} = userData;
 
-    dispatch(loggedIn(username));
-    dispatch(profileLoaded(profile));
+    dispatch(loginAct(username));
+    dispatch(loadProfileAct(profile));
 
     let draft;
     try {
@@ -207,82 +199,99 @@ export const login = (userData) => {
       published = null;
     }
 
-    dispatch(dataLoaded(draft, published));
+    dispatch(loadDataAct(draft, published));
   }
 };
 
 export const logout = () => {
   return (dispatch) => {
-    dispatch(loggedOut());
+    dispatch(logoutAct());
     blockstack.signUserOut();
   }
 };
 
 export const setBgBlur = (val) => {
   return (dispatch) => {
-    dispatch(bgBlurSet(val));
+    dispatch(setBgBlurAct(val));
   }
 };
 
 export const setBgImage = (val) => {
   return (dispatch) => {
-    dispatch(bgImageSet(val));
+    dispatch(setBgImageAct(val));
   }
 };
 
 export const setBgColor = (val) => {
   return (dispatch) => {
-    dispatch(bgColorSet(val));
+    dispatch(setBgColorAct(val));
   }
 };
 
 export const setBio = (val) => {
   return (dispatch) => {
-    dispatch(bioSet(val));
+    dispatch(setBioAct(val));
   }
 };
 
 export const saveDraft = () => {
   return (dispatch, getState) => {
 
-    dispatch(draftSave());
+    dispatch(saveDraftAct());
 
     const {user} = getState();
     const draftData1 = prepareDraftForSave(user.draft, true);
 
-    return blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then((resp) => {
-      dispatch(draftSaved(draftData1));
-      return resp
-    }).catch((err) => {
-      dispatch(draftNotSaved());
-      return new Promise((resolve, reject) => {
-        reject(err);
-      });
-    });
+    return blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+      return draftData1;
+    })
+  }
+};
+
+export const saveDraftDone = (newData) => {
+  return (dispatch) => {
+
+    dispatch(saveDraftDoneAct(newData));
+  }
+};
+
+export const saveDraftError = () => {
+  return (dispatch) => {
+
+    dispatch(saveDraftErrorAct());
   }
 };
 
 export const publish = () => {
   return (dispatch, getState) => {
 
-    dispatch(publishSave());
+    dispatch(publishAct());
 
     const {user} = getState();
     const publicData = prepareDraftForSave(user.draft, false);
 
-    return blockstack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then((resp) => {
-      dispatch(publishSaved(publicData));
-      return resp
-    }).catch((err) => {
-      dispatch(publishNotSaved());
-      return new Promise((resolve, reject) => {
-        reject(err);
-      });
+    return blockstack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
+      return publicData;
     });
   }
 };
 
-export const refreshProfile = () => {
+export const publishDone = (newData) => {
+  return (dispatch) => {
+
+    dispatch(publishDoneAct(newData));
+  }
+};
+
+export const publishError = () => {
+  return (dispatch) => {
+
+    dispatch(publishErrorAct());
+  }
+};
+
+
+export const loadProfile = () => {
   return (dispatch, getState) => {
 
     const {user} = getState();
@@ -290,7 +299,7 @@ export const refreshProfile = () => {
     if (user.username) {
       blockstack.lookupProfile(user.username).then(profile => {
         if (profile) {
-          dispatch(profileLoaded(profile));
+          dispatch(loadProfileAct(profile));
         }
       });
     }
@@ -299,16 +308,16 @@ export const refreshProfile = () => {
 
 /* Action creators */
 
-export const loggedIn = (username) => ({
+export const loginAct = (username) => ({
   type: USER_LOGIN,
   payload: username
 });
 
-export const loggedOut = () => ({
+export const logoutAct = () => ({
   type: USER_LOGOUT
 });
 
-export const dataLoaded = (draft, published) => ({
+export const loadDataAct = (draft, published) => ({
   type: DATA_LOADED,
   payload: {
     draft,
@@ -316,57 +325,57 @@ export const dataLoaded = (draft, published) => ({
   }
 });
 
-export const bgBlurSet = (val) => ({
+export const setBgBlurAct = (val) => ({
   type: BG_BLUR_SET,
   payload: val
 });
 
-export const bgImageSet = (val) => ({
+export const setBgImageAct = (val) => ({
   type: BG_IMAGE_SET,
   payload: val
 });
 
-export const bgColorSet = (val) => ({
+export const setBgColorAct = (val) => ({
   type: BG_COLOR_SET,
   payload: val
 });
 
-export const bioSet = (val) => ({
+export const setBioAct = (val) => ({
   type: BIO_SET,
   payload: val
 });
 
-export const profileLoaded = (profile) => ({
+export const loadProfileAct = (profile) => ({
   type: PROFILE_LOADED,
   payload: profile
 });
 
-export const draftSave = () => ({
+export const saveDraftAct = () => ({
   type: DRAFT_SAVE
 });
 
-export const draftSaved = (newData) => ({
+export const saveDraftDoneAct = (newData) => ({
   type: DRAFT_SAVED,
   payload: {
     newData
   }
 });
 
-export const draftNotSaved = () => ({
+export const saveDraftErrorAct = () => ({
   type: DRAFT_SAVE_ERR
 });
 
-export const publishSave = () => ({
+export const publishAct = () => ({
   type: PUBLISH_SAVE
 });
 
-export const publishSaved = (newData) => ({
+export const publishDoneAct = (newData) => ({
   type: PUBLISH_SAVED,
   payload: {
     newData
   }
 });
 
-export const publishNotSaved = () => ({
+export const publishErrorAct = () => ({
   type: PUBLISH_SAVE_ERR
 });

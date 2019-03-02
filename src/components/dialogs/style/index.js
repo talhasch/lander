@@ -23,10 +23,12 @@ class StyleDialog extends Component {
   };
 
   save = () => {
-    const {afterSave, saveDraft, toggleUiProp} = this.props;
-    saveDraft().then(() => {
+    const {afterSave, saveDraft, saveDraftDone, saveDraftError, toggleUiProp} = this.props;
+    saveDraft().then((newData) => {
       toggleUiProp('style', false);
+      saveDraftDone(newData);
     }).catch(err => {
+      saveDraftError();
       showError(String(err));
     });
 
@@ -182,11 +184,13 @@ StyleDialog.propTypes = {
   ui: PropTypes.shape({
     imageSelect: PropTypes.bool.isRequired
   }).isRequired,
+  toggleUiProp: PropTypes.func.isRequired,
   setBgImage: PropTypes.func,
   setBgColor: PropTypes.func,
   setBgBlur: PropTypes.func,
-  toggleUiProp: PropTypes.func.isRequired,
   saveDraft: PropTypes.func.isRequired,
+  saveDraftDone: PropTypes.func.isRequired,
+  saveDraftError: PropTypes.func.isRequired,
   afterHide: PropTypes.func,
   afterSave: PropTypes.func
 };
