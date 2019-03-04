@@ -35,33 +35,41 @@ class Home extends Component {
   render() {
 
     return (
-      <div className="home-wrapper">
-        <div className="header">
-          <img src={landerLogo} alt="Logo" width={74}/>
+      <>
+        <div className="product-hunt">
+          <a href="https://www.producthunt.com/posts/lander-2" target="_blank" rel="noopener noreferrer">
+            🎉 Lander is live on Product Hunt. Come and join the discussion.
+          </a>
         </div>
-        <div className="content">
-          <div className="showcase">
-            <div className="showcase-header">
-              <div className="address-bar">
-                https://landr.me/mrbitey.id
+        <div className="home-wrapper">
+          <div className="header">
+            <img src={landerLogo} alt="Logo" width={74}/>
+          </div>
+          <div className="content">
+            <div className="showcase">
+              <div className="showcase-header">
+                <div className="address-bar">
+                  https://landr.me/mrbitey.id
+                </div>
+              </div>
+              <div className="showcase-content">
+                <img src={bitey} alt="Mr. Bitey"/>
               </div>
             </div>
-            <div className="showcase-content">
-              <img src={bitey} alt="Mr. Bitey"/>
+            <div className="text-content">
+              <h1 className="main-title"><FormattedMessage id="home.title"/></h1>
+              <p className="description"><FormattedMessage id="home.description"/></p>
+              <div onClick={this.signIn} className="login-btn">
+                <img src={blockstackLogo} alt="Blockstack Logo" className="bl-icon"/> <FormattedMessage
+                id="home.login"/>
+              </div>
+              <p className="contact">
+                <FormattedHTMLMessage id="home.contact" values={{link: 'https://landr.me/lander.id.blockstack'}}/>
+              </p>
             </div>
-          </div>
-          <div className="text-content">
-            <h1 className="main-title"><FormattedMessage id="home.title"/></h1>
-            <p className="description"><FormattedMessage id="home.description"/></p>
-            <div onClick={this.signIn} className="login-btn">
-              <img src={blockstackLogo} alt="Blockstack Logo" className="bl-icon"/> <FormattedMessage id="home.login"/>
-            </div>
-            <p className="contact">
-              <FormattedHTMLMessage id="home.contact" values={{link: 'https://landr.me/lander.id.blockstack'}}/>
-            </p>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 }
