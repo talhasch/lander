@@ -38,7 +38,7 @@ class Home extends Component {
       <>
         <div className="product-hunt">
           <a href="https://www.producthunt.com/posts/lander-2" target="_blank" rel="noopener noreferrer">
-            🎉 Lander is live on Product Hunt. Come and join the discussion.
+            <span role="img" aria-label="tada">🎉</span> Lander is live on Product Hunt. Come and join the discussion.
           </a>
         </div>
         <div className="home-wrapper">
