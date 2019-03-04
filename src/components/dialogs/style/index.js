@@ -110,7 +110,8 @@ class StyleDialog extends Component {
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>
                       <Form.Check type="checkbox" checked={!!bg.image}
-                                  onChange={this.imageTickChanged}/> <FormattedMessage id="style.bg-image"/>
+                                  onChange={this.imageTickChanged} disabled={user.saving}/>
+                      <FormattedMessage id="style.bg-image"/>
                     </Form.Label>
                     {bg.image &&
                     <div className="bg-image" style={{backgroundImage: `url(${detectBgImageUrl(bg.image)})`}}/>
@@ -119,19 +120,19 @@ class StyleDialog extends Component {
                     {!bg.image &&
                     <p className="text-muted"><FormattedMessage id="style.bg-image-empty"/></p>
                     }
-                    <Button variant="outline-primary" size="sm" onClick={this.toggleImageSelect}><FormattedMessage
-                      id="style.bg-image-select"/></Button> &nbsp;
-                    <Button variant="outline-primary" size="sm" onClick={this.uploadClicked}><FormattedMessage
-                      id="style.bg-image-upload"/></Button>
+                    <Button variant="outline-primary" size="sm" onClick={this.toggleImageSelect} disabled={user.saving}>
+                      <FormattedMessage id="style.bg-image-select"/></Button> &nbsp;
+                    <Button variant="outline-primary" size="sm" onClick={this.uploadClicked}
+                            disabled={user.saving}><FormattedMessage id="style.bg-image-upload"/></Button>
                   </Form.Group>
                   <input type="file" id="image-upload" accept="image/*" className="d-none" onChange={this.fileChanged}/>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-color"/></Form.Label>
-                    <Form.Control type="text" value={bg.color} onChange={this.colorChanged}/>
+                    <Form.Control type="text" value={bg.color} onChange={this.colorChanged} disabled={user.saving}/>
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-blur"/></Form.Label>
-                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged}/>
+                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged} disabled={user.saving}/>
                     <Form.Text className="text-muted">
                       <FormattedMessage id="style.bg-blur-hint"/>
                     </Form.Text>
