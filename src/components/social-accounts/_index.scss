@@ -10,9 +10,9 @@
     background: lighten($blue, 2);
     border-radius: 50%;
     display: flex;
-    height: 40px;
+    height: 32px;
     justify-content: center;
-    width: 40px;
+    width: 32px;
 
     &:not(:last-child) {
       margin-right: 10px;
@@ -24,8 +24,18 @@
 
     svg {
       color: white;
-      height: 22px;
-      width: 22px;
+      height: 16px;
+      width: 16px;
+    }
+
+    @media (min-width: $sm-break) {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        height: 22px;
+        width: 22px;
+      }
     }
   }
 
