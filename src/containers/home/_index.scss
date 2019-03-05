@@ -182,10 +182,10 @@
 }
 
 .product-hunt {
-  background: #da552f;
+  background: lighten($primary, 30);
   text-align: center;
   padding: 4px;
   a {
-    color: #fff;
+    color: $primary;
   }
 }
