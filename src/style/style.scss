@@ -58,7 +58,7 @@ html, body {
     z-index: 2;
 
     @media (min-width: $sm-break) {
-      width: 500px;
+      width: $primary-width;
       padding: 26px;
       font-size: 100%;
     }
