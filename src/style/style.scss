@@ -1,8 +1,11 @@
 @import 'bootstrap';
 @import './mixins';
-@import './components';
 
+$primary-width: 500px;
 $box-shadow: 0 0 5px 2px rgba(134, 134, 134, 0.15);
+$sm-break: map-get($grid-breakpoints, "sm");
+
+@import './components';
 
 html, body {
   height: 100%;
@@ -16,14 +19,57 @@ html, body {
 }
 
 .not-found-error {
-  text-align: center;
   margin: 60px 0 0 0;
+  text-align: center;
+
   h1 {
     color: #fff;
     filter: drop-shadow(-3px 3px 0 #d73865) drop-shadow(3px -3px 0 #4a96f7);
     font-size: 90px;
     font-weight: 700;
     margin: 0;
+  }
+}
+
+.main-wrapper, .main-wrapper-profile {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .inner-wrapper {
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .profile-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: $box-shadow;
+    font-size: 80%;
+    margin: 40px auto 40px auto;
+    padding: 14px;
+    position: relative;
+    width: 95%;
+    z-index: 2;
+
+    @media (min-width: $sm-break) {
+      width: 500px;
+      padding: 26px;
+      font-size: 100%;
+    }
+  }
+}
+
+.main-wrapper-profile {
+  .profile-box {
+    @media (min-width: $sm-break) {
+      margin: 180px auto 180px auto;
+    }
   }
 }
 

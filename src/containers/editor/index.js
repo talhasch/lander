@@ -150,10 +150,11 @@ class EditorHeader extends Component {
 
         {!ui.preview &&
         <>
-          <Navbar bg="dark" variant="dark">
+          <Navbar bg="dark" variant="dark" expand="sm">
             <Navbar.Brand href="#" onClick={this.goHome}>
               <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/></Navbar.Brand>
-            <Navbar.Collapse id="navbar-nav">
+            <Navbar.Toggle/>
+            <Navbar.Collapse>
               <Nav className="ml-auto">
                 <NavDropdown title={username} id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
@@ -167,15 +168,13 @@ class EditorHeader extends Component {
                     <Tooltip>Go to your public page</Tooltip>
                   }>
                   <Nav.Link href={`${getBaseUrl()}/${user.username}`} target="_blank"
-                            className="public-link">{linkExternal}</Nav.Link>
+                            className="public-link d-none d-sm-block">{linkExternal}</Nav.Link>
                 </OverlayTrigger>
                 }
               </Nav>
             </Navbar.Collapse>
           </Navbar>
-
           <InfoNav {...this.props} />
-
           <div className="second-nav">
             <div className="left-menu">
               <Button className="btn-preview" variant="light disabled"
@@ -242,7 +241,7 @@ class Editor extends Component {
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
-        <div className={ui.preview ? ' main-wrapper-profile' : 'main-wrapper-editor'}>
+        <div className={ui.preview ? 'main-wrapper-profile' : 'main-wrapper'}>
           <ProfileBg bg={user.draft.bg}/>
           <div className="inner-wrapper">
             <EditorHeader {...this.props} />

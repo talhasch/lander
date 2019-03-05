@@ -1,42 +1,14 @@
-.main-wrapper-editor {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-
-  .inner-wrapper {
-    height: 100%;
-    left: 0;
-    min-width: 700px;
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .profile-box {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: $box-shadow;
-    margin: 180px auto 100px auto;
-    padding: 22px;
-    position: relative;
-    width: 500px;
-    z-index: 2;
-  }
-}
 
 .editor-header {
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 100%;
 
-  .public-link {
-    svg {
-      color: #ced4da;
-      height: 22px;
-      width: 22px;
+  .navbar {
+    .public-link {
+      svg {
+        color: #ced4da;
+        height: 22px;
+        width: 22px;
+      }
     }
   }
 
@@ -46,31 +18,48 @@
     display: flex;
     height: 50px;
     justify-content: center;
-    padding: 6px;
+    padding: 2px;
+
+    @media (min-width: $sm-break) {
+      padding: 6px;
+    }
 
     .info-content {
       align-items: center;
       display: flex;
+      font-size: 13px;
       justify-content: space-between;
       margin: auto;
-      width: 500px;
+      max-width: $primary-width;
+      width: 100%;
+
+      @media (min-width: $sm-break) {
+        font-size: 1rem;
+      }
 
       .info-msg {
         color: #ced4da;
         margin: 0;
         text-align: center;
       }
-
-      .info-controls {
-
-      }
     }
 
     .user-address {
       color: #ced4da;
+      display: inline-block;
+      font-size: 13px;
+      max-width: $primary-width;
+      overflow: hidden;
+      text-align: center;
       text-decoration: underline;
+      width: 100%;
+
       &:hover {
         text-decoration: none;
+      }
+
+      @media (min-width: $sm-break) {
+        font-size: 1rem;
       }
     }
   }
@@ -79,10 +68,11 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 500px;
+    max-width: $primary-width;
+    width: 98%;
 
-    .btn {
-
+    @media (min-width: $sm-break) {
+      width: $primary-width;
     }
   }
 
