@@ -18,11 +18,7 @@
     display: flex;
     height: 50px;
     justify-content: center;
-    padding: 2px;
-
-    @media (min-width: $sm-break) {
-      padding: 6px;
-    }
+    padding: 6px;
 
     .info-content {
       align-items: center;
