@@ -72,10 +72,10 @@ class InfoNav extends Component {
     if (!user.published) {
       return <div className="info-nav">
         <div className="info-content">
-          <div className="info-msg">Your Lander page hasn't published yet.</div>
+          <div className="info-msg">Your Lander page hasn't published yet</div>
           <div className="info-controls">
             <Button variant="primary" onClick={this.publish}
-                    disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
+                    disabled={user.publishing}>Publish{user.publishing && '...'}</Button>
           </div>
         </div>
       </div>
@@ -84,10 +84,10 @@ class InfoNav extends Component {
     if (user.published && user.draft.updated !== user.published.updated) {
       return <div className="info-nav">
         <div className="info-content">
-          <div className="info-msg">Last changes you have made hasn't published.</div>
+          <div className="info-msg">Last change you've made hasn't published</div>
           <div className="info-controls">
             <Button variant="primary" onClick={this.publish}
-                    disabled={user.publishing}>Publish {user.publishing && '...'}</Button>
+                    disabled={user.publishing}>Publish{user.publishing && '...'}</Button>
           </div>
         </div>
       </div>;
