@@ -1,5 +1,6 @@
 .home-wrapper {
-  margin: 0 auto 30px auto;
+  margin: auto;
+  padding-bottom: 30px;
   width: 90%;
 
   .header {
@@ -95,39 +96,6 @@
 
 @media (min-width: map-get($grid-breakpoints, "md")) {
   .home-wrapper {
-    margin: auto;
-    width: 760px;
-
-    .content {
-      .showcase {
-        float: left;
-        display: block;
-      }
-
-      .text-content {
-        float: right;
-        width: 340px;
-
-        .main-title {
-          font-size: 2em;
-        }
-
-        .description {
-          font-size: 1.4em;
-        }
-
-        .login-btn {
-          font-size: 1.2em;
-          width: 300px;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: map-get($grid-breakpoints, "md")) {
-  .home-wrapper {
-    margin: auto;
     width: 760px;
 
     .content {
