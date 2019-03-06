@@ -12,6 +12,10 @@ import showError from '../../../utils/show-error';
 
 class BioEditDialog extends Component {
 
+  componentDidMount() {
+    document.getElementById('bio-txt').focus();
+  }
+
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
     toggleUiProp('bioEdit');
@@ -55,7 +59,7 @@ class BioEditDialog extends Component {
                   <Form.Label>
                     <small className="text-muted form-text"><FormattedMessage id="bio.help-text"/></small>
                   </Form.Label>
-                  <Form.Control as="textarea" rows="10" value={bio} onChange={this.textChanged}/>
+                  <Form.Control as="textarea" rows="10" id="bio-txt" value={bio} onChange={this.textChanged}/>
                 </Form.Group>
               </Form>
             </div>
