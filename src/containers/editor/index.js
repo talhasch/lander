@@ -157,8 +157,8 @@ class EditorHeader extends Component {
             <Navbar.Collapse>
               <Nav className="ml-auto">
                 <NavDropdown title={username}>
-                  <NavDropdown.Item href="#" onClick={this.toggleSettings}>Settings</NavDropdown.Item>
-                  <NavDropdown.Item href="#" onClick={this.logout}>Logout</NavDropdown.Item>
+                  <NavDropdown.Item onClick={this.toggleSettings}>Settings</NavDropdown.Item>
+                  <NavDropdown.Item onClick={this.logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
                 {user.published &&
                 <OverlayTrigger

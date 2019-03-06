@@ -10,6 +10,16 @@
         width: 22px;
       }
     }
+
+    @media (max-width: $sm-break) {
+      .navbar-nav {
+        .nav-item {
+          a {
+            font-weight: 700;
+          }
+        }
+      }
+    }
   }
 
   .info-nav {
