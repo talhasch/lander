@@ -132,23 +132,24 @@ class StyleDialog extends Component {
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-blur"/></Form.Label>
-                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged} disabled={user.saving}/>
+                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged}
+                                  disabled={user.saving}/>
                     <Form.Text className="text-muted">
                       <FormattedMessage id="style.bg-blur-hint"/>
                     </Form.Text>
                   </Form.Group>
                 </Form.Row>
               </Form>
+              <div className="modal-controls">
+                <Button variant="secondary" onClick={this.hide}>
+                  <FormattedMessage id="g.cancel"/>
+                </Button>
+                <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
+                  <FormattedMessage id="g.save"/> {user.saving && '...'}
+                </Button>
+              </div>
             </div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
-            </Button>
-            <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
-              <FormattedMessage id="g.save"/> {user.saving && '...'}
-            </Button>
-          </Modal.Footer>
         </Modal>
       </>
     )

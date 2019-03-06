@@ -6,7 +6,6 @@
     background-color: rgba(255, 255, 255, 0.9);
     height: 100%;
     margin: auto;
-    overflow-y: auto;
     position: fixed;
     transform: translate3d(0%, 0, 0);
     -ms-transform: translate3d(0%, 0, 0);
@@ -18,7 +17,6 @@
     }
 
     width: 90%;
-    -webkit-overflow-scrolling: touch;
   }
 
   .modal-content {
@@ -32,6 +30,20 @@
     border: none;
     border-right: 1px solid #d8d8d8;
     padding: 15px 15px 80px;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+
+    .modal-controls {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 0;
+
+      .btn {
+        &:not(:last-child) {
+          margin-right: 6px;
+        }
+      }
+    }
   }
 
   .modal-header {
