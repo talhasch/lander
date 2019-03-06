@@ -6,17 +6,19 @@
     background-color: rgba(255, 255, 255, 0.9);
     height: 100%;
     margin: auto;
+    overflow-y: auto;
     position: fixed;
     transform: translate3d(0%, 0, 0);
     -ms-transform: translate3d(0%, 0, 0);
     -o-transform: translate3d(0%, 0, 0);
     -webkit-transform: translate3d(0%, 0, 0);
-    width: 90%;
 
     @media (min-width: $sm-break) {
       width: 320px;
     }
 
+    width: 90%;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-content {
@@ -50,6 +52,7 @@
   .modal-footer {
     border: none;
     border-right: 1px solid #ccc;
+    flex-shrink: 0;
   }
 
   &.fade .modal-dialog {

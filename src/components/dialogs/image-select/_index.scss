@@ -3,6 +3,7 @@
   .image-list {
     height: 500px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     .image-item {
       background-repeat: no-repeat;

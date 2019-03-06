@@ -31,6 +31,9 @@ class ImageSelectDialog extends Component {
     return (
       <>
         <Modal show onHide={onCancel} size="lg">
+          <Modal.Header closeButton>
+
+          </Modal.Header>
           <Modal.Body>
             <div className="image-select-dialog-content">
               <div className="image-list">
