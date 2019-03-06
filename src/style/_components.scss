@@ -29,21 +29,9 @@
   .modal-body {
     border: none;
     border-right: 1px solid #d8d8d8;
+    overflow-y: auto;
     padding: 15px 15px 80px;
     -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-
-    .modal-controls {
-      display: flex;
-      justify-content: flex-end;
-      padding: 10px 0;
-
-      .btn {
-        &:not(:last-child) {
-          margin-right: 6px;
-        }
-      }
-    }
   }
 
   .modal-header {
