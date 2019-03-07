@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import {FormattedMessage} from 'react-intl';
+
 import AccountEditBtn from '../elements/account-edit-btn';
 
 import fixClassNames from '../../utils/fix-class-names';
 
+
 class ProfileName extends Component {
   render() {
-    const {name, editMode, intl} = this.props;
+    const {name, editMode} = this.props;
 
     if (!editMode && !name) {
       return null;
@@ -16,8 +19,7 @@ class ProfileName extends Component {
 
     if (editMode && !name) {
       return <div className="profile-name edit-mode not-set">
-        {intl.formatMessage({id: 'editor.name-placeholder'})}
-
+        <FormattedMessage id="editor.name-placeholder"/>
         <AccountEditBtn {...this.props} />
       </div>
     }
@@ -37,7 +39,6 @@ ProfileName.defaultProps = {
 };
 
 ProfileName.propTypes = {
-  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   name: PropTypes.string
 };
