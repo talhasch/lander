@@ -96,7 +96,6 @@ SocialAccounts.defaultProps = {
 };
 
 SocialAccounts.propTypes = {
-  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.shape({
     service: PropTypes.string.isRequired,
