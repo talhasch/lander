@@ -8,26 +8,9 @@ import {FormattedHTMLMessage} from 'react-intl';
 
 import AccountEditBtn from '../elements/account-edit-btn';
 
-import {socialAccountTypes as accountTypes} from '../../constants';
+import socialAccountLink from '../../helper/social-account-link'
 
-const accountLink = (ac) => {
-  switch (ac.service) {
-    case 'github':
-      return `https://github.com/${ac.identifier}`;
-    case 'twitter':
-      return `https://twitter.com/${ac.identifier}`;
-    case 'facebook':
-      return `https://facebook.com/${ac.identifier}`;
-    case 'instagram':
-      return `https://instagram.com/${ac.identifier}`;
-    case 'linkedIn':
-      return `https://linkedin.com/in/${ac.identifier}`;
-    case 'hackerNews':
-      return `https://news.ycombinator.com/user?id=${ac.identifier}`;
-    default:
-      return '';
-  }
-};
+import {socialAccountTypes as accountTypes} from '../../constants';
 
 class SocialAccounts extends Component {
 
@@ -75,7 +58,7 @@ class SocialAccounts extends Component {
     const l = accountTypes.map((t) => {
       const ac = sAccounts[t.id];
       if (ac) {
-        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={accountLink(ac)}
+        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={socialAccountLink(ac)}
                   className="social-button">{t.icon}</a>;
       }
       return null;
