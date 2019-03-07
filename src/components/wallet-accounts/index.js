@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import {FormattedMessage} from 'react-intl';
+
 import AccountEditBtn from '../elements/account-edit-btn';
 
 import {walletAccountTypes as accountTypes} from '../../constants';
@@ -9,7 +11,7 @@ import {walletAccountTypes as accountTypes} from '../../constants';
 class WalletAccounts extends Component {
   render() {
 
-    const {accounts, editMode, intl} = this.props;
+    const {accounts, editMode} = this.props;
     const wAccounts = {};
 
     for (let x = 0; x < accountTypes.length; x++) {
@@ -25,7 +27,7 @@ class WalletAccounts extends Component {
           return <div key={t.id} className="wallet-account">
             <div className="icon">{t.icon}</div>
             <div className="address">
-              {ac ? ac.identifier : intl.formatMessage({id: 'wallet-accounts.not-set'}, {n: t.name})}
+              {ac ? ac.identifier : <FormattedMessage id="wallet-accounts.not-set" values={{n: t.name}}/>}
             </div>
           </div>
         })}
@@ -58,7 +60,6 @@ WalletAccounts.defaultProps = {
 };
 
 WalletAccounts.propTypes = {
-  intl: PropTypes.instanceOf(Object).isRequired,
   editMode: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.shape({
     service: PropTypes.string.isRequired,
