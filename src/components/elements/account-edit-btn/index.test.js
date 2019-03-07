@@ -6,9 +6,7 @@ import renderer from 'react-test-renderer';
 it('should show account dialog', () => {
 
   const props = {
-    ui: {
-      skipAccountDialog: false
-    }
+
   };
 
   const component = <AccountEditBtn {...props} />;

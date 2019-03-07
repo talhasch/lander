@@ -18,10 +18,7 @@ it('not in edit mode and image is empty. should render empty image svg ', () => 
 
 it('in edit mode and image is empty. should render empty image svg and edit btn', () => {
   const props = {
-    editMode: true,
-    ui: {
-      skipAccountDialog: false
-    }
+    editMode: true
   };
 
   const component = wrapWithIntl(<ProfileImage {...props} />);
@@ -52,9 +49,6 @@ it('not in edit mode and image is not empty. should render image ', () => {
 it('in edit mode and image is not empty. should render image and edit btn', () => {
   const props = {
     editMode: true,
-    ui: {
-      skipAccountDialog: false
-    },
     image: [{
       contentUrl: 'https://foo.bar/baz.jpg'
     }]

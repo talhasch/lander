@@ -19,10 +19,7 @@ it('not in edit mode and name is empty. should render null', () => {
 
 it('in edit mode. name is empty. should show placeholder and show edit btn', () => {
   const props = {
-    editMode: true,
-    ui: {
-      skipAccountDialog: false
-    }
+    editMode: true
   };
 
   const component = wrapWithIntl(<ProfileName {...props} />);
@@ -38,10 +35,7 @@ it('in edit mode. name is empty. should show placeholder and show edit btn', () 
 it('name is not empty in edit mode. should render name and show edit btn', () => {
   const props = {
     editMode: true,
-    name: 'Lorem ipsum dolor sit amet',
-    ui: {
-      skipAccountDialog: false
-    }
+    name: 'Lorem ipsum dolor sit amet'
   };
 
   const component = wrapWithIntl(<ProfileName {...props} />);

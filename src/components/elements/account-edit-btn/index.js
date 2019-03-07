@@ -22,11 +22,15 @@ class AccountEditBtn extends Component {
 }
 
 
-AccountEditBtn.defaultProps = {};
+AccountEditBtn.defaultProps = {
+  ui: {
+    skipAccountDialog: false
+  }
+};
 
 AccountEditBtn.propTypes = {
   ui: PropTypes.shape({
-    skipAccountDialog: PropTypes.bool.isRequired
+    skipAccountDialog: PropTypes.bool
   })
 };
 

@@ -12,10 +12,7 @@ jest.mock('react-dom', () => ({
 
 it('in edit mode. no accounts provided. should show all buttons not set.', () => {
   const props = {
-    editMode: true,
-    ui: {
-      skipAccountDialog: false
-    }
+    editMode: true
   };
 
   const component = wrapWithIntl(<SocialAccounts {...props} />);
@@ -30,9 +27,6 @@ it('in edit mode. no accounts provided. should show all buttons not set.', () =>
 it('in edit mode. twitter provided. should show twitter button set all other buttons not set.', () => {
   const props = {
     editMode: true,
-    ui: {
-      skipAccountDialog: false
-    },
     accounts: [{
       service: 'twitter',
       identifier: 'talhasch'
@@ -50,11 +44,7 @@ it('in edit mode. twitter provided. should show twitter button set all other but
 
 
 it('not in edit mode. no accounts provided. should render null', () => {
-  const props = {
-    ui: {
-      skipAccountDialog: false
-    }
-  };
+  const props = {};
 
   const component = wrapWithIntl(<SocialAccounts {...props} />);
 
@@ -68,9 +58,6 @@ it('not in edit mode. no accounts provided. should render null', () => {
 
 it('not in edit mode. twitter and github provided', () => {
   const props = {
-    ui: {
-      skipAccountDialog: false
-    },
     accounts: [{
       service: 'twitter',
       identifier: 'talhasch'
