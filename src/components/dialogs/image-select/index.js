@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 import {Modal} from 'react-bootstrap';
 
-import {injectIntl} from 'react-intl';
-
 import images from '../../../data/bg-images'
 
 class ImageSelectDialog extends Component {
@@ -62,4 +60,4 @@ ImageSelectDialog.propTypes = {
   onSelect: PropTypes.func.isRequired
 };
 
-export default injectIntl(ImageSelectDialog)
+export default ImageSelectDialog
