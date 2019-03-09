@@ -6,8 +6,6 @@ import {Modal, Button} from 'react-bootstrap';
 
 import {FormattedMessage} from 'react-intl';
 
-import {injectIntl} from 'react-intl';
-
 
 class ConfirmDialog extends Component {
 
@@ -55,4 +53,4 @@ ConfirmDialog.propTypes = {
   onCancel: PropTypes.func
 };
 
-export default injectIntl(ConfirmDialog);
+export default ConfirmDialog;
