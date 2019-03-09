@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import {injectIntl, FormattedMessage, FormattedHTMLMessage} from 'react-intl';
+import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 
 class AccountEditDialog extends Component {
 
@@ -22,7 +22,6 @@ class AccountEditDialog extends Component {
   };
 
   render() {
-    const {intl} = this.props;
     return (
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
@@ -36,8 +35,8 @@ class AccountEditDialog extends Component {
                          onClick={this.hide}><FormattedMessage id="account-edit.go-button-title"/></Button></p>
               <Form>
                 <Form.Group controlId="dont-show">
-                  <Form.Check type="checkbox" label={intl.formatMessage({id: 'account-edit.dont-show'})}
-                              onChange={this.dontShow}/>
+                  <Form.Check type="checkbox" label=<FormattedMessage id="account-edit.dont-show"/>
+                  onChange={this.dontShow}/>
                 </Form.Group>
               </Form>
             </div>
@@ -59,9 +58,8 @@ AccountEditDialog.defaultProps = {
 };
 
 AccountEditDialog.propTypes = {
-  intl: PropTypes.instanceOf(Object).isRequired,
   toggleUiProp: PropTypes.func.isRequired,
   afterHide: PropTypes.func
 };
 
-export default injectIntl(AccountEditDialog)
+export default AccountEditDialog
