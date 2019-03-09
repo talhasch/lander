@@ -50,5 +50,9 @@
     "name-placeholder": "Your name goes here...",
     "description-placeholder": "Your description goes here...",
     "bio-placeholder": "Add longer description to your profile"
+  },
+  "image-select": {
+    "title": "Select Background Image",
+    "licence-note": "Images have taken from <a href=\"https://pixabay.com\" target=\"_blank\" rel=\"noopener noreferrer\">pixabay</a> under <a href=\"https://pixabay.com/service/license/\" target=\"_blank\" rel=\"noopener noreferrer\">pixabay licence</a>."
   }
 }
