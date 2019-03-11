@@ -1,109 +1,13 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 
-import {injectIntl} from 'react-intl';
+import ProfilePage from '../../components/pages/profile';
 
-import {publishedFile} from '../../constants';
-
-import getBaseUrl from '../../utils/get-base-url';
-import React from 'react';
-import ProfileBg from '../../components/profile-bg';
-import ProfileImage from '../../components/profile-image';
-import ProfileName from '../../components/profile-name';
-import ProfileDescription from '../../components/profile-description';
-import ProfileBio from '../../components/profile-bio';
-import SocialAccounts from '../../components/social-accounts';
-import WalletAccounts from '../../components/wallet-accounts';
-import Spinner from '../../components/elements/spinner';
-
-const axios = require('axios');
-const blockstack = require('blockstack');
-
-class Profile extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      notFound: false,
-      user: null
-    }
-  }
-
-  componentDidMount() {
-    this.fetch().then(resp => {
-      if (resp === false) {
-        this.setState({notFound: true});
-        return;
-      }
-
-      this.setState({user: resp});
-
-      // TODO: Find better approach
-      document.title = `${resp.profile.name} - ${document.title}`;
-    }).then(() => {
-      this.setState({loading: false});
-    })
-  }
-
-  fetch = async () => {
-    const {match} = this.props;
-    const {username} = match.params;
-
-    console.log(match);
-
-    let profile;
-    let published;
-
-    try {
-      profile = await blockstack.lookupProfile(username);
-      const fileUrl = await blockstack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
-      published = await axios.get(fileUrl).then(x => x.data);
-    } catch (e) {
-      return false;
-    }
-
-    if (published === '') {
-      return false;
-    }
-
-    return {profile, published};
-  };
+class ProfileContainer extends Component {
 
   render() {
-    const {loading, notFound} = this.state;
-    const {location} = this.props;
-
-    if (loading) {
-      return <Spinner/>;
-    }
-
-    if (notFound) {
-      return <div className="not-found-error">
-        <h1>404</h1>
-        <strong>{location.pathname} not found</strong>
-      </div>;
-    }
-
-    const {user} = this.state;
-
-    const {name, description, image, account} = user.profile;
-
-    return <div className="main-wrapper-profile">
-      <ProfileBg bg={user.published.bg}/>
-      <div className="inner-wrapper">
-        <div className="profile-box">
-          <ProfileImage image={image} {...this.props}/>
-          <ProfileName name={name} {...this.props}/>
-          <ProfileDescription description={description} {...this.props}/>
-          <ProfileBio bio={user.published.bio} {...this.props}/>
-          <SocialAccounts accounts={account} {...this.props}/>
-          <WalletAccounts accounts={account} {...this.props}/>
-        </div>
-      </div>
-    </div>
+    return <ProfilePage {...this.props} />;
   }
 }
 
 
-export default injectIntl(Profile)
+export default ProfileContainer;
