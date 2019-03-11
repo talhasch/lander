@@ -1,5 +1,8 @@
 import React, {Component, Fragment} from 'react';
+
 import {Route} from 'react-router-dom';
+
+import * as blockStack from 'blockstack';
 
 import {addLocaleData, IntlProvider} from 'react-intl';
 
@@ -7,16 +10,14 @@ import en from 'react-intl/locale-data/en';
 
 import flattenMessages from '../utils/flatten-messages';
 
-import Home from './home';
-import Auth from './auth';
-import Editor from './editor';
-import Profile from './profile'
+import HomeContainer from './home';
+import AuthContainer from './auth';
+import EditorContainer from './editor';
+import ProfileContainer from './profile'
 
 import {login, loadProfile} from '../store/user';
 
 import messages from '../locales';
-
-const blockstack = require('blockstack');
 
 addLocaleData([...en]);
 
@@ -24,8 +25,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    if (blockstack.isUserSignedIn()) {
-      const userData = blockstack.loadUserData();
+    if (blockStack.isUserSignedIn()) {
+      const userData = blockStack.loadUserData();
       const {store} = this.props;
       store.dispatch(login(userData));
       store.dispatch(loadProfile());
@@ -38,22 +39,22 @@ export default class App extends Component {
     return (
       <IntlProvider locale={locale} messages={flattenMessages(messages[locale])}>
         <Fragment>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={HomeContainer}/>
           <Route
             exact
             path="/app/auth"
             component={props => (
-              <Auth
+              <AuthContainer
                 timestamp={new Date().toString()}
                 {...props}
               />
             )}
           />
           <Route exact path="/app/editor" component={props => {
-            return <Editor {...props} />;
+            return <EditorContainer {...props} />;
           }}/>
           <Route exact path="/:username" component={props => (
-            <Profile
+            <ProfileContainer
               timestamp={new Date().toString()}
               {...props}
             />
