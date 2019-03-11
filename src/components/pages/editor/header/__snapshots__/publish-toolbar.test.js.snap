@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changed and not published 1`] = `
+<div
+  className="publish-toolbar"
+>
+  <div
+    className="info-content"
+  >
+    <div
+      className="info-msg"
+    >
+      Last change you've made hasn't published
+    </div>
+    <div
+      className="info-controls"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Publish
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`not published 1`] = `
+<div
+  className="publish-toolbar"
+>
+  <div
+    className="info-content"
+  >
+    <div
+      className="info-msg"
+    >
+      Your Lander page hasn't published yet
+    </div>
+    <div
+      className="info-controls"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Publish
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`up to date 1`] = `
+<div
+  className="publish-toolbar"
+>
+  <a
+    className="user-address"
+    href="http://localhost/lorem"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    http://localhost/lorem
+  </a>
+</div>
+`;

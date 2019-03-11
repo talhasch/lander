@@ -1,7 +1,5 @@
 
 .editor-header {
-  width: 100%;
-
   .navbar {
     .public-link {
       svg {
@@ -22,7 +20,7 @@
     }
   }
 
-  .info-nav {
+  .publish-toolbar {
     align-items: center;
     background: #495057;
     display: flex;
@@ -70,7 +68,7 @@
     }
   }
 
-  .second-nav {
+  .design-toolbar {
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -80,23 +78,28 @@
     @media (min-width: $sm-break) {
       width: $primary-width;
     }
-  }
 
-  .btn-preview, .btn-style, .btn-preview-off {
-    align-items: center;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    display: flex;
+    .btn-preview, .btn-style, .btn-preview-off {
+      align-items: center;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      display: flex;
 
-    svg {
-      height: 16px;
-      margin-right: 6px;
-      width: 16px;
+      svg {
+        height: 16px;
+        margin-right: 6px;
+        width: 16px;
+      }
     }
-  }
 
-  .btn-preview-off {
-    border-bottom-left-radius: 0;
+    .btn-preview-off {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      svg {
+        margin: 0;
+      }
+    }
   }
 }
 

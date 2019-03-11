@@ -17,7 +17,7 @@ import Spinner from '../../elements/spinner';
 
 import fixClassNames from '../../../utils/fix-class-names';
 
-import EditorNavBar from './navbar'
+import EditorNavBar from './header'
 
 class EditorPage extends Component {
 
