@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import * as axios from 'axios';
-import * as blockstack from 'blockstack';
+import * as blockStack from 'blockstack';
 
 import {publishedFile} from '../../../constants';
 
@@ -53,8 +53,8 @@ class ProfilePage extends Component {
     let published;
 
     try {
-      profile = await blockstack.lookupProfile(username);
-      const fileUrl = await blockstack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
+      profile = await blockStack.lookupProfile(username);
+      const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
       published = await axios.get(fileUrl).then(x => x.data);
     } catch (e) {
       return false;
