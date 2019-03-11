@@ -22,8 +22,7 @@ it('not published', () => {
 
     },
     user: {
-      username: 'lorem',
-
+      username: 'lorem'
     }
   };
 
