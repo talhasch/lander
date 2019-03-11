@@ -66,7 +66,8 @@ PublishToolbar.propTypes = {
     }),
     published: PropTypes.shape({
       updated: PropTypes.string.isRequired
-    })
+    }),
+    publishing: PropTypes.bool.isRequired
   })
 };
 

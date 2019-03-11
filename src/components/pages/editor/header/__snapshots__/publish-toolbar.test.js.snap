@@ -28,6 +28,64 @@ exports[`changed and not published 1`] = `
 </div>
 `;
 
+exports[`changed and publishing 1`] = `
+<div
+  className="publish-toolbar"
+>
+  <div
+    className="info-content"
+  >
+    <div
+      className="info-msg"
+    >
+      Last change you've made hasn't published
+    </div>
+    <div
+      className="info-controls"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Publish
+        ...
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`first publishing 1`] = `
+<div
+  className="publish-toolbar"
+>
+  <div
+    className="info-content"
+  >
+    <div
+      className="info-msg"
+    >
+      Your Lander page hasn't published yet
+    </div>
+    <div
+      className="info-controls"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Publish
+        ...
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`not published 1`] = `
 <div
   className="publish-toolbar"

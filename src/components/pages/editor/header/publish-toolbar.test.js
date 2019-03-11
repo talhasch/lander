@@ -12,7 +12,8 @@ it('not published', () => {
       draft: {
         updated: '1011'
       },
-      published: null
+      published: null,
+      publishing: false
     }
   };
 
@@ -24,6 +25,28 @@ it('not published', () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+it('first publishing', () => {
+  const props = {
+    user: {
+      username: 'lorem',
+      draft: {
+        updated: '1011'
+      },
+      published: null,
+      publishing: true
+    }
+  };
+
+  const component = wrapWithIntl(<PublishToolbar {...props} />);
+
+  const tree = renderer
+    .create(component)
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
 
 it('changed and not published', () => {
   const props = {
@@ -34,7 +57,8 @@ it('changed and not published', () => {
       },
       published: {
         updated: '10121'
-      }
+      },
+      publishing: false
     }
   };
 
@@ -47,6 +71,30 @@ it('changed and not published', () => {
   expect(tree).toMatchSnapshot();
 });
 
+it('changed and publishing', () => {
+  const props = {
+    user: {
+      username: 'lorem',
+      draft: {
+        updated: '1011'
+      },
+      published: {
+        updated: '10121'
+      },
+      publishing: true
+    }
+  };
+
+  const component = wrapWithIntl(<PublishToolbar {...props} />);
+
+  const tree = renderer
+    .create(component)
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
+
 it('up to date', () => {
   const props = {
     user: {
@@ -56,7 +104,8 @@ it('up to date', () => {
       },
       published: {
         updated: '22222'
-      }
+      },
+      publishing: false
     }
   };
 
