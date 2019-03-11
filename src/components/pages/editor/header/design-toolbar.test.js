@@ -15,7 +15,6 @@ it('default', () => {
     toggleUiProp: () => {
 
     },
-
     ui: {
       preview: false
     }

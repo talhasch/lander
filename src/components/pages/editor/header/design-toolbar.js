@@ -7,8 +7,6 @@ import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {eyeSlashSvg, eyeSvg, magicSvg} from '../../../../svg';
 
 class DesignToolbar extends Component {
-
-
   showStyle = () => {
     const {toggleUiProp} = this.props;
     toggleUiProp('style');
@@ -21,12 +19,11 @@ class DesignToolbar extends Component {
     return false;
   };
 
-
   render() {
     const {ui} = this.props;
 
     if (ui.preview) {
-      return <div className="design-toolbar">
+      return <div className="design-toolbar in-preview">
         <OverlayTrigger
           placement="right"
           delay={1000}

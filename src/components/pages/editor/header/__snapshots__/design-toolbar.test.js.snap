@@ -63,7 +63,7 @@ exports[`default 1`] = `
 
 exports[`in preview 1`] = `
 <div
-  className="design-toolbar"
+  className="design-toolbar in-preview"
 >
   <button
     className="btn-preview-off btn btn-light disabled"

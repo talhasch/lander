@@ -79,6 +79,10 @@
       width: $primary-width;
     }
 
+    &.in-preview {
+      justify-content: center;
+    }
+
     .btn-preview, .btn-style, .btn-preview-off {
       align-items: center;
       border-top-left-radius: 0;
