@@ -1,27 +1,65 @@
 .home-wrapper {
-  margin: auto;
-  padding-bottom: 30px;
-  width: 90%;
 
-  .header {
-    align-items: center;
-    display: flex;
-    height: 200px;
+  .navbar {
+    background: transparent !important;
+
+    a.nav-link {
+      color: $gray-700 !important;
+
+      &:hover {
+        color: $gray-600 !important;
+      }
+
+      @media (min-width: $md-break) {
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
   }
 
-  .content {
+  .section-container {
+    margin: auto;
+    max-width: 1200px;
+    position: relative;
+  }
+
+  .section-container-intro {
+
+  }
+
+  .intro {
+    background: lighten($primary, 34);
+    margin-bottom: 40px;
+
+    @media (min-width: $md-break) {
+      height: 500px;
+    }
+
     .showcase {
-      border-radius: 8px;
+      background: #fff;
+      border-radius: 6px;
       box-shadow: $box-shadow;
       display: none;
-      height: 534px;
+      height: 484px;
+      left: 40px;
       overflow: hidden;
-      width: 400px;
+      position: absolute;
+      top: 40px;
+      width: 360px;
+
+      @media (min-width: $md-break) {
+        display: block;
+      }
+
+      @media (min-width: $lg-break) {
+        height: 534px;
+        width: 400px;
+      }
 
       .showcase-header {
         align-items: center;
         background: #A5C5E2;
-
         display: flex;
         height: 34px;
         padding-left: 8px;
@@ -29,7 +67,7 @@
         .address-bar {
           align-items: center;
           background: #fff;
-          border-radius: 8px;
+          border-radius: 6px;
           color: #4e5d6b;
           display: flex;
           font-size: 12px;
@@ -41,8 +79,14 @@
 
       .showcase-content {
         background: #f7f7f7;
-        height: 500px;
-        width: 400px;
+
+        height: 450px;
+        width: 360px;
+
+        @media (min-width: $lg-break) {
+          height: 500px;
+          width: 400px;
+        }
 
         img {
           height: 100%;
@@ -53,107 +97,58 @@
       user-select: none;
     }
 
-    .text-content {
-      width: 90%;
+    .intro-content {
+      padding: 20px 10px;
+      text-align: center;
+
+      @media (min-width: $md-break) {
+        padding: 40px 40px 0 440px;
+        text-align: left;
+      }
+
+      @media (min-width: $lg-break) {
+        padding: 60px 40px 0 480px;
+      }
 
       .main-title {
         color: #333740;
-        margin-bottom: 30px;
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+
+        @media (min-width: $lg-break) {
+          font-size: 2.2em;
+          margin-bottom: 30px;
+        }
       }
 
       .description {
-        font-size: 1.6em;
-        margin-bottom: 40px;
+        font-size: 1.3em;
+        margin-bottom: 30px;
+
+        @media (min-width: $lg-break) {
+          font-size: 1.8em;
+          margin-bottom: 40px;
+        }
       }
 
-      .login-btn {
+      .btn-login {
+        @include button-variant(#471b5e, #230D2E, #401854);
         align-items: center;
-        background: #230D2E;
-        border-radius: 6px;
-        color: #EAEAEA;
-        cursor: pointer;
-        display: flex;
-        font-family: 'M PLUS Rounded 1c', sans-serif;
-        font-size: 1em;
-        font-weight: 600;
-        margin-bottom: 50px;
-        padding: 6px;
-        width: 280px;
+        display: inline-flex;
+        margin-bottom: 4px;
 
         .bl-icon {
-          height: 50px;
-          margin-right: 10px;
+          height: 40px;
+          margin-right: 2px;
         }
       }
 
-      .contact {
-        font-size: 0.9em;
-      }
-    }
-  }
-}
-
-@media (min-width: map-get($grid-breakpoints, "md")) {
-  .home-wrapper {
-    width: 760px;
-
-    .content {
-      .showcase {
-        float: left;
-        display: block;
-      }
-
-      .text-content {
-        float: right;
-        width: 340px;
-
-        .main-title {
-          font-size: 2em;
-        }
-
-        .description {
-          font-size: 1.4em;
-        }
-
-        .login-btn {
-          font-size: 1.2em;
-          width: 300px;
+      .what-is-blockstack {
+        a {
+          color: $primary !important;
+          font-size: 86%;
         }
       }
     }
-  }
-}
-
-@media (min-width: map-get($grid-breakpoints, "lg")) {
-  .home-wrapper {
-    width: 900px;
-    .content {
-      .text-content {
-        width: 470px;
-
-        .main-title {
-          font-size: 2.2em;
-        }
-
-        .description {
-          font-size: 1.6em;
-        }
-
-        .login-btn {
-          font-size: 1.3em;
-          width: 320px;
-        }
-      }
-    }
-  }
-}
-
-.product-hunt {
-  background: lighten($primary, 30);
-  text-align: center;
-  padding: 4px;
-  a {
-    color: $primary;
   }
 }
