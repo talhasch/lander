@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
 
-import {FormattedMessage} from 'react-intl';
-
 import {animateScroll as scroll} from "react-scroll";
 
 import * as blockStack from 'blockstack';
 
 import getBaseUrl from '../../../utils/get-base-url';
-
-import blockStackLogo from '../../../images/blockstack-bug-rev.svg'
 
 import {Nav, Navbar, Button, Row, Col} from 'react-bootstrap';
 
@@ -123,12 +119,9 @@ class HomePage extends Component {
               <h2>Why you should use Lander?</h2>
             </div>
             <Row className="feature-list">
-              {this.feature(coctailSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
-              {this.feature(smileSvg, 'Easy', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
-              {this.feature(shieldSvg, 'Secure', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
-              {this.feature(sketchSvg, 'Beautifully Simple', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
-              {this.feature(codeSvg, 'Open Source', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
-              {this.feature(codeBranchSvg, 'Growing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(coctailSvg, 'Free', 'All features of Lander are absolutely free and will be free forever. Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedbacks.')}
+              {this.feature(sketchSvg, 'Beautifully Easy', 'Setup your page in minutes and customise it with super easy user interface depending on your preferences.')}
+              {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you. All social accounts on use on Lander pages are verified. ')}
             </Row>
           </div>
         </div>
@@ -196,10 +189,11 @@ class HomePage extends Component {
                 </div>
                 <div className="menu-item">
                   <a href="https://blockstack.org/what-is-blockstack/" target="_blank"
-                     rel="noopener noreferrer">What is blockstack</a>
+                     rel="noopener noreferrer">What is blockstack?</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#">Gaia storage</a>
+                  <a href="https://github.com/blockstack/gaia" target="_blank"
+                     rel="noopener noreferrer">Gaia storage</a>
                 </div>
               </Col>
               <Col className="footer-menu" sm={12} md={3}>
@@ -210,7 +204,8 @@ class HomePage extends Component {
                   <a href="#">Contact</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#">Roadmap</a>
+                  <a href="https://github.com/talhasch/lander/blob/master/roadmap.md" target="_blank"
+                     rel="noopener noreferrer">Roadmap</a>
                 </div>
               </Col>
               <Col className="social-menu" sm={12} md={3}>
