@@ -183,6 +183,10 @@
       .feature {
         margin-bottom: 50px;
 
+        @media (min-width: $lg-break) {
+          padding-right: 80px;
+        }
+
         .icon {
           float: left;
           width: 70px;

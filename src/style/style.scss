@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import '~react-input-range/src/scss/index.scss';
 
 $primary-width: 500px;
 $box-shadow: 0 0 5px 2px rgba(134, 134, 134, 0.15);
@@ -78,6 +79,7 @@ html, body {
 @import '../components/pages/home/index';
 @import '../components/pages/editor/index';
 @import '../components/pages/profile/index';
+@import '../components/pages/welcome/index';
 
 @import '../components/profile-bg/index';
 @import '../components/profile-image/index';

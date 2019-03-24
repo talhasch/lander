@@ -147,8 +147,22 @@ export const sketchSvg = <svg aria-hidden="true" focusable="false" data-prefix="
 </svg>;
 
 export const codeBranchSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                   data-icon="code-branch" className="svg-inline--fa fa-code-branch fa-w-12"
-                                   role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                  data-icon="code-branch" className="svg-inline--fa fa-code-branch fa-w-12"
+                                  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
   <path fill="currentColor"
         d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"/>
+</svg>;
+
+export const mobileSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mobile-alt"
+                              className="svg-inline--fa fa-mobile-alt fa-w-10" role="img"
+                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <path fill="currentColor"
+        d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/>
+</svg>;
+
+export const infinitySvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="infinity"
+                                className="svg-inline--fa fa-infinity fa-w-20" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+  <path fill="currentColor"
+        d="M471.1 96C405 96 353.3 137.3 320 174.6 286.7 137.3 235 96 168.9 96 75.8 96 0 167.8 0 256s75.8 160 168.9 160c66.1 0 117.8-41.3 151.1-78.6 33.3 37.3 85 78.6 151.1 78.6 93.1 0 168.9-71.8 168.9-160S564.2 96 471.1 96zM168.9 320c-40.2 0-72.9-28.7-72.9-64s32.7-64 72.9-64c38.2 0 73.4 36.1 94 64-20.4 27.6-55.9 64-94 64zm302.2 0c-38.2 0-73.4-36.1-94-64 20.4-27.6 55.9-64 94-64 40.2 0 72.9 28.7 72.9 64s-32.7 64-72.9 64z"/>
 </svg>;

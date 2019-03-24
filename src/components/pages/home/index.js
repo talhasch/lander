@@ -22,6 +22,8 @@ import {
   sketchSvg,
   codeSvg,
   codeBranchSvg,
+  infinitySvg,
+  mobileSvg,
   twitterSvg,
   githubSvg,
   phSvg
@@ -57,7 +59,7 @@ class HomePage extends Component {
     scroll.scrollTo(a);
   };
 
-  feature = (icon, title, text) => {
+  feature = (icon, title, text, offset=true) => {
     return <Col className="feature" sm={12} md={4}>
       <div className="icon">
         {icon}
@@ -119,9 +121,12 @@ class HomePage extends Component {
               <h2>Why you should use Lander?</h2>
             </div>
             <Row className="feature-list">
-              {this.feature(coctailSvg, 'Free', 'All features of Lander are absolutely free and will be free forever. Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedbacks.')}
               {this.feature(sketchSvg, 'Beautifully Easy', 'Setup your page in minutes and customise it with super easy user interface depending on your preferences.')}
-              {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you. All social accounts on use on Lander pages are verified. ')}
+              {this.feature(coctailSvg, 'Free', 'All current and next features of Lander are absolutely free for everyone and will be free forever without any limitations!')}
+              {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you.')}
+              {this.feature(codeSvg, 'Open Source', ' Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedbacks.')}
+              {this.feature(mobileSvg, 'Responsive', 'Look great at every screen size right out of the box, from phones to tablets to desktops.')}
+              {this.feature(infinitySvg, 'Unlimited', 'You can create as much as pages you want for free. There is absolutely no limit.')}
             </Row>
           </div>
         </div>

@@ -23,9 +23,16 @@ class EditorPage extends Component {
 
   componentDidMount() {
     const {user} = this.props;
+    const {history} = this.props;
+
     if (!user) {
-      const {history} = this.props;
       history.push('/');
+      return;
+    }
+
+    if (!localStorage.getItem('flag1')) {
+      history.push('/app/welcome');
+      return;
     }
 
     document.addEventListener('visibilitychange', this.visibilityChanged);

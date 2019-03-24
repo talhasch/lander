@@ -13,6 +13,7 @@ import flattenMessages from '../utils/flatten-messages';
 import HomeContainer from './home';
 import AuthContainer from './auth';
 import EditorContainer from './editor';
+import WelcomeContainer from './welcome';
 import ProfileContainer from './profile'
 
 import {login, loadProfile} from '../store/user';
@@ -50,6 +51,9 @@ export default class App extends Component {
               />
             )}
           />
+          <Route exact path="/app/welcome" component={props => {
+            return <WelcomeContainer {...props} />;
+          }}/>
           <Route exact path="/app/editor" component={props => {
             return <EditorContainer {...props} />;
           }}/>
