@@ -30,7 +30,7 @@
 
   .intro {
     background: lighten($primary, 34);
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 
     @media (min-width: $md-break) {
       height: 500px;
@@ -151,11 +151,19 @@
   }
 
   .features {
-    margin-bottom: 120px;
+    margin-bottom: 10px;
     padding: 0 20px;
 
+    @media (min-width: $md-break) {
+      margin-bottom: 120px;
+    }
+
     .section-header {
-      margin-bottom: 80px;
+      margin-bottom: 40px;
+
+      @media (min-width: $md-break) {
+        margin-bottom: 80px;
+      }
 
       h2 {
         border-bottom: 4px solid lighten($primary, 26);
@@ -309,9 +317,13 @@
 
   .get-started {
     background: #e7eaec;
-    margin-bottom: 160px;
+    margin-bottom: 40px;
     padding: 20px;
     text-align: center;
+
+    @media (min-width: $md-break) {
+      margin-bottom: 160px;
+    }
 
     .section-header {
       margin-bottom: 20px;
@@ -342,12 +354,13 @@
   }
 
   .footer {
-    border-top: 2px solid #e7eaec;
     margin-bottom: 40px;
-    padding: 40px 20px 0 20px;
+    padding: 0 20px;
 
     @media (min-width: $md-break) {
       margin-bottom: 40px;
+      border-top: 2px solid #e7eaec;
+      padding-top: 40px;
     }
 
     .footer-menu {
