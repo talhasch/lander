@@ -4,7 +4,7 @@ import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
-const blockstack = require('blockstack');
+import * as blockStack from 'blockstack';
 
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/LOGOUT';
@@ -27,13 +27,28 @@ export const PUBLISH_SAVE_ERR = '@user/PUBLISH_SAVE_ERR';
 
 export const dataModel = () => (
   {
+    name: '',
+    description: '',
+    bio: '',
+    photo: '',
     email: '',
+    video: '',
+    accounts: {
+      twitter: '',
+      facebook: '',
+      github: '',
+      instagram: '',
+      linkedIn: ''
+    },
+    wallets: {
+      bitcoin: '',
+      ethereum: ''
+    },
     bg: {
       image: defaultBgImage,
       color: '#4a96f7',
       blur: '2'
     },
-    bio: '',
     updated: '010101'
   }
 );
@@ -173,7 +188,7 @@ export const login = (userData) => {
 
     let draft;
     try {
-      const file = await blockstack.getFile(draftFile);
+      const file = await blockStack.getFile(draftFile);
       draft = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -183,7 +198,7 @@ export const login = (userData) => {
     if (draft === null) {
       const obj = dataModel();
       try {
-        await blockstack.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
+        await blockStack.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
         draft = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -192,7 +207,7 @@ export const login = (userData) => {
 
     let published;
     try {
-      const file = await blockstack.getFile(publishedFile, {decrypt: false});
+      const file = await blockStack.getFile(publishedFile, {decrypt: false});
       published = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -206,7 +221,7 @@ export const login = (userData) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(logoutAct());
-    blockstack.signUserOut();
+    blockStack.signUserOut();
   }
 };
 
@@ -242,7 +257,7 @@ export const saveDraft = () => {
     const {user} = getState();
     const draftData1 = prepareDraftForSave(user.draft, true);
 
-    return blockstack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+    return blockStack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
       return draftData1;
     })
   }
@@ -270,7 +285,7 @@ export const publish = () => {
     const {user} = getState();
     const publicData = prepareDraftForSave(user.draft, false);
 
-    return blockstack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
+    return blockStack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
       return publicData;
     });
   }
@@ -297,7 +312,7 @@ export const loadProfile = () => {
     const {user} = getState();
 
     if (user.username) {
-      blockstack.lookupProfile(user.username).then(profile => {
+      blockStack.lookupProfile(user.username).then(profile => {
         if (profile) {
           dispatch(loadProfileAct(profile));
         }
