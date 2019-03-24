@@ -9,12 +9,11 @@ import {imageSvg} from '../../svg';
 class ProfileImage extends Component {
 
   render() {
-    const {image, editMode} = this.props;
+    const {imageUrl, editMode} = this.props;
 
     const editOverlay = <AccountEditBtn {...this.props}/>;
 
-    if (image && image.length > 0) {
-      const imageUrl = image[0].contentUrl;
+    if (imageUrl) {
       return <div className="profile-image"
                   style={{backgroundImage: `url('${imageUrl}')`}}>{editMode && editOverlay}</div>
     }
@@ -26,14 +25,12 @@ class ProfileImage extends Component {
 
 ProfileImage.defaultProps = {
   editMode: false,
-  image: []
+  imageUrl: ''
 };
 
 ProfileImage.propTypes = {
   editMode: PropTypes.bool,
-  image: PropTypes.arrayOf(PropTypes.shape({
-    contentUrl: PropTypes.string.isRequired
-  }))
+  imageUrl: PropTypes.string
 };
 
 export default ProfileImage;

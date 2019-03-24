@@ -44,6 +44,8 @@ class SettingsDialog extends Component {
       return;
     }
 
+    localStorage.removeItem('flag1');
+
     const {logout, history} = this.props;
     logout();
     history.push('/');

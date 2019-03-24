@@ -3,7 +3,7 @@
 
   .inner-wrapper {
 
-    padding-top: 40px;
+    padding: 40px;
     max-width: 600px;
     margin: auto;
 
@@ -27,6 +27,7 @@
     .section-sub-header {
       color: $gray-700;
       margin-bottom: 40px;
+      font-size: 1.1em;
     }
 
     .welcome-form {

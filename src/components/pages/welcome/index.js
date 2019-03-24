@@ -4,13 +4,18 @@ import PropTypes from 'prop-types';
 import {Form, Button, Modal} from 'react-bootstrap';
 
 import AvatarEditor from 'react-avatar-editor';
+
 import InputRange from 'react-input-range';
 
 import * as blockStack from 'blockstack';
 
 import ProfileImage from '../../profile-image';
 
+import {dataModel} from '../../../store/user';
+
 import showError from '../../../utils/show-error';
+
+import {draftFile} from "../../../constants";
 
 class PhotoModal extends Component {
   constructor(props) {
@@ -20,7 +25,9 @@ class PhotoModal extends Component {
       file: null,
       zoom: 1,
       uploading: false
-    }
+    };
+
+    this.editor = null;
   }
 
   uploadClicked = () => {
@@ -40,6 +47,7 @@ class PhotoModal extends Component {
       const self = this;
 
       const canvas = this.editor.getImage();
+
       canvas.toBlob((blob) => {
         const fileReader = new FileReader();
         fileReader.onload = function (event) {
@@ -49,7 +57,9 @@ class PhotoModal extends Component {
 
           self.setState({uploading: true});
           blockStack.putFile(fileName, fileContents, {encrypt: false, contentType: mime}).then(r => {
-            onSuccess(r);
+            setTimeout(() => {
+              onSuccess(r);
+            }, 200);
           }).catch(() => {
             showError('Could not complete file upload');
           }).then(() => {
@@ -61,8 +71,6 @@ class PhotoModal extends Component {
     }
   };
 
-  setEditorRef = (editor) => this.editor = editor;
-
   render() {
     const {onCancel} = this.props;
     const {file, zoom, uploading} = this.state;
@@ -71,15 +79,16 @@ class PhotoModal extends Component {
       <Modal.Body>
         <div className="welcome-photo-modal-content">
           <div className="select-btn">
-            <Button variant="outline-primary" onClick={this.uploadClicked}>Select photo from your device</Button>
+            <Button variant="primary" onClick={this.uploadClicked}>Select from your device</Button>
             <input type="file" id="image-upload" accept="image/*" className="d-none" onChange={this.fileChanged}/>
           </div>
-
           {file &&
           <>
             <div className="avatar-editor">
               <AvatarEditor
-                ref={this.setEditorRef}
+                ref={(editor) => {
+                  this.editor = editor
+                }}
                 image={file}
                 width={240}
                 height={240}
@@ -127,11 +136,12 @@ class WelcomePage extends Component {
     super(props);
 
     this.state = {
-      step: 3,
+      step: 1,
       name: '',
       description: '',
       photo: '',
-      uploadWindow: false
+      uploadWindow: false,
+      creating: false
     }
   }
 
@@ -212,8 +222,29 @@ class WelcomePage extends Component {
     this.setState({description: e.target.value});
   };
 
+  create = () => {
+    const {name, description, photo} = this.state;
+
+    const data = dataModel();
+
+    const newData = Object.assign({}, data, {name, description, photo});
+
+    this.setState({creating: true});
+    return blockStack.putFile(draftFile, JSON.stringify(newData), {encrypt: true}).then((resp) => {
+      localStorage.setItem('flag1', '1');
+      setTimeout(() => {
+        window.location.href = '/app/editor'
+      }, 200);
+      return resp;
+    }).catch(() => {
+      showError('Could not create your page. Please try again.');
+    }).then(() => {
+      this.setState({creating: false});
+    })
+  };
+
   render() {
-    const {step, name, description, uploadWindow} = this.state;
+    const {step, name, description, photo, creating, uploadWindow} = this.state;
     return (
       <>
         <div className="main-wrapper-welcome">
@@ -226,12 +257,12 @@ class WelcomePage extends Component {
             {step === 1 &&
             <>
               <div className="section-sub-header">
-                Let's start building your Lander page.
+                Let's start building your page
               </div>
 
               <div className="welcome-form">
                 <Form.Group controlId="formName">
-                  <Form.Label className="text-muted">Your Name:</Form.Label>
+                  <Form.Label className="text-muted">Your name:</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter your name here"
@@ -260,14 +291,14 @@ class WelcomePage extends Component {
             {step === 2 &&
             <>
               <div className="section-sub-header">
-                Let's start building your Lander page.
+                Tell your visitors a little about yourself
               </div>
               <div className="welcome-form">
                 <Form.Group controlId="formDescription">
-                  <Form.Label className="text-muted">Tell your visitors a little about yourself</Form.Label>
+                  <Form.Label className="text-muted">Short description:</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Your description"
+                    placeholder="Describe yourself"
                     className="focus-on"
                     maxLength={100}
                     value={description}
@@ -301,17 +332,17 @@ class WelcomePage extends Component {
                 Set your profile image
               </div>
               <div className="set-profile-image">
-                <ProfileImage/>
+                <ProfileImage imageUrl={photo}/>
                 <Button variant="outline-primary" onClick={() => {
                   this.setState({uploadWindow: true});
                 }}>Upload new photo</Button>
               </div>
               <div className="form-buttons">
-                <Button variant="secondary" type="button" className="btn-back" onClick={this.back2}>
+                <Button variant="secondary" type="button" className="btn-back" disabled={creating} onClick={this.back2}>
                   Back
                 </Button>
-                <Button variant="primary" type="button">
-                  Next
+                <Button variant="primary" type="button" disabled={creating} onClick={this.create}>
+                  Next {creating ? '...' : ''}
                 </Button>
               </div>
               {uploadWindow &&

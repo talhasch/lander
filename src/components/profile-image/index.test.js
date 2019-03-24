@@ -32,9 +32,7 @@ it('in edit mode and image is empty. should render empty image svg and edit btn'
 
 it('not in edit mode and image is not empty. should render image ', () => {
   const props = {
-    image: [{
-      contentUrl: 'https://foo.bar/baz.jpg'
-    }]
+    imageUrl: 'https://foo.bar/baz.jpg'
   };
 
   const component = wrapWithIntl(<ProfileImage {...props} />);
@@ -49,9 +47,7 @@ it('not in edit mode and image is not empty. should render image ', () => {
 it('in edit mode and image is not empty. should render image and edit btn', () => {
   const props = {
     editMode: true,
-    image: [{
-      contentUrl: 'https://foo.bar/baz.jpg'
-    }]
+    imageUrl: 'https://foo.bar/baz.jpg'
   };
 
   const component = wrapWithIntl(<ProfileImage {...props} />);
