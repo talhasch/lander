@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
-import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
+
+import {animateScroll as scroll} from "react-scroll";
 
 import * as blockStack from 'blockstack';
 
@@ -14,10 +16,22 @@ import landerLogo from '../../../images/lander-512.png';
 
 import bitey from '../../../images/bitey.jpg';
 
-import {codeSvg, twitterSvg, githubSvg, phSvg} from '../../../svg'
+import {
+  coctailSvg,
+  smileSvg,
+  shieldSvg,
+  sketchSvg,
+  codeSvg,
+  codeBranchSvg,
+  twitterSvg,
+  githubSvg,
+  phSvg
+} from '../../../svg'
 
 class HomePage extends Component {
-  signIn = () => {
+  signIn = (e) => {
+    e.preventDefault();
+
     if (blockStack.isUserSignedIn()) {
       const {history} = this.props;
       history.push('/app/editor');
@@ -32,6 +46,17 @@ class HomePage extends Component {
     blockStack.redirectToSignIn(redir, manifest, scope);
   };
 
+  goFeatures = (e) => {
+    e.preventDefault();
+    const a = document.querySelector('.features').getBoundingClientRect().top - 20;
+    scroll.scrollTo(a);
+  };
+
+  goGetStarted = (e) => {
+    e.preventDefault();
+    const a = document.querySelector('.get-started').getBoundingClientRect().top - 20;
+    scroll.scrollTo(a);
+  };
 
   feature = (icon, title, text) => {
     return <Col className="feature" sm={12} md={4}>
@@ -39,17 +64,13 @@ class HomePage extends Component {
         {icon}
       </div>
       <div className="content">
-
         <div className="title">
           {title}
         </div>
-
         <div className="text">
           {text}
         </div>
-
       </div>
-
     </Col>
   };
 
@@ -63,9 +84,9 @@ class HomePage extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#get-started">Get Started</Nav.Link>
-                <Nav.Link href="#sign-in">Sign In</Nav.Link>
+                <Nav.Link href="#features" onClick={this.goFeatures}>Features</Nav.Link>
+                <Nav.Link href="#get-started" onClick={this.goGetStarted}>Get Started</Nav.Link>
+                <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -84,14 +105,15 @@ class HomePage extends Component {
               </div>
             </div>
             <div className="intro-content">
-              <h1 className="main-title"><FormattedMessage id="home.title"/></h1>
-              <p className="description"><FormattedMessage id="home.description"/></p>
+              <h1 className="main-title">Your personal home page on decentralized internet</h1>
+              <p className="description">Lander lets you create your personal home page in just a few minutes.</p>
               <Button onClick={this.signIn} variant="login" size="lg">
                 <img src={blockStackLogo} alt="Blockstack Logo" className="bl-icon"/>
                 <FormattedMessage id="home.login"/>
               </Button>
               <div className="what-is-blockstack">
-                <a className="what-is-blockstack" href="#">What is Blockstack?</a>
+                <a className="what-is-blockstack" href="https://blockstack.org/what-is-blockstack/" target="_blank"
+                   rel="noopener noreferrer">What is Blockstack?</a>
               </div>
             </div>
           </div>
@@ -102,16 +124,19 @@ class HomePage extends Component {
             <div className="section-header">
               <h2>Why you should use Lander?</h2>
             </div>
-
             <Row className="feature-list">
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
-              {this.feature(codeSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dui massa')}
+              {this.feature(coctailSvg, 'Free', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(smileSvg, 'Easy', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(shieldSvg, 'Secure', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(sketchSvg, 'Beautifully Simple', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(codeSvg, 'Open Source', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
+              {this.feature(codeBranchSvg, 'Growing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem molestie augue vestibulum sagittis. Fusce dui libero, scelerisque et luctus non, mattis eget diam. Nunc vel blandit odio, vel molestie ex. ')}
             </Row>
           </div>
+        </div>
+
+        <div className="aX">
+
         </div>
 
         <div className="get-started">
@@ -119,18 +144,19 @@ class HomePage extends Component {
             <div className="section-header">
               <h2>Get Started</h2>
             </div>
-
             <p> This video shows how you create you Lander page in seconds.</p>
-
             <div className="get-started-video">
-
             </div>
           </div>
         </div>
 
+
+        <div className="aY">
+
+        </div>
+
+
         <div className="footer">
-
-
           <div className="section-container section-container-footer">
             <Row>
               <Col className="footer-menu" sm={12} md={3}>
@@ -138,13 +164,13 @@ class HomePage extends Component {
                   Lander
                 </div>
                 <div className="menu-item">
-                  <a href="#">Features</a>
+                  <a href="#features" onClick={this.goFeatures}>Features</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#">Get Started</a>
+                  <a href="#get-started" onClick={this.goGetStarted}>Get Started</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#">Sign In</a>
+                  <a href="#sign-in" onClick={this.signIn}>Sign In</a>
                 </div>
               </Col>
 
@@ -153,7 +179,8 @@ class HomePage extends Component {
                   Blockstack
                 </div>
                 <div className="menu-item">
-                  <a href="#">What is blockstack</a>
+                  <a href="https://blockstack.org/what-is-blockstack/" target="_blank"
+                     rel="noopener noreferrer">What is blockstack</a>
                 </div>
                 <div className="menu-item">
                   <a href="#">Gaia storage</a>
@@ -171,19 +198,20 @@ class HomePage extends Component {
                   <a href="#">Roadmap</a>
                 </div>
               </Col>
-
               <Col className="social-menu" sm={12} md={3}>
-                <a className="social-link" href="#">
+                <a className="social-link" href="https://twitter.com/landr_me" target="_blank"
+                   rel="noopener noreferrer">
                   {twitterSvg}
                 </a>
-                <a className="social-link" href="#">
+                <a className="social-link" href="https://github.com/talhasch/lander" target="_blank"
+                   rel="noopener noreferrer">
                   {githubSvg}
                 </a>
-                <a className="social-link" href="#">
+                <a className="social-link" href="https://www.producthunt.com/posts/lander-2" target="_blank"
+                   rel="noopener noreferrer">
                   {phSvg}
                 </a>
               </Col>
-
             </Row>
           </div>
         </div>

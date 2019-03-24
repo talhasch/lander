@@ -38,7 +38,7 @@
     }
 
     @media (min-width: $lg-break) {
-      margin-bottom: 120px;
+      margin-bottom: 200px;
     }
 
     .showcase {
@@ -158,11 +158,11 @@
   }
 
   .features {
-    margin-bottom: 30px;
+    margin-bottom: 120px;
     padding: 0 20px;
 
     .section-header {
-      margin-bottom: 40px;
+      margin-bottom: 80px;
 
       h2 {
         border-bottom: 4px solid lighten($primary, 26);
@@ -180,7 +180,7 @@
 
     .feature-list {
       .feature {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
 
         .icon {
           float: left;
@@ -188,6 +188,7 @@
           svg {
             height: 50px;
             width: 50px;
+            color: $gray-700;
           }
         }
 
@@ -209,10 +210,15 @@
     }
   }
 
+  .aX {
+    height: 400px;
+    background: lighten(#d73865, 36);
+    margin-bottom: 80px;
+  }
+
   .get-started {
     background: #e7eaec;
-    border-bottom: 2px solid lighten($primary, 16);
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     padding: 20px;
     text-align: center;
 
@@ -242,6 +248,12 @@
         width: 400px;
       }
     }
+  }
+
+  .aY {
+    height: 400px;
+    background: lighten($primary, 34);
+    margin-bottom: 80px;
   }
 
   .footer {
