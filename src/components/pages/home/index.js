@@ -14,7 +14,10 @@ import {Nav, Navbar, Button, Row, Col} from 'react-bootstrap';
 
 import landerLogo from '../../../images/lander-512.png';
 
-import bitey from '../../../images/bitey.jpg';
+import jasmine from '../../../images/jasmine.jpg';
+import melissa from '../../../images/melissa.jpg';
+import steven from '../../../images/steven.jpg';
+
 
 import {
   coctailSvg,
@@ -87,38 +90,33 @@ class HomePage extends Component {
                 <Nav.Link href="#features" onClick={this.goFeatures}>Features</Nav.Link>
                 <Nav.Link href="#get-started" onClick={this.goGetStarted}>Get Started</Nav.Link>
                 <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
+                <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
+                          rel="noopener noreferrer" >Blockstack</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
         </div>
-
         <div className="intro">
           <div className="section-container section-container-intro">
             <div className="showcase">
               <div className="showcase-header">
                 <div className="address-bar">
-                  https://landr.me/mrbitey.id
+                  https://landr.me/jasmine.id
                 </div>
               </div>
               <div className="showcase-content">
-                <img src={bitey} alt="Mr. Bitey"/>
+                <img src={jasmine} alt="Jasmine"/>
               </div>
             </div>
             <div className="intro-content">
               <h1 className="main-title">Your personal home page on decentralized internet</h1>
               <p className="description">Lander lets you create your personal home page in just a few minutes.</p>
-              <Button onClick={this.signIn} variant="login" size="lg">
-                <img src={blockStackLogo} alt="Blockstack Logo" className="bl-icon"/>
-                <FormattedMessage id="home.login"/>
+              <Button onClick={this.signIn} variant="sign-in" size="lg">
+                Get your free page
               </Button>
-              <div className="what-is-blockstack">
-                <a className="what-is-blockstack" href="https://blockstack.org/what-is-blockstack/" target="_blank"
-                   rel="noopener noreferrer">What is Blockstack?</a>
-              </div>
             </div>
           </div>
         </div>
-
         <div className="features">
           <div className="section-container">
             <div className="section-header">
@@ -134,11 +132,21 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
-
         <div className="aX">
-
+          <div className="section-container">
+          <div className="showcase">
+            <div className="showcase-header">
+              <div className="address-bar">
+                https://landr.me/melissa.id
+              </div>
+            </div>
+            <div className="showcase-content">
+              <img src={melissa} alt="Jasmine"/>
+            </div>
+          </div>
+          <h3>Create a home page to present yourself and what you do in one link.</h3>
+          </div>
         </div>
-
         <div className="get-started">
           <div className="section-container">
             <div className="section-header">
@@ -149,13 +157,22 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-
-
         <div className="aY">
+          <div className="section-container">
+            <div className="showcase">
+              <div className="showcase-header">
+                <div className="address-bar">
+                  https://landr.me/steven.id
+                </div>
+              </div>
+              <div className="showcase-content">
+                <img src={steven} alt="Steven"/>
+              </div>
+            </div>
 
+            <h3>You're somebody who deserves a beautiful personal home page.</h3>
+          </div>
         </div>
-
-
         <div className="footer">
           <div className="section-container section-container-footer">
             <Row>
@@ -173,7 +190,6 @@ class HomePage extends Component {
                   <a href="#sign-in" onClick={this.signIn}>Sign In</a>
                 </div>
               </Col>
-
               <Col className="footer-menu" sm={12} md={3}>
                 <div className="menu-header">
                   Blockstack
@@ -186,7 +202,6 @@ class HomePage extends Component {
                   <a href="#">Gaia storage</a>
                 </div>
               </Col>
-
               <Col className="footer-menu" sm={12} md={3}>
                 <div className="menu-header">
                   Support
