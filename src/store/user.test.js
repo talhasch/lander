@@ -9,10 +9,10 @@ import reducer, {
   setBgBlurAct,
   setBioAct,
   setPhotoAct,
+  setNameAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
-
   publishAct,
   publishErrorAct,
   publishDoneAct,
@@ -20,7 +20,7 @@ import reducer, {
 
 } from "./user"
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD} from "./ui";
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT} from "./ui";
 
 let state = undefined;
 
@@ -231,6 +231,60 @@ it('34 publish clicked', () => {
 });
 
 it('35 publish saved successfully', () => {
+  const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('36 name dialog opened', () => {
+  const act = {type: TOGGLE_NAME_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('37 name set', () => {
+  const act = setNameAct('foo');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('38 name dialog closed', () => {
+  const act = {type: TOGGLE_NAME_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('39 name dialog opened', () => {
+  const act = {type: TOGGLE_NAME_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('40 name set', () => {
+  const act = setNameAct('bar');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('41 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('42 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('43 publish clicked', () => {
+  const act = publishAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('44 publish saved successfully', () => {
   const act = publishDoneAct(prepareDraftForSave(state.draft, false));
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
