@@ -8,7 +8,7 @@ import reducer, {
   setBgColorAct,
   setBgBlurAct,
   setBioAct,
-
+  setPhotoAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
@@ -20,7 +20,7 @@ import reducer, {
 
 } from "./user"
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from "./ui";
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD} from "./ui";
 
 let state = undefined;
 
@@ -194,7 +194,49 @@ it('28 publish saved successfully', () => {
   expect(state).toMatchSnapshot();
 });
 
-it('50 logout', () => {
+it('29 photo dialog opened', () => {
+  const act = {type: TOGGLE_PHOTO_UPLOAD};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('30 image set', () => {
+  const act = setPhotoAct('base64string');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('31 image set', () => {
+  const act = setPhotoAct('https://fooo.bar/baz.jpg');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('32 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('33 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('34 publish clicked', () => {
+  const act = publishAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('35 publish saved successfully', () => {
+  const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('200 logout', () => {
   const act = logoutAct();
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
