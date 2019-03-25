@@ -35,6 +35,8 @@ export default (state = initialState, action) => {
       return initialState;
     case TOGGLE_PHOTO_UPLOAD:
       return Object.assign({}, state, {photoUpload: action.payload.what});
+    case TOGGLE_NAME_EDIT:
+      return Object.assign({}, state, {nameEdit: action.payload.what});
     case TOGGLE_SETTINGS:
       return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_STYLE:
@@ -65,6 +67,9 @@ export const toggleUiProp = (what, affectUser = true) => {
     switch (what) {
       case 'photoUpload':
         act = TOGGLE_PHOTO_UPLOAD;
+        break;
+      case 'nameEdit':
+        act = TOGGLE_NAME_EDIT;
         break;
       case 'settings':
         act = TOGGLE_SETTINGS;
