@@ -67,7 +67,7 @@ class EditorPage extends Component {
               <ProfileName name={user.draft.name} editMode={!ui.preview} {...this.props}/>
               <ProfileDescription description={user.draft.description} editMode={!ui.preview} {...this.props}/>
               <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
-              <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+              <SocialAccounts accounts={user.draft.accounts} editMode={!ui.preview} {...this.props}/>
               <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
             </div>
           </div>

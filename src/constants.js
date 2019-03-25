@@ -20,8 +20,7 @@ export const socialAccountTypes = [
   {id: 'twitter', name: 'Twitter', 'icon': twitterSvg},
   {id: 'facebook', name: 'Facebook', 'icon': facebookSvg},
   {id: 'instagram', name: 'Instagram', 'icon': instagramSvg},
-  {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg},
-  {id: 'hackerNews', name: 'Hacker News', 'icon': hackerNewsSvg}
+  {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg}
 ];
 
 

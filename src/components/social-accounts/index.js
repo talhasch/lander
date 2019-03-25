@@ -29,7 +29,7 @@ class SocialAccounts extends Component {
 
     for (let x = 0; x < accountTypes.length; x++) {
       const i = accountTypes[x];
-      sAccounts[i.id] = accounts.find(x => x.service === i.id)
+      sAccounts[i.id] = accounts[i.id];
     }
 
     if (editMode) {
@@ -59,7 +59,7 @@ class SocialAccounts extends Component {
           </OverlayTrigger>
         })}
 
-        <EditBtn {...this.props} onClick={this.edit} />
+        <EditBtn {...this.props} onClick={this.edit}/>
       </div>
     }
 
@@ -83,15 +83,12 @@ class SocialAccounts extends Component {
 
 SocialAccounts.defaultProps = {
   editMode: false,
-  accounts: []
+  accounts: {}
 };
 
 SocialAccounts.propTypes = {
   editMode: PropTypes.bool,
-  accounts: PropTypes.arrayOf(PropTypes.shape({
-    service: PropTypes.string.isRequired,
-    identifier: PropTypes.string.isRequired
-  }))
+  accounts: PropTypes.instanceOf(Object),
 };
 
 export default SocialAccounts;

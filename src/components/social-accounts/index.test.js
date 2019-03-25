@@ -27,10 +27,9 @@ it('in edit mode. no accounts provided. should show all buttons not set.', () =>
 it('in edit mode. twitter provided. should show twitter button set all other buttons not set.', () => {
   const props = {
     editMode: true,
-    accounts: [{
-      service: 'twitter',
-      identifier: 'talhasch'
-    }]
+    accounts: {
+      twitter: 'talhasch'
+    }
   };
 
   const component = wrapWithIntl(<SocialAccounts {...props} />);
@@ -58,14 +57,8 @@ it('not in edit mode. no accounts provided. should render null', () => {
 
 it('not in edit mode. twitter and github provided', () => {
   const props = {
-    accounts: [{
-      service: 'twitter',
-      identifier: 'talhasch'
-    }, {
-      service: 'github',
-      identifier: 'talhasch'
-    }]
-  };
+    accounts: {twitter: 'talhasch', 'github': 'talhasch'}
+  }
 
   const component = wrapWithIntl(<SocialAccounts {...props} />);
 
