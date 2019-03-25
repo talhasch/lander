@@ -28,6 +28,7 @@ export const BIO_SET = '@user/BIO_SAVE';
 export const PHOTO_SET = '@user/PHOTO_SET';
 export const NAME_SET = '@user/NAME_SET';
 export const DESCRIPTION_SET = '@user/DESCRIPTION_SET';
+export const ACCOUNT_SET = '@user/ACCOUNT_SET';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
@@ -193,6 +194,19 @@ export default (state = initialState, action) => {
       const newDraft = Object.assign({}, draft, {description: action.payload});
       return Object.assign({}, state, {draft: newDraft});
     }
+    case ACCOUNT_SET: {
+      const {draft} = state;
+      const {accounts} = draft;
+      const {network, address} = action.payload;
+
+      const a = {};
+      a[network] = address;
+
+      const newAccounts = Object.assign({}, accounts, a);
+
+      const newDraft = Object.assign({}, draft, {accounts: newAccounts});
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case BG_BLUR_SET: {
       const {draft} = state;
       const {bg} = draft;
@@ -319,6 +333,12 @@ export const setDescription = (val) => {
   }
 };
 
+export const setAccount = (network, address) => {
+  return (dispatch) => {
+    dispatch(setAccountAct(network, address));
+  }
+};
+
 export const setBgBlur = (val) => {
   return (dispatch) => {
     dispatch(setBgBlurAct(val));
@@ -399,7 +419,6 @@ export const publishError = () => {
   }
 };
 
-
 export const loadProfile = () => {
   return (dispatch, getState) => {
 
@@ -447,6 +466,10 @@ export const setNameAct = (val) => ({
 export const setDescriptionAct = (val) => ({
   type: DESCRIPTION_SET,
   payload: val
+});
+export const setAccountAct = (network, address) => ({
+  type: ACCOUNT_SET,
+  payload: {network, address}
 });
 
 export const setBgBlurAct = (val) => ({

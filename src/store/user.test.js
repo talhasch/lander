@@ -11,6 +11,7 @@ import reducer, {
   setPhotoAct,
   setNameAct,
   setDescriptionAct,
+  setAccountAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
@@ -21,7 +22,14 @@ import reducer, {
 
 } from "./user"
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT, TOGGLE_DESCRIPTION_EDIT} from "./ui";
+import {
+  TOGGLE_STYLE,
+  TOGGLE_BIO_EDIT,
+  TOGGLE_PHOTO_UPLOAD,
+  TOGGLE_NAME_EDIT,
+  TOGGLE_DESCRIPTION_EDIT,
+  TOGGLE_ACCOUNT_EDIT
+} from "./ui";
 
 let state = undefined;
 
@@ -344,6 +352,33 @@ it('52 publish clicked', () => {
 
 it('53 publish saved successfully', () => {
   const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('54 account dialog opened', () => {
+  const act = {type: TOGGLE_ACCOUNT_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('55 twitter account set', () => {
+  const act = setAccountAct('twitter', 'foo');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('56 instagram account set', () => {
+  const act = setAccountAct('instagram', 'bar');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('57 account dialog closed', () => {
+  const act = {type: TOGGLE_ACCOUNT_EDIT};
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
