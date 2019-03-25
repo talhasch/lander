@@ -6,6 +6,8 @@ import {FormattedMessage} from 'react-intl';
 
 import fixClassNames from '../../utils/fix-class-names';
 
+import EditBtn from "../elements/edit-btn";
+
 class ProfileBio extends Component {
 
   edit = () => {
@@ -26,20 +28,16 @@ class ProfileBio extends Component {
     }
 
     if (editMode && !bio) {
-      return <div className="profile-bio not-set edit-mode" onClick={this.edit}>
+      return <div className="profile-bio not-set edit-mode">
         <FormattedMessage id="editor.bio-placeholder"/>
+        <EditBtn {...this.props} onClick={this.edit}/>
       </div>
     }
 
-    const eProps = {
-      className: fixClassNames(`profile-bio ${editMode ? 'edit-mode' : ''}`)
-    };
-
-    if (editMode) {
-      eProps.onClick = this.edit;
-    }
-
-    return <div {...eProps}>{renderBio}</div>;
+    return <div className={fixClassNames(`profile-bio ${editMode ? 'edit-mode' : ''}`)}>
+      {renderBio}
+      {editMode && <EditBtn {...this.props} onClick={this.edit}/>}
+    </div>;
   }
 }
 

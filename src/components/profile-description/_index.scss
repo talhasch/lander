@@ -1,16 +1,9 @@
 .profile-description {
-  @include editable-control;
   color: #adadad;
   font-size: 1.3em;
   font-weight: 400;
   margin-bottom: 16px;
   text-align: center;
 
-  &.not-set {
-    color: #bbbbbb;
-  }
-
-  &.edit-mode {
-    margin-bottom: 8px;
-  }
+  @include editable-control;
 }

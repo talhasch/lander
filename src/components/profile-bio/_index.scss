@@ -3,29 +3,12 @@
   color: #adadad;
   font-size: 1.1em;
   font-weight: 400;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: center;
 
   p {
     margin-bottom: 6px;
   }
 
-  &.not-set {
-    color: #bbbbbb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    border: 4px dashed #e3e3e3;
-  }
-
-  &.edit-mode {
-    cursor: pointer;
-
-    &:not(.not-set) {
-      &:hover {
-        background: #fdffc7;
-      }
-    }
-  }
+  @include editable-control;
 }
