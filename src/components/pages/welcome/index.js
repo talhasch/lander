@@ -15,7 +15,7 @@ import {dataModel} from '../../../store/user';
 
 import showError from '../../../utils/show-error';
 
-import {draftFile} from "../../../constants";
+import {putDraftFile, putPublishedFile, putFlagFile} from '../../../dbl';
 
 class PhotoModal extends Component {
   constructor(props) {
@@ -230,12 +230,17 @@ class WelcomePage extends Component {
     const newData = Object.assign({}, data, {name, description, photo});
 
     this.setState({creating: true});
-    return blockStack.putFile(draftFile, JSON.stringify(newData), {encrypt: true}).then((resp) => {
-      localStorage.setItem('flag1', '1');
-      setTimeout(() => {
-        window.location.href = '/app/editor'
-      }, 200);
-      return resp;
+
+    const prms1 = putDraftFile(newData);
+    const prms2 = putPublishedFile(newData);
+
+    return Promise.all([prms1, prms2]).then(() => {
+      return putFlagFile(1).then(() => {
+        localStorage.setItem('flag1', '1');
+        setTimeout(() => {
+          window.location.href = '/app/editor'
+        }, 200);
+      });
     }).catch(() => {
       showError('Could not create your page. Please try again.');
     }).then(() => {

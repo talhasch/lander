@@ -50,13 +50,12 @@ class EditorPage extends Component {
   };
 
   render() {
-
     const {user, ui} = this.props;
     if (!(user && user.loaded)) {
       return <Spinner/>;
     }
 
-    const {name, description, image, account} = user.profile;
+    const {account} = user.profile;
 
     return (
       <>
@@ -69,9 +68,9 @@ class EditorPage extends Component {
           <div className="inner-wrapper">
             <EditorNavBar {...this.props} />
             <div className={fixClassNames(`profile-box ${!ui.preview ? 'edit-mode' : ''}`)}>
-              <ProfileImage image={image} editMode={!ui.preview} {...this.props}/>
-              <ProfileName name={name} editMode={!ui.preview} {...this.props}/>
-              <ProfileDescription description={description} editMode={!ui.preview} {...this.props}/>
+              <ProfileImage imageUrl={user.draft.photo} editMode={!ui.preview} {...this.props}/>
+              <ProfileName name={user.draft.name} editMode={!ui.preview} {...this.props}/>
+              <ProfileDescription description={user.draft.description} editMode={!ui.preview} {...this.props}/>
               <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
               <SocialAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
               <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>

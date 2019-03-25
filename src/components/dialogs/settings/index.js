@@ -8,9 +8,7 @@ import {FormattedMessage, injectIntl} from 'react-intl';
 
 import ConfirmDialog from '../confirm'
 
-import {draftFile, publishedFile} from '../../../constants';
-
-const blockstack = require('blockstack');
+import {putDraftFile, putPublishedFile, putFlagFile} from '../../../dbl';
 
 class SettingsDialog extends Component {
 
@@ -38,8 +36,9 @@ class SettingsDialog extends Component {
     this.setState({deleteConfirm: false, deleting: true});
 
     try {
-      await blockstack.putFile(draftFile, '', {encrypt: true});
-      await blockstack.putFile(publishedFile, '', {encrypt: false});
+      await putDraftFile('');
+      await putPublishedFile('');
+      await putFlagFile(0);
     } catch (e) {
       return;
     }
