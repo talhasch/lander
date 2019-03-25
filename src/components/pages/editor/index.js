@@ -12,6 +12,7 @@ import SettingsDialog from '../../dialogs/settings';
 import StyleDialog from '../../dialogs/style';
 import PhotoUploadDialog from '../../dialogs/photo-upload';
 import NameEditDialog from '../../dialogs/name-edit';
+import DescriptionEditDialog from '../../dialogs/description-edit';
 
 import BioEditDialog from '../../dialogs/bio-edit';
 import Spinner from '../../elements/spinner';
@@ -48,8 +49,10 @@ class EditorPage extends Component {
 
     return (
       <>
-        {ui.nameEdit && <NameEditDialog  {...this.props}  />}
+
         {ui.photoUpload && <PhotoUploadDialog  {...this.props}  />}
+        {ui.nameEdit && <NameEditDialog  {...this.props}  />}
+        {ui.descriptionEdit && <DescriptionEditDialog  {...this.props}  />}
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}

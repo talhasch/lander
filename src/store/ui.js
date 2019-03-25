@@ -21,6 +21,8 @@ const initialState = {
   delete: false,
   style: false,
   bioEdit: false,
+  nameEdit: false,
+  descriptionEdit: false,
   imageSelect: false,
   preview: false,
   accountEdit: false,
@@ -37,6 +39,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {photoUpload: action.payload.what});
     case TOGGLE_NAME_EDIT:
       return Object.assign({}, state, {nameEdit: action.payload.what});
+    case TOGGLE_DESCRIPTION_EDIT:
+      return Object.assign({}, state, {descriptionEdit: action.payload.what});
     case TOGGLE_SETTINGS:
       return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_STYLE:
@@ -70,6 +74,9 @@ export const toggleUiProp = (what, affectUser = true) => {
         break;
       case 'nameEdit':
         act = TOGGLE_NAME_EDIT;
+        break;
+      case 'descriptionEdit':
+        act = TOGGLE_DESCRIPTION_EDIT;
         break;
       case 'settings':
         act = TOGGLE_SETTINGS;

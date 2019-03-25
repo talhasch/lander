@@ -2202,4 +2202,567 @@ Object {
 }
 `;
 
+exports[`45 description dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "descriptionTemp": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`46 description set 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "lorem ipsum dolor",
+    "descriptionTemp": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`47 description dialog closed 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`48 description dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "descriptionTemp": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`49 description set 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "descriptionTemp": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`50 save draft clicked 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "descriptionTemp": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": true,
+  "username": "foo",
+}
+`;
+
+exports[`51 draft saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "3a294385d21e8cd78877665d3da576c3",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`52 publish clicked 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "3a294385d21e8cd78877665d3da576c3",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "112222b75f112a005882d0989b1f6d7d",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": true,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`53 publish saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "3a294385d21e8cd78877665d3da576c3",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "3a294385d21e8cd78877665d3da576c3",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
 exports[`200 logout 1`] = `null`;

@@ -1,6 +1,6 @@
 import md5 from 'blueimp-md5';
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT} from './ui';
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT, TOGGLE_DESCRIPTION_EDIT} from './ui';
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
@@ -19,6 +19,7 @@ export const BIO_SET = '@user/BIO_SAVE';
 
 export const PHOTO_SET = '@user/PHOTO_SET';
 export const NAME_SET = '@user/NAME_SET';
+export const DESCRIPTION_SET = '@user/DESCRIPTION_SET';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
@@ -57,7 +58,7 @@ export const dataModel = () => (
 );
 
 export const prepareDraftForSave = (draft, update = false) => {
-  const {bgTemp, bioTemp, photoTemp, nameTemp, ...draftData} = draft;
+  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, ...draftData} = draft;
 
   if (update) {
     draftData.updated = md5(JSON.stringify(draftData));
@@ -117,6 +118,19 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {draft: newDraft});
     }
+    case TOGGLE_DESCRIPTION_EDIT: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.descriptionTemp !== undefined) {
+        const {descriptionTemp} = draft;
+        const {descriptionTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {description: descriptionTemp});
+      } else {
+        const {description} = draft;
+        newDraft = Object.assign({}, draft, {descriptionTemp: description});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case TOGGLE_STYLE: {
       const {draft} = state;
       let newDraft;
@@ -151,6 +165,11 @@ export default (state = initialState, action) => {
     case NAME_SET: {
       const {draft} = state;
       const newDraft = Object.assign({}, draft, {name: action.payload});
+      return Object.assign({}, state, {draft: newDraft});
+    }
+    case DESCRIPTION_SET: {
+      const {draft} = state;
+      const newDraft = Object.assign({}, draft, {description: action.payload});
       return Object.assign({}, state, {draft: newDraft});
     }
     case BG_BLUR_SET: {
@@ -270,6 +289,12 @@ export const setPhoto = (val) => {
 export const setName = (val) => {
   return (dispatch) => {
     dispatch(setNameAct(val));
+  }
+};
+
+export const setDescription = (val) => {
+  return (dispatch) => {
+    dispatch(setDescriptionAct(val));
   }
 };
 
@@ -395,6 +420,11 @@ export const setPhotoAct = (val) => ({
 
 export const setNameAct = (val) => ({
   type: NAME_SET,
+  payload: val
+});
+
+export const setDescriptionAct = (val) => ({
+  type: DESCRIPTION_SET,
   payload: val
 });
 

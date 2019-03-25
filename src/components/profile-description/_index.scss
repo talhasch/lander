@@ -4,6 +4,7 @@
   font-weight: 400;
   margin-bottom: 16px;
   text-align: center;
+  word-break: break-word;
 
   @include editable-control;
 }

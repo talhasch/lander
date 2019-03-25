@@ -10,6 +10,7 @@ import reducer, {
   setBioAct,
   setPhotoAct,
   setNameAct,
+  setDescriptionAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
@@ -20,7 +21,7 @@ import reducer, {
 
 } from "./user"
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT} from "./ui";
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT, TOGGLE_DESCRIPTION_EDIT} from "./ui";
 
 let state = undefined;
 
@@ -289,6 +290,64 @@ it('44 publish saved successfully', () => {
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
+
+
+it('45 description dialog opened', () => {
+  const act = {type: TOGGLE_DESCRIPTION_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('46 description set', () => {
+  const act = setDescriptionAct('lorem ipsum dolor');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('47 description dialog closed', () => {
+  const act = {type: TOGGLE_DESCRIPTION_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('48 description dialog opened', () => {
+  const act = {type: TOGGLE_DESCRIPTION_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('49 description set', () => {
+  const act = setDescriptionAct('foo bar baz');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('50 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('51 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('52 publish clicked', () => {
+  const act = publishAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('53 publish saved successfully', () => {
+  const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
 
 it('200 logout', () => {
   const act = logoutAct();

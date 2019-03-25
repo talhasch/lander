@@ -10,6 +10,14 @@ import fixClassNames from '../../utils/fix-class-names';
 
 class ProfileDescription extends Component {
 
+  edit = () => {
+    const {toggleUiProp} = this.props;
+
+    if (toggleUiProp) {
+      toggleUiProp('descriptionEdit');
+    }
+  };
+
   render() {
     const {description, editMode} = this.props;
 
@@ -20,13 +28,13 @@ class ProfileDescription extends Component {
     if (editMode && !description) {
       return <div className="profile-description edit-mode not-set">
         <FormattedMessage id="editor.description-placeholder"/>
-        <EditBtn {...this.props} />
+        <EditBtn {...this.props} onClick={this.edit}/>
       </div>
     }
 
     return <div className={fixClassNames(`profile-description ${editMode ? 'edit-mode' : ''}`)}>
       {description}
-      {editMode && <EditBtn {...this.props} />}
+      {editMode && <EditBtn {...this.props} onClick={this.edit}/>}
     </div>;
   }
 
