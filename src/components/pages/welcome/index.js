@@ -177,7 +177,7 @@ class WelcomePage extends Component {
                     type="text"
                     placeholder="Enter your name here"
                     className="focus-on"
-                    maxLength={50}
+                    maxLength={30}
                     value={name}
                     onChange={this.nameChanged}
                     onKeyPress={
@@ -210,7 +210,7 @@ class WelcomePage extends Component {
                     type="text"
                     placeholder="Describe yourself"
                     className="focus-on"
-                    maxLength={100}
+                    maxLength={60}
                     value={description}
                     onChange={this.descriptionChanged}
                     onKeyPress={
