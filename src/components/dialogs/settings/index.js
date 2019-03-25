@@ -35,21 +35,14 @@ class SettingsDialog extends Component {
   deleteConfirmed = async () => {
     this.setState({deleteConfirm: false, deleting: true});
 
-    try {
-      await putDraftFile('');
-      await putPublishedFile('');
-      await putFlagFile('');
-    } catch (e) {
-      return;
-    }
+    Promise.all([putDraftFile(''), putPublishedFile(''), putFlagFile('')]).then(() => {
+      const {user} = this.props;
+      deleteFlagLocal(user.username);
 
-    const {user} = this.props;
-
-    deleteFlagLocal(user.username);
-
-    const {logout, history} = this.props;
-    logout();
-    history.push('/');
+      const {logout, history} = this.props;
+      logout();
+      history.push('/');
+    });
   };
 
   deleteCancelled = () => {
@@ -97,6 +90,9 @@ SettingsDialog.propTypes = {
   logout: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired,
   afterHide: PropTypes.func,
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default injectIntl(SettingsDialog);
