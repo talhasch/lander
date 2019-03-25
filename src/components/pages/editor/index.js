@@ -34,29 +34,14 @@ class EditorPage extends Component {
 
     if (getFlagLocal(user.username) !== 'ok') {
       history.push('/app/welcome');
-      return;
     }
-
-    document.addEventListener('visibilitychange', this.visibilityChanged);
   }
-
-  componentWillUnmount() {
-    document.removeEventListener('visibilitychange', this.visibilityChanged);
-  }
-
-  visibilityChanged = () => {
-    if (document.visibilityState === 'visible') {
-      const {loadProfile} = this.props;
-      loadProfile();
-    }
-  };
 
   render() {
     const {user, ui} = this.props;
     if (!(user && user.loaded)) {
       return <Spinner/>;
     }
-
 
     const {account} = user.profile;
 
