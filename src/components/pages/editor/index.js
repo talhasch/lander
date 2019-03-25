@@ -8,12 +8,10 @@ import SocialAccounts from '../../social-accounts';
 import WalletAccounts from '../../wallet-accounts';
 import ProfileBio from '../../profile-bio';
 
-
 import SettingsDialog from '../../dialogs/settings';
 import StyleDialog from '../../dialogs/style';
 import PhotoUploadDialog from '../../dialogs/photo-upload';
 
-import AccountEditDialog from '../../dialogs/account-edit';
 import BioEditDialog from '../../dialogs/bio-edit';
 import Spinner from '../../elements/spinner';
 
@@ -64,7 +62,6 @@ class EditorPage extends Component {
 
     return (
       <>
-        {ui.accountEdit && <AccountEditDialog {...this.props} />}
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
