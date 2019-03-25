@@ -40,16 +40,19 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {nameEdit: action.payload.what});
     case TOGGLE_DESCRIPTION_EDIT:
       return Object.assign({}, state, {descriptionEdit: action.payload.what});
-    case TOGGLE_SETTINGS:
-      return Object.assign({}, state, {settings: action.payload.what});
+    case TOGGLE_BIO_EDIT:
+      return Object.assign({}, state, {bioEdit: action.payload.what});
+    case TOGGLE_ACCOUNT_EDIT:
+      return Object.assign({}, state, {accountEdit: action.payload.what});
     case TOGGLE_STYLE:
       return Object.assign({}, state, {style: action.payload.what});
     case TOGGLE_IMAGE_SELECT:
       return Object.assign({}, state, {imageSelect: action.payload.what});
+    case TOGGLE_SETTINGS:
+      return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_PREVIEW:
       return Object.assign({}, state, {preview: action.payload.what});
-    case TOGGLE_BIO_EDIT:
-      return Object.assign({}, state, {bioEdit: action.payload.what});
+
     default:
       return state;
   }
@@ -75,6 +78,12 @@ export const toggleUiProp = (what, affectUser = true) => {
         break;
       case 'bioEdit':
         act = TOGGLE_BIO_EDIT;
+        break;
+      case 'accountEdit':
+        act = TOGGLE_ACCOUNT_EDIT;
+        break;
+      case 'walletEdit':
+        act = TOGGLE_WALLET_EDIT;
         break;
       case 'style':
         act = TOGGLE_STYLE;

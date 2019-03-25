@@ -1,6 +1,14 @@
 import md5 from 'blueimp-md5';
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD, TOGGLE_NAME_EDIT, TOGGLE_DESCRIPTION_EDIT} from './ui';
+import {
+  TOGGLE_PHOTO_UPLOAD,
+  TOGGLE_NAME_EDIT,
+  TOGGLE_DESCRIPTION_EDIT,
+  TOGGLE_BIO_EDIT,
+  TOGGLE_ACCOUNT_EDIT,
+  TOGGLE_WALLET_EDIT,
+  TOGGLE_STYLE
+} from './ui';
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
@@ -131,19 +139,6 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {draft: newDraft});
     }
-    case TOGGLE_STYLE: {
-      const {draft} = state;
-      let newDraft;
-      if (draft.bgTemp) {
-        const {bgTemp} = draft;
-        const {bgTemp: delTemp, ...draft1} = draft;
-        newDraft = Object.assign({}, draft1, {bg: bgTemp});
-      } else {
-        const {bg} = draft;
-        newDraft = Object.assign({}, draft, {bgTemp: bg});
-      }
-      return Object.assign({}, state, {draft: newDraft});
-    }
     case TOGGLE_BIO_EDIT: {
       const {draft} = state;
       let newDraft;
@@ -154,6 +149,32 @@ export default (state = initialState, action) => {
       } else {
         const {bio} = draft;
         newDraft = Object.assign({}, draft, {bioTemp: bio});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
+    case TOGGLE_ACCOUNT_EDIT: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.accountsTemp) {
+        const {accountsTemp} = draft;
+        const {accountsTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {accounts: accountsTemp});
+      } else {
+        const {accounts} = draft;
+        newDraft = Object.assign({}, draft, {accountsTemp: accounts});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
+    case TOGGLE_STYLE: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.bgTemp) {
+        const {bgTemp} = draft;
+        const {bgTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {bg: bgTemp});
+      } else {
+        const {bg} = draft;
+        newDraft = Object.assign({}, draft, {bgTemp: bg});
       }
       return Object.assign({}, state, {draft: newDraft});
     }

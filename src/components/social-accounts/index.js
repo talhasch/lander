@@ -14,6 +14,14 @@ import {socialAccountTypes as accountTypes} from '../../constants';
 
 class SocialAccounts extends Component {
 
+  edit = () => {
+    const {toggleUiProp} = this.props;
+
+    if (toggleUiProp) {
+      toggleUiProp('accountEdit');
+    }
+  };
+
   render() {
     const {accounts, editMode} = this.props;
 
@@ -51,7 +59,7 @@ class SocialAccounts extends Component {
           </OverlayTrigger>
         })}
 
-        <EditBtn {...this.props} />
+        <EditBtn {...this.props} onClick={this.edit} />
       </div>
     }
 

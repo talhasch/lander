@@ -13,6 +13,7 @@ import StyleDialog from '../../dialogs/style';
 import PhotoUploadDialog from '../../dialogs/photo-upload';
 import NameEditDialog from '../../dialogs/name-edit';
 import DescriptionEditDialog from '../../dialogs/description-edit';
+import AccountEditDialog from '../../dialogs/account-edit';
 
 import BioEditDialog from '../../dialogs/bio-edit';
 import Spinner from '../../elements/spinner';
@@ -54,6 +55,7 @@ class EditorPage extends Component {
         {ui.nameEdit && <NameEditDialog  {...this.props}  />}
         {ui.descriptionEdit && <DescriptionEditDialog  {...this.props}  />}
         {ui.bioEdit && <BioEditDialog {...this.props} />}
+        {ui.accountEdit && <AccountEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
         <div className={ui.preview ? 'main-wrapper-profile' : 'main-wrapper'}>
