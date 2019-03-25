@@ -12,6 +12,9 @@ it('Render dialog', () => {
     },
     toggleUiProp: () => {
 
+    },
+    user: {
+      username: 'foo'
     }
   };
 
