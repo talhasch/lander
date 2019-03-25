@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import AccountEditBtn from '../elements/account-edit-btn';
+import {FormattedMessage} from "react-intl";
+
+import EditBtn from '../elements/edit-btn';
 
 import fixClassNames from '../../utils/fix-class-names';
-import {FormattedMessage} from "react-intl";
 
 class ProfileDescription extends Component {
 
@@ -19,13 +20,13 @@ class ProfileDescription extends Component {
     if (editMode && !description) {
       return <div className="profile-description edit-mode not-set">
         <FormattedMessage id="editor.description-placeholder"/>
-        <AccountEditBtn {...this.props} />
+        <EditBtn {...this.props} />
       </div>
     }
 
     return <div className={fixClassNames(`profile-description ${editMode ? 'edit-mode' : ''}`)}>
       {description}
-      {editMode && <AccountEditBtn {...this.props} />}
+      {editMode && <EditBtn {...this.props} />}
     </div>;
   }
 

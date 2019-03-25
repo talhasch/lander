@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {FormattedMessage} from 'react-intl';
 
-import AccountEditBtn from '../elements/account-edit-btn';
+import EditBtn from '../elements/edit-btn';
 
 import {walletAccountTypes as accountTypes} from '../../constants';
 
@@ -21,7 +21,7 @@ class WalletAccounts extends Component {
 
     if (editMode) {
       return <div className="wallet-accounts edit-mode">
-        <AccountEditBtn {...this.props} />
+        <EditBtn {...this.props} />
         {accountTypes.map((t) => {
           const ac = wAccounts[t.id];
           return <div key={t.id} className="wallet-account">

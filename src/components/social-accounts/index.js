@@ -6,7 +6,7 @@ import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import {FormattedHTMLMessage} from 'react-intl';
 
-import AccountEditBtn from '../elements/account-edit-btn';
+import EditBtn from '../elements/edit-btn';
 
 import socialAccountLink from '../../helper/social-account-link'
 
@@ -51,7 +51,7 @@ class SocialAccounts extends Component {
           </OverlayTrigger>
         })}
 
-        <AccountEditBtn {...this.props} />
+        <EditBtn {...this.props} />
       </div>
     }
 
