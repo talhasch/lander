@@ -63,7 +63,7 @@ class NameEditDialog extends Component {
             <Button variant="secondary" onClick={this.hide}>
               <FormattedMessage id="g.cancel"/>
             </Button>
-            <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
+            <Button variant="primary" onClick={this.save} disabled={!changed || name.trim() === '' || user.saving}>
               <FormattedMessage id="g.save"/> {user.saving && '...'}
             </Button>
           </Modal.Footer>
