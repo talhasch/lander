@@ -31,14 +31,29 @@ Object {
 exports[`4 draft and public data loaded 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -54,6 +69,13 @@ Object {
 exports[`5 style dialog opened 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -65,8 +87,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -82,6 +112,13 @@ Object {
 exports[`6 bg image set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -93,8 +130,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -110,6 +155,13 @@ Object {
 exports[`7 bg color set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "red",
@@ -121,8 +173,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -138,6 +198,13 @@ Object {
 exports[`8 bg blur set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -149,8 +216,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -166,14 +241,29 @@ Object {
 exports[`9 style dialog closed 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -189,6 +279,13 @@ Object {
 exports[`10 bio dialog opened 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -196,8 +293,16 @@ Object {
     },
     "bio": "",
     "bioTemp": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -213,6 +318,13 @@ Object {
 exports[`11 bio set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -220,8 +332,16 @@ Object {
     },
     "bio": "lorem ipsum dolor sit amet",
     "bioTemp": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -237,14 +357,29 @@ Object {
 exports[`12 bio dialog closed 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -260,6 +395,13 @@ Object {
 exports[`13 style dialog opened 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -271,8 +413,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -288,6 +438,13 @@ Object {
 exports[`14 bg image set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "#4a96f7",
@@ -299,8 +456,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -316,6 +481,13 @@ Object {
 exports[`15 bg color set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": "2",
       "color": "red",
@@ -327,8 +499,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -344,6 +524,13 @@ Object {
 exports[`16 bg blur set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -355,8 +542,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -372,6 +567,13 @@ Object {
 exports[`17 save draft clicked 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -383,8 +585,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -400,6 +610,13 @@ Object {
 exports[`18 draft not saved due to an error 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -411,8 +628,16 @@ Object {
       "image": "wave.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
+    "name": "",
+    "photo": "",
     "updated": "010101",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -428,14 +653,29 @@ Object {
 exports[`19 draft saved successfully 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -451,14 +691,29 @@ Object {
 exports[`20 publish clicked 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -474,14 +729,29 @@ Object {
 exports[`21 publish not saved due to an error 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
@@ -497,28 +767,58 @@ Object {
 exports[`22 publish saved successfully 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": false,
@@ -529,6 +829,13 @@ Object {
 exports[`23 bio dialog opened 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -536,22 +843,45 @@ Object {
     },
     "bio": "",
     "bioTemp": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": false,
@@ -562,6 +892,13 @@ Object {
 exports[`24 bio set 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -569,22 +906,45 @@ Object {
     },
     "bio": "lorem ipsum dolor sit amet",
     "bioTemp": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": false,
@@ -595,6 +955,13 @@ Object {
 exports[`25 save draft clicked 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
@@ -602,22 +969,45 @@ Object {
     },
     "bio": "lorem ipsum dolor sit amet",
     "bioTemp": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": true,
@@ -628,28 +1018,58 @@ Object {
 exports[`26 draft saved successfully 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "lorem ipsum dolor sit amet",
+    "description": "",
     "email": "",
-    "updated": "821e1dde224192e7349cf8e5c47006d8",
+    "name": "",
+    "photo": "",
+    "updated": "d1ceddb575e492f98c96e9d31af57b84",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": false,
@@ -660,28 +1080,58 @@ Object {
 exports[`27 publish clicked 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "lorem ipsum dolor sit amet",
+    "description": "",
     "email": "",
-    "updated": "821e1dde224192e7349cf8e5c47006d8",
+    "name": "",
+    "photo": "",
+    "updated": "d1ceddb575e492f98c96e9d31af57b84",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "",
+    "description": "",
     "email": "",
-    "updated": "a215e0b3aaf1b02900b0ccd64237d7cc",
+    "name": "",
+    "photo": "",
+    "updated": "58205ec496bfd1454a8bfa0087fe43f4",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": true,
   "saving": false,
@@ -692,28 +1142,58 @@ Object {
 exports[`28 publish saved successfully 1`] = `
 Object {
   "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "lorem ipsum dolor sit amet",
+    "description": "",
     "email": "",
-    "updated": "821e1dde224192e7349cf8e5c47006d8",
+    "name": "",
+    "photo": "",
+    "updated": "d1ceddb575e492f98c96e9d31af57b84",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "loaded": true,
   "profile": Object {
     "foo": "bar",
   },
   "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "",
+      "linkedIn": "",
+      "twitter": "",
+    },
     "bg": Object {
       "blur": 3,
       "color": "red",
       "image": "foo.jpg",
     },
     "bio": "lorem ipsum dolor sit amet",
+    "description": "",
     "email": "",
-    "updated": "821e1dde224192e7349cf8e5c47006d8",
+    "name": "",
+    "photo": "",
+    "updated": "d1ceddb575e492f98c96e9d31af57b84",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
   },
   "publishing": false,
   "saving": false,
