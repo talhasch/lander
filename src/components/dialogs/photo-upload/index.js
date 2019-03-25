@@ -29,8 +29,13 @@ class PhotoUploadDialog extends Component {
   }
 
   hide = () => {
-    const {afterHide, toggleUiProp} = this.props;
-    toggleUiProp('photoUpload');
+    const {connected, afterHide} = this.props;
+
+    if (connected) {
+      const {toggleUiProp} = this.props;
+      toggleUiProp('photoUpload');
+    }
+
     afterHide();
   };
 
@@ -44,6 +49,11 @@ class PhotoUploadDialog extends Component {
   };
 
   imageChanged = () => {
+    const {connected} = this.props;
+    if (!connected) {
+      return;
+    }
+
     if (!this.editor) {
       return;
     }
@@ -84,8 +94,8 @@ class PhotoUploadDialog extends Component {
         self.setState({uploading: true});
         blockStack.putFile(fileName, fileContents, {encrypt: false, contentType: mimeType}).then(r => {
           self.uploadSuccess(r);
-        }).catch(() => {
-          showError('Could not complete file upload');
+        }).catch((err) => {
+          showError(String(err));
         }).then(() => {
           self.setState({uploading: false});
         });
@@ -95,26 +105,35 @@ class PhotoUploadDialog extends Component {
   };
 
   uploadSuccess = (url) => {
-    const {setPhoto, afterSave, saveDraft, saveDraftDone, saveDraftError, toggleUiProp} = this.props;
+    const {setPhoto, afterSave, saveDraft, saveDraftDone, saveDraftError, toggleUiProp, connected} = this.props;
 
-    setPhoto(url);
-    saveDraft().then((newData) => {
-      toggleUiProp('photoUpload');
-      saveDraftDone(newData);
-    }).catch(err => {
-      saveDraftError();
-      showError(String(err));
-    });
+    if (connected) {
+      setPhoto(url);
+      saveDraft().then((newData) => {
+        toggleUiProp('photoUpload');
+        saveDraftDone(newData);
+      }).catch(err => {
+        saveDraftError();
+        showError(String(err));
+      });
+    }
 
-    afterSave();
+    afterSave(url);
   };
 
   render() {
     const {file, zoom, uploading} = this.state;
+    const {connected} = this.props;
+
+    const props = {show: true, onHide: this.hide};
+    if (connected) {
+      props['className'] = 'drawer';
+      props['backdropClassName'] = 'drawer-backdrop';
+    }
 
     return (
       <>
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
+        <Modal  {...props} >
           <Modal.Header closeButton>
             <Modal.Title>Set Profile Photo</Modal.Title>
           </Modal.Header>
@@ -176,6 +195,17 @@ class PhotoUploadDialog extends Component {
 
 
 PhotoUploadDialog.defaultProps = {
+  connected: true,
+  toggleUiProp: () => {
+  },
+  setPhoto: () => {
+  },
+  saveDraft: () => {
+  },
+  saveDraftDone: () => {
+  },
+  saveDraftError: () => {
+  },
   afterHide: () => {
   },
   afterSave: () => {
@@ -183,16 +213,12 @@ PhotoUploadDialog.defaultProps = {
 };
 
 PhotoUploadDialog.propTypes = {
-  user: PropTypes.shape({
-    draft: PropTypes.shape({
-      bio: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired,
-  toggleUiProp: PropTypes.func.isRequired,
-  setPhoto: PropTypes.func.isRequired,
-  saveDraft: PropTypes.func.isRequired,
-  saveDraftDone: PropTypes.func.isRequired,
-  saveDraftError: PropTypes.func.isRequired,
+  connected: PropTypes.bool,
+  toggleUiProp: PropTypes.func,
+  setPhoto: PropTypes.func,
+  saveDraft: PropTypes.func,
+  saveDraftDone: PropTypes.func,
+  saveDraftError: PropTypes.func,
   afterHide: PropTypes.func,
   afterSave: PropTypes.func
 };

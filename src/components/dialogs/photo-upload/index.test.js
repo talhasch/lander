@@ -6,26 +6,7 @@ import wrapWithIntl from '../../../utils/test-helper';
 import PhotoUploadDialog from './index';
 
 it('Render dialog', () => {
-  const props = {
-    user: {
-      draft: {
-        bio: 'lorem ipsum dolor'
-      }
-    },
-    toggleUiProp: () => {
-    },
-    setPhoto: () => {
-    },
-    saveDraft: () => {
-
-    },
-    saveDraftDone: () => {
-
-    },
-    saveDraftError: () => {
-
-    }
-  };
+  const props = {};
 
   const div = document.createElement('div');
   ReactDOM.render(wrapWithIntl(<PhotoUploadDialog {...props} />), div);
