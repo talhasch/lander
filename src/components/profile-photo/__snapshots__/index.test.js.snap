@@ -2,7 +2,7 @@
 
 exports[`in edit mode and image is empty. should render empty image svg and edit btn 1`] = `
 <div
-  className="profile-image"
+  className="profile-photo"
 >
   <svg
     aria-hidden="true"
@@ -45,7 +45,7 @@ exports[`in edit mode and image is empty. should render empty image svg and edit
 
 exports[`in edit mode and image is not empty. should render image and edit btn 1`] = `
 <div
-  className="profile-image"
+  className="profile-photo"
   style={
     Object {
       "backgroundImage": "url('https://foo.bar/baz.jpg')",
@@ -77,7 +77,7 @@ exports[`in edit mode and image is not empty. should render image and edit btn 1
 
 exports[`not in edit mode and image is empty. should render empty image svg  1`] = `
 <div
-  className="profile-image"
+  className="profile-photo"
 >
   <svg
     aria-hidden="true"
@@ -100,7 +100,7 @@ exports[`not in edit mode and image is empty. should render empty image svg  1`]
 
 exports[`not in edit mode and image is not empty. should render image  1`] = `
 <div
-  className="profile-image"
+  className="profile-photo"
   style={
     Object {
       "backgroundImage": "url('https://foo.bar/baz.jpg')",

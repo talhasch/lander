@@ -1,15 +1,22 @@
 import {USER_LOGOUT} from './user';
 
+export const TOGGLE_PHOTO_UPLOAD = '@ui/TOGGLE_PHOTO_UPLOAD';
+export const TOGGLE_NAME_EDIT = '@ui/TOGGLE_NAME_EDIT';
+export const TOGGLE_DESCRIPTION_EDIT = '@ui/TOGGLE_DESCRIPTION_EDIT';
+export const TOGGLE_BIO_EDIT = '@ui/TOGGLE_BIO_EDIT';
+export const TOGGLE_ACCOUNTS_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT'; // change to => TOGGLE_ACCOUNT_EDIT
+export const TOGGLE_WALLET_EDIT = '@ui/TOGGLE_WALLET_EDIT';
 export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
 export const TOGGLE_STYLE = '@ui/TOGGLE_STYLE';
 export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
 export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
-export const TOGGLE_BIO_EDIT = '@ui/TOGGLE_BIO_EDIT';
+
 export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
 export const TOGGLE_ACCOUNT_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT';
 export const TOGGLE_SKIP_ACCOUNT_DIALOG = '@ui/TOGGLE_SKIP_ACCOUNT_DIALOG';
 
 const initialState = {
+  photoUpload: false,
   settings: false,
   delete: false,
   style: false,
@@ -26,6 +33,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGOUT:
       return initialState;
+    case TOGGLE_PHOTO_UPLOAD:
+      return Object.assign({}, state, {photoUpload: action.payload.what});
     case TOGGLE_SETTINGS:
       return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_STYLE:
@@ -54,6 +63,9 @@ export const toggleUiProp = (what, affectUser = true) => {
     let act;
 
     switch (what) {
+      case 'photoUpload':
+        act = TOGGLE_PHOTO_UPLOAD;
+        break;
       case 'settings':
         act = TOGGLE_SETTINGS;
         break;

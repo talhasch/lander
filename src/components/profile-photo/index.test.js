@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileImage from './index';
+import ProfilePhoto from './index';
 import renderer from 'react-test-renderer';
 
 import wrapWithIntl from '../../utils/test-helper';
@@ -7,7 +7,7 @@ import wrapWithIntl from '../../utils/test-helper';
 it('not in edit mode and image is empty. should render empty image svg ', () => {
   const props = {};
 
-  const component = wrapWithIntl(<ProfileImage {...props} />);
+  const component = wrapWithIntl(<ProfilePhoto {...props} />);
 
   const tree = renderer
     .create(component)
@@ -21,7 +21,7 @@ it('in edit mode and image is empty. should render empty image svg and edit btn'
     editMode: true
   };
 
-  const component = wrapWithIntl(<ProfileImage {...props} />);
+  const component = wrapWithIntl(<ProfilePhoto {...props} />);
 
   const tree = renderer
     .create(component)
@@ -35,7 +35,7 @@ it('not in edit mode and image is not empty. should render image ', () => {
     imageUrl: 'https://foo.bar/baz.jpg'
   };
 
-  const component = wrapWithIntl(<ProfileImage {...props} />);
+  const component = wrapWithIntl(<ProfilePhoto {...props} />);
 
   const tree = renderer
     .create(component)
@@ -50,7 +50,7 @@ it('in edit mode and image is not empty. should render image and edit btn', () =
     imageUrl: 'https://foo.bar/baz.jpg'
   };
 
-  const component = wrapWithIntl(<ProfileImage {...props} />);
+  const component = wrapWithIntl(<ProfilePhoto {...props} />);
 
   const tree = renderer
     .create(component)

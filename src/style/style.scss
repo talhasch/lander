@@ -82,7 +82,7 @@ html, body {
 @import '../components/pages/welcome/index';
 
 @import '../components/profile-bg/index';
-@import '../components/profile-image/index';
+@import '../components/profile-photo/index';
 @import '../components/profile-name/index';
 @import '../components/profile-description/index';
 @import '../components/profile-bio/index';
@@ -94,5 +94,6 @@ html, body {
 @import '../components/dialogs/image-select/index';
 @import '../components/dialogs/bio-edit/index';
 @import '../components/dialogs/account-edit/index';
+@import '../components/dialogs/photo-upload/index';
 
 @import '../components/elements/spinner/index';

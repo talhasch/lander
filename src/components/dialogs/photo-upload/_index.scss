@@ -1,0 +1,26 @@
+.photo-upload-dialog-content {
+  .select-btn {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .avatar-editor {
+    width: 280px;
+    margin: 0 auto 20px auto;
+  }
+
+  .zoom {
+    width: 280px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    .zoom-label {
+      width: 80px;
+    }
+
+    .zoom-control {
+      width: 270px;
+    }
+  }
+}

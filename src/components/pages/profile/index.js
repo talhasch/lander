@@ -8,7 +8,7 @@ import {publishedFile} from '../../../constants';
 import getBaseUrl from '../../../utils/get-base-url';
 
 import ProfileBg from '../../profile-bg';
-import ProfileImage from '../../profile-image';
+import ProfilePhoto from '../../profile-photo';
 import ProfileName from '../../profile-name';
 import ProfileDescription from '../../profile-description';
 import ProfileBio from '../../profile-bio';
@@ -90,7 +90,7 @@ class ProfilePage extends Component {
       <ProfileBg bg={user.published.bg}/>
       <div className="inner-wrapper">
         <div className="profile-box">
-          <ProfileImage image={image} {...this.props}/>
+          <ProfilePhoto image={image} {...this.props}/>
           <ProfileName name={name} {...this.props}/>
           <ProfileDescription description={description} {...this.props}/>
           <ProfileBio bio={user.published.bio} {...this.props}/>

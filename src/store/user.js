@@ -1,6 +1,6 @@
 import md5 from 'blueimp-md5';
 
-import {TOGGLE_STYLE, TOGGLE_BIO_EDIT} from './ui';
+import {TOGGLE_STYLE, TOGGLE_BIO_EDIT, TOGGLE_PHOTO_UPLOAD} from './ui';
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
@@ -16,6 +16,8 @@ export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
 export const BG_BLUR_SET = '@user/BG_BLUR_SET';
 export const BIO_SET = '@user/BIO_SAVE';
+
+export const PHOTO_SET = '@user/PHOTO_SET';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
@@ -54,7 +56,7 @@ export const dataModel = () => (
 );
 
 export const prepareDraftForSave = (draft, update = false) => {
-  const {bgTemp, bioTemp, ...draftData} = draft;
+  const {bgTemp, bioTemp, photoTemp, ...draftData} = draft;
 
   if (update) {
     draftData.updated = md5(JSON.stringify(draftData));
@@ -88,6 +90,19 @@ export default (state = initialState, action) => {
 
       return Object.assign({}, state, {draft, published, loaded: true});
     }
+    case TOGGLE_PHOTO_UPLOAD: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.photoTemp !== undefined) {
+        const {photoTemp} = draft;
+        const {photoTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {photo: photoTemp});
+      } else {
+        const {photo} = draft;
+        newDraft = Object.assign({}, draft, {photoTemp: photo});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case TOGGLE_STYLE: {
       const {draft} = state;
       let newDraft;
@@ -114,6 +129,11 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {draft: newDraft});
     }
+    case PHOTO_SET: {
+      const {draft} = state;
+      const newDraft = Object.assign({}, draft, {photo: action.payload});
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case BG_BLUR_SET: {
       const {draft} = state;
       const {bg} = draft;
@@ -121,10 +141,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {draft: newDraft});
     }
     case BG_IMAGE_SET: {
-
       const {draft} = state;
       const {bg} = draft;
-
       let newVal = action.payload;
       if (action.payload === 'recover') {
         const {bgTemp} = draft;
@@ -133,7 +151,6 @@ export default (state = initialState, action) => {
           newVal = defaultBgImage;
         }
       }
-
       const newDraft = Object.assign({}, draft, {bg: Object.assign({}, bg, {image: newVal})});
       return Object.assign({}, state, {draft: newDraft});
     }
@@ -222,6 +239,12 @@ export const logout = () => {
   return (dispatch) => {
     dispatch(logoutAct());
     blockStack.signUserOut();
+  }
+};
+
+export const setPhoto = (val) => {
+  return (dispatch) => {
+    dispatch(setPhotoAct(val));
   }
 };
 
@@ -338,6 +361,11 @@ export const loadDataAct = (draft, published) => ({
     draft,
     published
   }
+});
+
+export const setPhotoAct = (val) => ({
+  type: PHOTO_SET,
+  payload: val
 });
 
 export const setBgBlurAct = (val) => ({

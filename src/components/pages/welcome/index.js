@@ -9,7 +9,8 @@ import InputRange from 'react-input-range';
 
 import * as blockStack from 'blockstack';
 
-import ProfileImage from '../../profile-image';
+import ProfilePhoto from '../../profile-photo';
+
 import Spinner from '../../../components/elements/spinner';
 
 import {dataModel} from '../../../store/user';
@@ -357,7 +358,7 @@ class WelcomePage extends Component {
                 Set your profile image
               </div>
               <div className="set-profile-image">
-                <ProfileImage imageUrl={photo}/>
+                <ProfilePhoto imageUrl={photo}/>
                 <Button variant="outline-primary" onClick={() => {
                   this.setState({uploadWindow: true});
                 }}>Upload new photo</Button>

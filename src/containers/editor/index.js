@@ -8,6 +8,7 @@ import EditorPage from '../../components/pages/editor'
 
 import {
   logout,
+  setPhoto,
   setBgBlur,
   setBgImage,
   setBgColor,
@@ -40,6 +41,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       logout,
+      setPhoto,
       loadProfile,
       toggleUiProp,
       setBgBlur,
