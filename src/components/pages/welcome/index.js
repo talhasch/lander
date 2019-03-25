@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
-import {Form, Button, Modal} from 'react-bootstrap';
-
-import AvatarEditor from 'react-avatar-editor';
-
-import InputRange from 'react-input-range';
+import {Form, Button} from 'react-bootstrap';
 
 import * as blockStack from 'blockstack';
 
 import ProfilePhoto from '../../profile-photo';
+
+import PhotoUploadDialog from '../../../components/dialogs/photo-upload'
 
 import Spinner from '../../../components/elements/spinner';
 
@@ -18,119 +15,6 @@ import {dataModel} from '../../../store/user';
 import showError from '../../../utils/show-error';
 
 import {putDraftFile, putPublishedFile, putFlagFile, getFlagFile, setFlagLocal} from '../../../dbl';
-
-class PhotoModal extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      file: null,
-      zoom: 1,
-      uploading: false
-    };
-
-    this.editor = null;
-  }
-
-  uploadClicked = () => {
-    document.querySelector('#image-upload').click();
-  };
-
-  fileChanged = (e) => {
-    const file = e.target.files[0];
-    this.setState({file, zoom: 1});
-  };
-
-  save = () => {
-    if (this.editor) {
-      const mime = 'image/jpeg';
-      const {onSuccess} = this.props;
-
-      const self = this;
-
-      const canvas = this.editor.getImage();
-
-      canvas.toBlob((blob) => {
-        const fileReader = new FileReader();
-        fileReader.onload = function (event) {
-          const rnd = Math.random().toString(36).substring(7);
-          const fileName = `avatar-${rnd}.jpg`;
-          const fileContents = event.target.result;
-
-          self.setState({uploading: true});
-          blockStack.putFile(fileName, fileContents, {encrypt: false, contentType: mime}).then(r => {
-            setTimeout(() => {
-              onSuccess(r);
-            }, 200);
-          }).catch(() => {
-            showError('Could not complete file upload');
-          }).then(() => {
-            self.setState({uploading: false});
-          })
-        };
-        fileReader.readAsArrayBuffer(blob);
-      }, mime)
-    }
-  };
-
-  render() {
-    const {onCancel} = this.props;
-    const {file, zoom, uploading} = this.state;
-
-    return <Modal show backdrop="static" onHide={onCancel}>
-      <Modal.Body>
-        <div className="welcome-photo-modal-content">
-          <div className="select-btn">
-            <Button variant="primary" onClick={this.uploadClicked}>Select from your device</Button>
-            <input type="file" id="image-upload" accept="image/*" className="d-none" onChange={this.fileChanged}/>
-          </div>
-          {file &&
-          <>
-            <div className="avatar-editor">
-              <AvatarEditor
-                ref={(editor) => {
-                  this.editor = editor
-                }}
-                image={file}
-                width={240}
-                height={240}
-                border={20}
-                borderRadius={120}
-                scale={zoom}
-                rotate={0}
-              />
-            </div>
-            <div className="zoom">
-              <div className="zoom-label">
-                Zoom
-              </div>
-              <div className="zoom-control">
-                <InputRange
-                  maxValue={4}
-                  minValue={1}
-                  step={0.1}
-                  formatLabel={() => ''}
-                  value={zoom}
-                  onChange={zoom => this.setState({zoom})}/>
-              </div>
-            </div>
-          </>
-          }
-        </div>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onCancel}>Cancel</Button>
-        <Button variant="primary" disabled={!file || uploading}
-                onClick={this.save}>Save {uploading ? '...' : ''}</Button>
-      </Modal.Footer>
-    </Modal>
-  }
-}
-
-PhotoModal.propTypes = {
-  onCancel: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func.isRequired
-};
 
 class WelcomePage extends Component {
 
@@ -372,9 +256,9 @@ class WelcomePage extends Component {
                 </Button>
               </div>
               {uploadWindow &&
-              <PhotoModal onCancel={() => {
+              <PhotoUploadDialog connected={false} afterHide={() => {
                 this.setState({uploadWindow: false});
-              }} onSuccess={(url) => {
+              }} afterSave={(url) => {
                 this.setState({photo: url, uploadWindow: false});
               }}/>
               }

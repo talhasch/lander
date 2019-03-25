@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {Button, Modal} from 'react-bootstrap';
 
 import AvatarEditor from 'react-avatar-editor';
+
 import InputRange from 'react-input-range';
 
 import * as blockStack from 'blockstack';
@@ -68,7 +69,8 @@ class PhotoUploadDialog extends Component {
 
       const {setPhoto} = this.props;
       setPhoto(img);
-    }, 300);
+
+    }, 400);
   };
 
   zoomChanged = (zoom) => {
@@ -135,7 +137,7 @@ class PhotoUploadDialog extends Component {
       <>
         <Modal  {...props} >
           <Modal.Header closeButton>
-            <Modal.Title>Set Profile Photo</Modal.Title>
+            <Modal.Title>Profile Photo</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="photo-upload-dialog-content">
@@ -183,7 +185,7 @@ class PhotoUploadDialog extends Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.hide}>Cancel</Button>
+            <Button variant="secondary" disabled={uploading} onClick={this.hide}>Cancel</Button>
             <Button variant="primary" disabled={!file || uploading}
                     onClick={this.save}>Save {uploading ? '...' : ''}</Button>
           </Modal.Footer>
