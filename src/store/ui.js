@@ -4,28 +4,27 @@ export const TOGGLE_PHOTO_UPLOAD = '@ui/TOGGLE_PHOTO_UPLOAD';
 export const TOGGLE_NAME_EDIT = '@ui/TOGGLE_NAME_EDIT';
 export const TOGGLE_DESCRIPTION_EDIT = '@ui/TOGGLE_DESCRIPTION_EDIT';
 export const TOGGLE_BIO_EDIT = '@ui/TOGGLE_BIO_EDIT';
-export const TOGGLE_ACCOUNTS_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT'; // change to => TOGGLE_ACCOUNT_EDIT
+export const TOGGLE_ACCOUNT_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT';
 export const TOGGLE_WALLET_EDIT = '@ui/TOGGLE_WALLET_EDIT';
-export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
 export const TOGGLE_STYLE = '@ui/TOGGLE_STYLE';
 export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
+export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
 export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
-
 export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
-export const TOGGLE_ACCOUNT_EDIT = '@ui/TOGGLE_ACCOUNT_EDIT';
-export const TOGGLE_SKIP_ACCOUNT_DIALOG = '@ui/TOGGLE_SKIP_ACCOUNT_DIALOG';
+
 
 const initialState = {
   photoUpload: false,
-  settings: false,
-  delete: false,
-  style: false,
-  bioEdit: false,
   nameEdit: false,
   descriptionEdit: false,
-  imageSelect: false,
-  preview: false,
+  bioEdit: false,
   accountEdit: false,
+  walletEdit: false,
+  style: false,
+  imageSelect: false,
+  settings: false,
+  delete: false,
+  preview: false,
   skipAccountDialog: Boolean(parseInt(localStorage.getItem('skip-account-dialog'), 10))
 };
 
@@ -49,10 +48,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {imageSelect: action.payload.what});
     case TOGGLE_PREVIEW:
       return Object.assign({}, state, {preview: action.payload.what});
-    case TOGGLE_ACCOUNT_EDIT:
-      return Object.assign({}, state, {accountEdit: action.payload.what});
-    case TOGGLE_SKIP_ACCOUNT_DIALOG:
-      return Object.assign({}, state, {skipAccountDialog: action.payload.what});
     case TOGGLE_BIO_EDIT:
       return Object.assign({}, state, {bioEdit: action.payload.what});
     default:
@@ -78,29 +73,23 @@ export const toggleUiProp = (what, affectUser = true) => {
       case 'descriptionEdit':
         act = TOGGLE_DESCRIPTION_EDIT;
         break;
-      case 'settings':
-        act = TOGGLE_SETTINGS;
+      case 'bioEdit':
+        act = TOGGLE_BIO_EDIT;
         break;
       case 'style':
         act = TOGGLE_STYLE;
         break;
-      case 'delete':
-        act = TOGGLE_DELETE;
-        break;
-      case 'bioEdit':
-        act = TOGGLE_BIO_EDIT;
-        break;
       case 'imageSelect':
         act = TOGGLE_IMAGE_SELECT;
         break;
+      case 'settings':
+        act = TOGGLE_SETTINGS;
+        break;
+      case 'delete':
+        act = TOGGLE_DELETE;
+        break;
       case 'preview':
         act = TOGGLE_PREVIEW;
-        break;
-      case 'accountEdit':
-        act = TOGGLE_ACCOUNT_EDIT;
-        break;
-      case 'skipAccountDialog':
-        act = TOGGLE_SKIP_ACCOUNT_DIALOG;
         break;
       default:
         act = '';
