@@ -25,3 +25,15 @@ export const getFlagFile = () => {
 export const putFlagFile = (data) => {
   return blockStack.putFile(flagFile, JSON.stringify(data), {encrypt: true});
 };
+
+export const getFlagLocal = (username) => {
+  return localStorage.getItem(`flag1-${username}`);
+};
+
+export const setFlagLocal = (username, val) => {
+  localStorage.setItem(`flag1-${username}`, val);
+};
+
+export const deleteFlagLocal = (username) => {
+  localStorage.removeItem(`flag1-${username}`);
+};

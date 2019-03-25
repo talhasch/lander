@@ -8,7 +8,7 @@ import {FormattedMessage, injectIntl} from 'react-intl';
 
 import ConfirmDialog from '../confirm'
 
-import {putDraftFile, putPublishedFile, putFlagFile} from '../../../dbl';
+import {putDraftFile, putPublishedFile, putFlagFile, deleteFlagLocal} from '../../../dbl';
 
 class SettingsDialog extends Component {
 
@@ -38,12 +38,14 @@ class SettingsDialog extends Component {
     try {
       await putDraftFile('');
       await putPublishedFile('');
-      await putFlagFile(0);
+      await putFlagFile('');
     } catch (e) {
       return;
     }
 
-    localStorage.removeItem('flag1');
+    const {user} = this.props;
+
+    deleteFlagLocal(user.username);
 
     const {logout, history} = this.props;
     logout();

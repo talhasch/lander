@@ -10,12 +10,13 @@ import InputRange from 'react-input-range';
 import * as blockStack from 'blockstack';
 
 import ProfileImage from '../../profile-image';
+import Spinner from '../../../components/elements/spinner';
 
 import {dataModel} from '../../../store/user';
 
 import showError from '../../../utils/show-error';
 
-import {putDraftFile, putPublishedFile, putFlagFile} from '../../../dbl';
+import {putDraftFile, putPublishedFile, putFlagFile, getFlagFile, setFlagLocal} from '../../../dbl';
 
 class PhotoModal extends Component {
   constructor(props) {
@@ -141,18 +142,31 @@ class WelcomePage extends Component {
       description: '',
       photo: '',
       uploadWindow: false,
-      creating: false
+      creating: false,
+      loaded: false
     }
   }
 
   componentDidMount() {
+    const {history} = this.props;
+
     if (!blockStack.isUserSignedIn()) {
-      const {history} = this.props;
       history.push('/');
       return;
     }
 
     const userData = blockStack.loadUserData();
+
+    getFlagFile().then(resp => {
+      if (JSON.parse(resp) === 'ok') {
+        setFlagLocal(userData.username, 'ok');
+        history.push('/app/editor');
+        return;
+      }
+
+      this.setState({loaded: true});
+    });
+
     const {profile} = userData;
 
     if (profile.name) {
@@ -223,6 +237,7 @@ class WelcomePage extends Component {
   };
 
   create = () => {
+    const userData = blockStack.loadUserData();
     const {name, description, photo} = this.state;
 
     const data = dataModel();
@@ -235,8 +250,8 @@ class WelcomePage extends Component {
     const prms2 = putPublishedFile(newData);
 
     return Promise.all([prms1, prms2]).then(() => {
-      return putFlagFile(1).then(() => {
-        localStorage.setItem('flag1', '1');
+      return putFlagFile('ok').then(() => {
+        setFlagLocal(userData.username, 'ok');
         setTimeout(() => {
           window.location.href = '/app/editor'
         }, 200);
@@ -249,7 +264,12 @@ class WelcomePage extends Component {
   };
 
   render() {
-    const {step, name, description, photo, creating, uploadWindow} = this.state;
+    const {step, name, description, photo, creating, loaded, uploadWindow} = this.state;
+
+    if (!loaded) {
+      return <Spinner/>;
+    }
+
     return (
       <>
         <div className="main-wrapper-welcome">
@@ -367,5 +387,3 @@ class WelcomePage extends Component {
 }
 
 export default WelcomePage;
-
-// Set your profile photo

@@ -18,6 +18,7 @@ import Spinner from '../../elements/spinner';
 import fixClassNames from '../../../utils/fix-class-names';
 
 import EditorNavBar from './header'
+import {getFlagLocal} from "../../../dbl";
 
 class EditorPage extends Component {
 
@@ -30,7 +31,7 @@ class EditorPage extends Component {
       return;
     }
 
-    if (!localStorage.getItem('flag1')) {
+    if (getFlagLocal(user.username) !== 'ok') {
       history.push('/app/welcome');
       return;
     }
