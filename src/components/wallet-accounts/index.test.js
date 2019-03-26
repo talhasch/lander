@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import wrapWithIntl from '../../utils/test-helper';
 
 
-it('in edit mode. no accounts provided. should show placeholder for all accounts', () => {
+it('1- in edit mode. no accounts provided. should show placeholder for all accounts', () => {
   const props = {
     editMode: true
   };
@@ -20,13 +20,10 @@ it('in edit mode. no accounts provided. should show placeholder for all accounts
 });
 
 
-it('in edit mode. bitcoin provided.', () => {
+it('2- in edit mode. bitcoin provided.', () => {
   const props = {
     editMode: true,
-    accounts: [{
-      service: 'bitcoin',
-      identifier: '1321321312321efwfwe12321'
-    }]
+    accounts: {bitcoin: '1321321312321efwfwe12321'}
   };
 
   const component = wrapWithIntl(<WalletAccounts {...props} />);
@@ -39,7 +36,7 @@ it('in edit mode. bitcoin provided.', () => {
 });
 
 
-it('not in edit mode. no accounts provided. should render null', () => {
+it('3- not in edit mode. no accounts provided. should render null', () => {
   const props = {};
 
   const component = wrapWithIntl(<WalletAccounts {...props} />);
@@ -51,12 +48,11 @@ it('not in edit mode. no accounts provided. should render null', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('not in edit mode. ethereum provided', () => {
+it('4- not in edit mode. ethereum provided', () => {
   const props = {
-    accounts: [{
-      service: 'ethereum',
-      identifier: '0x123123123213213'
-    }]
+    accounts: {
+      ethereum: '0x123123123213213'
+    }
   };
 
   const component = wrapWithIntl(<WalletAccounts {...props} />);
