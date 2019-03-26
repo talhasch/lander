@@ -10,8 +10,6 @@ export default (network, address) => {
       return `https://instagram.com/${address}`;
     case 'linkedIn':
       return `https://linkedin.com/in/${address}`;
-    case 'hackerNews':
-      return `https://news.ycombinator.com/user?id=${address}`;
     default:
       return '';
   }

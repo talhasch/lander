@@ -3,7 +3,6 @@ import {
   ethereumSvg,
   facebookSvg,
   githubSvg,
-  hackerNewsSvg,
   instagramSvg,
   linkedInSvg,
   twitterSvg

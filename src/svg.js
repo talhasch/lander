@@ -43,13 +43,6 @@ export const linkedInSvg = <svg aria-hidden="true" focusable="false" data-prefix
         d="M100.3 448H7.4V148.9h92.9V448zM53.8 108.1C24.1 108.1 0 83.5 0 53.8S24.1 0 53.8 0s53.8 24.1 53.8 53.8-24.1 54.3-53.8 54.3zM448 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448h-.1z"/>
 </svg>;
 
-export const hackerNewsSvg = <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="hacker-news"
-                                  className="svg-inline--fa fa-hacker-news fa-w-14" role="img"
-                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-  <path fill="currentColor"
-        d="M0 32v448h448V32H0zm21.2 197.2H21c.1-.1.2-.3.3-.4 0 .1 0 .3-.1.4zm218 53.9V384h-31.4V281.3L128 128h37.3c52.5 98.3 49.2 101.2 59.3 125.6 12.3-27 5.8-24.4 60.6-125.6H320l-80.8 155.1z"/>
-</svg>;
-
 export const bitcoinSvg = <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="bitcoin"
                                className="svg-inline--fa fa-bitcoin fa-w-16" role="img"
                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

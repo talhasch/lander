@@ -19,9 +19,3 @@ it('facebook', () => {
 it('linked in', () => {
   expect(socialAccountLink('linkedIn', 'talhasch')).toBe('https://linkedin.com/in/talhasch');
 });
-
-it('hackerNews', () => {
-  expect(socialAccountLink('hackerNews', 'talhasch')).toBe('https://news.ycombinator.com/user?id=talhasch');
-});
-
-
