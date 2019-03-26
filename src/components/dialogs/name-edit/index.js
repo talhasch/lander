@@ -52,11 +52,9 @@ class NameEditDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="name-edit-dialog-content">
-              <Form>
-                <Form.Group>
-                  <Form.Control id="name-txt" maxLength={30} value={name} onChange={this.textChanged}/>
-                </Form.Group>
-              </Form>
+              <Form.Group>
+                <Form.Control id="name-txt" maxLength={30} value={name} onChange={this.textChanged}/>
+              </Form.Group>
             </div>
           </Modal.Body>
           <Modal.Footer>

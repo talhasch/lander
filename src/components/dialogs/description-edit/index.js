@@ -51,20 +51,19 @@ class DescriptionEditDialog extends Component {
             <Modal.Title>Short Description</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="description-edit-dialog-content">
-              <Form>
-                <Form.Group>
-                  <Form.Control id="description-txt" as="textarea" rows="5" maxLength={60} value={description}
-                                onChange={this.textChanged}/>
-                </Form.Group>
-              </Form>
+            <div className="description-edit-dialog-content">s
+              <Form.Group>
+                <Form.Control id="description-txt" as="textarea" rows="5" maxLength={60} value={description}
+                              onChange={this.textChanged}/>
+              </Form.Group>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
               <FormattedMessage id="g.cancel"/>
             </Button>
-            <Button variant="primary" onClick={this.save} disabled={!changed || description.trim() === '' || user.saving}>
+            <Button variant="primary" onClick={this.save}
+                    disabled={!changed || description.trim() === '' || user.saving}>
               <FormattedMessage id="g.save"/> {user.saving && '...'}
             </Button>
           </Modal.Footer>

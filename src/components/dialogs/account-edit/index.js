@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, Form, InputGroup, FormControl} from 'react-bootstrap';
+import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 
 import {FormattedMessage} from 'react-intl';
 
