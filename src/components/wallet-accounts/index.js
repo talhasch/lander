@@ -9,6 +9,15 @@ import EditBtn from '../elements/edit-btn';
 import {walletAccountTypes as accountTypes} from '../../constants';
 
 class WalletAccounts extends Component {
+
+  edit = () => {
+    const {toggleUiProp} = this.props;
+
+    if (toggleUiProp) {
+      toggleUiProp('walletEdit');
+    }
+  };
+
   render() {
 
     const {accounts, editMode} = this.props;
@@ -21,7 +30,7 @@ class WalletAccounts extends Component {
 
     if (editMode) {
       return <div className="wallet-accounts edit-mode">
-        <EditBtn {...this.props} />
+        <EditBtn {...this.props} onClick={this.edit}/>
         {accountTypes.map((t) => {
           const ac = wAccounts[t.id];
           return <div key={t.id} className="wallet-account">
