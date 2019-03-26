@@ -292,7 +292,7 @@ exports[`not in edit mode. twitter and github provided 1`] = `
 >
   <a
     className="social-button"
-    href=""
+    href="https://github.com/talhasch"
     rel="noopener noreferrer"
     target="_blank"
   >
@@ -314,7 +314,7 @@ exports[`not in edit mode. twitter and github provided 1`] = `
   </a>
   <a
     className="social-button"
-    href=""
+    href="https://twitter.com/talhasch"
     rel="noopener noreferrer"
     target="_blank"
   >

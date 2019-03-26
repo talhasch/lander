@@ -67,7 +67,7 @@ export const dataModel = () => (
 );
 
 export const prepareDraftForSave = (draft, update = false) => {
-  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, ...draftData} = draft;
+  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, ...draftData} = draft;
 
   if (update) {
     draftData.updated = md5(JSON.stringify(draftData));
@@ -467,6 +467,7 @@ export const setDescriptionAct = (val) => ({
   type: DESCRIPTION_SET,
   payload: val
 });
+
 export const setAccountAct = (network, address) => ({
   type: ACCOUNT_SET,
   payload: {network, address}

@@ -10,21 +10,16 @@ import showError from '../../../utils/show-error';
 import stringify from "../../../utils/stringify";
 
 class DescriptionEditDialog extends Component {
-
-  componentDidMount() {
-
-  }
-
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
     toggleUiProp('accountEdit');
     afterHide();
   };
 
-  textChanged = (e) => {
-    const {setDescription} = this.props;
+  changed = (e, network) => {
+    const {setAccount} = this.props;
     const val = e.target.value;
-    setDescription(val);
+    setAccount(network, val);
   };
 
   save = () => {
@@ -43,7 +38,10 @@ class DescriptionEditDialog extends Component {
   render() {
     const {user} = this.props;
     const {accounts, accountsTemp} = user.draft;
+    console.log(user)
     const changed = stringify(accounts) !== stringify(accountsTemp);
+
+    const {github, twitter, facebook, instagram, linkedIn} = accounts;
 
     return (
       <>
@@ -61,7 +59,9 @@ class DescriptionEditDialog extends Component {
                     <span className="network-name">github.com/</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="username" />
+                <FormControl placeholder="username" value={github} onChange={(e) => {
+                  this.changed(e, 'github')
+                }}/>
               </InputGroup>
 
               <InputGroup className="mb-3">
@@ -70,7 +70,9 @@ class DescriptionEditDialog extends Component {
                     <span className="network-name">twitter.com/</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="username"/>
+                <FormControl placeholder="username" value={twitter} onChange={(e) => {
+                  this.changed(e, 'twitter')
+                }}/>
               </InputGroup>
 
               <InputGroup className="mb-3">
@@ -79,7 +81,9 @@ class DescriptionEditDialog extends Component {
                     <span className="network-name">facebook.com/</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="username"/>
+                <FormControl placeholder="username" value={facebook} onChange={(e) => {
+                  this.changed(e, 'facebook')
+                }}/>
               </InputGroup>
 
               <InputGroup className="mb-3">
@@ -88,7 +92,9 @@ class DescriptionEditDialog extends Component {
                     <span className="network-name">instagram.com/</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="username"/>
+                <FormControl placeholder="username" value={instagram} onChange={(e) => {
+                  this.changed(e, 'instagram')
+                }}/>
               </InputGroup>
 
               <InputGroup className="mb-3">
@@ -97,10 +103,10 @@ class DescriptionEditDialog extends Component {
                     <span className="network-name">linkedin.com/in/</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="username"/>
+                <FormControl placeholder="username" value={linkedIn} onChange={(e) => {
+                  this.changed(e, 'linkedIn')
+                }}/>
               </InputGroup>
-
-
             </div>
           </Modal.Body>
           <Modal.Footer>
@@ -131,7 +137,7 @@ DescriptionEditDialog.propTypes = {
     }).isRequired
   }).isRequired,
   toggleUiProp: PropTypes.func.isRequired,
-  setDescription: PropTypes.func.isRequired,
+  setAccount: PropTypes.func.isRequired,
   saveDraft: PropTypes.func.isRequired,
   saveDraftDone: PropTypes.func.isRequired,
   saveDraftError: PropTypes.func.isRequired,

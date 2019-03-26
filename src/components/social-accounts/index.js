@@ -65,8 +65,9 @@ class SocialAccounts extends Component {
 
     const l = accountTypes.map((t) => {
       const ac = sAccounts[t.id];
+
       if (ac) {
-        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={socialAccountLink(ac)}
+        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={socialAccountLink(t.id, ac)}
                   className="social-button">{t.icon}</a>;
       }
       return null;

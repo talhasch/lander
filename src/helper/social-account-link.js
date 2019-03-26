@@ -1,17 +1,17 @@
-export default (ac) => {
-  switch (ac.service) {
+export default (network, address) => {
+  switch (network) {
     case 'github':
-      return `https://github.com/${ac.identifier}`;
+      return `https://github.com/${address}`;
     case 'twitter':
-      return `https://twitter.com/${ac.identifier}`;
+      return `https://twitter.com/${address}`;
     case 'facebook':
-      return `https://facebook.com/${ac.identifier}`;
+      return `https://facebook.com/${address}`;
     case 'instagram':
-      return `https://instagram.com/${ac.identifier}`;
+      return `https://instagram.com/${address}`;
     case 'linkedIn':
-      return `https://linkedin.com/in/${ac.identifier}`;
+      return `https://linkedin.com/in/${address}`;
     case 'hackerNews':
-      return `https://news.ycombinator.com/user?id=${ac.identifier}`;
+      return `https://news.ycombinator.com/user?id=${address}`;
     default:
       return '';
   }
