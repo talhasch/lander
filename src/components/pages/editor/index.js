@@ -47,11 +47,8 @@ class EditorPage extends Component {
       return <Spinner/>;
     }
 
-    const {account} = user.profile;
-
     return (
       <>
-
         {ui.photoUpload && <PhotoUploadDialog  {...this.props}  />}
         {ui.nameEdit && <NameEditDialog  {...this.props}  />}
         {ui.descriptionEdit && <DescriptionEditDialog  {...this.props}  />}
@@ -70,7 +67,7 @@ class EditorPage extends Component {
               <ProfileDescription description={user.draft.description} editMode={!ui.preview} {...this.props}/>
               <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
               <SocialAccounts accounts={user.draft.accounts} editMode={!ui.preview} {...this.props}/>
-              <WalletAccounts accounts={account} editMode={!ui.preview} {...this.props}/>
+              <WalletAccounts accounts={user.draft.wallets} editMode={!ui.preview} {...this.props}/>
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ class WalletAccounts extends Component {
 
     for (let x = 0; x < accountTypes.length; x++) {
       const i = accountTypes[x];
-      wAccounts[i.id] = accounts.find(x => x.service === i.id)
+      wAccounts[i.id] = accounts[i.id];
     }
 
     if (editMode) {
@@ -33,10 +33,11 @@ class WalletAccounts extends Component {
         <EditBtn {...this.props} onClick={this.edit}/>
         {accountTypes.map((t) => {
           const ac = wAccounts[t.id];
+
           return <div key={t.id} className="wallet-account">
             <div className="icon">{t.icon}</div>
             <div className="address">
-              {ac ? ac.identifier : <FormattedMessage id="wallet-accounts.not-set" values={{n: t.name}}/>}
+              {ac ? ac : <FormattedMessage id="wallet-accounts.not-set" values={{n: t.name}}/>}
             </div>
           </div>
         })}
@@ -48,7 +49,7 @@ class WalletAccounts extends Component {
       if (ac) {
         return <div key={t.id} className="wallet-account">
           <div className="icon">{t.icon}</div>
-          <div className="address">{ac.identifier}</div>
+          <div className="address">{ac}</div>
         </div>;
       }
       return null;
@@ -65,15 +66,12 @@ class WalletAccounts extends Component {
 
 WalletAccounts.defaultProps = {
   editMode: false,
-  accounts: []
+  accounts: {}
 };
 
 WalletAccounts.propTypes = {
   editMode: PropTypes.bool,
-  accounts: PropTypes.arrayOf(PropTypes.shape({
-    service: PropTypes.string.isRequired,
-    identifier: PropTypes.string.isRequired
-  }))
+  accounts: PropTypes.instanceOf(Object)
 };
 
 export default WalletAccounts;
