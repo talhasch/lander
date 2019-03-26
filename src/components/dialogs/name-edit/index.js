@@ -53,7 +53,19 @@ class NameEditDialog extends Component {
           <Modal.Body>
             <div className="name-edit-dialog-content">
               <Form.Group>
-                <Form.Control id="name-txt" maxLength={30} value={name} onChange={this.textChanged}/>
+                <Form.Control
+                  id="name-txt"
+                  maxLength={30}
+                  value={name}
+                  onChange={this.textChanged}
+                  disabled={user.saving}
+                  onKeyPress={
+                    (e) => {
+                      if (e.key === 'Enter') {
+                        this.save();
+                      }
+                    }
+                  }/>
               </Form.Group>
             </div>
           </Modal.Body>
