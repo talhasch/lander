@@ -51,7 +51,7 @@ class DescriptionEditDialog extends Component {
             <Modal.Title>Short Description</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="description-edit-dialog-content">s
+            <div className="description-edit-dialog-content">
               <Form.Group>
                 <Form.Control id="description-txt" as="textarea" rows="5" maxLength={60} value={description}
                               onChange={this.textChanged}/>
