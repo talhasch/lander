@@ -384,6 +384,50 @@ it('57 account dialog closed', () => {
 });
 
 
+it('58 account dialog opened', () => {
+  const act = {type: TOGGLE_ACCOUNT_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('59 instagram account set', () => {
+  const act = setAccountAct('instagram', 'bar');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('60 twitter account set', () => {
+  const act = setAccountAct('twitter', 'foo');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('61 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('62 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('63 publish clicked', () => {
+  const act = publishAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('64 publish saved successfully', () => {
+  const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
 it('200 logout', () => {
   const act = logoutAct();
   state = reducer(state, act);
