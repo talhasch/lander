@@ -24,8 +24,7 @@ const initialState = {
   imageSelect: false,
   settings: false,
   delete: false,
-  preview: false,
-  skipAccountDialog: Boolean(parseInt(localStorage.getItem('skip-account-dialog'), 10))
+  preview: false
 };
 
 /* Reducer */
@@ -44,6 +43,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {bioEdit: action.payload.what});
     case TOGGLE_ACCOUNT_EDIT:
       return Object.assign({}, state, {accountEdit: action.payload.what});
+    case TOGGLE_WALLET_EDIT:
+      return Object.assign({}, state, {walletEdit: action.payload.what});
     case TOGGLE_STYLE:
       return Object.assign({}, state, {style: action.payload.what});
     case TOGGLE_IMAGE_SELECT:
@@ -52,7 +53,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_PREVIEW:
       return Object.assign({}, state, {preview: action.payload.what});
-
     default:
       return state;
   }

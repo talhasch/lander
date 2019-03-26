@@ -38,7 +38,6 @@ class DescriptionEditDialog extends Component {
   render() {
     const {user} = this.props;
     const {accounts, accountsTemp} = user.draft;
-    console.log(user)
     const changed = stringify(accounts) !== stringify(accountsTemp);
 
     const {github, twitter, facebook, instagram, linkedIn} = accounts;
