@@ -12,6 +12,7 @@ import reducer, {
   setNameAct,
   setDescriptionAct,
   setAccountAct,
+  setWalletAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
@@ -28,7 +29,8 @@ import {
   TOGGLE_PHOTO_UPLOAD,
   TOGGLE_NAME_EDIT,
   TOGGLE_DESCRIPTION_EDIT,
-  TOGGLE_ACCOUNT_EDIT
+  TOGGLE_ACCOUNT_EDIT,
+  TOGGLE_WALLET_EDIT
 } from "./ui";
 
 let state = undefined;
@@ -423,6 +425,67 @@ it('63 publish clicked', () => {
 });
 
 it('64 publish saved successfully', () => {
+  const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('65 wallet dialog opened', () => {
+  const act = {type: TOGGLE_WALLET_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('66 bitcoin wallet set', () => {
+  const act = setWalletAct('bitcoin', '13213123123');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+
+it('67 ethereum wallet set', () => {
+  const act = setWalletAct('ethereum', '0xqwdqw313');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('68 wallet dialog closed', () => {
+  const act = {type: TOGGLE_WALLET_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('69 wallet dialog opened', () => {
+  const act = {type: TOGGLE_WALLET_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('70 bitcoin wallet set', () => {
+  const act = setWalletAct('bitcoin', '13213123123');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('71 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('72 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('73 publish clicked', () => {
+  const act = publishAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('74 publish saved successfully', () => {
   const act = publishDoneAct(prepareDraftForSave(state.draft, false));
   state = reducer(state, act);
   expect(state).toMatchSnapshot();

@@ -29,6 +29,7 @@ export const PHOTO_SET = '@user/PHOTO_SET';
 export const NAME_SET = '@user/NAME_SET';
 export const DESCRIPTION_SET = '@user/DESCRIPTION_SET';
 export const ACCOUNT_SET = '@user/ACCOUNT_SET';
+export const WALLET_SET = '@user/WALLET_SET';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
@@ -67,7 +68,7 @@ export const dataModel = () => (
 );
 
 export const prepareDraftForSave = (draft, update = false) => {
-  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, ...draftData} = draft;
+  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, walletsTemp, ...draftData} = draft;
 
   if (update) {
     draftData.updated = md5(JSON.stringify(draftData));
@@ -166,6 +167,19 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {draft: newDraft});
     }
+    case TOGGLE_WALLET_EDIT: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.walletsTemp) {
+        const {walletsTemp} = draft;
+        const {walletsTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {wallets: walletsTemp});
+      } else {
+        const {wallets} = draft;
+        newDraft = Object.assign({}, draft, {walletsTemp: wallets});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case TOGGLE_STYLE: {
       const {draft} = state;
       let newDraft;
@@ -205,6 +219,19 @@ export default (state = initialState, action) => {
       const newAccounts = Object.assign({}, accounts, a);
 
       const newDraft = Object.assign({}, draft, {accounts: newAccounts});
+      return Object.assign({}, state, {draft: newDraft});
+    }
+    case WALLET_SET: {
+      const {draft} = state;
+      const {wallets} = draft;
+      const {network, address} = action.payload;
+
+      const a = {};
+      a[network] = address;
+
+      const newWallets = Object.assign({}, wallets, a);
+
+      const newDraft = Object.assign({}, draft, {wallets: newWallets});
       return Object.assign({}, state, {draft: newDraft});
     }
     case BG_BLUR_SET: {
@@ -339,6 +366,12 @@ export const setAccount = (network, address) => {
   }
 };
 
+export const setWallet = (network, address) => {
+  return (dispatch) => {
+    dispatch(setWalletAct(network, address));
+  }
+};
+
 export const setBgBlur = (val) => {
   return (dispatch) => {
     dispatch(setBgBlurAct(val));
@@ -470,6 +503,11 @@ export const setDescriptionAct = (val) => ({
 
 export const setAccountAct = (network, address) => ({
   type: ACCOUNT_SET,
+  payload: {network, address}
+});
+
+export const setWalletAct = (network, address) => ({
+  type: WALLET_SET,
   payload: {network, address}
 });
 

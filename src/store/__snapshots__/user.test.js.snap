@@ -3496,4 +3496,648 @@ Object {
 }
 `;
 
+exports[`65 wallet dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`66 bitcoin wallet set 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`67 ethereum wallet set 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "0xqwdqw313",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`68 wallet dialog closed 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`69 wallet dialog opened 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`70 bitcoin wallet set 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`71 save draft clicked 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+    "walletsTemp": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": true,
+  "username": "foo",
+}
+`;
+
+exports[`72 draft saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "7dd20f4dfd034753a23e85a900a88596",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`73 publish clicked 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "7dd20f4dfd034753a23e85a900a88596",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "9b609352edd21b7efc63bc3a16458ef9",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "",
+      "ethereum": "",
+    },
+  },
+  "publishing": true,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
+exports[`74 publish saved successfully 1`] = `
+Object {
+  "draft": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "7dd20f4dfd034753a23e85a900a88596",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+  },
+  "loaded": true,
+  "profile": Object {
+    "foo": "bar",
+  },
+  "published": Object {
+    "accounts": Object {
+      "facebook": "",
+      "github": "",
+      "instagram": "bar",
+      "linkedIn": "",
+      "twitter": "foo",
+    },
+    "bg": Object {
+      "blur": 3,
+      "color": "red",
+      "image": "foo.jpg",
+    },
+    "bio": "lorem ipsum dolor sit amet",
+    "description": "foo bar baz",
+    "email": "",
+    "name": "bar",
+    "photo": "https://fooo.bar/baz.jpg",
+    "updated": "7dd20f4dfd034753a23e85a900a88596",
+    "video": "",
+    "wallets": Object {
+      "bitcoin": "13213123123",
+      "ethereum": "",
+    },
+  },
+  "publishing": false,
+  "saving": false,
+  "username": "foo",
+}
+`;
+
 exports[`200 logout 1`] = `null`;
