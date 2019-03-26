@@ -18,9 +18,9 @@ class WalletEditDialog extends Component {
   };
 
   changed = (e, network) => {
-    const {setAccount} = this.props;
+    const {setWallet} = this.props;
     const val = e.target.value;
-    setAccount(network, val);
+    setWallet(network, val);
   };
 
   save = () => {
@@ -51,8 +51,27 @@ class WalletEditDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="wallet-edit-dialog-content">
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text>
+                    <span className="network-name">BTC</span>
+                  </InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl placeholder="address" value={bitcoin} onChange={(e) => {
+                  this.changed(e, 'bitcoin')
+                }}/>
+              </InputGroup>
 
-
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text>
+                    <span className="network-name">ETH</span>
+                  </InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl placeholder="address" value={ethereum} onChange={(e) => {
+                  this.changed(e, 'ethereum')
+                }}/>
+              </InputGroup>
             </div>
           </Modal.Body>
           <Modal.Footer>
@@ -83,7 +102,7 @@ WalletEditDialog.propTypes = {
     }).isRequired
   }).isRequired,
   toggleUiProp: PropTypes.func.isRequired,
-  setAccount: PropTypes.func.isRequired,
+  setWallet: PropTypes.func.isRequired,
   saveDraft: PropTypes.func.isRequired,
   saveDraftDone: PropTypes.func.isRequired,
   saveDraftError: PropTypes.func.isRequired,
