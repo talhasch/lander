@@ -7,9 +7,10 @@ import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
 
 import showError from '../../../utils/show-error';
-import stringify from "../../../utils/stringify";
 
-class DescriptionEditDialog extends Component {
+import stringify from '../../../utils/stringify';
+
+class AccountEditDialog extends Component {
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
     toggleUiProp('accountEdit');
@@ -122,14 +123,14 @@ class DescriptionEditDialog extends Component {
   }
 }
 
-DescriptionEditDialog.defaultProps = {
+AccountEditDialog.defaultProps = {
   afterHide: () => {
   },
   afterSave: () => {
   }
 };
 
-DescriptionEditDialog.propTypes = {
+AccountEditDialog.propTypes = {
   user: PropTypes.shape({
     draft: PropTypes.shape({
       accounts: PropTypes.instanceOf(Object).isRequired
@@ -144,4 +145,4 @@ DescriptionEditDialog.propTypes = {
   afterSave: PropTypes.func
 };
 
-export default DescriptionEditDialog;
+export default AccountEditDialog;
