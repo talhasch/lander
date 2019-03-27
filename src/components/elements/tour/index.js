@@ -12,7 +12,6 @@ import publishBtn from '../../../images/publish.png';
 class AppTour extends Component {
   disable = () => {
     this.resetAction();
-    localStorage.setItem('guide-tour-skip', '1');
     const {toggleUiProp} = this.props;
     toggleUiProp('guideTour');
   };
@@ -49,7 +48,7 @@ class AppTour extends Component {
         content: () => (
           <div className="guide-text">
             <p>
-              This is your public home page url.
+              This is your home page's url.
             </p>
           </div>
         ),
@@ -61,7 +60,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can change style of your page clicking this button.</div>,
+        content: <div className="guide-text">You can change style of your page by clicking this button.</div>,
         selector: '.design-toolbar .right-menu button',
         action: () => {
           this.resetAction();
@@ -69,7 +68,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: <span>You can edit all sections by clicking edit button each on them.</span>,
+        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
         selector: '.profile-box .profile-photo',
         action: () => {
           this.resetAction();
@@ -77,7 +76,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: <span>You can edit all sections by clicking edit button each on them.</span>,
+        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
         selector: '.profile-box .profile-name',
         action: () => {
           this.resetAction();
@@ -85,7 +84,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: <span>You can edit all sections by clicking edit button each on them.</span>,
+        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
         selector: '.profile-box .profile-description',
         action: () => {
           this.resetAction();
@@ -93,7 +92,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: <span>This button allows you to preview how your page will see actually</span>,
+        content: <div className="guide-text">This button allows you to preview how your page will see actually</div>,
         selector: '.design-toolbar .left-menu button',
         action: () => {
           this.resetAction();
@@ -112,17 +111,15 @@ class AppTour extends Component {
         ),
         action: () => {
           this.resetAction();
-
         }
       },
       {
         content: () => (
           <div className="guide-text">
             <p>
-              You are ready to use Lander.
+              Now you are ready to use Lander.
             </p>
             <div className="btns">
-
               <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>
@@ -135,7 +132,7 @@ class AppTour extends Component {
 
     return <Tour
       steps={steps}
-      isOpen={true}
+      isOpen
       onRequestClose={this.disable}
       rounded={8}
       closeWithMask={false}

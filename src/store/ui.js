@@ -26,7 +26,7 @@ const initialState = {
   settings: false,
   delete: false,
   preview: false,
-  guideTour: !localStorage.getItem('guide-tour-skip')
+  guideTour: !localStorage.getItem('guide-tour-disable')
 };
 
 /* Reducer */
@@ -106,6 +106,7 @@ export const toggleUiProp = (what, affectUser = true) => {
         break;
       case 'guideTour':
         act = TOGGLE_GUIDE;
+        localStorage.setItem('guide-tour-disable', '1');
         break;
       default:
         act = '';
