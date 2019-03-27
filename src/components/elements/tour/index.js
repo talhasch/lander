@@ -32,7 +32,7 @@ class AppTour extends Component {
           <div className="guide-text">
             <h3>Your page has created <span aria-label="tada" role="img">🎉</span></h3>
             <p>
-              Welcome again, this will guide you through everything you need to know to start using Lander.
+              Welcome again, this dialog will guide you through everything you need to know to start using Lander.
             </p>
             <div className="btns">
               <Button onClick={this.disable} variant="outline-secondary" className="btn-skip">Skip</Button>
@@ -45,11 +45,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: () => (
+        content: ({goTo}) => (
           <div className="guide-text">
             <p>
               This is your home page's url.
             </p>
+            <div className="btns">
+              <Button onClick={() => goTo(0)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(2)} variant="primary" className="btn-next">Next</Button>
+            </div>
           </div>
         ),
         selector: '.publish-toolbar .user-address',
@@ -60,7 +64,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can change style of your page by clicking this button.</div>,
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>You can change style of your page by clicking this button.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(1)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(3)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
         selector: '.design-toolbar .right-menu button',
         action: () => {
           this.resetAction();
@@ -68,7 +80,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>You can edit all sections by clicking edit button on each of them.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(2)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(4)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
         selector: '.profile-box .profile-photo',
         action: () => {
           this.resetAction();
@@ -76,7 +96,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>You can edit all sections by clicking edit button on each of them.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(3)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(5)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
         selector: '.profile-box .profile-name',
         action: () => {
           this.resetAction();
@@ -84,7 +112,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can edit all sections by clicking edit button each on them.</div>,
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>You can edit all sections by clicking edit button on each of them.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(4)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(6)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
         selector: '.profile-box .profile-description',
         action: () => {
           this.resetAction();
@@ -92,7 +128,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">This button allows you to preview how your page will see actually</div>,
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>This button allows you to preview how your page will see actually.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
         selector: '.design-toolbar .left-menu button',
         action: () => {
           this.resetAction();
@@ -100,13 +144,15 @@ class AppTour extends Component {
         }
       },
       {
-        content: () => (
+        content: ({goTo}) => (
           <div className="guide-text">
-            <p>
-              Once you change any part of your page this button will appear.
-            </p>
+            <p>Once you change any part of your page this button will appear.</p>
             <img src={publishBtn} height={80} alt="publish"/>
             <p>Click publish button when you are ready to update your page.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
+            </div>
           </div>
         ),
         action: () => {
@@ -114,12 +160,13 @@ class AppTour extends Component {
         }
       },
       {
-        content: () => (
+        content: ({goTo}) => (
           <div className="guide-text">
             <p>
               Now you are ready to use Lander.
             </p>
             <div className="btns">
+              <Button onClick={() => goTo(7)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>
@@ -137,6 +184,8 @@ class AppTour extends Component {
       rounded={8}
       closeWithMask={false}
       disableKeyboardNavigation={['esc']}
+      showNavigation={false}
+      showButtons={false}
       className="tour-guide"
     />
   }

@@ -1,11 +1,13 @@
 .tour-guide {
 
-  .guide-text {
+  padding: 20px 30px 10px 20px;
 
-    margin: 20px 0 30px 0;
+  .guide-text {
+    text-align: center;
+    margin: 20px 0 0 0;
 
     h3 {
-      font-size: 1.3em;
+      font-size: 1.4em;
       margin-bottom: 24px;
     }
 
@@ -17,8 +19,11 @@
     .btns {
       margin: 20px 0;
 
-      .btn-skip {
-        margin-right: 10px;
+      .btn {
+        font-size:95%;
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
       }
     }
   }
