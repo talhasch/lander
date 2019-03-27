@@ -41,9 +41,13 @@
     }
   }
 
-  &:hover {
+  &:hover, &.tour-mode {
     .edit-btn {
       display: flex;
     }
+  }
+
+  &.tour-mode {
+    pointer-events: none;
   }
 }

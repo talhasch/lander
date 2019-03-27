@@ -65,6 +65,10 @@
       @media (min-width: $sm-break) {
         font-size: 1rem;
       }
+
+      &.tour-mode {
+        pointer-events: none;
+      }
     }
   }
 
@@ -102,6 +106,14 @@
 
       svg {
         margin: 0;
+      }
+    }
+
+    .right-menu, .left-menu {
+      &.tour-mode {
+        button {
+          pointer-events: none;
+        }
       }
     }
   }

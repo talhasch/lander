@@ -11,9 +11,19 @@ import publishBtn from '../../../images/publish.png';
 
 class AppTour extends Component {
   disable = () => {
+    this.resetAction();
     localStorage.setItem('guide-tour-skip', '1');
     const {toggleUiProp} = this.props;
     toggleUiProp('guideTour');
+  };
+
+  resetAction = () => {
+    document.querySelector('.publish-toolbar .user-address').classList.remove('tour-mode');
+    document.querySelector('.design-toolbar .right-menu').classList.remove('tour-mode');
+    document.querySelector('.profile-box .profile-photo').classList.remove('tour-mode');
+    document.querySelector('.profile-box .profile-name').classList.remove('tour-mode');
+    document.querySelector('.profile-box .profile-description').classList.remove('tour-mode');
+    document.querySelector('.design-toolbar .left-menu').classList.remove('tour-mode');
   };
 
   render() {
@@ -32,7 +42,7 @@ class AppTour extends Component {
           </div>
         ),
         action: () => {
-          console.log("1")
+          this.resetAction();
         }
       },
       {
@@ -46,31 +56,52 @@ class AppTour extends Component {
         selector: '.publish-toolbar .user-address',
         position: 'bottom',
         action: () => {
-          console.log("2")
+          this.resetAction();
+          document.querySelector('.publish-toolbar .user-address').classList.add('tour-mode');
         }
       },
       {
         content: <div className="guide-text">You can change style of your page clicking this button.</div>,
         selector: '.design-toolbar .right-menu button',
+        action: () => {
+          this.resetAction();
+          document.querySelector('.design-toolbar .right-menu').classList.add('tour-mode');
+        }
       },
       {
         content: <span>You can edit all sections by clicking edit button each on them.</span>,
         selector: '.profile-box .profile-photo',
+        action: () => {
+          this.resetAction();
+          document.querySelector('.profile-box .profile-photo').classList.add('tour-mode');
+        }
       },
       {
         content: <span>You can edit all sections by clicking edit button each on them.</span>,
         selector: '.profile-box .profile-name',
+        action: () => {
+          this.resetAction();
+          document.querySelector('.profile-box .profile-name').classList.add('tour-mode');
+        }
       },
       {
         content: <span>You can edit all sections by clicking edit button each on them.</span>,
         selector: '.profile-box .profile-description',
+        action: () => {
+          this.resetAction();
+          document.querySelector('.profile-box .profile-description').classList.add('tour-mode');
+        }
       },
       {
         content: <span>This button allows you to preview how your page will see actually</span>,
         selector: '.design-toolbar .left-menu button',
+        action: () => {
+          this.resetAction();
+          document.querySelector('.design-toolbar .left-menu').classList.add('tour-mode');
+        }
       },
       {
-        content: ({goTo}) => (
+        content: () => (
           <div className="guide-text">
             <p>
               Once you change any part of your page this button will appear.
@@ -78,10 +109,14 @@ class AppTour extends Component {
             <img src={publishBtn} height={80} alt="publish"/>
             <p>Click publish button when you are ready to update your page.</p>
           </div>
-        )
+        ),
+        action: () => {
+          this.resetAction();
+
+        }
       },
       {
-        content: ({goTo}) => (
+        content: () => (
           <div className="guide-text">
             <p>
               You are ready to use Lander.
@@ -91,7 +126,10 @@ class AppTour extends Component {
               <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>
-        )
+        ),
+        action: () => {
+          this.resetAction();
+        }
       }
     ];
 
