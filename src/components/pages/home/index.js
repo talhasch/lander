@@ -17,12 +17,10 @@ import steven from '../../../images/steven.jpg';
 
 import {
   coctailSvg,
-  smileSvg,
   shieldSvg,
   sketchSvg,
   codeSvg,
   codeBranchSvg,
-  infinitySvg,
   mobileSvg,
   twitterSvg,
   githubSvg,

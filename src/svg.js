@@ -118,13 +118,6 @@ export const coctailSvg = <svg aria-hidden="true" focusable="false" data-prefix=
         d="M296 464h-56V338.78l168.74-168.73c15.52-15.52 4.53-42.05-17.42-42.05H24.68c-21.95 0-32.94 26.53-17.42 42.05L176 338.78V464h-56c-22.09 0-40 17.91-40 40 0 4.42 3.58 8 8 8h240c4.42 0 8-3.58 8-8 0-22.09-17.91-40-40-40zM432 0c-62.61 0-115.35 40.2-135.18 96h52.54c16.65-28.55 47.27-48 82.64-48 52.93 0 96 43.06 96 96s-43.07 96-96 96c-14.04 0-27.29-3.2-39.32-8.64l-35.26 35.26C379.23 279.92 404.59 288 432 288c79.53 0 144-64.47 144-144S511.53 0 432 0z"/>
 </svg>;
 
-export const smileSvg = <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="smile"
-                             className="svg-inline--fa fa-smile fa-w-16" role="img"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-  <path fill="currentColor"
-        d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm4 72.6c-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8-10.1-8.4-25.3-7.1-33.8 3.1z"/>
-</svg>;
-
 export const shieldSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-alt"
                               className="svg-inline--fa fa-shield-alt fa-w-16" role="img"
                               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -151,11 +144,4 @@ export const mobileSvg = <svg aria-hidden="true" focusable="false" data-prefix="
                               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
   <path fill="currentColor"
         d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/>
-</svg>;
-
-export const infinitySvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="infinity"
-                                className="svg-inline--fa fa-infinity fa-w-20" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-  <path fill="currentColor"
-        d="M471.1 96C405 96 353.3 137.3 320 174.6 286.7 137.3 235 96 168.9 96 75.8 96 0 167.8 0 256s75.8 160 168.9 160c66.1 0 117.8-41.3 151.1-78.6 33.3 37.3 85 78.6 151.1 78.6 93.1 0 168.9-71.8 168.9-160S564.2 96 471.1 96zM168.9 320c-40.2 0-72.9-28.7-72.9-64s32.7-64 72.9-64c38.2 0 73.4 36.1 94 64-20.4 27.6-55.9 64-94 64zm302.2 0c-38.2 0-73.4-36.1-94-64 20.4-27.6 55.9-64 94-64 40.2 0 72.9 28.7 72.9 64s-32.7 64-72.9 64z"/>
 </svg>;
