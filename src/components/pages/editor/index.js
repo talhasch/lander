@@ -17,7 +17,10 @@ import AccountEditDialog from '../../dialogs/account-edit';
 import WalletEditDialog from '../../dialogs/wallet-edit';
 
 import BioEditDialog from '../../dialogs/bio-edit';
+
 import Spinner from '../../elements/spinner';
+
+import AppTour from '../../elements/tour';
 
 import fixClassNames from '../../../utils/fix-class-names';
 
@@ -71,6 +74,8 @@ class EditorPage extends Component {
             </div>
           </div>
         </div>
+
+        <AppTour/>
       </>
     )
   }
