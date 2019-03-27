@@ -75,7 +75,7 @@ class EditorPage extends Component {
           </div>
         </div>
 
-        <AppTour/>
+        {ui.guideTour && <AppTour  {...this.props} />}
       </>
     )
   }

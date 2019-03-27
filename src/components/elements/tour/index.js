@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
+
+import PropTypes from 'prop-types';
+
 import {Button} from 'react-bootstrap';
+
 import Tour from 'reactour';
 
 import publishBtn from '../../../images/publish.png';
 
 
 class AppTour extends Component {
-  onClose = () => {
-
+  disable = () => {
+    localStorage.setItem('guide-tour-skip', '1');
+    const {toggleUiProp} = this.props;
+    toggleUiProp('guideTour');
   };
 
   render() {
@@ -20,7 +26,7 @@ class AppTour extends Component {
               Welcome again, this will guide you through everything you need to know to start using Lander.
             </p>
             <div className="btns">
-              <Button variant="outline-secondary" className="btn-skip">Skip</Button>
+              <Button onClick={this.disable} variant="outline-secondary" className="btn-skip">Skip</Button>
               <Button onClick={() => goTo(1)} variant="primary" className="btn-start">Start</Button>
             </div>
           </div>
@@ -30,7 +36,7 @@ class AppTour extends Component {
         }
       },
       {
-        content: ({goTo}) => (
+        content: () => (
           <div className="guide-text">
             <p>
               This is your public home page url.
@@ -44,16 +50,20 @@ class AppTour extends Component {
         }
       },
       {
-        content: <div className="guide-text">You can change style of your page clicking this button</div>,
+        content: <div className="guide-text">You can change style of your page clicking this button.</div>,
         selector: '.design-toolbar .right-menu button',
       },
       {
-        content: <span>You can edit all sections by clicking edit button each on them</span>,
+        content: <span>You can edit all sections by clicking edit button each on them.</span>,
         selector: '.profile-box .profile-photo',
       },
       {
-        content: <span>You can edit all sections by clicking edit button each on them</span>,
-        selector: '.profile-box  .profile-name',
+        content: <span>You can edit all sections by clicking edit button each on them.</span>,
+        selector: '.profile-box .profile-name',
+      },
+      {
+        content: <span>You can edit all sections by clicking edit button each on them.</span>,
+        selector: '.profile-box .profile-description',
       },
       {
         content: <span>This button allows you to preview how your page will see actually</span>,
@@ -78,7 +88,7 @@ class AppTour extends Component {
             </p>
             <div className="btns">
 
-              <Button onClick={this.onClose} variant="primary" className="btn-end">End Tour</Button>
+              <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>
         )
@@ -88,12 +98,24 @@ class AppTour extends Component {
     return <Tour
       steps={steps}
       isOpen={true}
-      onRequestClose={this.onClose}
+      onRequestClose={this.disable}
       rounded={8}
+      closeWithMask={false}
+      disableKeyboardNavigation={['esc']}
       className="tour-guide"
     />
   }
 }
 
 
+AppTour.defaultProps = {
+  toggleUiProp: () => {
+  }
+};
+
+AppTour.propTypes = {
+  toggleUiProp: PropTypes.func
+};
+
 export default AppTour;
+
