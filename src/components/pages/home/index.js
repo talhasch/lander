@@ -122,14 +122,21 @@ class HomePage extends Component {
             </div>
             <Row className="feature-list">
               {this.feature(sketchSvg, 'Beautifully Easy', 'Setup your page in minutes and customise it with super easy user interface depending on your preferences.')}
-              {this.feature(coctailSvg, 'Free', 'All current and next features of Lander are absolutely free for everyone and will be free forever without any limitations!')}
+              {this.feature(coctailSvg, 'Free & Unlimited', 'All features of Lander are 100% free. You can create as much as pages you want for free. There is no limit!')}
               {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you.')}
+              {this.feature(mobileSvg, 'Responsive', 'Looks and feels great at every screen size right out of the box, from phones to tablets to desktops.')}
               {this.feature(codeSvg, 'Open Source', ' Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedbacks.')}
-              {this.feature(mobileSvg, 'Responsive', 'Look great at every screen size right out of the box, from phones to tablets to desktops.')}
-              {this.feature(infinitySvg, 'Unlimited', 'You can create as much as pages you want for free. There is absolutely no limit.')}
+              {this.feature(codeBranchSvg, 'Growing', 'This is just beginning. We have a lot of development in pipeline like domain connecting, page metrics, showcase etc...')}
             </Row>
           </div>
         </div>
+
+        <div className="aM">
+          <Button onClick={this.signIn} variant="sign-in" size="lg">
+            Get your free page
+          </Button>
+        </div>
+
         <div className="aX">
           <div className="section-container">
           <div className="showcase">
@@ -155,6 +162,9 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
+
+
+
         <div className="aY">
           <div className="section-container">
             <div className="showcase">
@@ -171,6 +181,9 @@ class HomePage extends Component {
             <h3>You're somebody who deserves a beautiful personal home page.</h3>
           </div>
         </div>
+
+
+
         <div className="footer">
           <div className="section-container section-container-footer">
             <Row>

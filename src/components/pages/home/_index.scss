@@ -28,6 +28,18 @@
     max-width: 900px;
   }
 
+  .btn-sign-in {
+    @include button-variant(#468de9, #4a96f7, #4a96f7);
+    align-items: center;
+    display: inline-flex;
+    margin-bottom: 4px;
+
+    .bl-icon {
+      height: 40px;
+      margin-right: 2px;
+    }
+  }
+
   .intro {
     background: lighten($primary, 34);
     margin-bottom: 60px;
@@ -136,17 +148,6 @@
         }
       }
 
-      .btn-sign-in {
-        @include button-variant(#471b5e, #230D2E, #401854);
-        align-items: center;
-        display: inline-flex;
-        margin-bottom: 4px;
-
-        .bl-icon {
-          height: 40px;
-          margin-right: 2px;
-        }
-      }
     }
   }
 
@@ -155,13 +156,13 @@
     padding: 0 20px;
 
     @media (min-width: $md-break) {
-      margin-bottom: 120px;
+      margin-bottom: 40px;
     }
 
     .section-header {
       margin-bottom: 40px;
 
-      @media (min-width: $md-break) {
+      @media (min-width: $lg-break) {
         margin-bottom: 80px;
       }
 
@@ -173,7 +174,7 @@
         margin: 0;
         padding-bottom: 6px;
 
-        @media (min-width: $md-break) {
+        @media (min-width: $lg-break) {
           font-size: 1.8em;
         }
       }
@@ -181,25 +182,44 @@
 
     .feature-list {
       .feature {
+        font-size: 90%;
         margin-bottom: 50px;
 
         @media (min-width: $lg-break) {
+          font-size: 100%;
+        }
+
+        @media (min-width: $xl-break) {
           padding-right: 80px;
         }
 
         .icon {
           float: left;
-          width: 70px;
+          width: 40px;
+
           svg {
             color: $gray-700;
-            height: 50px;
-            width: 50px;
+            height: 30px;
+            width: 30px;
+          }
+
+          @media (min-width: $lg-break) {
+            width: 70px;
+            svg {
+              color: $gray-700;
+              height: 50px;
+              width: 50px;
+            }
           }
         }
 
         .content {
           float: right;
-          width: calc(100% - 70px);
+          width: calc(100% - 40px);
+
+          @media (min-width: $lg-break) {
+            width: calc(100% - 70px);
+          }
 
           .title {
             font-size: 120%;
@@ -212,6 +232,15 @@
           }
         }
       }
+    }
+  }
+
+  .aM {
+    margin-bottom: 100px;
+    text-align: center;
+
+    @media (min-width: $md-break) {
+      margin-bottom: 130px;
     }
   }
 
