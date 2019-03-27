@@ -39,7 +39,7 @@ class ProfilePage extends Component {
       this.setState({user: resp});
 
       // TODO: Find better approach
-      document.title = `${resp.profile.name} - ${document.title}`;
+      document.title = `${resp.published.name} - ${document.title}`;
     }).then(() => {
       this.setState({loading: false});
     })
@@ -83,19 +83,18 @@ class ProfilePage extends Component {
     }
 
     const {user} = this.state;
-
-    const {name, description, image, account} = user.profile;
+    const {published} = user;
 
     return <div className="main-wrapper-profile">
-      <ProfileBg bg={user.published.bg}/>
+      <ProfileBg bg={published.bg}/>
       <div className="inner-wrapper">
         <div className="profile-box">
-          <ProfilePhoto image={image} {...this.props}/>
-          <ProfileName name={name} {...this.props}/>
-          <ProfileDescription description={description} {...this.props}/>
-          <ProfileBio bio={user.published.bio} {...this.props}/>
-          <SocialAccounts accounts={account} {...this.props}/>
-          <WalletAccounts accounts={account} {...this.props}/>
+          <ProfilePhoto imageUrl={published.photo} {...this.props}/>
+          <ProfileName name={published.name} {...this.props}/>
+          <ProfileDescription description={published.description} {...this.props}/>
+          <ProfileBio bio={published.bio} {...this.props}/>
+          <SocialAccounts accounts={published.accounts} {...this.props}/>
+          <WalletAccounts accounts={published.wallets} {...this.props}/>
         </div>
       </div>
     </div>
