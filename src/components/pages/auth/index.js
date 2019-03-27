@@ -1,6 +1,6 @@
 import {Component} from 'react';
 
-import * as blockStack from 'blockstack';
+import {userSession} from '../../../blockstack-config';
 
 class AuthPage extends Component {
   componentDidMount() {
@@ -11,8 +11,8 @@ class AuthPage extends Component {
       return;
     }
 
-    if (blockStack.isSignInPending()) {
-      blockStack.handlePendingSignIn()
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn()
         .then(userData => {
           const {login} = this.props;
           login(userData);

@@ -1,5 +1,7 @@
 import md5 from 'blueimp-md5';
 
+import * as blockStack from 'blockstack';
+
 import {
   TOGGLE_PHOTO_UPLOAD,
   TOGGLE_NAME_EDIT,
@@ -12,7 +14,7 @@ import {
 
 import {draftFile, publishedFile, defaultBgImage} from '../constants';
 
-import * as blockStack from 'blockstack';
+import {userSession} from '../blockstack-config';
 
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/LOGOUT';
@@ -305,7 +307,7 @@ export const login = (userData) => {
 
     let draft;
     try {
-      const file = await blockStack.getFile(draftFile);
+      const file = await userSession.getFile(draftFile);
       draft = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -315,7 +317,7 @@ export const login = (userData) => {
     if (draft === null) {
       const obj = dataModel();
       try {
-        await blockStack.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
+        await userSession.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
         draft = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -324,7 +326,7 @@ export const login = (userData) => {
 
     let published;
     try {
-      const file = await blockStack.getFile(publishedFile, {decrypt: false});
+      const file = await userSession.getFile(publishedFile, {decrypt: false});
       published = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -338,7 +340,7 @@ export const login = (userData) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(logoutAct());
-    blockStack.signUserOut();
+    userSession.signUserOut();
   }
 };
 
@@ -404,7 +406,7 @@ export const saveDraft = () => {
     const {user} = getState();
     const draftData1 = prepareDraftForSave(user.draft, true);
 
-    return blockStack.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+    return userSession.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
       return draftData1;
     })
   }
@@ -432,7 +434,7 @@ export const publish = () => {
     const {user} = getState();
     const publicData = prepareDraftForSave(user.draft, false);
 
-    return blockStack.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
+    return userSession.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
       return publicData;
     });
   }

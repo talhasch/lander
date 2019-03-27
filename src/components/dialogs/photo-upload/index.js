@@ -8,7 +8,7 @@ import AvatarEditor from 'react-avatar-editor';
 
 import InputRange from 'react-input-range';
 
-import * as blockStack from 'blockstack';
+import {userSession} from '../../../blockstack-config';
 
 import showError from '../../../utils/show-error';
 
@@ -94,7 +94,7 @@ class PhotoUploadDialog extends Component {
         const fileContents = event.target.result;
 
         self.setState({uploading: true});
-        blockStack.putFile(fileName, fileContents, {encrypt: false, contentType: mimeType}).then(r => {
+        userSession.putFile(fileName, fileContents, {encrypt: false, contentType: mimeType}).then(r => {
           self.uploadSuccess(r);
         }).catch((err) => {
           showError(String(err));

@@ -1,29 +1,29 @@
-import * as blockStack from 'blockstack';
+import {userSession} from './blockstack-config';
 
 import {draftFile, publishedFile, flagFile} from './constants';
 
 export const getDraftFile = () => {
-  return blockStack.getFile(draftFile);
+  return userSession.getFile(draftFile);
 };
 
 export const putDraftFile = (data) => {
-  return blockStack.putFile(draftFile, JSON.stringify(data), {encrypt: true});
+  return userSession.putFile(draftFile, JSON.stringify(data), {encrypt: true});
 };
 
 export const getPublishedFile = () => {
-  return blockStack.getFile(publishedFile, {decrypt: false});
+  return userSession.getFile(publishedFile, {decrypt: false});
 };
 
 export const putPublishedFile = (data) => {
-  return blockStack.putFile(publishedFile, JSON.stringify(data), {encrypt: false})
+  return userSession.putFile(publishedFile, JSON.stringify(data), {encrypt: false})
 };
 
 export const getFlagFile = () => {
-  return blockStack.getFile(flagFile);
+  return userSession.getFile(flagFile);
 };
 
 export const putFlagFile = (data) => {
-  return blockStack.putFile(flagFile, JSON.stringify(data), {encrypt: true});
+  return userSession.putFile(flagFile, JSON.stringify(data), {encrypt: true});
 };
 
 export const getFlagLocal = (username) => {

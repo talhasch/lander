@@ -23,8 +23,8 @@ export const socialAccountTypes = [
 ];
 
 
-export const draftFile = 'lander.draft.file.db';
-export const publishedFile = 'lander.public.file.db';
-export const flagFile = 'lander.flag.file.db';
+export const draftFile = 'lander.draft.file.db.json';
+export const publishedFile = 'lander.public.file.db.json';
+export const flagFile = 'lander.flag.file.db.json';
 
 export const defaultBgImage = 'wave.jpg';

@@ -16,7 +16,7 @@
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.1",
     "bfj": "6.1.1",
-    "blockstack": "^18.3.0",
+    "blockstack": "^19.0.0",
     "blueimp-md5": "^2.10.0",
     "bootstrap": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",

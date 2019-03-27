@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Form, Button} from 'react-bootstrap';
 
-import * as blockStack from 'blockstack';
+import {userSession} from '../../../blockstack-config';
 
 import ProfilePhoto from '../../profile-photo';
 
@@ -35,12 +35,12 @@ class WelcomePage extends Component {
   componentDidMount() {
     const {history} = this.props;
 
-    if (!blockStack.isUserSignedIn()) {
+    if (!userSession.isUserSignedIn()) {
       history.push('/');
       return;
     }
 
-    const userData = blockStack.loadUserData();
+    const userData = userSession.loadUserData();
 
     getFlagFile().then(resp => {
       if (JSON.parse(resp) === 'ok') {
@@ -122,7 +122,7 @@ class WelcomePage extends Component {
   };
 
   create = () => {
-    const userData = blockStack.loadUserData();
+    const userData = userSession.loadUserData();
     const {name, description, photo} = this.state;
 
     const data = dataModel();

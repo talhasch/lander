@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 
 import {animateScroll as scroll} from "react-scroll";
 
-import * as blockStack from 'blockstack';
-
-import getBaseUrl from '../../../utils/get-base-url';
+import {userSession} from '../../../blockstack-config';
 
 import {Nav, Navbar, Button, Row, Col} from 'react-bootstrap';
 
@@ -13,7 +11,6 @@ import landerLogo from '../../../images/lander-512.png';
 import jasmine from '../../../images/jasmine.jpg';
 import melissa from '../../../images/melissa.jpg';
 import steven from '../../../images/steven.jpg';
-
 
 import {
   coctailSvg,
@@ -31,18 +28,13 @@ class HomePage extends Component {
   signIn = (e) => {
     e.preventDefault();
 
-    if (blockStack.isUserSignedIn()) {
+    if (userSession.isUserSignedIn()) {
       const {history} = this.props;
       history.push('/app/editor');
       return;
     }
 
-    const base = getBaseUrl();
-    const redir = `${base}/app/auth`;
-    const manifest = `${base}/manifest.json`;
-    const scope = ['store_write', 'publish_data'];
-
-    blockStack.redirectToSignIn(redir, manifest, scope);
+    userSession.redirectToSignIn();
   };
 
   goFeatures = (e) => {
