@@ -35,14 +35,17 @@ class SettingsDialog extends Component {
   deleteConfirmed = async () => {
     this.setState({deleteConfirm: false, deleting: true});
 
-    Promise.all([putDraftFile(''), putPublishedFile(''), putFlagFile('')]).then(() => {
-      const {user} = this.props;
-      deleteFlagLocal(user.username);
+    // placement is important !
+    await putFlagFile('');
+    await putPublishedFile('');
+    await putDraftFile('');
 
-      const {logout, history} = this.props;
-      logout();
-      history.push('/');
-    });
+    const {user} = this.props;
+    deleteFlagLocal(user.username);
+
+    const {logout, history} = this.props;
+    logout();
+    history.push('/');
   };
 
   deleteCancelled = () => {
