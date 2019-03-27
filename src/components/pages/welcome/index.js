@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {Form, Button} from 'react-bootstrap';
 
+import * as blockStack from 'blockstack';
+
 import {userSession} from '../../../blockstack-config';
 
 import ProfilePhoto from '../../profile-photo';
@@ -52,19 +54,18 @@ class WelcomePage extends Component {
       this.setState({loaded: true});
     });
 
-    const {profile} = userData;
+    const profile = new blockStack.Person(userData.profile);
 
-    if (profile.name) {
-      this.setState({name: profile.name});
+    if (profile.name()) {
+      this.setState({name: profile.name()});
     }
 
-    if (profile.description) {
-      this.setState({description: profile.description});
+    if (profile.description()) {
+      this.setState({description: profile.description()});
     }
 
-    if (profile.image && profile.image.length > 0) {
-      const imageUrl = profile.image[0].contentUrl;
-      this.setState({photo: imageUrl});
+    if (profile.avatarUrl()) {
+      this.setState({photo: profile.avatarUrl()});
     }
 
     this.focusInput();
