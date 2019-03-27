@@ -47,17 +47,17 @@ class HomePage extends Component {
 
   goFeatures = (e) => {
     e.preventDefault();
-    const a = document.querySelector('.features').getBoundingClientRect().top - 20;
+    const a = document.querySelector('.features').getBoundingClientRect().top + document.documentElement.scrollTop - 20;
     scroll.scrollTo(a);
   };
 
   goGetStarted = (e) => {
     e.preventDefault();
-    const a = document.querySelector('.get-started').getBoundingClientRect().top - 20;
+    const a = document.querySelector('.get-started').getBoundingClientRect().top + document.documentElement.scrollTop - 20;
     scroll.scrollTo(a);
   };
 
-  feature = (icon, title, text, offset=true) => {
+  feature = (icon, title, text, offset = true) => {
     return <Col className="feature" sm={12} md={4}>
       <div className="icon">
         {icon}
@@ -87,7 +87,7 @@ class HomePage extends Component {
                 <Nav.Link href="#get-started" onClick={this.goGetStarted}>Get Started</Nav.Link>
                 <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
                 <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
-                          rel="noopener noreferrer" >Blockstack</Nav.Link>
+                          rel="noopener noreferrer">Blockstack</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -137,17 +137,17 @@ class HomePage extends Component {
 
         <div className="aX">
           <div className="section-container">
-          <div className="showcase">
-            <div className="showcase-header">
-              <div className="address-bar">
-                https://landr.me/melissa.id
+            <div className="showcase">
+              <div className="showcase-header">
+                <div className="address-bar">
+                  https://landr.me/melissa.id
+                </div>
+              </div>
+              <div className="showcase-content">
+                <img src={melissa} alt="Jasmine"/>
               </div>
             </div>
-            <div className="showcase-content">
-              <img src={melissa} alt="Jasmine"/>
-            </div>
-          </div>
-          <h3>Create a home page to present yourself and what you do in one link.</h3>
+            <h3>Create a home page to present yourself and what you do in one link.</h3>
           </div>
         </div>
         <div className="get-started">
@@ -160,7 +160,6 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-
 
 
         <div className="aY">
@@ -179,7 +178,6 @@ class HomePage extends Component {
             <h3>You're somebody who deserves a beautiful personal home page.</h3>
           </div>
         </div>
-
 
 
         <div className="footer">
@@ -217,7 +215,7 @@ class HomePage extends Component {
                   Support
                 </div>
                 <div className="menu-item">
-                  <a href="#">Contact</a>
+                  <a href="#contact">Contact</a>
                 </div>
                 <div className="menu-item">
                   <a href="https://github.com/talhasch/lander/blob/master/roadmap.md" target="_blank"
