@@ -294,7 +294,7 @@
 
       @media (min-width: $lg-break) {
         transform: none;
-        left: 0;
+        left: 20px;
       }
 
       .showcase-header {
@@ -342,7 +342,7 @@
 
       .showcase {
         left: auto;
-        right: 0;
+        right: 20px;
       }
     }
   }
