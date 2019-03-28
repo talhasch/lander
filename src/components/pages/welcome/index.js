@@ -52,6 +52,7 @@ class WelcomePage extends Component {
       }
 
       this.setState({loaded: true});
+      this.focusInput();
     });
 
     const profile = new blockStack.Person(userData.profile);
@@ -67,8 +68,6 @@ class WelcomePage extends Component {
     if (profile.avatarUrl()) {
       this.setState({photo: profile.avatarUrl()});
     }
-
-    this.focusInput();
   }
 
   focusInput = () => {
