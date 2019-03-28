@@ -130,10 +130,26 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>This button allows you to preview how your page will see actually.</p>
+            <p>Once you change any part of your page this button will appear.</p>
+            <img src={publishBtn} height={80} alt="publish"/>
+            <p>Click publish button when you are ready to update your page.</p>
             <div className="btns">
               <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
+        action: () => {
+          this.resetAction();
+        }
+      },
+      {
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>This button allows you to preview how your page will see after you published it.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -143,22 +159,7 @@ class AppTour extends Component {
           document.querySelector('.design-toolbar .left-menu').classList.add('tour-mode');
         }
       },
-      {
-        content: ({goTo}) => (
-          <div className="guide-text">
-            <p>Once you change any part of your page this button will appear.</p>
-            <img src={publishBtn} height={80} alt="publish"/>
-            <p>Click publish button when you are ready to update your page.</p>
-            <div className="btns">
-              <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
-            </div>
-          </div>
-        ),
-        action: () => {
-          this.resetAction();
-        }
-      },
+
       {
         content: ({goTo}) => (
           <div className="guide-text">
