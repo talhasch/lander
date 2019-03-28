@@ -39,13 +39,13 @@ class HomePage extends Component {
 
   goFeatures = (e) => {
     e.preventDefault();
-    const a = document.querySelector('.features').getBoundingClientRect().top + document.documentElement.scrollTop - 20;
+    const a = document.querySelector('.features').getBoundingClientRect().top + document.documentElement.scrollTop - 70;
     scroll.scrollTo(a);
   };
 
   goGetStarted = (e) => {
     e.preventDefault();
-    const a = document.querySelector('.get-started').getBoundingClientRect().top + document.documentElement.scrollTop - 20;
+    const a = document.querySelector('.get-started').getBoundingClientRect().top + document.documentElement.scrollTop - 70;
     scroll.scrollTo(a);
   };
 
