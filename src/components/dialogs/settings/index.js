@@ -42,7 +42,7 @@ class SettingsDialog extends Component {
 
     const {user} = this.props;
     deleteFlagLocal(user.username);
-    localStorage.getItem('guide-tour-disable');
+    localStorage.removeItem('guide-tour-disable');
 
     const {logout, history} = this.props;
     logout();
