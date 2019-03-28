@@ -240,7 +240,7 @@ class WelcomePage extends Component {
             {step === 3 &&
             <>
               <div className="section-sub-header">
-                Set your profile image
+                Set your profile photo
               </div>
               <div className="set-profile-image">
                 <ProfilePhoto imageUrl={photo}/>
