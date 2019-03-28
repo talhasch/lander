@@ -147,7 +147,7 @@ class HomePage extends Component {
             <div className="section-header">
               <h2>Get Started</h2>
             </div>
-            <p> This video shows how you create you Lander page in seconds.</p>
+            <p> This video shows how you create you Lander page in a few minutes.</p>
             <div className="get-started-video">
             </div>
           </div>

@@ -48,7 +48,7 @@ class AppTour extends Component {
         content: ({goTo}) => (
           <div className="guide-text">
             <p>
-              This is your home page's url.
+              This is your home page's address.
             </p>
             <div className="btns">
               <Button onClick={() => goTo(0)} variant="outline-primary" className="btn-prev">Prev</Button>
@@ -186,6 +186,7 @@ class AppTour extends Component {
       disableKeyboardNavigation={['esc']}
       showNavigation={false}
       showButtons={false}
+      showCloseButton={false}
       className="tour-guide"
     />
   }
