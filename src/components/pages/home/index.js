@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, {Component} from 'react';
 
 import {userSession} from '../../../blockstack-config';
@@ -91,12 +93,10 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-
         <section className="features" id="features">
-          <a name="features" />
           <div className="section-container">
             <div className="section-header">
-              <h2>Why you should use Lander?</h2>
+              <h2><a name="features">Why you should use Lander?</a></h2>
             </div>
             <Row className="feature-list">
               {this.feature(sketchSvg, 'Beautifully Easy', 'Setup your page in minutes and customise it with super easy user interface depending on your preferences.')}
@@ -108,13 +108,11 @@ class HomePage extends Component {
             </Row>
           </div>
         </section>
-
         <div className="aM">
           <Button onClick={this.signIn} variant="sign-in" size="lg">
             Get your free page
           </Button>
         </div>
-
         <div className="aX">
           <div className="section-container">
             <div className="showcase">
@@ -130,23 +128,19 @@ class HomePage extends Component {
             <h3>Create a home page to present yourself and what you do in one link.</h3>
           </div>
         </div>
-
         <section className="get-started" id="get-started">
-          <a name="get-started" />
           <div className="section-container">
             <div className="section-header">
-              <h2>Get Started</h2>
+              <h2><a name="get-started">Get Started</a></h2>
             </div>
             <p> This video shows how you create you Lander page in a few minutes.</p>
             <div className="get-started-video">
-              <iframe allowFullScreen frameBorder="0"
+              <iframe title="Getting Started With Lander" allowFullScreen frameBorder="0"
                       src="https://www.youtube.com/embed/o8pcHKUkiEg?rel=0&origin=https://landr.me"
               />
             </div>
           </div>
         </section>
-
-
         <div className="aY">
           <div className="section-container">
             <div className="showcase">
@@ -163,8 +157,6 @@ class HomePage extends Component {
             <h3>You're somebody who deserves a beautiful personal home page.</h3>
           </div>
         </div>
-
-
         <div className="footer">
           <div className="section-container section-container-footer">
             <Row>
@@ -200,7 +192,7 @@ class HomePage extends Component {
                   Support
                 </div>
                 <div className="menu-item">
-                  <a href="#contact">Contact</a>
+                  <a href="mailto:hello@landr.me">Contact</a>
                 </div>
                 <div className="menu-item">
                   <a href="https://github.com/talhasch/lander/blob/master/roadmap.md" target="_blank"
