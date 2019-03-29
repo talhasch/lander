@@ -11,6 +11,10 @@ $xl-break: map-get($grid-breakpoints, "xl");
 @import './mixins';
 @import './components';
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100%;
   position: absolute;

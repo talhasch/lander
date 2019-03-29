@@ -61,7 +61,6 @@
     "react-redux": "5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "4.3.1",
-    "react-scroll": "^1.7.11",
     "react-test-renderer": "^16.8.3",
     "reactour": "^1.13.3",
     "redux": "4.0.0",

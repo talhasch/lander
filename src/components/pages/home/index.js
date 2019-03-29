@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import {animateScroll as scroll} from "react-scroll";
-
 import {userSession} from '../../../blockstack-config';
 
 import {Nav, Navbar, Button, Row, Col} from 'react-bootstrap';
@@ -37,18 +35,6 @@ class HomePage extends Component {
     userSession.redirectToSignIn();
   };
 
-  goFeatures = (e) => {
-    e.preventDefault();
-    const a = document.querySelector('.features').getBoundingClientRect().top + document.documentElement.scrollTop - 70;
-    scroll.scrollTo(a);
-  };
-
-  goGetStarted = (e) => {
-    e.preventDefault();
-    const a = document.querySelector('.get-started').getBoundingClientRect().top + document.documentElement.scrollTop - 70;
-    scroll.scrollTo(a);
-  };
-
   feature = (icon, title, text, offset = true) => {
     return <Col className="feature" sm={12} md={4}>
       <div className="icon">
@@ -75,8 +61,8 @@ class HomePage extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link href="#features" onClick={this.goFeatures}>Features</Nav.Link>
-                <Nav.Link href="#get-started" onClick={this.goGetStarted}>Get Started</Nav.Link>
+                <Nav.Link href="#features">Features</Nav.Link>
+                <Nav.Link href="#get-started">Get Started</Nav.Link>
                 <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
                 <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
                           rel="noopener noreferrer">Blockstack</Nav.Link>
@@ -105,7 +91,8 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        <div className="features">
+
+        <section className="features" id="features">
           <div className="section-container">
             <div className="section-header">
               <h2>Why you should use Lander?</h2>
@@ -119,7 +106,7 @@ class HomePage extends Component {
               {this.feature(codeBranchSvg, 'Growing', 'This is just beginning. We have a lot of development in pipeline like domain connecting, page metrics, showcase etc...')}
             </Row>
           </div>
-        </div>
+        </section>
 
         <div className="aM">
           <Button onClick={this.signIn} variant="sign-in" size="lg">
@@ -142,7 +129,8 @@ class HomePage extends Component {
             <h3>Create a home page to present yourself and what you do in one link.</h3>
           </div>
         </div>
-        <div className="get-started">
+
+        <section className="get-started" id="get-started">
           <div className="section-container">
             <div className="section-header">
               <h2>Get Started</h2>
@@ -154,7 +142,7 @@ class HomePage extends Component {
               />
             </div>
           </div>
-        </div>
+        </section>
 
 
         <div className="aY">
@@ -183,10 +171,10 @@ class HomePage extends Component {
                   Lander
                 </div>
                 <div className="menu-item">
-                  <a href="#features" onClick={this.goFeatures}>Features</a>
+                  <a href="#features">Features</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#get-started" onClick={this.goGetStarted}>Get Started</a>
+                  <a href="#get-started">Get Started</a>
                 </div>
                 <div className="menu-item">
                   <a href="#sign-in" onClick={this.signIn}>Sign In</a>
