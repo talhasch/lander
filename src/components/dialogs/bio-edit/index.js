@@ -55,9 +55,6 @@ class BioEditDialog extends Component {
           <Modal.Body>
             <div className="bio-edit-dialog-content">
               <Form.Group>
-                <Form.Label>
-                  <small className="text-muted form-text"><FormattedMessage id="bio.help-text"/></small>
-                </Form.Label>
                 <Form.Control as="textarea" rows="10" id="bio-txt" value={bio} onChange={this.textChanged}/>
               </Form.Group>
             </div>
