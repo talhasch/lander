@@ -38,10 +38,10 @@ class WalletEditDialog extends Component {
 
   render() {
     const {user} = this.props;
-    const {accounts, accountsTemp} = user.draft;
-    const changed = stringify(accounts) !== stringify(accountsTemp);
+    const {wallets, walletsTemp} = user.draft;
+    const changed = stringify(wallets) !== stringify(walletsTemp);
 
-    const {bitcoin, ethereum} = accounts;
+    const {bitcoin, ethereum} = wallets;
 
     return (
       <>
