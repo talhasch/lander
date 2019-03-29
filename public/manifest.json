@@ -3,7 +3,7 @@
   "name": "Lander",
   "icons": [
     {
-      "src": "https://landr.me/icon.png",
+      "src": "https://landr.me/images/icon.png",
       "sizes": "128x128",
       "type": "image/png"
     }
