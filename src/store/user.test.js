@@ -1,5 +1,4 @@
 import reducer, {
-  dataModel,
   prepareDraftForSave,
   loginAct,
   loadProfileAct,
@@ -22,6 +21,8 @@ import reducer, {
   logoutAct
 
 } from "./user"
+
+import {dataModel} from "../constants";
 
 import {
   TOGGLE_STYLE,
