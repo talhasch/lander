@@ -93,6 +93,7 @@ class HomePage extends Component {
         </div>
 
         <section className="features" id="features">
+          <a name="features" />
           <div className="section-container">
             <div className="section-header">
               <h2>Why you should use Lander?</h2>
@@ -131,6 +132,7 @@ class HomePage extends Component {
         </div>
 
         <section className="get-started" id="get-started">
+          <a name="get-started" />
           <div className="section-container">
             <div className="section-header">
               <h2>Get Started</h2>
