@@ -12,7 +12,7 @@ import {
   TOGGLE_STYLE
 } from './ui';
 
-import {draftFile, publishedFile, defaultBgImage} from '../constants';
+import {dataModel, draftFile, publishedFile, defaultBgImage} from '../constants';
 
 import {userSession} from '../blockstack-config';
 
@@ -40,34 +40,6 @@ export const DRAFT_SAVE_ERR = '@user/DRAFT_SAVE_ERR';
 export const PUBLISH_SAVE = '@user/PUBLISH_SAVE';
 export const PUBLISH_SAVED = '@user/PUBLISH_SAVED';
 export const PUBLISH_SAVE_ERR = '@user/PUBLISH_SAVE_ERR';
-
-export const dataModel = () => (
-  {
-    name: '',
-    description: '',
-    bio: '',
-    photo: '',
-    email: '',
-    video: '',
-    accounts: {
-      twitter: '',
-      facebook: '',
-      github: '',
-      instagram: '',
-      linkedIn: ''
-    },
-    wallets: {
-      bitcoin: '',
-      ethereum: ''
-    },
-    bg: {
-      image: defaultBgImage,
-      color: '#4a96f7',
-      blur: '2'
-    },
-    updated: '010101'
-  }
-);
 
 export const prepareDraftForSave = (draft, update = false) => {
   const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, walletsTemp, ...draftData} = draft;

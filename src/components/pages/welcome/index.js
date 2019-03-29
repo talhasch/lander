@@ -6,13 +6,15 @@ import * as blockStack from 'blockstack';
 
 import {userSession} from '../../../blockstack-config';
 
+import {extractAccounts} from '../../../helper/extract-user-props';
+
 import ProfilePhoto from '../../profile-photo';
 
 import PhotoUploadDialog from '../../../components/dialogs/photo-upload'
 
 import Spinner from '../../../components/elements/spinner';
 
-import {dataModel} from '../../../store/user';
+import {dataModel} from '../../../constants';
 
 import showError from '../../../utils/show-error';
 
@@ -125,9 +127,12 @@ class WelcomePage extends Component {
     const userData = userSession.loadUserData();
     const {name, description, photo} = this.state;
 
+    const accounts = extractAccounts('social');
+    const wallets = extractAccounts('wallet');
+
     const data = dataModel();
 
-    const newData = Object.assign({}, data, {name, description, photo});
+    const newData = Object.assign({}, data, {name, description, photo, accounts, wallets});
 
     this.setState({creating: true});
 
