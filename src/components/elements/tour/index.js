@@ -31,13 +31,28 @@ class AppTour extends Component {
     toggleUiProp('guideTour');
   };
 
+  focusElem = (selector) => {
+    const elem = document.querySelector(selector);
+    if (elem) {
+      elem.classList.add('tour-mode');
+    }
+  };
+
+  blurElem = (selector) => {
+    const elem = document.querySelector(selector);
+    if (elem) {
+      elem.classList.remove('tour-mode');
+    }
+  };
+
+
   resetAction = () => {
-    document.querySelector('.publish-toolbar .user-address').classList.remove('tour-mode');
-    document.querySelector('.design-toolbar .right-menu').classList.remove('tour-mode');
-    document.querySelector('.profile-box .profile-photo').classList.remove('tour-mode');
-    document.querySelector('.profile-box .profile-name').classList.remove('tour-mode');
-    document.querySelector('.profile-box .profile-description').classList.remove('tour-mode');
-    document.querySelector('.design-toolbar .left-menu').classList.remove('tour-mode');
+    this.blurElem('.publish-toolbar .user-address');
+    this.blurElem('.design-toolbar .right-menu');
+    this.blurElem('.profile-box .profile-photo');
+    this.blurElem('.profile-box .profile-name');
+    this.blurElem('.profile-box .profile-description');
+    this.blurElem('.design-toolbar .left-menu');
   };
 
   render() {
@@ -82,7 +97,7 @@ class AppTour extends Component {
         position: 'bottom',
         action: () => {
           this.resetAction();
-          document.querySelector('.publish-toolbar .user-address').classList.add('tour-mode');
+          this.focusElem('.publish-toolbar .user-address');
         }
       },
       {
@@ -98,7 +113,7 @@ class AppTour extends Component {
         selector: '.design-toolbar .right-menu button',
         action: () => {
           this.resetAction();
-          document.querySelector('.design-toolbar .right-menu').classList.add('tour-mode');
+          this.focusElem('.design-toolbar .right-menu');
         }
       },
       {
@@ -114,7 +129,7 @@ class AppTour extends Component {
         selector: '.profile-box .profile-photo',
         action: () => {
           this.resetAction();
-          document.querySelector('.profile-box .profile-photo').classList.add('tour-mode');
+          this.focusElem('.profile-box .profile-photo');
         }
       },
       {
@@ -130,7 +145,7 @@ class AppTour extends Component {
         selector: '.profile-box .profile-name',
         action: () => {
           this.resetAction();
-          document.querySelector('.profile-box .profile-name').classList.add('tour-mode');
+          this.focusElem('.profile-box .profile-name');
         }
       },
       {
@@ -146,7 +161,7 @@ class AppTour extends Component {
         selector: '.profile-box .profile-description',
         action: () => {
           this.resetAction();
-          document.querySelector('.profile-box .profile-description').classList.add('tour-mode');
+          this.focusElem('.profile-box .profile-description');
         }
       },
       {
@@ -178,7 +193,7 @@ class AppTour extends Component {
         selector: '.design-toolbar .left-menu button',
         action: () => {
           this.resetAction();
-          document.querySelector('.design-toolbar .left-menu').classList.add('tour-mode');
+          this.focusElem('.design-toolbar .left-menu');
         }
       },
 
