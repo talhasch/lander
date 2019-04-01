@@ -10,6 +10,21 @@ import publishBtn from '../../../images/publish.png';
 
 
 class AppTour extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: false
+    }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({visible: true});
+    }, 1000);
+  }
+
   disable = () => {
     this.resetAction();
     const {toggleUiProp} = this.props;
@@ -26,6 +41,13 @@ class AppTour extends Component {
   };
 
   render() {
+
+    const {visible} = this.state;
+
+    if (!visible) {
+      return null;
+    }
+
     const steps = [
       {
         content: ({goTo}) => (
