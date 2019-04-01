@@ -41,10 +41,10 @@
     "delete": "Delete my Lander page"
   },
   "wallet-accounts": {
-    "not-set": "You have'nt set your {n} account"
+    "not-set": "You haven't set your {n} account"
   },
   "social-accounts": {
-    "not-set": "You have'nt set your <strong>{n}</strong> account"
+    "not-set": "You haven't set your <strong>{n}</strong> account"
   },
   "editor": {
     "name-placeholder": "Your name goes here...",

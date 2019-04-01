@@ -133,7 +133,7 @@ class HomePage extends Component {
             <div className="section-header">
               <h2><a name="get-started">Get Started</a></h2>
             </div>
-            <p> This video shows how you create you Lander page in a few minutes.</p>
+            <p>This video shows how you create your Lander page in a few minutes.</p>
             <div className="get-started-video">
               <iframe title="Getting Started With Lander" allowFullScreen frameBorder="0"
                       src="https://www.youtube.com/embed/o8pcHKUkiEg?rel=0&origin=https://landr.me"
