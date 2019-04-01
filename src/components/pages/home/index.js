@@ -136,7 +136,7 @@ class HomePage extends Component {
             <p>This video shows how you create your Lander page in a few minutes.</p>
             <div className="get-started-video">
               <iframe title="Getting Started With Lander" allowFullScreen frameBorder="0"
-                      src="https://www.youtube.com/embed/o8pcHKUkiEg?rel=0&origin=https://landr.me"
+                      src="https://www.youtube.com/embed/Zy8m1jg-yIM?rel=0&origin=https://landr.me"
               />
             </div>
           </div>
