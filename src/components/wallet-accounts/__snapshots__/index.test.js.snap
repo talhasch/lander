@@ -50,7 +50,7 @@ exports[`1- in edit mode. no accounts provided. should show placeholder for all 
       className="address"
     >
       <span>
-        You have'nt set your Bitcoin account
+        You haven't set your Bitcoin account
       </span>
     </div>
   </div>
@@ -80,7 +80,7 @@ exports[`1- in edit mode. no accounts provided. should show placeholder for all 
       className="address"
     >
       <span>
-        You have'nt set your Ethereum account
+        You haven't set your Ethereum account
       </span>
     </div>
   </div>
@@ -165,7 +165,7 @@ exports[`2- in edit mode. bitcoin provided. 1`] = `
       className="address"
     >
       <span>
-        You have'nt set your Ethereum account
+        You haven't set your Ethereum account
       </span>
     </div>
   </div>
