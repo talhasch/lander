@@ -25,18 +25,18 @@ class ProfilePage extends Component {
     this.state = {
       loading: true,
       notFound: false,
-      user: null
+      data: null
     }
   }
 
   componentDidMount() {
-    this.fetch().then(resp => {
-      if (resp === false) {
+    this.fetch().then(data => {
+      if (!data) {
         this.setState({notFound: true});
         return;
       }
 
-      this.setState({user: resp});
+      this.setState({data});
     }).then(() => {
       this.setState({loading: false});
     })
@@ -46,22 +46,16 @@ class ProfilePage extends Component {
     const {match} = this.props;
     const {username} = match.params;
 
-    let profile;
-    let published;
+    let data;
 
     try {
-      profile = await blockStack.lookupProfile(username);
       const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
-      published = await axios.get(fileUrl).then(x => x.data);
+      data = await axios.get(fileUrl).then(x => x.data);
     } catch (e) {
       return false;
     }
 
-    if (published === '') {
-      return false;
-    }
-
-    return {profile, published};
+    return data;
   };
 
   render() {
@@ -79,19 +73,18 @@ class ProfilePage extends Component {
       </div>;
     }
 
-    const {user} = this.state;
-    const {published} = user;
+    const {data} = this.state;
 
     return <div className="main-wrapper-profile">
-      <ProfileBg bg={published.bg}/>
+      <ProfileBg bg={data.bg}/>
       <div className="inner-wrapper">
         <div className="profile-box">
-          <ProfilePhoto imageUrl={published.photo} {...this.props}/>
-          <ProfileName name={published.name} {...this.props}/>
-          <ProfileDescription description={published.description} {...this.props}/>
-          <ProfileBio bio={published.bio} {...this.props}/>
-          <SocialAccounts accounts={published.accounts} {...this.props}/>
-          <WalletAccounts accounts={published.wallets} {...this.props}/>
+          <ProfilePhoto imageUrl={data.photo} {...this.props}/>
+          <ProfileName name={data.name} {...this.props}/>
+          <ProfileDescription description={data.description} {...this.props}/>
+          <ProfileBio bio={data.bio} {...this.props}/>
+          <SocialAccounts accounts={data.accounts} {...this.props}/>
+          <WalletAccounts accounts={data.wallets} {...this.props}/>
         </div>
       </div>
     </div>
