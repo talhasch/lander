@@ -37,9 +37,6 @@ class ProfilePage extends Component {
       }
 
       this.setState({user: resp});
-
-      // TODO: Find better approach
-      document.title = `${resp.published.name} - ${document.title}`;
     }).then(() => {
       this.setState({loading: false});
     })
