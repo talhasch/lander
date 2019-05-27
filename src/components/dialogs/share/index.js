@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, InputGroup, Form} from 'react-bootstrap';
+import {Modal, Form} from 'react-bootstrap';
 
 import {twitterSvg, facebookSvg} from '../../../svg';
 import makeUserUrl from "../../../helper/user-url";

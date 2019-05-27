@@ -54,6 +54,7 @@ class AppTour extends Component {
     this.blurElem('.profile-box .profile-description');
     this.blurElem('.design-toolbar .left-menu');
     this.blurElem('.design-toolbar .middle-menu');
+    this.blurElem('.design-toolbar .right-menu');
   };
 
   render() {
@@ -201,11 +202,28 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
+            <p>Once you finish editing your page you can share it on social networks.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(7)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(9)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
+        selector: '.design-toolbar .right-menu button',
+        action: () => {
+          this.resetAction();
+          this.focusElem('.design-toolbar .right-menu');
+        }
+      },
+
+      {
+        content: ({goTo}) => (
+          <div className="guide-text">
             <p>
               Now you are ready to use Lander.
             </p>
             <div className="btns">
-              <Button onClick={() => goTo(7)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(8)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>

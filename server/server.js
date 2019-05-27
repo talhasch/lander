@@ -14,7 +14,7 @@ const getBaseUrl = (req) => {
   return req.protocol + '://' + req.get('host');
 };
 
-const PORT = 3000;
+const PORT = process.env.SERVER_PORT || 80;
 const app = express();
 
 app.use(function (req, res, next) {
