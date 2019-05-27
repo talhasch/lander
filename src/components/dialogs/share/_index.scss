@@ -1,0 +1,47 @@
+.share-dialog {
+  .modal-header {
+    .modal-title {
+      font-size: 1.2em;
+    }
+  }
+
+  .modal-body {
+    .networks {
+      display: flex;
+      justify-content: space-evenly;
+      height: 160px;
+      align-items: center;
+      width: 180px;
+      margin: auto;
+
+      .network {
+        width: 60px;
+        height: 60px;
+        display: inline-flex;
+        background: #4a96f7;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.75);
+        }
+
+        svg {
+          color: #fff;
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+    }
+
+    .copied {
+      height: 30px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      color: forestgreen;
+    }
+  }
+}

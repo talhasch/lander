@@ -11,8 +11,8 @@ export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
 export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
 export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
 export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
+export const TOGGLE_SHARE = '@ui/TOGGLE_SHARE';
 export const TOGGLE_GUIDE = '@ui/TOGGLE_GUIDE';
-
 
 const initialState = {
   photoUpload: false,
@@ -26,6 +26,7 @@ const initialState = {
   settings: false,
   delete: false,
   preview: false,
+  share: false,
   guideTour: !localStorage.getItem('guide-tour-disable')
 };
 
@@ -55,6 +56,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {settings: action.payload.what});
     case TOGGLE_PREVIEW:
       return Object.assign({}, state, {preview: action.payload.what});
+    case TOGGLE_SHARE:
+      return Object.assign({}, state, {share: action.payload.what});
     case TOGGLE_GUIDE:
       return Object.assign({}, state, {guideTour: action.payload.what});
     default:
@@ -103,6 +106,9 @@ export const toggleUiProp = (what, affectUser = true) => {
         break;
       case 'preview':
         act = TOGGLE_PREVIEW;
+        break;
+      case 'share':
+        act = TOGGLE_SHARE;
         break;
       case 'guideTour':
         act = TOGGLE_GUIDE;

@@ -109,11 +109,26 @@
       }
     }
 
-    .right-menu, .left-menu {
+    .right-menu, .middle-menu, .left-menu {
       &.tour-mode {
         button {
           pointer-events: none;
         }
+      }
+    }
+  }
+
+  .share-toolbar {
+    display: flex;
+    justify-content: center;
+
+    .btn-share {
+      color: #4a96f7;
+      background: rgba(255, 255, 255, 0.8);
+
+      svg {
+        height: 22px;
+        width: 22px;
       }
     }
   }

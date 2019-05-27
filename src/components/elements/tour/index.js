@@ -53,6 +53,7 @@ class AppTour extends Component {
     this.blurElem('.profile-box .profile-name');
     this.blurElem('.profile-box .profile-description');
     this.blurElem('.design-toolbar .left-menu');
+    this.blurElem('.design-toolbar .middle-menu');
   };
 
   render() {
@@ -110,10 +111,10 @@ class AppTour extends Component {
             </div>
           </div>
         ),
-        selector: '.design-toolbar .right-menu button',
+        selector: '.design-toolbar .left-menu button',
         action: () => {
           this.resetAction();
-          this.focusElem('.design-toolbar .right-menu');
+          this.focusElem('.design-toolbar .left-menu');
         }
       },
       {
@@ -190,10 +191,10 @@ class AppTour extends Component {
             </div>
           </div>
         ),
-        selector: '.design-toolbar .left-menu button',
+        selector: '.design-toolbar .middle-menu button',
         action: () => {
           this.resetAction();
-          this.focusElem('.design-toolbar .left-menu');
+          this.focusElem('.design-toolbar .middle-menu');
         }
       },
 

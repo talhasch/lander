@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {eyeSlashSvg, eyeSvg, magicSvg} from '../../../../svg';
+import {eyeSlashSvg, eyeSvg, magicSvg, shareAltSvg} from '../../../../svg';
 
 class DesignToolbar extends Component {
   showStyle = () => {
@@ -19,6 +19,12 @@ class DesignToolbar extends Component {
     return false;
   };
 
+  toggleShare = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('share');
+    return false;
+  };
+
   render() {
     const {ui} = this.props;
 
@@ -30,7 +36,7 @@ class DesignToolbar extends Component {
           overlay={
             <Tooltip>Toggle Preview Mode</Tooltip>
           }>
-          <Button className="btn-preview-off" variant="light disabled"
+          <Button className="btn-preview-off" variant="primary"
                   onClick={this.togglePreview}>{eyeSlashSvg}</Button>
         </OverlayTrigger>
       </div>
@@ -39,11 +45,13 @@ class DesignToolbar extends Component {
     return (
       <div className="design-toolbar">
         <div className="left-menu">
-          <Button className="btn-preview" variant="light disabled"
-                  onClick={this.togglePreview}>{eyeSvg} Preview</Button>
+          <Button className="btn-style" variant="danger" onClick={this.showStyle}>{magicSvg} Style</Button>
+        </div>
+        <div className="middle-menu">
+          <Button className="btn-preview" variant="primary" onClick={this.togglePreview}>{eyeSvg} Preview</Button>
         </div>
         <div className="right-menu">
-          <Button className="btn-style" variant="danger" onClick={this.showStyle}>{magicSvg} Style</Button>
+          <Button className="btn-preview" variant="light disabled" onClick={this.toggleShare}>{shareAltSvg} Share</Button>
         </div>
       </div>
     )
@@ -53,8 +61,7 @@ class DesignToolbar extends Component {
 DesignToolbar.defaultProps = {};
 
 DesignToolbar.propTypes = {
-  toggleUiProp: () => {
-  },
+  toggleUiProp: PropTypes.func.isRequired,
   ui: PropTypes.shape({
     preview: PropTypes.bool.isRequired
   })
