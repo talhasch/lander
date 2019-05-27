@@ -11,7 +11,7 @@ const indexHtml = fs.readFileSync(path.resolve('./build/index.html'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build/manifest.json'), 'utf8');
 
 const getBaseUrl = (req) => {
-  return req.protocol + '://' + req.get('host');
+  return   'https://' + req.get('host');
 };
 
 const PORT = 8080;
