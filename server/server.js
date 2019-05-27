@@ -11,7 +11,7 @@ const indexHtml = fs.readFileSync(path.resolve('./build/index.html'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build/manifest.json'), 'utf8');
 
 const getBaseUrl = (req) => {
-  return   'https://' + req.get('host');
+  return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
 };
 
 const PORT = 8080;
@@ -74,9 +74,6 @@ const defaultRenderer = (req, res, next) => {
 router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defaultRenderer);
 
 const pageRenderer = async (req, res, next) => {
-
-  console.log(JSON.stringify(req.headers));
-
   const {username} = req.params;
 
   let fileUrl;
