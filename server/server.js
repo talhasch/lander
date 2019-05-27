@@ -112,6 +112,7 @@ router.use(
 );
 
 app.use(router);
+app.disable('x-powered-by');
 
 app.listen(PORT, '127.0.0.1', () => {
   console.log(`SSR running on port ${PORT}`);
