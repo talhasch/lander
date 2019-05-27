@@ -113,6 +113,6 @@ router.use(
 
 app.use(router);
 
-app.listen(PORT, () => {
-  console.log(`SSR running on port ${PORT}`)
+app.listen(PORT, '127.0.0.1', () => {
+  console.log(`SSR running on port ${PORT}`);
 });
