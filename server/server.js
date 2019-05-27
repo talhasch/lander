@@ -74,6 +74,9 @@ const defaultRenderer = (req, res, next) => {
 router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defaultRenderer);
 
 const pageRenderer = async (req, res, next) => {
+
+  console.log( getBaseUrl(req));
+
   const {username} = req.params;
 
   let fileUrl;
