@@ -75,7 +75,7 @@ router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defa
 
 const pageRenderer = async (req, res, next) => {
 
-  console.log( getBaseUrl(req));
+  console.log(JSON.stringify(req.headers));
 
   const {username} = req.params;
 
