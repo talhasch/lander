@@ -13,8 +13,18 @@ import detectBgImageUrl from '../../../helper/detect-bg-image-url';
 import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify'
+import random from "../../../utils/rnd";
+import {userSession} from "../../../blockstack-config";
 
 class StyleDialog extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      uploading: false
+    }
+  }
 
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -76,13 +86,24 @@ class StyleDialog extends Component {
   fileChanged = (e) => {
     const {setBgImage} = this.props;
     const file = e.target.files[0];
+    const self = this;
 
     const reader = new FileReader();
     reader.onload = (m) => {
-      const imageContents = m.target.result;
-      setBgImage(imageContents);
+      const mimeType = 'image/jpeg';
+      const fileContents = m.target.result;
+      const fileName = `bg-${random()}.jpg`;
+
+      self.setState({uploading: true});
+      userSession.putFile(fileName, fileContents, {encrypt: false, contentType: mimeType}).then(r => {
+        setBgImage(r);
+      }).catch((err) => {
+        showError(String(err));
+      }).then(() => {
+        self.setState({uploading: false});
+      });
     };
-    reader.readAsDataURL(file);
+    reader.readAsArrayBuffer(file);
   };
 
   imageSelected = (im) => {
@@ -92,6 +113,7 @@ class StyleDialog extends Component {
   };
 
   render() {
+    const {uploading} = this.state;
     const {user, ui} = this.props;
     const {bg, bgTemp} = user.draft;
     const changed = stringify(bg) !== stringify(bgTemp);
@@ -123,7 +145,8 @@ class StyleDialog extends Component {
                     <Button variant="outline-primary" size="sm" onClick={this.toggleImageSelect} disabled={user.saving}>
                       <FormattedMessage id="style.bg-image-select"/></Button> &nbsp;
                     <Button variant="outline-primary" size="sm" onClick={this.uploadClicked}
-                            disabled={user.saving}><FormattedMessage id="style.bg-image-upload"/></Button>
+                            disabled={user.saving || uploading}><FormattedMessage
+                      id="style.bg-image-upload"/> {uploading ? '...' : ''}</Button>
                   </Form.Group>
                   <input type="file" id="image-upload" accept="image/*" className="d-none" onChange={this.fileChanged}/>
                   <Form.Group as={Col} controlId="formGridPassword">
@@ -132,7 +155,8 @@ class StyleDialog extends Component {
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label><FormattedMessage id="style.bg-blur"/></Form.Label>
-                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged} disabled={user.saving}/>
+                    <Form.Control type="number" min={0} max={10} step={1} value={bg.blur} onChange={this.blurChanged}
+                                  disabled={user.saving}/>
                     <Form.Text className="text-muted">
                       <FormattedMessage id="style.bg-blur-hint"/>
                     </Form.Text>
