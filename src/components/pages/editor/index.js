@@ -42,8 +42,37 @@ class EditorPage extends Component {
 
     if (getFlagLocal(user.username) !== 'ok') {
       history.push('/app/welcome');
+      return;
     }
+
+    document.addEventListener('click', this.detectEditClicks);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.detectEditClicks);
+
+  }
+
+  detectEditClicks = (event) => {
+    let el = event.target;
+
+    document.querySelectorAll('.edit-mode.hovered').forEach(i => {
+      i.classList.remove('hovered')
+    });
+
+    while (!(el.classList && [...el.classList].includes('edit-mode'))) {
+      if (!el.parentNode) {
+        break;
+      }
+
+      el = el.parentNode;
+    }
+
+    if (el.classList && [...el.classList].includes('edit-mode')) {
+      el.classList.add('hovered');
+    }
+  };
+
 
   render() {
     const {user, ui} = this.props;

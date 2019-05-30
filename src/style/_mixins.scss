@@ -10,7 +10,7 @@
     border: 4px solid transparent;
     padding: 0;
 
-    &:hover, &.tour-mode {
+    &:hover, &.hovered, &.tour-mode {
       border: 4px dashed #e3e3e3;
       .edit-btn {
         display: flex;

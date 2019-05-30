@@ -13,6 +13,10 @@ import './style/style.scss';
 
 require('./data/bg-images');
 
+
+
+
+
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
