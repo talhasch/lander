@@ -8,6 +8,8 @@ import fixClassNames from '../../utils/fix-class-names';
 
 import EditBtn from "../elements/edit-btn";
 
+import markdownRenderer from '../../helper/markdown-renderer';
+
 class ProfileBio extends Component {
 
   edit = () => {
@@ -21,7 +23,7 @@ class ProfileBio extends Component {
   render() {
     const {bio, editMode} = this.props;
 
-    const renderBio = bio.split("\n").filter(x => x.trim()).map((x, a) => <p key={`p-${a}`}>{x}</p>);
+    const renderedBio = markdownRenderer(bio); // bio.split("\n").filter(x => x.trim()).map((x, a) => <p key={`p-${a}`}>{x}</p>);
 
     if (!editMode && !bio) {
       return null;
@@ -35,7 +37,7 @@ class ProfileBio extends Component {
     }
 
     return <div className={fixClassNames(`profile-bio ${editMode ? 'edit-mode' : ''}`)}>
-      {renderBio}
+      <div dangerouslySetInnerHTML={{__html: renderedBio}} />
       {editMode && <EditBtn {...this.props} onClick={this.edit}/>}
     </div>;
   }
