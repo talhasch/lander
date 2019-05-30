@@ -45,34 +45,17 @@ class EditorPage extends Component {
       return;
     }
 
-    document.addEventListener('click', this.detectEditClicks);
+    // This thing surprisingly fixes hover issue on ios
+    document.addEventListener('touchend', this.onTouchEnd);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.detectEditClicks);
-
+    document.removeEventListener('touchend', this.onTouchEnd);
   }
 
-  detectEditClicks = (event) => {
-    let el = event.target;
+  onTouchEnd = (event) => {
 
-    document.querySelectorAll('.edit-mode.hovered').forEach(i => {
-      i.classList.remove('hovered')
-    });
-
-    while (!(el.classList && [...el.classList].includes('edit-mode'))) {
-      if (!el.parentNode) {
-        break;
-      }
-
-      el = el.parentNode;
-    }
-
-    if (el.classList && [...el.classList].includes('edit-mode')) {
-      el.classList.add('hovered');
-    }
   };
-
 
   render() {
     const {user, ui} = this.props;
