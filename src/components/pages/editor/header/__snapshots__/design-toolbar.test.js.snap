@@ -8,7 +8,34 @@ exports[`default 1`] = `
     className="left-menu"
   >
     <button
-      className="btn-preview btn btn-light disabled"
+      className="btn-style btn btn-danger"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-magic fa-w-16"
+        data-icon="magic"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"
+          fill="currentColor"
+        />
+      </svg>
+       Style
+    </button>
+  </div>
+  <div
+    className="middle-menu"
+  >
+    <button
+      className="btn-preview btn btn-primary"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -35,27 +62,27 @@ exports[`default 1`] = `
     className="right-menu"
   >
     <button
-      className="btn-style btn btn-danger"
+      className="btn-preview btn btn-light disabled"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-magic fa-w-16"
-        data-icon="magic"
+        className="svg-inline--fa fa-share-alt fa-w-14"
+        data-icon="share-alt"
         data-prefix="fas"
         focusable="false"
         role="img"
-        viewBox="0 0 512 512"
+        viewBox="0 0 448 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"
+          d="M352 320c-22.608 0-43.387 7.819-59.79 20.895l-102.486-64.054a96.551 96.551 0 0 0 0-41.683l102.486-64.054C308.613 184.181 329.392 192 352 192c53.019 0 96-42.981 96-96S405.019 0 352 0s-96 42.981-96 96c0 7.158.79 14.13 2.276 20.841L155.79 180.895C139.387 167.819 118.608 160 96 160c-53.019 0-96 42.981-96 96s42.981 96 96 96c22.608 0 43.387-7.819 59.79-20.895l102.486 64.054A96.301 96.301 0 0 0 256 416c0 53.019 42.981 96 96 96s96-42.981 96-96-42.981-96-96-96z"
           fill="currentColor"
         />
       </svg>
-       Style
+       Share
     </button>
   </div>
 </div>
@@ -66,7 +93,7 @@ exports[`in preview 1`] = `
   className="design-toolbar in-preview"
 >
   <button
-    className="btn-preview-off btn btn-light disabled"
+    className="btn-preview-off btn btn-primary"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}

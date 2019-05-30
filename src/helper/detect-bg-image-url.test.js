@@ -8,3 +8,8 @@ it('should detect image url', () => {
 it('should detect image url', () => {
   expect(detectBgImageUrl('wave.jpg')).toBe('wave.jpg')
 });
+
+
+it('should detect image url', () => {
+  expect(detectBgImageUrl('https://www.foo.com/wave.jpg')).toBe('https://www.foo.com/wave.jpg')
+});
