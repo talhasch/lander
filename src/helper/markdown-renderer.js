@@ -10,7 +10,7 @@ export default (input) => {
     allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'iframe', 'br'],
     allowedAttributes: {
       'a': ['href'],
-      'iframe': ['src', 'frameborder', 'allowfullscreen', 'webkitallowfullscreen', 'mozallowfullscreen', 'width', 'height'],
+      'iframe': ['src', 'frameborder', 'allowfullscreen', 'width', 'height'],
     },
     allowedIframeHostnames: ['www.youtube.com'],
     allowedSchemes: ['https'],
