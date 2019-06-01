@@ -7,7 +7,7 @@ export default (input) => {
   const rendered = md.render(input);
 
   const sanitized = sanitizeHtml(rendered, {
-    allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'iframe'],
+    allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'iframe', 'br'],
     allowedAttributes: {
       'a': ['href'],
       'iframe': ['src', 'frameborder', 'allowfullscreen', 'webkitallowfullscreen', 'mozallowfullscreen', 'width', 'height'],

@@ -10,11 +10,26 @@ import stringify from '../../../utils/stringify';
 
 import showError from '../../../utils/show-error';
 
+import {mDownSvg} from '../../../svg';
+
 class BioEditDialog extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showDoc: false
+    }
+  }
 
   componentDidMount() {
     document.getElementById('bio-txt').focus();
   }
+
+  toggleDoc = () => {
+    const {showDoc} = this.state;
+    this.setState({showDoc: !showDoc})
+  };
 
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -42,6 +57,7 @@ class BioEditDialog extends Component {
   };
 
   render() {
+    const {showDoc} = this.state;
     const {user} = this.props;
     const {bio, bioTemp} = user.draft;
     const changed = stringify(bio) !== stringify(bioTemp);
@@ -57,6 +73,29 @@ class BioEditDialog extends Component {
               <Form.Group>
                 <Form.Control as="textarea" rows="10" id="bio-txt" value={bio} onChange={this.textChanged}/>
               </Form.Group>
+              <span className="md-note" onClick={this.toggleDoc}>{mDownSvg} Styling with Markdown is supported</span>
+              {showDoc &&
+              <div className="md-doc">
+                <h3>Emphasis</h3>
+                <pre>
+                *This text will be italic* <br/><br/>
+                **This text will be bold**
+                </pre>
+
+                <h3>Links</h3>
+                <pre>
+                [Lander](https://landr.me)<br/><br/>
+                https://landr.me- automatic!
+                </pre>
+
+                <h3>Video Embeds</h3>
+                <p>You can embed youtube videos</p>
+                <pre>
+                  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/aGSKrC7dGcY" frameBorder="0"
+                  allowFullScreen&gt;&lt;/iframe&gt;
+                </pre>
+              </div>
+              }
             </div>
           </Modal.Body>
           <Modal.Footer>

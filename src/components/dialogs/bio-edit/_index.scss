@@ -1,3 +1,38 @@
 .bio-edit-dialog-content {
+  .md-note {
+    font-size: 12px;
+    height: 20px;
+    display: flex;
+    align-items: center;
 
+    &:hover {
+      color: $primary;
+      cursor: pointer;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+  }
+
+  .md-doc {
+
+    margin-top: 10px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    pre {
+      background: $gray-100;
+      border-radius:  $border-radius;
+      border: 1px solid $border-color;
+      padding: 4px 6px;
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
 }
