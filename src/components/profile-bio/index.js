@@ -8,7 +8,7 @@ import fixClassNames from '../../utils/fix-class-names';
 
 import EditBtn from "../elements/edit-btn";
 
-import markdownRenderer from '../../helper/markdown-renderer';
+import bioRenderer from '../../helper/bio-renderer';
 
 class ProfileBio extends Component {
 
@@ -23,7 +23,7 @@ class ProfileBio extends Component {
   render() {
     const {bio, editMode} = this.props;
 
-    const renderedBio = markdownRenderer(bio); // bio.split("\n").filter(x => x.trim()).map((x, a) => <p key={`p-${a}`}>{x}</p>);
+    const renderedBio = bioRenderer(bio);
 
     if (!editMode && !bio) {
       return null;

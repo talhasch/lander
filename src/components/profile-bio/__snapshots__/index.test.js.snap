@@ -4,9 +4,13 @@ exports[`bio is not empty in edit mode. should render bio 1`] = `
 <div
   className="profile-bio edit-mode"
 >
-  <p>
-    Lorem ipsum dolor sit amet
-  </p>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet</p>",
+      }
+    }
+  />
   <div
     className="edit-btn"
     onClick={[Function]}
@@ -34,9 +38,13 @@ exports[`bio is not empty in not edit mode. should render bio (without onclick e
 <div
   className="profile-bio"
 >
-  <p>
-    Lorem ipsum dolor sit amet
-  </p>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet</p>",
+      }
+    }
+  />
 </div>
 `;
 

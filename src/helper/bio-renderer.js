@@ -7,6 +7,21 @@ export default (input) => {
   const rendered = md.render(input);
 
   const sanitized = sanitizeHtml(rendered, {
+    allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'br'],
+    allowedAttributes: {
+      'a': ['href']
+    },
+    allowedSchemes: ['https']
+  });
+
+  return sanitized.trim();
+}
+
+
+/*
+Keeping this one for future
+
+const sanitized = sanitizeHtml(rendered, {
     allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'iframe', 'br'],
     allowedAttributes: {
       'a': ['href'],
@@ -26,6 +41,4 @@ export default (input) => {
       }
     }
   });
-
-  return sanitized;
-}
+ */
