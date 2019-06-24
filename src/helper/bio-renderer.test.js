@@ -24,8 +24,8 @@ it('markdown test', () => {
 
 
 it('sanitizr test', () => {
-  const input = "<script>var a=1</script><img onload='alert(\"hacked\")' /><span onclick='alert(\"hacked\")'>click here</span>";
-  const expected = "click here";
+  const input = "<script>var a=1</script><img onload='alert(\"hacked\")' /><span onclick='alert(\"hacked\")'>click here</span> <a href='http://google.com'>and here</a>";
+  const expected = "click here <a>and here</a>";
 
   expect(bioRenderer(input)).toBe(expected);
 });

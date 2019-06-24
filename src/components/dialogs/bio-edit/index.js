@@ -78,21 +78,16 @@ class BioEditDialog extends Component {
               <div className="md-doc">
                 <h3>Emphasis</h3>
                 <pre>
-                *This text will be italic* <br/><br/>
+                *This text will be italic*
+                </pre>
+                <h3>Bold</h3>
+                <pre>
                 **This text will be bold**
                 </pre>
-
                 <h3>Links</h3>
                 <pre>
                 [Lander](https://landr.me)<br/><br/>
                 https://landr.me- automatic!
-                </pre>
-
-                <h3>Video Embeds</h3>
-                <p>You can embed youtube videos</p>
-                <pre>
-                  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/aGSKrC7dGcY" frameBorder="0"
-                  allowFullScreen&gt;&lt;/iframe&gt;
                 </pre>
               </div>
               }
