@@ -30,6 +30,12 @@ class ProfilePage extends Component {
   }
 
   componentDidMount() {
+
+    if (window.__p) {
+      this.setState({data: window.__p, loading: false});
+      return;
+    }
+
     this.fetch().then(data => {
       if (!data) {
         this.setState({notFound: true});

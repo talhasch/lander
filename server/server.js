@@ -99,8 +99,10 @@ const pageRenderer = async (req, res, next) => {
   const description = `${name}'s personal home page`;
   const url = `https://landr.me/${username}`;
   const metas = prepareMeta(title, description, url, photo);
+  const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
+  const inject = `${metas}${script}`;
 
-  const resp = indexHtml.replace('<meta name="replace" content="here">', metas);
+  const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
 
   res.send(resp);
 };
