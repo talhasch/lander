@@ -103,7 +103,7 @@ class HomePage extends Component {
               {this.feature(coctailSvg, 'Free & Unlimited', 'All features of Lander are 100% free. You can create as much as pages you want for free. There is no limit!')}
               {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you.')}
               {this.feature(mobileSvg, 'Responsive', 'Looks and feels great at every screen size right out of the box, from phones to tablets to desktops.')}
-              {this.feature(codeSvg, 'Open Source', ' Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedbacks.')}
+              {this.feature(codeSvg, 'Open Source', ' Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedback.')}
               {this.feature(codeBranchSvg, 'Growing', 'This is just beginning. We have a lot of development in pipeline like domain connecting, page metrics, showcase etc...')}
             </Row>
           </div>
