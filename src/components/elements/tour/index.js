@@ -185,7 +185,7 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>This button allows you to preview how your page will see after published it.</p>
+            <p>This button allows you to preview how your page will look after published it.</p>
             <div className="btns">
               <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
