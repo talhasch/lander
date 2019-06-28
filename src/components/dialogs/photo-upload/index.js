@@ -79,13 +79,29 @@ class PhotoUploadDialog extends Component {
     });
   };
 
+
+  resize = (imageSrc) => {
+
+
+  };
+
   save = () => {
     if (!this.editor) {
       return;
     }
 
     const self = this;
-    const canvas = this.editor.getImage();
+    const maxSize = 500;
+
+    let canvas = this.editor.getImage();
+
+    if (canvas.width > maxSize) {
+      const canvas2 = document.createElement('canvas');
+      canvas2.width = maxSize;
+      canvas2.height = maxSize;
+      canvas2.getContext('2d').drawImage(canvas, 0, 0, maxSize, maxSize);
+      canvas = canvas2;
+    }
 
     canvas.toBlob((blob) => {
       const fileReader = new FileReader();
