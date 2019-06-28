@@ -157,5 +157,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "resolutions": {
+    "underscore.string": "^3.3.5"
   }
 }
