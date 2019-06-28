@@ -128,22 +128,6 @@ class AppTour extends Component {
             </div>
           </div>
         ),
-        selector: '.profile-box .profile-photo',
-        action: () => {
-          this.resetAction();
-          this.focusElem('.profile-box .profile-photo');
-        }
-      },
-      {
-        content: ({goTo}) => (
-          <div className="guide-text">
-            <p>You can edit all sections by clicking edit button on each of them.</p>
-            <div className="btns">
-              <Button onClick={() => goTo(3)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(5)} variant="primary" className="btn-next">Next</Button>
-            </div>
-          </div>
-        ),
         selector: '.profile-box .profile-name',
         action: () => {
           this.resetAction();
@@ -153,28 +137,12 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>You can edit all sections by clicking edit button on each of them.</p>
-            <div className="btns">
-              <Button onClick={() => goTo(4)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(6)} variant="primary" className="btn-next">Next</Button>
-            </div>
-          </div>
-        ),
-        selector: '.profile-box .profile-description',
-        action: () => {
-          this.resetAction();
-          this.focusElem('.profile-box .profile-description');
-        }
-      },
-      {
-        content: ({goTo}) => (
-          <div className="guide-text">
             <p>Once you change any part of your page this button will appear.</p>
             <img src={publishBtn} height={80} alt="publish"/>
             <p>Click publish button when you are ready to update your page.</p>
             <div className="btns">
-              <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(3)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(5)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -187,8 +155,8 @@ class AppTour extends Component {
           <div className="guide-text">
             <p>This button allows you to preview how your page will look after published it.</p>
             <div className="btns">
-              <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(4)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(6)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -202,10 +170,10 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>Once you finish editing your page you can share it on social networks.</p>
+            <p>After you finish editing your page you can share it on social networks.</p>
             <div className="btns">
-              <Button onClick={() => goTo(7)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(9)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -223,7 +191,7 @@ class AppTour extends Component {
               Now you are ready to use Lander.
             </p>
             <div className="btns">
-              <Button onClick={() => goTo(8)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(7)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={this.disable} variant="primary" className="btn-end">End Tour</Button>
             </div>
           </div>
