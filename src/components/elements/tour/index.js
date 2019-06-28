@@ -121,7 +121,7 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>You can edit all sections by clicking edit button on each of them.</p>
+            <p>You can edit all sections by clicking edit the button on each of them.</p>
             <div className="btns">
               <Button onClick={() => goTo(2)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={() => goTo(4)} variant="primary" className="btn-next">Next</Button>
