@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import {User} from 'radiks';
+
 import ProfilePhoto from '../../profile-photo';
 import ProfileName from '../../profile-name';
 import ProfileDescription from '../../profile-description';
@@ -44,6 +46,9 @@ class EditorPage extends Component {
       history.push('/app/welcome');
       return;
     }
+
+    // Make sure radiks user created
+    User.createWithCurrentUser();
 
     // This thing surprisingly fixes hover issue on ios
     document.addEventListener('touchend', this.onTouchEnd);
