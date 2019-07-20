@@ -56,7 +56,6 @@
       overflow: hidden;
       text-align: center;
       text-decoration: underline;
-      width: 100%;
 
       &:hover {
         text-decoration: none;
@@ -68,6 +67,39 @@
 
       &.tour-mode {
         pointer-events: none;
+      }
+    }
+
+    .btn-edit-alias, .btn-qr {
+      cursor: pointer;
+      visibility: hidden;
+
+      svg {
+        color: #ced4da;
+        fill: #ced4da;
+      }
+    }
+
+    .btn-edit-alias {
+      margin-left: 20px;
+
+      svg {
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    .btn-qr {
+      margin-right: 20px;
+      svg {
+        height: 22px;
+        width: 22px;
+      }
+    }
+
+    &:hover {
+      .btn-edit-alias {
+        visibility: visible;
       }
     }
   }
@@ -123,8 +155,8 @@
     justify-content: center;
 
     .btn-share {
-      color: #4a96f7;
       background: rgba(255, 255, 255, 0.8);
+      color: #4a96f7;
 
       svg {
         height: 22px;

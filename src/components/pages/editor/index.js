@@ -18,6 +18,7 @@ import DescriptionEditDialog from '../../dialogs/description-edit';
 import AccountEditDialog from '../../dialogs/account-edit';
 import WalletEditDialog from '../../dialogs/wallet-edit';
 import ShareDialog from '../../dialogs/share';
+import AliasEditDialog from '../../dialogs/alias-edit';
 
 import BioEditDialog from '../../dialogs/bio-edit';
 
@@ -79,6 +80,7 @@ class EditorPage extends Component {
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
         {ui.share && <ShareDialog {...this.props} />}
+        {ui.alias && <AliasEditDialog {...this.props} />}
         <div className={ui.preview ? 'main-wrapper-profile' : 'main-wrapper'}>
           <ProfileBg bg={user.draft.bg}/>
           <div className="inner-wrapper">

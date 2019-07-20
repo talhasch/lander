@@ -56,3 +56,6 @@ export const dataModel = () => (
     updated: '010101'
   }
 );
+
+
+export const aliasRe = /^[a-zA-Z0-9]{4,10}$/;

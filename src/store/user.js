@@ -16,11 +16,14 @@ import {dataModel, draftFile, publishedFile, defaultBgImage} from '../constants'
 
 import {userSession} from '../blockstack-config';
 
+import {Alias} from '../model';
+
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/LOGOUT';
 
 export const DATA_LOADED = '@user/DATA_LOADED';
 export const PROFILE_LOADED = '@user/PROFILE_LOADED';
+export const ALIAS_LOADED = '@user/ALIAS_LOADED';
 
 export const BG_IMAGE_SET = '@user/BG_IMAGE_SET';
 export const BG_COLOR_SET = '@user/BG_COLOR_SET';
@@ -61,6 +64,7 @@ export default (state = initialState, action) => {
     case USER_LOGIN:
       return {
         username: action.payload,
+        alias: null,
         profile: null,
         draft: null,
         published: null,
@@ -75,6 +79,11 @@ export default (state = initialState, action) => {
       const {draft, published} = action.payload;
 
       return Object.assign({}, state, {draft, published, loaded: true});
+    }
+    case ALIAS_LOADED: {
+      const {alias} = action.payload;
+
+      return Object.assign({}, state, {alias});
     }
     case TOGGLE_PHOTO_UPLOAD: {
       const {draft} = state;
@@ -306,6 +315,15 @@ export const login = (userData) => {
     }
 
     dispatch(loadDataAct(draft, published));
+
+    let aliases = await Alias.fetchOwnList({sort: 'createdAt'});
+    if (aliases.length > 0) {
+      const {attrs} = aliases[0];
+
+      if (attrs.username === username && attrs.alias !== '') {
+        dispatch(loadAliasAct(attrs.alias));
+      }
+    }
   }
 };
 
@@ -457,6 +475,13 @@ export const loadDataAct = (draft, published) => ({
   payload: {
     draft,
     published
+  }
+});
+
+export const loadAliasAct = (alias) => ({
+  type: ALIAS_LOADED,
+  payload: {
+    alias
   }
 });
 
