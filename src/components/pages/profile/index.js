@@ -16,6 +16,8 @@ import SocialAccounts from '../../social-accounts';
 import WalletAccounts from '../../wallet-accounts';
 import Spinner from '../../elements/spinner';
 
+import {aliasRe} from '../../../constants';
+import {Alias} from '../../../model';
 
 class ProfilePage extends Component {
 
@@ -29,11 +31,26 @@ class ProfilePage extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
 
     if (window.__p) {
       this.setState({data: window.__p, loading: false});
       return;
+    }
+
+    const {match} = this.props;
+    const {username} = match.params;
+
+    if (aliasRe.test(username)) {
+      const aliases = await Alias.fetchList({alias: username});
+
+      if (aliases.length > 0) {
+        const [al,] = aliases;
+        const {attrs} = al;
+
+        window.location.href = `/${attrs.username}`;
+        return;
+      }
     }
 
     this.fetch().then(data => {
