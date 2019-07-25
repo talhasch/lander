@@ -1,4 +1,19 @@
 
+.alias-edit-dialog-header{
+
+  .modal-title{
+    display: flex;
+    align-items: center;
+
+    svg{
+      width: 26px;
+      height: 26px;
+      margin-left: 20px;
+    }
+  }
+
+}
+
 .alias-edit-dialog-content {
 
 }

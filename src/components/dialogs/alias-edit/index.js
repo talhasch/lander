@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, FormControl, FormText, InputGroup} from 'react-bootstrap';
+import {Modal, Button, FormControl, FormText, InputGroup, Tooltip, OverlayTrigger} from 'react-bootstrap';
 
 import {FormattedMessage} from 'react-intl';
 
@@ -14,6 +14,7 @@ import {getUsername} from '../../../blockstack-config';
 
 import {aliasRe} from '../../../constants';
 
+import {infoSvg} from "../../../svg";
 
 class AliasEditDialog extends Component {
 
@@ -132,8 +133,18 @@ class AliasEditDialog extends Component {
     return (
       <>
         <Modal show onHide={this.hide}>
-          <Modal.Header closeButton>
-            <Modal.Title>Alias</Modal.Title>
+          <Modal.Header className="alias-edit-dialog-header" closeButton>
+            <Modal.Title>Alias
+              <OverlayTrigger
+                placement="bottom"
+                overlay={
+                  <Tooltip>An alias allows you to customise your home page address. <br/> Might be useful to get a
+                    shorter one.</Tooltip>
+                }>
+                {infoSvg}
+              </OverlayTrigger>
+
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="alias-edit-dialog-content">
