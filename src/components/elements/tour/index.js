@@ -48,6 +48,7 @@ class AppTour extends Component {
 
   resetAction = () => {
     this.blurElem('.publish-toolbar .user-address');
+    this.blurElem('.publish-toolbar .btn-edit-alias');
     this.blurElem('.design-toolbar .right-menu');
     this.blurElem('.profile-box .profile-photo');
     this.blurElem('.profile-box .profile-name');
@@ -105,10 +106,29 @@ class AppTour extends Component {
       {
         content: ({goTo}) => (
           <div className="guide-text">
-            <p>You can change style of your page by clicking this button.</p>
+            <p>
+              You can customise your home page address by creating an alias.
+            </p>
             <div className="btns">
               <Button onClick={() => goTo(1)} variant="outline-primary" className="btn-prev">Prev</Button>
               <Button onClick={() => goTo(3)} variant="primary" className="btn-next">Next</Button>
+            </div>
+          </div>
+        ),
+        selector: '.publish-toolbar .btn-edit-alias',
+        position: 'bottom',
+        action: () => {
+          this.resetAction();
+          this.focusElem('.publish-toolbar .btn-edit-alias');
+        }
+      },
+      {
+        content: ({goTo}) => (
+          <div className="guide-text">
+            <p>You can change style of your page by clicking this button.</p>
+            <div className="btns">
+              <Button onClick={() => goTo(2)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(4)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -123,8 +143,8 @@ class AppTour extends Component {
           <div className="guide-text">
             <p>You can edit all sections by clicking edit the button on each of them.</p>
             <div className="btns">
-              <Button onClick={() => goTo(2)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(4)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(3)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(5)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -141,8 +161,8 @@ class AppTour extends Component {
             <img src={publishBtn} height={80} alt="publish"/>
             <p>Click publish button when you are ready to update your page.</p>
             <div className="btns">
-              <Button onClick={() => goTo(3)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(5)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(4)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(6)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -155,8 +175,8 @@ class AppTour extends Component {
           <div className="guide-text">
             <p>This button allows you to preview how your page will look after published it.</p>
             <div className="btns">
-              <Button onClick={() => goTo(4)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(6)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),
@@ -172,8 +192,8 @@ class AppTour extends Component {
           <div className="guide-text">
             <p>After you finish editing your page you can share it on social networks.</p>
             <div className="btns">
-              <Button onClick={() => goTo(5)} variant="outline-primary" className="btn-prev">Prev</Button>
-              <Button onClick={() => goTo(7)} variant="primary" className="btn-next">Next</Button>
+              <Button onClick={() => goTo(6)} variant="outline-primary" className="btn-prev">Prev</Button>
+              <Button onClick={() => goTo(8)} variant="primary" className="btn-next">Next</Button>
             </div>
           </div>
         ),

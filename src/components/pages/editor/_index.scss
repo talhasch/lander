@@ -83,6 +83,11 @@
     .btn-edit-alias {
       margin-left: 20px;
 
+      &.tour-mode{
+        visibility: visible !important;
+        pointer-events: none;
+      }
+
       svg {
         height: 18px;
         width: 18px;
