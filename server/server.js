@@ -14,7 +14,7 @@ const getBaseUrl = (req) => {
   return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
 };
 
-const PORT = 8080;
+const PORT = 3000;
 const app = express();
 
 if (!process.env.RADIKS_URL) {
