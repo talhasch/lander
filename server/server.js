@@ -17,12 +17,11 @@ const getBaseUrl = (req) => {
 const PORT = 8080;
 const app = express();
 
-if (!process.env.RADIKS_URL || !process.env.RADIKS_TYPE) {
-  console.error('RADIKS_URL and RADIKS_TYPE environment variables required !');
+if (!process.env.RADIKS_URL) {
+  console.error('RADIKS_URL environment variable required!');
   process.exit(1);
 }
 const radiskUrl = process.env.RADIKS_URL;
-const radiskType = process.env.RADIKS_TYPE;
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -86,7 +85,7 @@ const pageRenderer = async (req, res, next) => {
   // Alias matched. Query radiks.
   if (aliasRe.test(username)) {
 
-    const u = `${radiskUrl}/radiks/models/find?alias=${username}&radiksType=${radiskType}&sort=createdAt`;
+    const u = `${radiskUrl}/radiks/models/find?alias=${username}&radiksType=alias&sort=createdAt`;
 
     try {
       const resp = await axios.get(u).then(x => x.data);

@@ -1,7 +1,7 @@
 import {Model} from 'radiks';
 
 export class Alias extends Model {
-  static className = `alias_${process.env.NODE_ENV}`;
+  static className = 'alias';
 
   static schema = {
     username: {
