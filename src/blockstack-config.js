@@ -1,7 +1,8 @@
 import {UserSession, AppConfig} from 'blockstack';
 import {configure} from 'radiks';
 import {decodeToken} from 'jsontokens'
-import {RADIKS_URL} from './config';
+
+const RADIKS_URL = `https://${window.location.protocol === 'http:' ? 'radiks-dev.landr.me' : 'radiks.landr.me'}`;
 
 const domain = window.location.origin;
 
