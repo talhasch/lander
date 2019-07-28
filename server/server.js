@@ -5,7 +5,7 @@ import express from 'express';
 import * as blockStack from 'blockstack';
 import * as axios from 'axios';
 
-import {publishedFile} from '../src/constants';
+import {aliasRe, publishedFile} from '../src/constants';
 
 const indexHtml = fs.readFileSync(path.resolve('./build/index.html'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build/manifest.json'), 'utf8');
@@ -16,6 +16,13 @@ const getBaseUrl = (req) => {
 
 const PORT = 8080;
 const app = express();
+
+if (!process.env.RADIKS_URL || !process.env.RADIKS_TYPE) {
+  console.error('RADIKS_URL and RADIKS_TYPE environment variables required !');
+  process.exit(1);
+}
+const radiskUrl = process.env.RADIKS_URL;
+const radiskType = process.env.RADIKS_TYPE;
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -76,35 +83,47 @@ router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defa
 const pageRenderer = async (req, res, next) => {
   const {username} = req.params;
 
-  let fileUrl;
-  let published;
+  // Alias matched. Query radiks.
+  if (aliasRe.test(username)) {
 
-  try {
-    fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl(req));
-  } catch (e) {
-    res.status(404).send('404 - Not found');
-    return;
+    const u = `${radiskUrl}/radiks/models/find?alias=${username}&radiksType=${radiskType}&sort=createdAt`;
+
+    try {
+      const resp = await axios.get(u).then(x => x.data);
+      if (resp.total > 0) {
+        res.redirect(`/${resp.results[0].username}`);
+        return;
+      }
+    } catch (e) {
+      res.send(indexHtml);
+      return;
+    }
   }
 
   try {
-    published = await axios.get(fileUrl).then(x => x.data);
-  } catch (e) {
-    res.status(404).send('404 - Not found');
+    const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl(req));
+    const published = await axios.get(fileUrl).then(x => x.data);
+
+    const {name, photo} = published;
+
+    const title = `${name} - Lander`;
+    const description = `${name}'s personal home page`;
+    const url = `https://landr.me/${username}`;
+    const metas = prepareMeta(title, description, url, photo);
+    const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
+    const inject = `${metas}${script}`;
+
+    const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
+
+    res.send(resp);
     return;
+
+  } catch (e) {
+    // Client side will handle 404
+    // res.status(404).send('404 - Not found');
   }
 
-  const {name, photo} = published;
-
-  const title = `${name} - Lander`;
-  const description = `${name}'s personal home page`;
-  const url = `https://landr.me/${username}`;
-  const metas = prepareMeta(title, description, url, photo);
-  const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
-  const inject = `${metas}${script}`;
-
-  const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
-
-  res.send(resp);
+  res.send(indexHtml);
 };
 
 router.use('^/:username/?$', pageRenderer);
