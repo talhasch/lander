@@ -57,6 +57,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "^15.7.2",
     "qrcode": "^1.3.3",
     "radiks": "^0.2.1",
     "react": "^16.8.6",
