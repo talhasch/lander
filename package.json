@@ -14,7 +14,7 @@
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.5",
@@ -75,7 +75,7 @@
     "reactour": "^1.15.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "remarkable": "^1.7.1",
+    "remarkable": "^1.7.3",
     "resolve": "1.10.0",
     "sanitize-html": "^1.20.1",
     "sass-loader": "7.1.0",
@@ -162,6 +162,10 @@
     ]
   },
   "resolutions": {
-    "underscore.string": "^3.3.5"
+    "underscore.string": "^3.3.5",
+    "lodash": "^4.17.13",
+    "lodash.template": "^4.5.0",
+    "lodash.mergewith": "^4.6.2",
+    "lodash.merge": "^4.6.2"
   }
 }
