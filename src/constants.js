@@ -5,7 +5,8 @@ import {
   githubSvg,
   instagramSvg,
   linkedInSvg,
-  twitterSvg
+  twitterSvg,
+  youtubeSvg
 } from "./svg";
 
 export const draftFile = 'lander.draft.file.db.json';
@@ -22,11 +23,12 @@ export const walletAccountTypes = [
 
 
 export const socialAccountTypes = [
-  {id: 'github', name: 'Github', 'icon': githubSvg},
-  {id: 'twitter', name: 'Twitter', 'icon': twitterSvg},
-  {id: 'facebook', name: 'Facebook', 'icon': facebookSvg},
-  {id: 'instagram', name: 'Instagram', 'icon': instagramSvg},
-  {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg}
+  {id: 'github', name: 'Github', 'icon': githubSvg, label: 'github.com/', placeholder: 'username'},
+  {id: 'twitter', name: 'Twitter', 'icon': twitterSvg, label: 'twitter.com/', placeholder: 'username'},
+  {id: 'facebook', name: 'Facebook', 'icon': facebookSvg, label: 'facebook.com/', placeholder: 'username'},
+  {id: 'instagram', name: 'Instagram', 'icon': instagramSvg, label: 'instagram.com/', placeholder: 'username'},
+  {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg, label: 'linkedin.com/in/', placeholder: 'username'},
+  {id: 'youtube', name: 'Youtube', 'icon': youtubeSvg, label: 'youtube.com/', placeholder: 'channel address'}
 ];
 
 export const dataModel = () => (
@@ -42,7 +44,8 @@ export const dataModel = () => (
       facebook: '',
       github: '',
       instagram: '',
-      linkedIn: ''
+      linkedIn: '',
+      youtube: ''
     },
     wallets: {
       bitcoin: '',

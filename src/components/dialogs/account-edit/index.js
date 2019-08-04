@@ -10,6 +10,8 @@ import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify';
 
+import {socialAccountTypes} from '../../../constants';
+
 class AccountEditDialog extends Component {
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
@@ -41,8 +43,6 @@ class AccountEditDialog extends Component {
     const {accounts, accountsTemp} = user.draft;
     const changed = stringify(accounts) !== stringify(accountsTemp);
 
-    const {github, twitter, facebook, instagram, linkedIn} = accounts;
-
     return (
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
@@ -51,62 +51,18 @@ class AccountEditDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="account-edit-dialog-content">
-
-
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <span className="network-name">github.com/</span>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl placeholder="username" value={github} onChange={(e) => {
-                  this.changed(e, 'github')
-                }}/>
-              </InputGroup>
-
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <span className="network-name">twitter.com/</span>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl placeholder="username" value={twitter} onChange={(e) => {
-                  this.changed(e, 'twitter')
-                }}/>
-              </InputGroup>
-
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <span className="network-name">facebook.com/</span>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl placeholder="username" value={facebook} onChange={(e) => {
-                  this.changed(e, 'facebook')
-                }}/>
-              </InputGroup>
-
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <span className="network-name">instagram.com/</span>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl placeholder="username" value={instagram} onChange={(e) => {
-                  this.changed(e, 'instagram')
-                }}/>
-              </InputGroup>
-
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <span className="network-name">linkedin.com/in/</span>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl placeholder="username" value={linkedIn} onChange={(e) => {
-                  this.changed(e, 'linkedIn')
-                }}/>
-              </InputGroup>
+              {socialAccountTypes.map((i) =>
+                (<InputGroup className="mb-3" key={i.id}>
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>
+                      <span className="network-name">{i.label}</span>
+                    </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl placeholder={i.placeholder} disabled={user.saving} value={accounts[i.id]} onChange={(e) => {
+                    this.changed(e, i.id)
+                  }}/>
+                </InputGroup>)
+              )}
             </div>
           </Modal.Body>
           <Modal.Footer>

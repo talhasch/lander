@@ -40,8 +40,9 @@ class SocialAccounts extends Component {
           let toolTip;
           let btn;
 
+
           if (ac) {
-            toolTip = <Tooltip>{ac.identifier}</Tooltip>;
+            toolTip = <Tooltip>{socialAccountLink(t.id, ac)}</Tooltip>;
             btn = <div key={t.id} className="social-button">{t.icon}</div>;
           } else {
             toolTip = <Tooltip><FormattedHTMLMessage id="social-accounts.not-set" values={{n: t.name}}/></Tooltip>;
