@@ -8,6 +8,8 @@ import AvatarEditor from 'react-avatar-editor';
 
 import InputRange from 'react-input-range';
 
+import EXIF from 'exif-js';
+
 import {userSession} from '../../../blockstack-config';
 
 import showError from '../../../utils/show-error';
@@ -23,7 +25,8 @@ class PhotoUploadDialog extends Component {
     this.state = {
       file: null,
       zoom: 1,
-      uploading: false
+      uploading: false,
+      rotate: 0
     };
 
     this.editor = null;
@@ -44,9 +47,35 @@ class PhotoUploadDialog extends Component {
     document.querySelector('#image-upload').click();
   };
 
+
+  getImageRotation = (file) => new Promise((resolve) => {
+    EXIF.getData(file, function () {
+      const orientation = EXIF.getTag(this, 'Orientation');
+      let rotate = 0;
+      switch (orientation) {
+        case 8:
+          rotate = 270;
+          break;
+        case 6:
+          rotate = 90;
+          break;
+        case 3:
+          rotate = 180;
+          break;
+        default:
+          rotate = 0;
+      }
+      resolve(rotate);
+    })
+  });
+
   fileChanged = (e) => {
     const file = e.target.files[0];
     this.setState({file, zoom: 1});
+
+    this.getImageRotation(file).then(rotate => {
+      this.setState({rotate});
+    })
   };
 
   imageChanged = () => {
@@ -140,7 +169,7 @@ class PhotoUploadDialog extends Component {
   };
 
   render() {
-    const {file, zoom, uploading} = this.state;
+    const {file, zoom, rotate, uploading} = this.state;
     const {connected} = this.props;
 
     const props = {show: true, onHide: this.hide};
@@ -174,7 +203,7 @@ class PhotoUploadDialog extends Component {
                     border={20}
                     borderRadius={120}
                     scale={zoom}
-                    rotate={0}
+                    rotate={rotate}
                     onImageChange={this.imageChanged}
                     onPositionChange={this.imageChanged}
                     onMouseMove={this.imageChanged}
