@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 import {Navbar, Nav, NavDropdown, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import getBaseUrl from '../../../../utils/get-base-url';
-
 import landerLogo from '../../../../images/lander-256.png';
 
 import {linkExternal} from '../../../../svg';
