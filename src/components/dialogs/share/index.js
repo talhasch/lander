@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import {Modal, Form} from 'react-bootstrap';
 
 import {twitterSvg, facebookSvg} from '../../../svg';
-import makeUserUrl from "../../../helper/user-url";
+
+import makeUserUrl from '../../../helper/user-url';
 
 class ShareDialog extends Component {
 

@@ -9,6 +9,7 @@ import getBaseUrl from '../../../../utils/get-base-url';
 import landerLogo from '../../../../images/lander-256.png';
 
 import {linkExternal} from '../../../../svg';
+import makeUserUrl from "../../../../helper/user-url";
 
 class NavBar extends Component {
 
@@ -34,6 +35,12 @@ class NavBar extends Component {
     history.push('/');
   };
 
+  userUrl = () => {
+    const {user} = this.props;
+    const suffix = user.alias || user.username;
+    return makeUserUrl(suffix);
+  };
+
   render() {
     const {user} = this.props;
     const {username} = user;
@@ -56,7 +63,7 @@ class NavBar extends Component {
               overlay={
                 <Tooltip>Go to your public page</Tooltip>
               }>
-              <Nav.Link href={`${getBaseUrl()}/${user.username}`} target="_blank"
+              <Nav.Link href={this.userUrl()} target="_blank"
                         className="public-link d-none d-sm-block">{linkExternal}</Nav.Link>
             </OverlayTrigger>
             }
