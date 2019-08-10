@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render 1`] = `
+<a
+  className="profile-c2a"
+  href="/"
+>
+  <img
+    alt="Logo"
+    className="logo"
+    src="lander-512.png"
+  />
+  <span
+    className="c2a-text"
+  >
+    Get your free 
+    <span>
+      Lander
+    </span>
+     page
+  </span>
+</a>
+`;
