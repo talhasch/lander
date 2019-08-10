@@ -14,6 +14,9 @@ it('not published', () => {
       },
       published: null,
       publishing: false
+    },
+    toggleUiProp: () => {
+
     }
   };
 
@@ -35,6 +38,9 @@ it('first publishing', () => {
       },
       published: null,
       publishing: true
+    },
+    toggleUiProp: () => {
+
     }
   };
 
@@ -59,6 +65,9 @@ it('changed and not published', () => {
         updated: '10121'
       },
       publishing: false
+    },
+    toggleUiProp: () => {
+
     }
   };
 
@@ -82,6 +91,9 @@ it('changed and publishing', () => {
         updated: '10121'
       },
       publishing: true
+    },
+    toggleUiProp: () => {
+
     }
   };
 
@@ -106,6 +118,9 @@ it('up to date', () => {
         updated: '22222'
       },
       publishing: false
+    },
+    toggleUiProp: () => {
+
     }
   };
 
