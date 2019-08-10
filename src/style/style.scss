@@ -54,12 +54,26 @@ html, body {
     -webkit-overflow-scrolling: touch;
   }
 
+  .profile-header {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+
+
+  }
+
   .profile-box {
     background: #fff;
     border-radius: 16px;
     box-shadow: $box-shadow;
     font-size: 80%;
-    margin: 40px auto 40px auto;
+    margin: 90px auto 40px auto;
     padding: 14px;
     position: relative;
     width: 95%;
@@ -109,3 +123,4 @@ html, body {
 @import '../components/elements/spinner/index';
 @import '../components/elements/edit-btn/index';
 @import '../components/elements/tour/index';
+@import '../components/elements/profile-c2a/index';

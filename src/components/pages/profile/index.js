@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import PropTypes from 'prop-types';
+
 import * as axios from 'axios';
 import * as blockStack from 'blockstack';
 
@@ -15,6 +17,7 @@ import ProfileBio from '../../profile-bio';
 import SocialAccounts from '../../social-accounts';
 import WalletAccounts from '../../wallet-accounts';
 import Spinner from '../../elements/spinner';
+import ProfileC2a from '../../elements/profile-c2a';
 
 import {aliasRe} from '../../../constants';
 import {Alias} from '../../../model';
@@ -83,7 +86,7 @@ class ProfilePage extends Component {
 
   render() {
     const {loading, notFound} = this.state;
-    const {location} = this.props;
+    const {location, user} = this.props;
 
     if (loading) {
       return <Spinner/>;
@@ -100,6 +103,9 @@ class ProfilePage extends Component {
 
     return <div className="main-wrapper-profile">
       <ProfileBg bg={data.bg}/>
+      <div className="profile-header">
+        {!user && <ProfileC2a  {...this.props} />}
+      </div>
       <div className="inner-wrapper">
         <div className="profile-box">
           <ProfilePhoto imageUrl={data.photo} {...this.props}/>
@@ -114,5 +120,12 @@ class ProfilePage extends Component {
   }
 }
 
+ProfilePage.defaultProps = {};
+
+ProfilePage.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired
+  })
+};
 
 export default ProfilePage;
