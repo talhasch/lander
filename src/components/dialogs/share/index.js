@@ -24,7 +24,8 @@ class ShareDialog extends Component {
 
   userUrl = () => {
     const {user} = this.props;
-    return makeUserUrl(user.username);
+    const suffix = user.alias || user.username;
+    return makeUserUrl(suffix);
   };
 
   twitterUrl = () => {
