@@ -64,8 +64,6 @@ html, body {
     align-items: center;
     justify-content: center;
     z-index: 3;
-
-
   }
 
   .profile-box {
@@ -73,7 +71,7 @@ html, body {
     border-radius: 16px;
     box-shadow: $box-shadow;
     font-size: 80%;
-    margin: 90px auto 40px auto;
+    margin: 60px auto 0 auto;
     padding: 14px;
     position: relative;
     width: 95%;
@@ -90,7 +88,7 @@ html, body {
 .main-wrapper-profile {
   .profile-box {
     @media (min-width: $sm-break) {
-      margin: 180px auto 180px auto;
+      margin: 180px auto 0 auto;
     }
   }
 }
