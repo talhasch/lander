@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`not published 1`] = `
+<nav
+  className="navbar navbar-expand-sm navbar-dark bg-dark"
+>
+  <a
+    className="navbar-brand"
+    href="#"
+    onClick={[Function]}
+  >
+    <img
+      alt="Logo"
+      className="d-inline-block align-top"
+      height={30}
+      src="lander-256.png"
+    />
+  </a>
+  <button
+    aria-label="Toggle navigation"
+    className="navbar-toggler"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="navbar-toggler-icon"
+    />
+  </button>
+  <div
+    aria-expanded={null}
+    className="navbar-collapse collapse"
+  >
+    <div
+      className="ml-auto navbar-nav"
+      onKeyDown={[Function]}
+    >
+      <div
+        className="dropdown nav-item"
+        onKeyDown={[Function]}
+      >
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle nav-link"
+          data-rb-event-key={null}
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+        >
+          lorem
+        </a>
+        <div
+          className="dropdown-menu"
+        >
+          <a
+            className="dropdown-item"
+            href="#"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            Settings
+          </a>
+          <a
+            className="dropdown-item"
+            href="#"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`published 1`] = `
+<nav
+  className="navbar navbar-expand-sm navbar-dark bg-dark"
+>
+  <a
+    className="navbar-brand"
+    href="#"
+    onClick={[Function]}
+  >
+    <img
+      alt="Logo"
+      className="d-inline-block align-top"
+      height={30}
+      src="lander-256.png"
+    />
+  </a>
+  <button
+    aria-label="Toggle navigation"
+    className="navbar-toggler"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="navbar-toggler-icon"
+    />
+  </button>
+  <div
+    aria-expanded={null}
+    className="navbar-collapse collapse"
+  >
+    <div
+      className="ml-auto navbar-nav"
+      onKeyDown={[Function]}
+    >
+      <div
+        className="dropdown nav-item"
+        onKeyDown={[Function]}
+      >
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle nav-link"
+          data-rb-event-key={null}
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+        >
+          lorem
+        </a>
+        <div
+          className="dropdown-menu"
+        >
+          <a
+            className="dropdown-item"
+            href="#"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            Settings
+          </a>
+          <a
+            className="dropdown-item"
+            href="#"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            Logout
+          </a>
+        </div>
+      </div>
+      <a
+        className="public-link d-none d-sm-block nav-link"
+        data-rb-event-key="http://localhost/lorem"
+        href="http://localhost/lorem"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        target="_blank"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-external-link-square-alt fa-w-14"
+          data-icon="external-link-square-alt"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+`;

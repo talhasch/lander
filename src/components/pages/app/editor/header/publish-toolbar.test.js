@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../../../utils/test-helper';
+import wrapWithIntl from '../../../../../utils/test-helper';
 
 import PublishToolbar from './publish-toolbar';
 
