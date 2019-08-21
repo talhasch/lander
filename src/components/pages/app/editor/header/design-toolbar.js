@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import {eyeSlashSvg, eyeSvg, magicSvg, shareAltSvg} from '../../../../svg';
+import {eyeSlashSvg, eyeSvg, magicSvg, shareAltSvg} from '../../../../../svg';
 
 class DesignToolbar extends Component {
   showStyle = () => {

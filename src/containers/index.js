@@ -11,9 +11,9 @@ import en from 'react-intl/locale-data/en';
 import flattenMessages from '../utils/flatten-messages';
 
 import HomeContainer from './home';
-import AuthContainer from './auth';
-import EditorContainer from './editor';
-import WelcomeContainer from './welcome';
+import AuthContainer from './app/auth';
+import EditorContainer from './app/editor';
+import WelcomeContainer from './app/welcome';
 import ProfileContainer from './profile'
 
 import {login, loadProfile} from '../store/user';

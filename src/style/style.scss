@@ -94,9 +94,9 @@ html, body {
 }
 
 @import '../components/pages/home/index';
-@import '../components/pages/editor/index';
+@import '../components/pages/app/editor/index';
+@import '../components/pages/app/welcome/index';
 @import '../components/pages/profile/index';
-@import '../components/pages/welcome/index';
 
 @import '../components/profile-bg/index';
 @import '../components/profile-photo/index';

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import {Button} from 'react-bootstrap';
 
-import makeUserUrl from '../../../../helper/user-url';
-import showError from '../../../../utils/show-error';
+import makeUserUrl from '../../../../../helper/user-url';
+import showError from '../../../../../utils/show-error';
 
-import {qrCodeSvg, penSvg} from '../../../../svg';
+import {qrCodeSvg, penSvg} from '../../../../../svg';
 
 class PublishToolbar extends Component {
 

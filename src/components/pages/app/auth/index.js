@@ -1,6 +1,6 @@
 import {Component} from 'react';
 
-import {userSession} from '../../../blockstack-config';
+import {userSession} from '../../../../blockstack-config';
 
 class AuthPage extends Component {
   componentDidMount() {

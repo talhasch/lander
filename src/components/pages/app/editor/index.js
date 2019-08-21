@@ -2,35 +2,35 @@ import React, {Component} from 'react';
 
 import {User} from 'radiks';
 
-import ProfilePhoto from '../../profile-photo';
-import ProfileName from '../../profile-name';
-import ProfileDescription from '../../profile-description';
-import ProfileBg from '../../profile-bg';
-import SocialAccounts from '../../social-accounts';
-import WalletAccounts from '../../wallet-accounts';
-import ProfileBio from '../../profile-bio';
+import ProfilePhoto from '../../../profile-photo';
+import ProfileName from '../../../profile-name';
+import ProfileDescription from '../../../profile-description';
+import ProfileBg from '../../../profile-bg';
+import SocialAccounts from '../../../social-accounts';
+import WalletAccounts from '../../../wallet-accounts';
+import ProfileBio from '../../../profile-bio';
 
-import SettingsDialog from '../../dialogs/settings';
-import StyleDialog from '../../dialogs/style';
-import PhotoUploadDialog from '../../dialogs/photo-upload';
-import NameEditDialog from '../../dialogs/name-edit';
-import DescriptionEditDialog from '../../dialogs/description-edit';
-import AccountEditDialog from '../../dialogs/account-edit';
-import WalletEditDialog from '../../dialogs/wallet-edit';
-import ShareDialog from '../../dialogs/share';
-import AliasEditDialog from '../../dialogs/alias-edit';
+import SettingsDialog from '../../../dialogs/settings';
+import StyleDialog from '../../../dialogs/style';
+import PhotoUploadDialog from '../../../dialogs/photo-upload';
+import NameEditDialog from '../../../dialogs/name-edit';
+import DescriptionEditDialog from '../../../dialogs/description-edit';
+import AccountEditDialog from '../../../dialogs/account-edit';
+import WalletEditDialog from '../../../dialogs/wallet-edit';
+import ShareDialog from '../../../dialogs/share';
+import AliasEditDialog from '../../../dialogs/alias-edit';
 
-import BioEditDialog from '../../dialogs/bio-edit';
+import BioEditDialog from '../../../dialogs/bio-edit';
 
-import Spinner from '../../elements/spinner';
+import Spinner from '../../../elements/spinner';
 
-import AppTour from '../../elements/tour';
+import AppTour from '../../../elements/tour';
 
-import fixClassNames from '../../../utils/fix-class-names';
+import fixClassNames from '../../../../utils/fix-class-names';
 
 import EditorNavBar from './header';
 
-import {getFlagLocal} from '../../../dbl';
+import {getFlagLocal} from '../../../../dbl';
 
 class EditorPage extends Component {
 

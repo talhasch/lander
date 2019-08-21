@@ -4,21 +4,21 @@ import {Form, Button} from 'react-bootstrap';
 
 import * as blockStack from 'blockstack';
 
-import {userSession} from '../../../blockstack-config';
+import {userSession} from '../../../../blockstack-config';
 
-import {extractAccounts} from '../../../helper/extract-user-props';
+import {extractAccounts} from '../../../../helper/extract-user-props';
 
-import ProfilePhoto from '../../profile-photo';
+import ProfilePhoto from '../../../profile-photo';
 
-import PhotoUploadDialog from '../../../components/dialogs/photo-upload'
+import PhotoUploadDialog from '../../../../components/dialogs/photo-upload'
 
-import Spinner from '../../../components/elements/spinner';
+import Spinner from '../../../../components/elements/spinner';
 
-import {dataModel} from '../../../constants';
+import {dataModel} from '../../../../constants';
 
-import showError from '../../../utils/show-error';
+import showError from '../../../../utils/show-error';
 
-import {putDraftFile, putPublishedFile, putFlagFile, getFlagFile, setFlagLocal} from '../../../dbl';
+import {putDraftFile, putPublishedFile, putFlagFile, getFlagFile, setFlagLocal} from '../../../../dbl';
 
 class WelcomePage extends Component {
 

@@ -4,9 +4,9 @@ import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
 
-import {login} from '../../store/user';
+import {login} from '../../../store/user';
 
-import AuthPage from '../../components/pages/auth'
+import AuthPage from '../../../components/pages/app/auth'
 
 class AuthContainer extends Component {
   render() {

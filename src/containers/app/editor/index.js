@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
 
-import EditorPage from '../../components/pages/editor'
+import EditorPage from '../../../components/pages/app/editor'
 
 import {
   logout,
@@ -24,9 +24,9 @@ import {
   publishDone,
   publishError,
   loadProfile
-} from '../../store/user';
+} from '../../../store/user';
 
-import {toggleUiProp} from '../../store/ui';
+import {toggleUiProp} from '../../../store/ui';
 
 
 class EditorContainer extends Component {

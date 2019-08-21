@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
 
-import WelcomePage from '../../components/pages/welcome'
+import WelcomePage from '../../../components/pages/app/welcome'
 
 import {
   logout,
@@ -19,9 +19,9 @@ import {
   publishDone,
   publishError,
   loadProfile
-} from '../../store/user';
+} from '../../../store/user';
 
-import {toggleUiProp} from '../../store/ui';
+import {toggleUiProp} from '../../../store/ui';
 
 
 class WelcomeContainer extends Component {

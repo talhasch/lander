@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import {Navbar, Nav, NavDropdown, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import landerLogo from '../../../../images/lander-256.png';
+import landerLogo from '../../../../../images/lander-256.png';
 
-import {linkExternal} from '../../../../svg';
-import makeUserUrl from "../../../../helper/user-url";
+import {linkExternal} from '../../../../../svg';
+import makeUserUrl from "../../../../../helper/user-url";
 
 class NavBar extends Component {
 
