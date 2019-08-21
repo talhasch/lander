@@ -12,7 +12,7 @@ import flattenMessages from '../utils/flatten-messages';
 
 import HomeContainer from './home';
 import AuthContainer from './app/auth';
-import EditorContainer from './app/editor';
+import EditorContainer from './app/profile-editor';
 import WelcomeContainer from './app/welcome';
 import ProfileContainer from './profile'
 

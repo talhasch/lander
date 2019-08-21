@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
 
-import EditorPage from '../../../components/pages/app/editor'
+import EditorPage from '../../../components/pages/app/profile-editor'
 
 import {
   logout,
