@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import NavBar from './navbar';
+import NavBar from '../../shared/navbar';
 import PublishToolbar from './publish-toolbar';
 import DesignToolbar from './design-toolbar';
 

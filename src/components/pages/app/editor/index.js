@@ -102,5 +102,4 @@ class EditorPage extends Component {
   }
 }
 
-
 export default EditorPage;

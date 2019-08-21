@@ -1,173 +1,152 @@
 
-.editor-header {
-  .navbar {
-    .public-link {
-      svg {
-        color: #ced4da;
-        height: 22px;
-        width: 22px;
-      }
-    }
+.publish-toolbar {
+  align-items: center;
+  background: #495057;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  padding: 6px;
 
-    @media (max-width: $sm-break) {
-      .navbar-nav {
-        .nav-item {
-          a {
-            font-weight: 700;
-          }
-        }
-      }
-    }
-  }
-
-  .publish-toolbar {
+  .info-content {
     align-items: center;
-    background: #495057;
     display: flex;
-    height: 50px;
-    justify-content: center;
-    padding: 6px;
-
-    .info-content {
-      align-items: center;
-      display: flex;
-      font-size: 13px;
-      justify-content: space-between;
-      margin: auto;
-      max-width: $primary-width;
-      width: 100%;
-
-      @media (min-width: $sm-break) {
-        font-size: 1rem;
-      }
-
-      .info-msg {
-        color: #ced4da;
-        margin: 0;
-        text-align: center;
-      }
-    }
-
-    .user-address {
-      color: #ced4da;
-      display: inline-block;
-      font-size: 13px;
-      max-width: $primary-width;
-      overflow: hidden;
-      text-align: center;
-      text-decoration: underline;
-
-      &:hover {
-        text-decoration: none;
-      }
-
-      @media (min-width: $sm-break) {
-        font-size: 1rem;
-      }
-
-      &.tour-mode {
-        pointer-events: none;
-      }
-    }
-
-    .btn-edit-alias, .btn-qr {
-      cursor: pointer;
-      visibility: hidden;
-
-      svg {
-        color: #ced4da;
-        fill: #ced4da;
-      }
-    }
-
-    .btn-edit-alias {
-      margin-left: 20px;
-
-      &.tour-mode{
-        visibility: visible !important;
-        pointer-events: none;
-      }
-
-      svg {
-        height: 18px;
-        width: 18px;
-      }
-    }
-
-    .btn-qr {
-      margin-right: 20px;
-      svg {
-        height: 22px;
-        width: 22px;
-      }
-    }
-
-    &:hover {
-      .btn-edit-alias {
-        visibility: visible;
-      }
-    }
-  }
-
-  .design-toolbar {
-    display: flex;
+    font-size: 13px;
     justify-content: space-between;
     margin: auto;
     max-width: $primary-width;
-    width: 98%;
+    width: 100%;
 
     @media (min-width: $sm-break) {
-      width: $primary-width;
+      font-size: 1rem;
     }
 
-    &.in-preview {
-      justify-content: center;
-    }
-
-    .btn-preview, .btn-style, .btn-preview-off {
-      align-items: center;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      display: flex;
-
-      svg {
-        height: 16px;
-        margin-right: 6px;
-        width: 16px;
-      }
-    }
-
-    .btn-preview-off {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-
-      svg {
-        margin: 0;
-      }
-    }
-
-    .right-menu, .middle-menu, .left-menu {
-      &.tour-mode {
-        button {
-          pointer-events: none;
-        }
-      }
+    .info-msg {
+      color: #ced4da;
+      margin: 0;
+      text-align: center;
     }
   }
 
-  .share-toolbar {
-    display: flex;
+  .user-address {
+    color: #ced4da;
+    display: inline-block;
+    font-size: 13px;
+    max-width: $primary-width;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @media (min-width: $sm-break) {
+      font-size: 1rem;
+    }
+
+    &.tour-mode {
+      pointer-events: none;
+    }
+  }
+
+  .btn-edit-alias, .btn-qr {
+    cursor: pointer;
+    visibility: hidden;
+
+    svg {
+      color: #ced4da;
+      fill: #ced4da;
+    }
+  }
+
+  .btn-edit-alias {
+    margin-left: 20px;
+
+    &.tour-mode {
+      visibility: visible !important;
+      pointer-events: none;
+    }
+
+    svg {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  .btn-qr {
+    margin-right: 20px;
+    svg {
+      height: 22px;
+      width: 22px;
+    }
+  }
+
+  &:hover {
+    .btn-edit-alias {
+      visibility: visible;
+    }
+  }
+}
+
+.design-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: $primary-width;
+  width: 98%;
+
+  @media (min-width: $sm-break) {
+    width: $primary-width;
+  }
+
+  &.in-preview {
     justify-content: center;
+  }
 
-    .btn-share {
-      background: rgba(255, 255, 255, 0.8);
-      color: #4a96f7;
+  .btn-preview, .btn-style, .btn-preview-off {
+    align-items: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
 
-      svg {
-        height: 22px;
-        width: 22px;
+    svg {
+      height: 16px;
+      margin-right: 6px;
+      width: 16px;
+    }
+  }
+
+  .btn-preview-off {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    svg {
+      margin: 0;
+    }
+  }
+
+  .right-menu, .middle-menu, .left-menu {
+    &.tour-mode {
+      button {
+        pointer-events: none;
       }
     }
   }
 }
+
+.share-toolbar {
+  display: flex;
+  justify-content: center;
+
+  .btn-share {
+    background: rgba(255, 255, 255, 0.8);
+    color: #4a96f7;
+
+    svg {
+      height: 22px;
+      width: 22px;
+    }
+  }
+}
+
 

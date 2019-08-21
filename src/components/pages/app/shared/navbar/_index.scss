@@ -1,0 +1,19 @@
+.navbar {
+  .public-link {
+    svg {
+      color: #ced4da;
+      height: 22px;
+      width: 22px;
+    }
+  }
+
+  @media (max-width: $sm-break) {
+    .navbar-nav {
+      .nav-item {
+        a {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
