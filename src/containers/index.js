@@ -16,7 +16,7 @@ import EditorContainer from './app/profile-editor';
 import WelcomeContainer from './app/welcome';
 import ProfileContainer from './profile'
 
-import {login, loadProfile} from '../store/user';
+import {login} from '../store/user';
 
 import messages from '../locales';
 
@@ -29,8 +29,9 @@ export default class App extends Component {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData();
       const {store} = this.props;
-      store.dispatch(login(userData));
-      store.dispatch(loadProfile());
+      if (userData.username) {
+        store.dispatch(login(userData));
+      }
     }
   }
 

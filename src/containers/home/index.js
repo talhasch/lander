@@ -10,9 +10,8 @@ class HomeContainer extends Component {
   }
 }
 
-
-const mapStateToProps = ({activeUser}) => ({
-  activeUser
+const mapStateToProps = ({user}) => ({
+  user
 });
 
 export default connect(

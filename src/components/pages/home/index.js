@@ -28,7 +28,9 @@ class HomePage extends Component {
   signIn = (e) => {
     e.preventDefault();
 
-    if (userSession.isUserSignedIn()) {
+    const {user} = this.props;
+
+    if (userSession.isUserSignedIn() && user !== null) {
       const {history} = this.props;
       history.push('/app/editor');
       return;
@@ -54,7 +56,6 @@ class HomePage extends Component {
   };
 
   render() {
-
     return (
       <div className="home-wrapper">
         <div className="section-container">
