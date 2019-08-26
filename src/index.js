@@ -7,15 +7,10 @@ import App from './containers';
 import * as serviceWorker from './serviceWorker';
 
 import 'typeface-m-plus-rounded-1c';
-
-import './index.css';
 import './style/style.scss';
 
+// bundle background images
 require('./data/bg-images');
-
-
-
-
 
 render(
   <Provider store={store}>
