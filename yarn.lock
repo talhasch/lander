@@ -2297,9 +2297,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-blockstack@19.2.2:
-  version "19.2.2"
-  resolved "https://registry.yarnpkg.com/blockstack/-/blockstack-19.2.2.tgz#7d096f3a42a0a23a4637232900c0fd9b00e560f8"
+blockstack@19.2.5:
+  version "19.2.5"
+  resolved "https://registry.yarnpkg.com/blockstack/-/blockstack-19.2.5.tgz#d6e9aeb4f6c29e7595638ade15b17f6bb09f16ac"
+  integrity sha512-GqUotiE1XngETEu2IKpanlabxR4H2cXV5UVL4bp0rzeERwQFR4dUR29ewpPPGysd1LY7tucqmxzHi/d9A9QMQw==
   dependencies:
     ajv "^4.11.5"
     bip39 "^3.0.2"
