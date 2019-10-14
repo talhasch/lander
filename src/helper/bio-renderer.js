@@ -15,6 +15,36 @@ export default (input) => {
     allowedSchemes: ['https'],
     transformTags: {
       'iframe': function (tagName, attribs) {
+
+        const emptyEl = {
+          tagName: 'span',
+          attribs: {}
+        };
+
+        const src = attribs.src ? attribs.src : null;
+        if (!src) {
+          return emptyEl;
+        }
+
+        if (src.indexOf('https://') !== 0) {
+          return emptyEl;
+        }
+
+        let u;
+        try {
+          u = new URL(src);
+        } catch (e) {
+          return emptyEl;
+        }
+
+        const allowedHosts = ['www.youtube.com', 'youtube.com', 'player.vimeo.com',
+          'www.dailymotion.com', 'dailymotion.com'];
+
+        if (!allowedHosts.includes(u.host)
+        ) {
+          return emptyEl;
+        }
+
         const attr = Object.assign({}, attribs, {width: '100%', height: '200px'});
 
         return {
