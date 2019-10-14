@@ -7,38 +7,23 @@ export default (input) => {
   const rendered = md.render(input);
 
   const sanitized = sanitizeHtml(rendered, {
-    allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'br'],
-    allowedAttributes: {
-      'a': ['href']
-    },
-    allowedSchemes: ['https']
-  });
-
-  return sanitized.trim();
-}
-
-
-/*
-Keeping this one for future
-
-const sanitized = sanitizeHtml(rendered, {
-    allowedTags: ['b', 'strong', 'i', 'em', 'a', 'p', 'iframe', 'br'],
+    allowedTags: ['b', 'strong', 'iframe', 'i', 'em', 'a', 'p', 'br'],
     allowedAttributes: {
       'a': ['href'],
       'iframe': ['src', 'frameborder', 'allowfullscreen', 'width', 'height'],
     },
-    allowedIframeHostnames: ['www.youtube.com'],
     allowedSchemes: ['https'],
     transformTags: {
       'iframe': function (tagName, attribs) {
-
-        const a = Object.assign({}, attribs, {width: '400px', height: '300px'});
+        const attr = Object.assign({}, attribs, {width: '100%', height: '200px'});
 
         return {
           tagName: 'iframe',
-          attribs: a
+          attribs: attr
         };
       }
     }
   });
- */
+
+  return sanitized.trim();
+}
