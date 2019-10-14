@@ -63,5 +63,25 @@ export default [
     'name': 'norway.jpg',
     'title': 'Norway',
     'url': require('./norway.jpg')
+  }, {
+    'name': 'milky-way.jpg',
+    'title': 'Milky Way',
+    'url': require('./milky-way.jpg')
+  }, {
+    'name': 'mussels.jpg',
+    'title': 'Mussels',
+    'url': require('./mussels.jpg')
+  }, {
+    'name': 'sunset.jpg',
+    'title': 'Sunset',
+    'url': require('./sunset.jpg')
+  }, {
+    'name': 'strains.jpg',
+    'title': 'Strains',
+    'url': require('./strains.jpg')
+  }, {
+    'name': 'bokeh.jpg',
+    'title': 'Bokeh',
+    'url': require('./bokeh.jpg')
   }
 ]
