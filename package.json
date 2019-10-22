@@ -95,7 +95,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "postbuild": "rm -rf build-live && cp -r build build-live && rm -r build"
   },
   "eslintConfig": {
     "extends": "react-app"

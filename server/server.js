@@ -7,8 +7,8 @@ import * as axios from 'axios';
 
 import {aliasRe, publishedFile} from '../src/constants';
 
-const indexHtml = fs.readFileSync(path.resolve('./build/index.html'), 'utf8');
-const manifestJson = fs.readFileSync(path.resolve('./build/manifest.json'), 'utf8');
+const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
+const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
 
 const getBaseUrl = (req) => {
   return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
@@ -128,7 +128,7 @@ const pageRenderer = async (req, res, next) => {
 router.use('^/:username/?$', pageRenderer);
 
 router.use(
-  express.static(path.resolve(__dirname, '..', 'build'), {maxAge: '30d'})
+  express.static(path.resolve(__dirname, '..', 'build-live'), {maxAge: '30d'})
 );
 
 app.use(router);
