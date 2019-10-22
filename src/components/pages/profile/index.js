@@ -76,6 +76,7 @@ class ProfilePage extends Component {
 
     try {
       const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
+      console.log(`user file: ${fileUrl}`);
       data = await axios.get(fileUrl).then(x => x.data);
     } catch (e) {
       return false;
