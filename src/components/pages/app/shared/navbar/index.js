@@ -11,6 +11,15 @@ import makeUserUrl from "../../../../../helper/user-url";
 
 class NavBar extends Component {
 
+  togglePreferences = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const {toggleUiProp} = this.props;
+    toggleUiProp('preferences');
+    return false;
+  };
+
   toggleSettings = (e) => {
     if (e) {
       e.preventDefault();
@@ -51,6 +60,7 @@ class NavBar extends Component {
         <Navbar.Collapse>
           <Nav className="ml-auto">
             <NavDropdown title={username}>
+              <NavDropdown.Item onClick={this.togglePreferences}>Preferences</NavDropdown.Item>
               <NavDropdown.Item onClick={this.toggleSettings}>Settings</NavDropdown.Item>
               <NavDropdown.Item onClick={this.logout}>Logout</NavDropdown.Item>
             </NavDropdown>

@@ -11,6 +11,7 @@ import WalletAccounts from '../../../wallet-accounts';
 import ProfileBio from '../../../profile-bio';
 
 import SettingsDialog from '../../../dialogs/settings';
+import PreferencesDialog from '../../../dialogs/preferences';
 import StyleDialog from '../../../dialogs/style';
 import PhotoUploadDialog from '../../../dialogs/photo-upload';
 import NameEditDialog from '../../../dialogs/name-edit';
@@ -79,6 +80,7 @@ class EditorPage extends Component {
         {ui.walletEdit && <WalletEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
+        {ui.preferences && <PreferencesDialog {...this.props} />}
         {ui.share && <ShareDialog {...this.props} />}
         {ui.alias && <AliasEditDialog {...this.props} />}
         <div className={ui.preview ? 'main-wrapper-profile' : 'main-wrapper'}>

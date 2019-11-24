@@ -9,6 +9,7 @@ export const TOGGLE_WALLET_EDIT = '@ui/TOGGLE_WALLET_EDIT';
 export const TOGGLE_STYLE = '@ui/TOGGLE_STYLE';
 export const TOGGLE_IMAGE_SELECT = '@ui/IMAGE_SELECT';
 export const TOGGLE_SETTINGS = '@ui/TOGGLE_SETTINGS';
+export const TOGGLE_PREFERENCES = '@ui/TOGGLE_PREFERENCES';
 export const TOGGLE_DELETE = '@ui/TOGGLE_DELETE';
 export const TOGGLE_PREVIEW = '@ui/TOGGLE_PREVIEW';
 export const TOGGLE_SHARE = '@ui/TOGGLE_SHARE';
@@ -25,6 +26,7 @@ const initialState = {
   style: false,
   imageSelect: false,
   settings: false,
+  preferences: false,
   delete: false,
   preview: false,
   share: false,
@@ -56,6 +58,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {imageSelect: action.payload.what});
     case TOGGLE_SETTINGS:
       return Object.assign({}, state, {settings: action.payload.what});
+    case TOGGLE_PREFERENCES:
+      return Object.assign({}, state, {preferences: action.payload.what});
     case TOGGLE_PREVIEW:
       return Object.assign({}, state, {preview: action.payload.what});
     case TOGGLE_SHARE:
@@ -104,6 +108,9 @@ export const toggleUiProp = (what, affectUser = true) => {
         break;
       case 'settings':
         act = TOGGLE_SETTINGS;
+        break;
+      case 'preferences':
+        act = TOGGLE_PREFERENCES;
         break;
       case 'delete':
         act = TOGGLE_DELETE;

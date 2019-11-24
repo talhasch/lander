@@ -40,6 +40,10 @@
     "title": "Settings",
     "delete": "Delete my Lander page"
   },
+  "preferences": {
+    "title": "Preferences",
+    "directory-label": "Include my page to Lander Directory"
+  },
   "wallet-accounts": {
     "not-set": "You haven't set your {n} account"
   },

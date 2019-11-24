@@ -14,3 +14,17 @@ export class Alias extends Model {
     }
   }
 }
+
+export class UserPref extends Model {
+  static className = 'user_pref';
+  static schema = {
+    username: {
+      type: String,
+      decrypted: true,
+    },
+    directory: {
+      type: Boolean,
+      decrypted: true,
+    }
+  }
+}
