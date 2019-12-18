@@ -50,7 +50,7 @@
     }
 
     @media (min-width: $lg-break) {
-      margin-bottom: 200px;
+      margin-bottom: 140px;
     }
 
     .showcase {
@@ -153,7 +153,6 @@
 
   .features {
     margin-bottom: 10px;
-    padding: 20px 20px 0 20px;
 
     @media (min-width: $md-break) {
       margin-bottom: 40px;
@@ -162,16 +161,13 @@
     .section-header {
       margin-bottom: 40px;
 
-      @media (min-width: $lg-break) {
-        margin-bottom: 80px;
-      }
 
       h2 {
         border-bottom: 4px solid lighten($primary, 26);
         color: $gray-700;
-        display: inline-block;
+        display: table;
         font-size: 1.4em;
-        margin: 0;
+        margin: 0 auto;
         padding-bottom: 6px;
 
         @media (min-width: $lg-break) {
@@ -181,43 +177,65 @@
     }
 
     .feature-list {
+      margin: 0;
+
       .feature {
-        font-size: 90%;
+        display: flex;
+        align-items: center;
         margin-bottom: 50px;
+        flex-direction: column;
+
+        @media (min-width: $md-break) {
+          margin-bottom: 80px;
+        }
 
         @media (min-width: $lg-break) {
-          font-size: 100%;
+          flex-direction: row;
         }
 
-        @media (min-width: $xl-break) {
-          padding-right: 80px;
-        }
+        .image {
+          width: 100%;
+          max-width: 300px;
+          flex-shrink: 0;
+          margin-bottom: 10px;
 
-        .icon {
-          float: left;
-          width: 40px;
+          img {
+            width: 100%;
+          }
 
-          svg {
-            color: $gray-700;
-            height: 30px;
-            width: 30px;
+          @media (min-width: $md-break) {
+            height: 200px;
+            text-align: center;
+
+            img {
+              width: auto;
+              height: 100%;
+            }
+
           }
 
           @media (min-width: $lg-break) {
-            width: 70px;
-            svg {
-              height: 50px;
-              width: 50px;
+            width: 200px;
+            margin-bottom: 0;
+            height: auto;
+
+            img {
+              width: 100%;
+              height: auto;
             }
+          }
+
+          @media (min-width: $xl-break) {
+            width: 300px;
           }
         }
 
         .content {
-          float: right;
-          width: calc(100% - 40px);
+          flex-grow: 1;
+          text-align: center;
 
           @media (min-width: $lg-break) {
-            width: calc(100% - 70px);
+            text-align: left;
           }
 
           .title {
@@ -228,11 +246,13 @@
 
           .text {
             color: $gray-600;
+            font-size: 110%;
           }
         }
       }
     }
   }
+
 
   .aM {
     margin-bottom: 100px;
@@ -383,7 +403,7 @@
         width: 390px;
       }
 
-      iframe{
+      iframe {
         width: 100%;
         height: 100%;
       }
@@ -402,6 +422,7 @@
 
     .footer-menu {
       margin-bottom: 20px;
+
       .menu-header {
         color: $gray-600;
         font-size: 1em;
@@ -427,6 +448,7 @@
         &:not(:last-child) {
           margin-right: 20px;
         }
+
         svg {
           height: 30px;
           width: 30px;

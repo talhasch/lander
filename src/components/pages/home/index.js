@@ -13,12 +13,6 @@ import melissa from '../../../images/melissa.jpg';
 import steven from '../../../images/steven.jpg';
 
 import {
-  coctailSvg,
-  shieldSvg,
-  sketchSvg,
-  codeSvg,
-  codeBranchSvg,
-  mobileSvg,
   twitterSvg,
   githubSvg,
   phSvg
@@ -37,22 +31,6 @@ class HomePage extends Component {
     }
 
     userSession.redirectToSignIn();
-  };
-
-  feature = (icon, title, text, offset = true) => {
-    return <Col className="feature" sm={12} md={4}>
-      <div className="icon">
-        {icon}
-      </div>
-      <div className="content">
-        <div className="title">
-          {title}
-        </div>
-        <div className="text">
-          {text}
-        </div>
-      </div>
-    </Col>
   };
 
   render() {
@@ -94,18 +72,71 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
+
         <section className="features" id="features">
           <div className="section-container">
             <div className="section-header">
-              <h2><a name="features">Why you should use Lander?</a></h2>
+              <h2><a name="features">Lander</a></h2>
             </div>
+
             <Row className="feature-list">
-              {this.feature(sketchSvg, 'Beautifully Easy', 'Setup your page in minutes and customise it with super easy user interface depending on your preferences.')}
-              {this.feature(coctailSvg, 'Free & Unlimited', 'All features of Lander are 100% free. You can create as much as pages you want for free. There is no limit!')}
-              {this.feature(shieldSvg, 'Secure', 'Your privacy is first. Lander works with Blockstack auth on Gaia storage. No one can spy or use your data but you.')}
-              {this.feature(mobileSvg, 'Responsive', 'Looks and feels great at every screen size right out of the box, from phones to tablets to desktops.')}
-              {this.feature(codeSvg, 'Open Source', ' Lander is open sourced on github under MIT licence. Feel free to view code and let us know your feedback.')}
-              {this.feature(codeBranchSvg, 'Growing', 'This is just beginning. We have a lot of development in pipeline like domain connecting, page metrics, showcase etc...')}
+              <Col className="feature" sm={12} md={{span: 6}}>
+                <div className="image">
+                  <img src="/features/beautiful.png" alt="Beautifully Easy"/>
+                </div>
+                <div className="content">
+                  <div className="title">
+                    Beautifully Easy
+                  </div>
+                  <div className="text">
+                    Setup your page in minutes and customise it with super easy user interface depending on your
+                    preferences.
+                  </div>
+                </div>
+              </Col>
+
+              <Col className="feature mm" sm={12} md={{span: 6}}>
+                <div className="image">
+                  <img src="/features/free.png" alt="Free & Unlimited"/>
+                </div>
+                <div className="content">
+                  <div className="title">
+                    Free & Unlimited
+                  </div>
+                  <div className="text">
+                    All features of Lander are 100% free. You can create as much as pages you want for free. There is no
+                    limit!
+                  </div>
+                </div>
+              </Col>
+
+              <Col className="feature" sm={12} md={{span: 6}}>
+                <div className="image">
+                  <img src="/features/cryptocurrency.png" alt="Cryptocurrency Friendly"/>
+                </div>
+                <div className="content">
+                  <div className="title">
+                    Cryptocurrency Friendly
+                  </div>
+                  <div className="text">
+                    Add your cryptocurrency addresses to your page and make it easier to accept payments.
+                  </div>
+                </div>
+              </Col>
+
+              <Col className="feature" sm={12} md={{span: 6}}>
+                <div className="image">
+                  <img src="/features/responsive.png" alt="Responsive"/>
+                </div>
+                <div className="content">
+                  <div className="title">
+                    Responsive
+                  </div>
+                  <div className="text">
+                    Looks and feels great at every screen size right out of the box, from phones to tablets to desktops.
+                  </div>
+                </div>
+              </Col>
             </Row>
           </div>
         </section>
