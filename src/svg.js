@@ -85,7 +85,6 @@ export const penSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas
         d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/>
 </svg>;
 
-
 export const linkExternal = <svg aria-hidden="true" focusable="false" data-prefix="fas"
                                  data-icon="external-link-square-alt"
                                  className="svg-inline--fa fa-external-link-square-alt fa-w-14" role="img"
@@ -94,58 +93,12 @@ export const linkExternal = <svg aria-hidden="true" focusable="false" data-prefi
         d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"/>
 </svg>;
 
-
-export const codeSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code"
-                            className="svg-inline--fa fa-code fa-w-20" role="img"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-  <path fill="currentColor"
-        d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/>
-</svg>;
-
-
 export const phSvg = <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="product-hunt"
                           className="svg-inline--fa fa-product-hunt fa-w-16" role="img"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <path fill="currentColor"
         d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z"/>
 </svg>;
-
-
-export const coctailSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cocktail"
-                               className="svg-inline--fa fa-cocktail fa-w-18" role="img"
-                               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-  <path fill="currentColor"
-        d="M296 464h-56V338.78l168.74-168.73c15.52-15.52 4.53-42.05-17.42-42.05H24.68c-21.95 0-32.94 26.53-17.42 42.05L176 338.78V464h-56c-22.09 0-40 17.91-40 40 0 4.42 3.58 8 8 8h240c4.42 0 8-3.58 8-8 0-22.09-17.91-40-40-40zM432 0c-62.61 0-115.35 40.2-135.18 96h52.54c16.65-28.55 47.27-48 82.64-48 52.93 0 96 43.06 96 96s-43.07 96-96 96c-14.04 0-27.29-3.2-39.32-8.64l-35.26 35.26C379.23 279.92 404.59 288 432 288c79.53 0 144-64.47 144-144S511.53 0 432 0z"/>
-</svg>;
-
-export const shieldSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-alt"
-                              className="svg-inline--fa fa-shield-alt fa-w-16" role="img"
-                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <path fill="currentColor"
-        d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"/>
-</svg>;
-
-export const sketchSvg = <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="sketch"
-                              className="svg-inline--fa fa-sketch fa-w-16" role="img"
-                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <path fill="currentColor"
-        d="M27.5 162.2L9 187.1h90.5l6.9-130.7-78.9 105.8zM396.3 45.7L267.7 32l135.7 147.2-7.1-133.5zM112.2 218.3l-11.2-22H9.9L234.8 458zm2-31.2h284l-81.5-88.5L256.3 33zm297.3 9.1L277.6 458l224.8-261.7h-90.9zM415.4 69L406 56.4l.9 17.3 6.1 113.4h90.3zM113.5 93.5l-4.6 85.6L244.7 32 116.1 45.7zm287.7 102.7h-290l42.4 82.9L256.3 480l144.9-283.8z"/>
-</svg>;
-
-export const codeBranchSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                  data-icon="code-branch" className="svg-inline--fa fa-code-branch fa-w-12"
-                                  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-  <path fill="currentColor"
-        d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"/>
-</svg>;
-
-export const mobileSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mobile-alt"
-                              className="svg-inline--fa fa-mobile-alt fa-w-10" role="img"
-                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-  <path fill="currentColor"
-        d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/>
-</svg>;
-
 
 export const shareAltSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="share-alt"
                                 className="svg-inline--fa fa-share-alt fa-w-14" role="img"
