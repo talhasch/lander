@@ -24,29 +24,22 @@ import {
 } from '../../../svg';
 
 class SignInModal extends Component {
-  signIn = (e) => {
-    e.preventDefault();
-
-    const {user} = this.props;
-
-    if (userSession.isUserSignedIn() && user !== null) {
-      const {history} = this.props;
-      history.push('/app/editor');
-      return;
-    }
+  signIn = () => {
+    const {hide} = this.props;
+    hide();
 
     userSession.redirectToSignIn();
   };
 
   render() {
-    const {onCancel} = this.props;
+    const {hide} = this.props;
 
-    return <Modal show onHide={onCancel} centered size="lg" className="sign-in-dialog">
+    return <Modal show onHide={hide} centered size="lg" className="sign-in-dialog">
       <Modal.Header closeButton/>
       <Modal.Body>
         <div className="left-side">
           <div className="logo">
-            <img src={landerLogo} alt="Logo" width={40}/>
+            <img src={landerLogo} alt="Logo" width={52}/>
           </div>
           <p>Login to get started.</p>
           <Button onClick={this.signIn}>Continue with Blockstack</Button>
@@ -73,6 +66,14 @@ class HomePage extends Component {
   }
 
   toggleSignIn = (e) => {
+    const {user} = this.props;
+
+    if (userSession.isUserSignedIn() && user !== null) {
+      const {history} = this.props;
+      history.push('/app/editor');
+      return;
+    }
+
     if (e) {
       e.preventDefault();
     }
@@ -292,7 +293,7 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
-        {signIn && <SignInModal {...this.props} onCancel={this.toggleSignIn}/>}
+        {signIn && <SignInModal {...this.props} hide={this.toggleSignIn}/>}
       </div>
     )
   }
