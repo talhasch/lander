@@ -12,6 +12,12 @@ import jasmine from '../../../images/jasmine.jpg';
 import melissa from '../../../images/melissa.jpg';
 import steven from '../../../images/steven.jpg';
 
+import beautifulPng from '../../../images/features/beautiful.png';
+import freePng from '../../../images/features/free.png';
+import cryptoPng from '../../../images/features/cryptocurrency.png';
+import responsivePng from '../../../images/features/responsive.png';
+
+
 import {
   twitterSvg,
   githubSvg,
@@ -82,7 +88,7 @@ class HomePage extends Component {
             <Row className="feature-list">
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
-                  <img src="/features/beautiful.png" alt="Beautifully Easy"/>
+                  <img src={beautifulPng} alt="Beautifully Easy"/>
                 </div>
                 <div className="content">
                   <div className="title">
@@ -97,7 +103,7 @@ class HomePage extends Component {
 
               <Col className="feature mm" sm={12} md={{span: 6}}>
                 <div className="image">
-                  <img src="/features/free.png" alt="Free & Unlimited"/>
+                  <img src={freePng} alt="Free & Unlimited"/>
                 </div>
                 <div className="content">
                   <div className="title">
@@ -112,7 +118,7 @@ class HomePage extends Component {
 
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
-                  <img src="/features/cryptocurrency.png" alt="Cryptocurrency Friendly"/>
+                  <img src={cryptoPng} alt="Cryptocurrency Friendly"/>
                 </div>
                 <div className="content">
                   <div className="title">
@@ -126,7 +132,7 @@ class HomePage extends Component {
 
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
-                  <img src="/features/responsive.png" alt="Responsive"/>
+                  <img src={responsivePng} alt="Responsive"/>
                 </div>
                 <div className="content">
                   <div className="title">
