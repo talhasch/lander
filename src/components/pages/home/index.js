@@ -17,7 +17,6 @@ import freePng from '../../../images/features/free.png';
 import cryptoPng from '../../../images/features/cryptocurrency.png';
 import responsivePng from '../../../images/features/responsive.png';
 
-
 import {
   twitterSvg,
   githubSvg,
@@ -51,8 +50,6 @@ class HomePage extends Component {
                 <Nav.Link href="#features">Features</Nav.Link>
                 <Nav.Link href="#get-started">Get Started</Nav.Link>
                 <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
-                <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
-                          rel="noopener noreferrer">Blockstack</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -78,7 +75,6 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-
         <section className="features" id="features">
           <div className="section-container">
             <div className="section-header">
@@ -231,10 +227,6 @@ class HomePage extends Component {
                 </div>
                 <div className="menu-item">
                   <a href="mailto:hello@landr.me">Contact</a>
-                </div>
-                <div className="menu-item">
-                  <a href="https://github.com/talhasch/lander/blob/master/roadmap.md" target="_blank"
-                     rel="noopener noreferrer">Roadmap</a>
                 </div>
               </Col>
               <Col className="social-menu" sm={12} md={3}>
