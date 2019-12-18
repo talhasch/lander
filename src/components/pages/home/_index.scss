@@ -457,3 +457,67 @@
     }
   }
 }
+
+
+.sign-in-dialog {
+
+  .modal-header {
+    padding: 0;
+    height: 0;
+    border-bottom: 0;
+    position: relative;
+
+    button.close {
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      z-index: 1;
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 160px;
+
+    @media (min-width: $lg-break) {
+      flex-direction: row;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+
+    .left-side {
+      text-align: center;
+      border-bottom: 1px solid $gray-300;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+
+      @media (min-width: $lg-break) {
+        width: 48%;
+        border-bottom: 0;
+        border-right: 1px solid $gray-300;
+        margin: 0 20px 0 0;
+        padding: 0 20px 0 0;
+      }
+
+      .logo {
+        margin-bottom: 12px;
+      }
+    }
+
+    .right-side {
+      flex-grow: 1;
+
+      .title {
+        font-size: 16px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      font-size: 13px;
+    }
+  }
+}

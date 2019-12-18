@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import {userSession} from '../../../blockstack-config';
 
-import {Nav, Navbar, Button, Row, Col} from 'react-bootstrap';
+import {Nav, Navbar, Button, Row, Col, Modal} from 'react-bootstrap';
 
 import landerLogo from '../../../images/lander-512.png';
 
@@ -21,9 +21,9 @@ import {
   twitterSvg,
   githubSvg,
   phSvg
-} from '../../../svg'
+} from '../../../svg';
 
-class HomePage extends Component {
+class SignInModal extends Component {
   signIn = (e) => {
     e.preventDefault();
 
@@ -39,6 +39,52 @@ class HomePage extends Component {
   };
 
   render() {
+    const {onCancel} = this.props;
+
+    return <Modal show onHide={onCancel} centered size="lg" className="sign-in-dialog">
+      <Modal.Header closeButton/>
+      <Modal.Body>
+        <div className="left-side">
+          <div className="logo">
+            <img src={landerLogo} alt="Logo" width={40}/>
+          </div>
+          <p>Login to get started.</p>
+          <Button onClick={this.signIn}>Continue with Blockstack</Button>
+        </div>
+        <div className="right-side">
+          <p className="title">What is Blockstack?</p>
+          <p>Lander is built using Blockstack infrastructure, allowing us to provide decentralized encrypted
+            storage.</p>
+          <p>Blockstack ID provides user-controlled login and storage that enable you to take back control of your
+            identity and data.</p>
+        </div>
+      </Modal.Body>
+    </Modal>;
+  }
+}
+
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      signIn: false
+    }
+  }
+
+  toggleSignIn = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    const {signIn} = this.state;
+
+    this.setState({signIn: !signIn});
+  };
+
+  render() {
+    const {signIn} = this.state;
+
     return (
       <div className="home-wrapper">
         <div className="section-container">
@@ -49,7 +95,7 @@ class HomePage extends Component {
               <Nav className="ml-auto">
                 <Nav.Link href="#features">Features</Nav.Link>
                 <Nav.Link href="#get-started">Get Started</Nav.Link>
-                <Nav.Link href="#sign-in" onClick={this.signIn}>Sign In</Nav.Link>
+                <Nav.Link href="#login" onClick={this.toggleSignIn}>Sign In</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -69,7 +115,7 @@ class HomePage extends Component {
             <div className="intro-content">
               <h1 className="main-title">Your personal home page on decentralized internet</h1>
               <p className="description">Lander lets you create your personal home page in just a few minutes.</p>
-              <Button onClick={this.signIn} variant="sign-in" size="lg">
+              <Button onClick={this.toggleSignIn} variant="sign-in" size="lg">
                 Get your free page
               </Button>
             </div>
@@ -143,7 +189,7 @@ class HomePage extends Component {
           </div>
         </section>
         <div className="aM">
-          <Button onClick={this.signIn} variant="sign-in" size="lg">
+          <Button onClick={this.toggleSignIn} variant="sign-in" size="lg">
             Get your free page
           </Button>
         </div>
@@ -205,7 +251,7 @@ class HomePage extends Component {
                   <a href="#get-started">Get Started</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#sign-in" onClick={this.signIn}>Sign In</a>
+                  <a href="#sign-in" onClick={this.toggleSignIn}>Sign In</a>
                 </div>
               </Col>
               <Col className="footer-menu" sm={12} md={3}>
@@ -246,6 +292,7 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
+        {signIn && <SignInModal {...this.props} onCancel={this.toggleSignIn}/>}
       </div>
     )
   }
