@@ -4,7 +4,7 @@ import {Form, Button} from 'react-bootstrap';
 
 import * as blockStack from 'blockstack';
 
-import {userSession} from '../../../../blockstack-config';
+import {userSession, getUsername} from '../../../../blockstack-config';
 
 import {extractAccounts} from '../../../../helper/extract-user-props';
 
@@ -48,7 +48,7 @@ class WelcomePage extends Component {
 
     getFlagFile().then(resp => {
       if (JSON.parse(resp) === 'ok') {
-        setFlagLocal(userData.username, 'ok');
+        setFlagLocal(getUsername(), 'ok');
         history.push('/app/editor');
         return;
       }
@@ -124,7 +124,6 @@ class WelcomePage extends Component {
   };
 
   create = () => {
-    const userData = userSession.loadUserData();
     const {name, description, photo} = this.state;
 
     const accounts = extractAccounts('social');
@@ -141,7 +140,7 @@ class WelcomePage extends Component {
 
     return Promise.all([prms1, prms2]).then(() => {
       return putFlagFile('ok').then(() => {
-        setFlagLocal(userData.username, 'ok');
+        setFlagLocal(getUsername(), 'ok');
         setTimeout(() => {
           window.location.href = '/app/editor'
         }, 200);

@@ -1,4 +1,4 @@
-import {Model} from 'radiks';
+import {Model} from 'radiks-patch';
 
 export class Alias extends Model {
   static className = 'alias';
@@ -24,6 +24,20 @@ export class UserPref extends Model {
     },
     directory: {
       type: Boolean,
+      decrypted: true,
+    }
+  }
+}
+
+export class UserBucketUrl extends Model {
+  static className = 'user_bucket_url';
+  static schema = {
+    username: {
+      type: String,
+      decrypted: true,
+    },
+    url: {
+      type: String,
       decrypted: true,
     }
   }

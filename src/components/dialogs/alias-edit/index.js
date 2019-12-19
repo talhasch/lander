@@ -105,7 +105,7 @@ class AliasEditDialog extends Component {
     const username = getUsername();
 
     const checkList = await Alias.fetchList({alias});
-    if (checkList.length > 0 && checkList.find(x => x.attrs.username !== username)) {
+    if (checkList.length > 0 && checkList.find(x => !x.isOwnedByUser())) {
       this.setState({aliasInUse: true, updating: false});
       this.focus();
       return;

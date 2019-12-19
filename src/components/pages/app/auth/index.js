@@ -4,7 +4,31 @@ eslint-disable jsx-a11y/anchor-is-valid
 
 import React, {Component} from 'react';
 
-import {userSession} from '../../../../blockstack-config';
+import {User} from 'radiks-patch';
+
+import {userSession, getUsername, getUserAppBucketUrl} from '../../../../blockstack-config';
+
+import isRealUsername from '../../../../helper/is-real-username';
+
+import {UserBucketUrl} from '../../../../model';
+
+const registerUserBucketUrl = async () => {
+  const docs = await UserBucketUrl.fetchOwnList({sort: 'createdAt'});
+  const newAttrs = {
+    username: getUsername(),
+    url: getUserAppBucketUrl()
+  };
+
+  if (docs.length > 0) {
+    const [doc,] = docs;
+    doc.update(newAttrs);
+    await doc.save();
+    return;
+  }
+
+  const doc = new UserBucketUrl(newAttrs);
+  await doc.save();
+};
 
 class AuthPage extends Component {
 
@@ -17,30 +41,47 @@ class AuthPage extends Component {
   }
 
   componentDidMount() {
+    this.doAuth().then();
+  }
+
+  doAuth = async () => {
     const {history} = this.props;
 
     if (userSession.isSignInPending()) {
-      userSession.handlePendingSignIn()
-        .then(userData => {
-          const {login} = this.props;
 
-          if (userData.username) {
-            login(userData);
-            history.push('/app/editor');
-            return;
-          }
-
-          // if username not exists
-          this.setState(({error: true}));
-
-        }).catch(() => {
+      let userData;
+      try {
+        userData = await userSession.handlePendingSignIn();
+        await User.createWithCurrentUser();
+      } catch (e) {
         this.setState(({error: true}));
-      });
+        return;
+      }
+
+      if (userData) {
+        const {login} = this.props;
+        const username = getUsername();
+
+        const _userData = Object.assign({}, userData, {username});
+
+        // Register bucket urls for non-username accounts
+        if (!isRealUsername(username)) {
+          await registerUserBucketUrl();
+        }
+
+        login(_userData);
+        history.push('/app/editor');
+        return;
+      }
+
+      this.setState(({error: true}));
     }
-  }
+  };
 
   signIn = (e) => {
     e.preventDefault();
+
+    userSession.signUserOut();
     userSession.redirectToSignIn();
   };
 
@@ -49,9 +90,9 @@ class AuthPage extends Component {
 
     if (error) {
       return <div className="auth-error">
-        <p>Sorry :(</p>
-        <p>An error has occurred while signing in.</p>
-        <p>Please <a href="#" onClick={this.signIn}><strong>click here</strong></a> to try again.</p>
+        <p><strong>Sorry :(</strong></p>
+        <p>Something went wrong.</p>
+        <p><a href="#" onClick={this.signIn}><strong>Click here</strong></a> to try again.</p>
       </div>;
     }
 

@@ -2332,6 +2332,11 @@ blueimp-md5@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.10.0.tgz#02f0843921f90dca14f5b8920a38593201d6964d"
 
+blueimp-md5@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.12.0.tgz#be7367938a889dec3ffbb71138617c117e9c130a"
+  integrity sha512-zo+HIdIhzojv6F1siQPqPFROyVy7C50KzHv/k/Iz+BtvtVzSHXiMXOpq2wCfNkeBqdCv+V8XOV96tsEt2W/3rQ==
+
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.11.8, bn.js@^4.4.0:
   version "4.11.8"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
@@ -8187,10 +8192,12 @@ querystringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.0.tgz#7ded8dfbf7879dcc60d0a644ac6754b283ad17ef"
 
-radiks@^0.2.1:
+radiks-patch@^0.2.1:
   version "0.2.1"
-  resolved "https://registry.yarnpkg.com/radiks/-/radiks-0.2.1.tgz#11d03c7d7dc6fb662a812c8b865d59ee551f3693"
+  resolved "https://registry.yarnpkg.com/radiks-patch/-/radiks-patch-0.2.1.tgz#114a5f3c4e127dd5c1057f570c6bfcea40ef272f"
+  integrity sha512-6M9wc6gp8FE2/SroTsLFFS/NB0dt/gdBhCUAFZSPIXdbLOAAa1Odp6dmviy0pUwIfDHeB4caF9UkoOmQYEeLUg==
   dependencies:
+    blueimp-md5 "^2.12.0"
     faker "^4.1.0"
     qs "^6.5.2"
     query-string "^6.2.0"

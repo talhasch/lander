@@ -318,9 +318,10 @@ export const login = (userData) => {
 
     let aliases = await Alias.fetchOwnList({sort: 'createdAt'});
     if (aliases.length > 0) {
-      const {attrs} = aliases[0];
+      const [al,] = aliases;
+      const {attrs} = al;
 
-      if (attrs.username === username && attrs.alias !== '') {
+      if (al.isOwnedByUser() && attrs.alias !== '') {
         dispatch(loadAliasAct(attrs.alias));
       }
     }

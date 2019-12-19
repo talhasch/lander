@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 import {Route} from 'react-router-dom';
 
-import {userSession} from '../blockstack-config';
+import {getUsername, userSession} from '../blockstack-config';
 
 import {addLocaleData, IntlProvider} from 'react-intl';
 
@@ -29,9 +29,9 @@ export default class App extends Component {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData();
       const {store} = this.props;
-      if (userData.username) {
-        store.dispatch(login(userData));
-      }
+
+      const _userData = Object.assign({}, userData, {username: getUsername()});
+      store.dispatch(login(_userData));
     }
   }
 

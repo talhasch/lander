@@ -7,6 +7,8 @@ import * as axios from 'axios';
 
 import {aliasRe, publishedFile} from '../src/constants';
 
+import isRealUsername from '../src/helper/is-real-username';
+
 const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
 
@@ -82,14 +84,14 @@ router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defa
 const pageRenderer = async (req, res, next) => {
   const {username} = req.params;
 
-  // Alias matched. Query radiks.
+  // Alias check
   if (aliasRe.test(username)) {
-
     const u = `${radiskUrl}/radiks/models/find?alias=${username}&radiksType=alias&sort=createdAt`;
 
     try {
       const resp = await axios.get(u).then(x => x.data);
       if (resp.total > 0) {
+        // Redirect to real username
         res.redirect(`/${resp.results[0].username}`);
         return;
       }
@@ -99,8 +101,24 @@ const pageRenderer = async (req, res, next) => {
     }
   }
 
+  let fileUrl;
+
+  if (isRealUsername(username)) {
+    fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl(req));
+  } else {
+    const u = `${radiskUrl}/radiks/models/find?username=${username}&radiksType=user_bucket_url&sort=createdAt`;
+    try {
+      const resp = await axios.get(u).then(x => x.data);
+      if (resp.total > 0) {
+        fileUrl = `${resp.results[0].url}${publishedFile}`;
+      }
+    } catch (e) {
+      res.send(indexHtml);
+      return;
+    }
+  }
+
   try {
-    const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl(req));
     const published = await axios.get(fileUrl).then(x => x.data);
 
     const {name, photo} = published;

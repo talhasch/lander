@@ -9,6 +9,9 @@ import {publishedFile} from '../../../constants';
 
 import getBaseUrl from '../../../utils/get-base-url';
 
+import isRealUsername from '../../../helper/is-real-username';
+import {UserBucketUrl} from '../../../model';
+
 import ProfileBg from '../../profile-bg';
 import ProfilePhoto from '../../profile-photo';
 import ProfileName from '../../profile-name';
@@ -73,10 +76,24 @@ class ProfilePage extends Component {
     const {username} = match.params;
 
     let data;
+    let fileUrl;
+
+    if (isRealUsername(username)) {
+      fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
+    } else {
+      const docs = await UserBucketUrl.fetchList({username});
+      if (docs.length > 0) {
+        const [doc,] = docs;
+        const bucketUrl = doc.attrs.url;
+        fileUrl = `${bucketUrl}${publishedFile}`;
+      }
+    }
+
+    if (!fileUrl) {
+      return;
+    }
 
     try {
-      const fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl());
-      console.log(`user file: ${fileUrl}`);
       data = await axios.get(fileUrl).then(x => x.data);
     } catch (e) {
       return false;
