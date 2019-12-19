@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import {getUserAppBucketUrl} from '../../../../blockstack-config';
-
 import ProfilePhoto from '../../../profile-photo';
 import ProfileName from '../../../profile-name';
 import ProfileDescription from '../../../profile-description';
