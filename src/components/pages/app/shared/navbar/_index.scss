@@ -1,3 +1,4 @@
+/*
 .navbar {
   .public-link {
     svg {
@@ -13,6 +14,119 @@
         a {
           font-weight: 700;
         }
+      }
+    }
+  }
+}
+*/
+
+// $gray-800
+
+.nav-bar {
+  height: 50px;
+  background: $gray-800;
+  display: flex;
+  justify-content: space-between;
+
+  .brand {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .user-menu {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    .f-letter {
+      width: 100%;
+      height: 100%;
+      background: $gray-600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: $white;
+
+      span {
+        &:after {
+          display: inline-block;
+          margin-left: .255em;
+          vertical-align: .255em;
+          content: "";
+          border-top: 4px solid;
+          border-right: 4px solid transparent;
+          border-bottom: 0;
+          border-left: 4px solid transparent;
+        }
+      }
+    }
+
+    .menu-list {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 50px;
+      width: 200px;
+      height: auto;
+      background: $gray-100;
+      border: 1px solid darken($gray-100, 4);
+
+      .username {
+        color: $gray-500;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        padding-left: 3px;
+        display: block;
+      }
+
+      .menu-list-item {
+        display: flex;
+        padding: 8px;
+        color: $gray-600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        align-items: center;
+        justify-content: flex-end;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          margin: 0 6px;
+          fill: $gray-500;
+        }
+
+        &:hover {
+          color: $gray-700;
+          background: $gray-300;
+        }
+      }
+    }
+
+    &:hover {
+      .user-image {
+        opacity: 0.5;
+      }
+
+      .menu-list {
+        display: block;
       }
     }
   }

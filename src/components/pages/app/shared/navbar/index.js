@@ -2,24 +2,11 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Navbar, Nav, NavDropdown, OverlayTrigger, Tooltip} from 'react-bootstrap';
-
 import landerLogo from '../../../../../images/lander-256.png';
 
-import {linkExternal} from '../../../../../svg';
-import makeUserUrl from "../../../../../helper/user-url";
+import {logOutSvg, settingsSvg} from '../../../../../svg';
 
 class NavBar extends Component {
-
-  togglePreferences = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    const {toggleUiProp} = this.props;
-    toggleUiProp('preferences');
-    return false;
-  };
-
   toggleSettings = (e) => {
     if (e) {
       e.preventDefault();
@@ -42,42 +29,28 @@ class NavBar extends Component {
     history.push('/');
   };
 
-  userUrl = () => {
-    const {user} = this.props;
-    const suffix = user.alias || user.username;
-    return makeUserUrl(suffix);
-  };
-
   render() {
     const {user} = this.props;
-    const {username} = user;
+    const fLetter = user.username.split('')[0].toUpperCase();
 
     return (
-      <Navbar bg="dark" variant="dark" expand="sm">
-        <Navbar.Brand href="#" onClick={this.goHome}>
-          <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/></Navbar.Brand>
-        <Navbar.Toggle/>
-        <Navbar.Collapse>
-          <Nav className="ml-auto">
-            <NavDropdown title={username}>
-              <NavDropdown.Item onClick={this.togglePreferences}>Preferences</NavDropdown.Item>
-              <NavDropdown.Item onClick={this.toggleSettings}>Settings</NavDropdown.Item>
-              <NavDropdown.Item onClick={this.logout}>Logout</NavDropdown.Item>
-            </NavDropdown>
-            {user.published &&
-            <OverlayTrigger
-              placement="bottom"
-              delay={1000}
-              overlay={
-                <Tooltip>Go to your public page</Tooltip>
-              }>
-              <Nav.Link href={this.userUrl()} target="_blank"
-                        className="public-link d-none d-sm-block">{linkExternal}</Nav.Link>
-            </OverlayTrigger>
-            }
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div className="nav-bar">
+        <div className="brand">
+          <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/>
+        </div>
+        <div className="user-menu">
+          <div className="f-letter"><span>{fLetter}</span></div>
+          <div className="menu-list">
+            <span className="username">{'@'}{user.username}</span>
+            <a className="menu-list-item" onClick={this.toggleSettings}>
+              Settings {settingsSvg}
+            </a>
+            <a className="menu-list-item" onClick={this.logout}>
+              Logout {logOutSvg}
+            </a>
+          </div>
+        </div>
+      </div>
     )
   }
 }
