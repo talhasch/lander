@@ -4,6 +4,8 @@ eslint-disable jsx-a11y/anchor-is-valid
 
 import React, {Component} from 'react';
 
+import {Link} from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 import landerLogo from '../../../../../images/lander-256.png';
@@ -39,9 +41,9 @@ class NavBar extends Component {
 
     return (
       <div className="nav-bar">
-        <div className="brand">
+        <Link to="/" className="brand">
           <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/>
-        </div>
+        </Link>
         <div className="user-menu">
           <div className="f-letter"><span>{fLetter}</span></div>
           <div className="menu-list">
