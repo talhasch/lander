@@ -41,7 +41,13 @@ class AuthPage extends Component {
   }
 
   componentDidMount() {
-    this.doAuth().then();
+    fetch('/reserved-user-names.json')
+      .then(r => r.json())
+      .then(d => {
+        window._reservedUsersNames = d;
+
+        return this.doAuth();
+      });
   }
 
   doAuth = async () => {
