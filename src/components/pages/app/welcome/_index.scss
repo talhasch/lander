@@ -36,6 +36,7 @@
 
     .form-buttons {
       text-align: center;
+
       .btn {
         &:not(:last-child) {
           margin-right: 20px;
@@ -48,10 +49,13 @@
     }
 
     .set-profile-image {
-      width: 400px;
+      width: 220px;
       text-align: center;
       margin: 0 auto 80px auto;
 
+      @media (min-width: $md-break) {
+        width: 400px;
+      }
     }
   }
 }
@@ -74,7 +78,7 @@
     align-items: center;
 
     .zoom-label {
-        width: 80px;
+      width: 80px;
     }
 
     .zoom-control {
