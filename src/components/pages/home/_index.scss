@@ -510,6 +510,11 @@
 
     .right-side {
       flex-grow: 1;
+      text-align: center;
+
+      @media (min-width: $lg-break) {
+        text-align: left;
+      }
 
       .title {
         font-size: 16px;
