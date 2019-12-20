@@ -10,12 +10,12 @@
     background: lighten($blue, 2);
     border-radius: 50%;
     display: flex;
-    height: 32px;
+    height: 30px;
     justify-content: center;
-    width: 32px;
+    width: 30px;
 
     &:not(:last-child) {
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     &.not-set {
@@ -31,6 +31,10 @@
     @media (min-width: $sm-break) {
       width: 40px;
       height: 40px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
 
       svg {
         height: 22px;
