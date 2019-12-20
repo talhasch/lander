@@ -11,6 +11,7 @@ import isRealUsername from '../src/helper/is-real-username';
 
 const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
+const reservedUserJson = fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8');
 
 const getBaseUrl = (req) => {
   return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
@@ -41,6 +42,10 @@ router.use('^/favicon.ico$', (req, res, next) => {
 
 router.use('^/manifest.json', (req, res, next) => {
   res.send(manifestJson);
+});
+
+router.use('^/reserved-user-names.json', (req, res, next) => {
+  res.send(reservedUserJson);
 });
 
 const prepareMeta = (title, description, url, image) => {
