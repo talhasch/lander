@@ -1,3 +1,24 @@
+@keyframes auth-logo-loading-anim {
+  0% {
+    opacity: 0.1;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
 
 .auth-error {
   padding: 20px;
@@ -5,3 +26,16 @@
   margin: 40px auto 0 auto;
   text-align: center;
 }
+
+.auth-loading {
+  width: 100px;
+  height: 100px;
+  margin: 40px auto 0 auto;
+  animation: auth-logo-loading-anim 1.4s infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+

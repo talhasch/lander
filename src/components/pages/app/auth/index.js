@@ -12,6 +12,8 @@ import isRealUsername from '../../../../helper/is-real-username';
 
 import {UserBucketUrl} from '../../../../model';
 
+import logoImg from '../../../../images/lander-512.png'
+
 const registerUserBucketUrl = async () => {
   const docs = await UserBucketUrl.fetchOwnList({sort: 'createdAt'});
   const newAttrs = {
@@ -102,7 +104,9 @@ class AuthPage extends Component {
       </div>;
     }
 
-    return null;
+    return <div className="auth-loading">
+      <img src={logoImg} alt="Logo"/>
+    </div>;
   }
 }
 
