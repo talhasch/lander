@@ -6,7 +6,8 @@ import {
   instagramSvg,
   linkedInSvg,
   twitterSvg,
-  youtubeSvg
+  youtubeSvg,
+  steemSvg
 } from "./svg";
 
 export const draftFile = 'lander.draft.file.db.json';
@@ -28,7 +29,8 @@ export const socialAccountTypes = [
   {id: 'facebook', name: 'Facebook', 'icon': facebookSvg, label: 'facebook.com/', placeholder: 'username'},
   {id: 'instagram', name: 'Instagram', 'icon': instagramSvg, label: 'instagram.com/', placeholder: 'username'},
   {id: 'linkedIn', name: 'LinkedIn', 'icon': linkedInSvg, label: 'linkedin.com/in/', placeholder: 'username'},
-  {id: 'youtube', name: 'Youtube', 'icon': youtubeSvg, label: 'youtube.com/', placeholder: 'channel address'}
+  {id: 'youtube', name: 'Youtube', 'icon': youtubeSvg, label: 'youtube.com/', placeholder: 'channel address'},
+  {id: 'steem', name: 'Steem', 'icon': steemSvg, label: 'steemit.com/', placeholder: 'username'}
 ];
 
 export const dataModel = () => (

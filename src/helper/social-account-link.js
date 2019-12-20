@@ -12,6 +12,8 @@ export default (network, address) => {
       return `https://linkedin.com/in/${address}`;
     case 'youtube':
       return `https://youtube.com/${address}`;
+    case 'steem':
+      return `https://steemit.com/@${address}`;
     default:
       return '';
   }
