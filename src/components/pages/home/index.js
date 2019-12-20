@@ -28,7 +28,9 @@ class SignInModal extends Component {
     const {hide} = this.props;
     hide();
 
-    userSession.redirectToSignIn();
+    setTimeout(() => {
+      userSession.redirectToSignIn();
+    }, 300);
   };
 
   render() {
