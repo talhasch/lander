@@ -29,6 +29,7 @@ class SocialAccounts extends Component {
     if (editMode) {
 
       return <div className="social-accounts edit-mode">
+        <EditBtn {...this.props} onClick={this.edit}/>
 
         {(() => {
           if (userHasAny) {
@@ -52,8 +53,6 @@ class SocialAccounts extends Component {
             })}
           </>
         })()}
-
-        <EditBtn {...this.props} onClick={this.edit}/>
       </div>;
     }
 

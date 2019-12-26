@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import wrapWithIntl from '../../utils/test-helper';
 
 
-it('1- in edit mode. no accounts provided. should show placeholder for all accounts', () => {
+it('1- in edit mode. no accounts provided. should return null', () => {
   const props = {
     editMode: true
   };

@@ -18,8 +18,9 @@ import AccountEditDialog from '../../../dialogs/social-account-edit';
 import WalletEditDialog from '../../../dialogs/wallet-edit';
 import ShareDialog from '../../../dialogs/share';
 import AliasEditDialog from '../../../dialogs/alias-edit';
-
 import BioEditDialog from '../../../dialogs/bio-edit';
+
+import ExtraMenu from './extra-menu';
 
 import Spinner from '../../../elements/spinner';
 
@@ -89,6 +90,7 @@ class EditorPage extends Component {
               <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
               <SocialAccounts accounts={user.draft.accounts} editMode={!ui.preview} {...this.props}/>
               <WalletAccounts accounts={user.draft.wallets} editMode={!ui.preview} {...this.props}/>
+              <ExtraMenu {...this.props} />
             </div>
           </div>
         </div>

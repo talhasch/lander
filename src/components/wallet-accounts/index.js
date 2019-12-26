@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {FormattedMessage} from 'react-intl';
-
 import EditBtn from '../elements/edit-btn';
 
 import {walletAccountTypes as accountTypes} from '../../constants';
@@ -22,22 +20,32 @@ class WalletAccounts extends Component {
 
     const {accounts, editMode} = this.props;
     const wAccounts = {};
+    const userHasAny = !!accountTypes.find(x => accounts[x.id]);
 
     for (let x = 0; x < accountTypes.length; x++) {
       const i = accountTypes[x];
       wAccounts[i.id] = accounts[i.id];
     }
 
+    if(!userHasAny){
+      return null;
+    }
+
     if (editMode) {
       return <div className="wallet-accounts edit-mode">
         <EditBtn {...this.props} onClick={this.edit}/>
+
         {accountTypes.map((t) => {
           const ac = wAccounts[t.id];
+
+          if(!ac){
+            return null;
+          }
 
           return <div key={t.id} className="wallet-account">
             <div className="icon">{t.icon}</div>
             <div className="address">
-              {ac ? ac : <FormattedMessage id="wallet-accounts.not-set" values={{n: t.name}}/>}
+              {ac}
             </div>
           </div>
         })}
