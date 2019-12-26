@@ -8,9 +8,7 @@ import {FormattedHTMLMessage} from 'react-intl';
 
 import EditBtn from '../elements/edit-btn';
 
-import socialAccountLink from '../../helper/social-account-link'
-
-import {accountTypes} from '../../social';
+import {accountTypes, accountLink as socialAccountLink} from '../../social';
 
 class SocialAccounts extends Component {
 
