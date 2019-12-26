@@ -4,8 +4,6 @@ eslint-disable jsx-a11y/anchor-is-valid
 
 import React, {Component} from 'react';
 
-import {Link} from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 
 import landerLogo from '../../../../../images/lander-256.png';
@@ -41,9 +39,9 @@ class NavBar extends Component {
 
     return (
       <div className="nav-bar">
-        <Link to="/" className="brand">
+        <a onClick={this.goHome} className="brand" href="/">
           <img src={landerLogo} alt="Logo" height={30} className="d-inline-block align-top"/>
-        </Link>
+        </a>
         <div className="user-menu">
           <div className="f-letter"><span>{fLetter}</span></div>
           <div className="menu-list">
@@ -68,8 +66,7 @@ NavBar.propTypes = {
   toggleUiProp: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    published: PropTypes.shape({})
+    username: PropTypes.string.isRequired
   })
 };
 

@@ -10,7 +10,7 @@ jest.mock('react-dom', () => ({
   findDOMNode: () => ({}),
 }));
 
-it('not published', () => {
+it('default render', () => {
   const props = {
     history: () => {
 
@@ -23,33 +23,6 @@ it('not published', () => {
     },
     user: {
       username: 'lorem'
-    }
-  };
-
-  const component = wrapWithIntl(<NavBar {...props} />);
-
-  const tree = renderer
-    .create(component)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-
-it('published', () => {
-  const props = {
-    history: () => {
-
-    },
-    toggleUiProp: () => {
-
-    },
-    logout: () => {
-
-    },
-    user: {
-      username: 'lorem',
-      published: {}
     }
   };
 

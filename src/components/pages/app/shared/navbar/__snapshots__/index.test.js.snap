@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`not published 1`] = `
-<nav
-  className="navbar navbar-expand-sm navbar-dark bg-dark"
+exports[`default render 1`] = `
+<div
+  className="nav-bar"
 >
   <a
-    className="navbar-brand"
-    href="#"
+    className="brand"
+    href="/"
     onClick={[Function]}
   >
     <img
@@ -16,170 +16,57 @@ exports[`not published 1`] = `
       src="lander-256.png"
     />
   </a>
-  <button
-    aria-label="Toggle navigation"
-    className="navbar-toggler"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="navbar-toggler-icon"
-    />
-  </button>
   <div
-    aria-expanded={null}
-    className="navbar-collapse collapse"
+    className="user-menu"
   >
     <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
+      className="f-letter"
     >
-      <div
-        className="dropdown nav-item"
-        onKeyDown={[Function]}
-      >
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle nav-link"
-          data-rb-event-key={null}
-          href="#"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-        >
-          lorem
-        </a>
-        <div
-          className="dropdown-menu"
-        >
-          <a
-            className="dropdown-item"
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Settings
-          </a>
-          <a
-            className="dropdown-item"
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Logout
-          </a>
-        </div>
-      </div>
+      <span>
+        L
+      </span>
     </div>
-  </div>
-</nav>
-`;
-
-exports[`published 1`] = `
-<nav
-  className="navbar navbar-expand-sm navbar-dark bg-dark"
->
-  <a
-    className="navbar-brand"
-    href="#"
-    onClick={[Function]}
-  >
-    <img
-      alt="Logo"
-      className="d-inline-block align-top"
-      height={30}
-      src="lander-256.png"
-    />
-  </a>
-  <button
-    aria-label="Toggle navigation"
-    className="navbar-toggler"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="navbar-toggler-icon"
-    />
-  </button>
-  <div
-    aria-expanded={null}
-    className="navbar-collapse collapse"
-  >
     <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
+      className="menu-list"
     >
-      <div
-        className="dropdown nav-item"
-        onKeyDown={[Function]}
+      <span
+        className="username"
       >
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle nav-link"
-          data-rb-event-key={null}
-          href="#"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-        >
-          lorem
-        </a>
-        <div
-          className="dropdown-menu"
-        >
-          <a
-            className="dropdown-item"
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Settings
-          </a>
-          <a
-            className="dropdown-item"
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Logout
-          </a>
-        </div>
-      </div>
+        @
+        lorem
+      </span>
       <a
-        className="public-link d-none d-sm-block nav-link"
-        data-rb-event-key="http://localhost/lorem"
-        href="http://localhost/lorem"
-        onBlur={[Function]}
+        className="menu-list-item"
         onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        target="_blank"
       >
+        Settings 
         <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-external-link-square-alt fa-w-14"
-          data-icon="external-link-square-alt"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          viewBox="0 0 448 512"
+          viewBox="0 0 512 512"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"
-            fill="currentColor"
+            d="M413.967 276.8c1.06-6.235 1.06-13.518 1.06-20.8s-1.06-13.518-1.06-20.8l44.667-34.318c4.26-3.118 5.319-8.317 2.13-13.518L418.215 115.6c-2.129-4.164-8.507-6.235-12.767-4.164l-53.186 20.801c-10.638-8.318-23.394-15.601-36.16-20.801l-7.448-55.117c-1.06-4.154-5.319-8.318-10.638-8.318h-85.098c-5.318 0-9.577 4.164-10.637 8.318l-8.508 55.117c-12.767 5.2-24.464 12.482-36.171 20.801l-53.186-20.801c-5.319-2.071-10.638 0-12.767 4.164L49.1 187.365c-2.119 4.153-1.061 10.399 2.129 13.518L96.97 235.2c0 7.282-1.06 13.518-1.06 20.8s1.06 13.518 1.06 20.8l-44.668 34.318c-4.26 3.118-5.318 8.317-2.13 13.518L92.721 396.4c2.13 4.164 8.508 6.235 12.767 4.164l53.187-20.801c10.637 8.318 23.394 15.601 36.16 20.801l8.508 55.117c1.069 5.2 5.318 8.318 10.637 8.318h85.098c5.319 0 9.578-4.164 10.638-8.318l8.518-55.117c12.757-5.2 24.464-12.482 36.16-20.801l53.187 20.801c5.318 2.071 10.637 0 12.767-4.164l42.549-71.765c2.129-4.153 1.06-10.399-2.13-13.518l-46.8-34.317zm-158.499 52c-41.489 0-74.46-32.235-74.46-72.8s32.971-72.8 74.46-72.8 74.461 32.235 74.461 72.8-32.972 72.8-74.461 72.8z"
+          />
+        </svg>
+      </a>
+      <a
+        className="menu-list-item"
+        onClick={[Function]}
+      >
+        Logout 
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M192 277.4h189.7l-43.6 44.7L368 352l96-96-96-96-31 29.9 44.7 44.7H192v42.8z"
+          />
+          <path
+            d="M255.7 421.3c-44.1 0-85.5-17.2-116.7-48.4-31.2-31.2-48.3-72.7-48.3-116.9 0-44.1 17.2-85.7 48.3-116.9 31.2-31.2 72.6-48.4 116.7-48.4 44 0 85.3 17.1 116.5 48.2l30.3-30.3c-8.5-8.4-17.8-16.2-27.7-23.2C339.7 61 298.6 48 255.7 48 141.2 48 48 141.3 48 256s93.2 208 207.7 208c42.9 0 84-13 119-37.5 10-7 19.2-14.7 27.7-23.2l-30.2-30.2c-31.1 31.1-72.5 48.2-116.5 48.2zM448.004 256.847l-.849-.848.849-.849.848.849z"
           />
         </svg>
       </a>
     </div>
   </div>
-</nav>
+</div>
 `;
