@@ -10,7 +10,7 @@ import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify';
 
-import {socialAccountTypes} from '../../../constants';
+import {accountTypes} from '../../../social';
 
 class AccountEditDialog extends Component {
   hide = () => {
@@ -51,7 +51,7 @@ class AccountEditDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="account-edit-dialog-content">
-              {socialAccountTypes.map((i) =>
+              {accountTypes.map((i) =>
                 (<InputGroup className="mb-3" key={i.id}>
                   <InputGroup.Prepend>
                     <InputGroup.Text>

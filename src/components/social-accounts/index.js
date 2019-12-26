@@ -10,7 +10,7 @@ import EditBtn from '../elements/edit-btn';
 
 import socialAccountLink from '../../helper/social-account-link'
 
-import {socialAccountTypes as accountTypes} from '../../constants';
+import {accountTypes} from '../../social';
 
 class SocialAccounts extends Component {
 

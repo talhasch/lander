@@ -14,7 +14,7 @@ import StyleDialog from '../../../dialogs/style';
 import PhotoUploadDialog from '../../../dialogs/photo-upload';
 import NameEditDialog from '../../../dialogs/name-edit';
 import DescriptionEditDialog from '../../../dialogs/description-edit';
-import AccountEditDialog from '../../../dialogs/account-edit';
+import AccountEditDialog from '../../../dialogs/social-account-edit';
 import WalletEditDialog from '../../../dialogs/wallet-edit';
 import ShareDialog from '../../../dialogs/share';
 import AliasEditDialog from '../../../dialogs/alias-edit';

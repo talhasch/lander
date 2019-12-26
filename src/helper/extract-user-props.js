@@ -1,5 +1,6 @@
 import {userSession} from '../blockstack-config';
-import {socialAccountTypes, walletAccountTypes} from "../constants";
+import {walletAccountTypes} from "../constants";
+import {accountTypes as socialAccountTypes} from '../social';
 
 export const extractAccounts = (type = 'social') => {
   const acs = {};
