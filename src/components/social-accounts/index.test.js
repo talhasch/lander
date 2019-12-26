@@ -10,7 +10,7 @@ jest.mock('react-dom', () => ({
 }));
 
 
-it('in edit mode. no accounts provided. should show all buttons not set.', () => {
+it('1- in edit mode. no accounts provided. should show some buttons with icons', () => {
   const props = {
     editMode: true
   };
@@ -24,7 +24,8 @@ it('in edit mode. no accounts provided. should show all buttons not set.', () =>
   expect(tree).toMatchSnapshot();
 });
 
-it('in edit mode. twitter provided. should show twitter button set all other buttons not set.', () => {
+
+it('2- in edit mode. twitter provided. should show only twitter button.', () => {
   const props = {
     editMode: true,
     accounts: {
@@ -42,7 +43,7 @@ it('in edit mode. twitter provided. should show twitter button set all other but
 });
 
 
-it('not in edit mode. no accounts provided. should render null', () => {
+it('3- not in edit mode. no accounts provided. should render null', () => {
   const props = {};
 
   const component = wrapWithIntl(<SocialAccounts {...props} />);
@@ -55,7 +56,7 @@ it('not in edit mode. no accounts provided. should render null', () => {
 });
 
 
-it('not in edit mode. twitter and github provided', () => {
+it('4- not in edit mode. twitter and github provided', () => {
   const props = {
     accounts: {twitter: 'talhasch', 'github': 'talhasch'}
   }
@@ -68,3 +69,4 @@ it('not in edit mode. twitter and github provided', () => {
 
   expect(tree).toMatchSnapshot();
 });
+
