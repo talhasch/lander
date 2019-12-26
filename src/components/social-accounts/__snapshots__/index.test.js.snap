@@ -8,12 +8,7 @@ exports[`1- in edit mode. no accounts provided. should show some buttons with ic
     className="social-button not-set"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-twitter fa-w-16"
       data-icon="twitter"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -27,12 +22,7 @@ exports[`1- in edit mode. no accounts provided. should show some buttons with ic
     className="social-button not-set"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-facebook-f fa-w-9"
       data-icon="facebook-f"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 264 512"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -46,12 +36,7 @@ exports[`1- in edit mode. no accounts provided. should show some buttons with ic
     className="social-button not-set"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-instagram fa-w-14"
       data-icon="instagram"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 448 512"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -92,12 +77,7 @@ exports[`2- in edit mode. twitter provided. should show only twitter button. 1`]
     className="social-button"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-twitter fa-w-16"
       data-icon="twitter"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -143,12 +123,7 @@ exports[`4- not in edit mode. twitter and github provided 1`] = `
     target="_blank"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-github fa-w-16"
       data-icon="github"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 496 512"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -165,12 +140,7 @@ exports[`4- not in edit mode. twitter and github provided 1`] = `
     target="_blank"
   >
     <svg
-      aria-hidden="true"
-      className="svg-inline--fa fa-twitter fa-w-16"
       data-icon="twitter"
-      data-prefix="fab"
-      focusable="false"
-      role="img"
       viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
     >
