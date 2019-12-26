@@ -33,12 +33,7 @@ exports[`2- in edit mode. bitcoin provided. 1`] = `
       className="icon"
     >
       <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-bitcoin fa-w-16"
         data-icon="bitcoin"
-        data-prefix="fab"
-        focusable="false"
-        role="img"
         viewBox="0 0 512 512"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -70,12 +65,7 @@ exports[`4- not in edit mode. ethereum provided 1`] = `
       className="icon"
     >
       <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-ethereum fa-w-10"
         data-icon="ethereum"
-        data-prefix="fab"
-        focusable="false"
-        role="img"
         viewBox="0 0 320 512"
         xmlns="http://www.w3.org/2000/svg"
       >

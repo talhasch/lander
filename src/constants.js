@@ -1,19 +1,8 @@
-import {
-  bitcoinSvg,
-  ethereumSvg
-} from './svg';
-
 export const draftFile = 'lander.draft.file.db.json';
 export const publishedFile = 'lander.public.file.db.json';
 export const flagFile = 'lander.flag.file.db.json';
 
 export const defaultBgImage = 'wave.jpg';
-
-export const walletAccountTypes = [
-  {id: 'bitcoin', name: 'Bitcoin', 'icon': bitcoinSvg},
-  {id: 'ethereum', name: 'Ethereum', 'icon': ethereumSvg}
-];
-
 
 export const dataModel = () => (
   {

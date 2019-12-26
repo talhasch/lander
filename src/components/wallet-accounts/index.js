@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import EditBtn from '../elements/edit-btn';
 
-import {walletAccountTypes as accountTypes} from '../../constants';
+import {accountTypes} from '../../wallet';
 
 class WalletAccounts extends Component {
 
