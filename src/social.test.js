@@ -19,3 +19,15 @@ it('facebook', () => {
 it('linked in', () => {
   expect(accountLink('linkedIn', 'talhasch')).toBe('https://linkedin.com/in/talhasch');
 });
+
+it('youtube', () => {
+  expect(accountLink('youtube', 'talhasch')).toBe('https://youtube.com/talhasch');
+});
+
+it('steem', () => {
+  expect(accountLink('steem', 'talhasch')).toBe('https://steemit.com/@talhasch');
+});
+
+it('medium', () => {
+  expect(accountLink('medium', 'talhasch')).toBe('https://medium.com/@talhasch');
+});
