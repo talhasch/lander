@@ -9,6 +9,7 @@ import {
   TOGGLE_BIO_EDIT,
   TOGGLE_ACCOUNT_EDIT,
   TOGGLE_WALLET_EDIT,
+  TOGGLE_CONTACT_EDIT,
   TOGGLE_STYLE
 } from './ui';
 
@@ -35,6 +36,7 @@ export const NAME_SET = '@user/NAME_SET';
 export const DESCRIPTION_SET = '@user/DESCRIPTION_SET';
 export const ACCOUNT_SET = '@user/ACCOUNT_SET';
 export const WALLET_SET = '@user/WALLET_SET';
+export const CONTACT_SET = '@user/CONTACT_SET';
 
 export const DRAFT_SAVE = '@user/DRAFT_SAVE';
 export const DRAFT_SAVED = '@user/DRAFT_SAVED';
@@ -45,7 +47,7 @@ export const PUBLISH_SAVED = '@user/PUBLISH_SAVED';
 export const PUBLISH_SAVE_ERR = '@user/PUBLISH_SAVE_ERR';
 
 export const prepareDraftForSave = (draft, update = false) => {
-  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, walletsTemp, ...draftData} = draft;
+  const {bgTemp, bioTemp, photoTemp, nameTemp, descriptionTemp, accountsTemp, walletsTemp, contactTemp, ...draftData} = draft;
 
   if (update) {
     draftData.updated = md5(JSON.stringify(draftData));
@@ -163,6 +165,23 @@ export default (state = initialState, action) => {
       }
       return Object.assign({}, state, {draft: newDraft});
     }
+    case TOGGLE_CONTACT_EDIT: {
+      const {draft} = state;
+      let newDraft;
+      if (draft.contactTemp) {
+        const {contactTemp} = draft;
+        const {contactTemp: delTemp, ...draft1} = draft;
+        newDraft = Object.assign({}, draft1, {contact: contactTemp});
+      } else {
+        let {contact} = draft;
+        // Backward compatibility for new "contact" feature
+        if (!contact) {
+          ({contact} = dataModel())
+        }
+        newDraft = Object.assign({}, draft, {contact, contactTemp: contact});
+      }
+      return Object.assign({}, state, {draft: newDraft});
+    }
     case TOGGLE_STYLE: {
       const {draft} = state;
       let newDraft;
@@ -215,6 +234,18 @@ export default (state = initialState, action) => {
       const newWallets = Object.assign({}, wallets, a);
 
       const newDraft = Object.assign({}, draft, {wallets: newWallets});
+      return Object.assign({}, state, {draft: newDraft});
+    }
+    case CONTACT_SET: {
+      const {draft} = state;
+      const {contact} = draft;
+      const {prop, val} = action.payload;
+
+      const a = {};
+      a[prop] = val;
+
+      const newContact = Object.assign({}, contact, a);
+      const newDraft = Object.assign({}, draft, {contact: newContact});
       return Object.assign({}, state, {draft: newDraft});
     }
     case BG_BLUR_SET: {
@@ -365,6 +396,12 @@ export const setWallet = (network, address) => {
   }
 };
 
+export const setContact = (prop, val) => {
+  return (dispatch) => {
+    dispatch(setContactAct(prop, val));
+  }
+};
+
 export const setBgBlur = (val) => {
   return (dispatch) => {
     dispatch(setBgBlurAct(val));
@@ -509,6 +546,11 @@ export const setAccountAct = (network, address) => ({
 export const setWalletAct = (network, address) => ({
   type: WALLET_SET,
   payload: {network, address}
+});
+
+export const setContactAct = (prop, val) => ({
+  type: CONTACT_SET,
+  payload: {prop, val}
 });
 
 export const setBgBlurAct = (val) => ({

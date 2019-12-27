@@ -12,6 +12,7 @@ import reducer, {
   setDescriptionAct,
   setAccountAct,
   setWalletAct,
+  setContactAct,
   saveDraftAct,
   saveDraftDoneAct,
   saveDraftErrorAct,
@@ -31,7 +32,8 @@ import {
   TOGGLE_NAME_EDIT,
   TOGGLE_DESCRIPTION_EDIT,
   TOGGLE_ACCOUNT_EDIT,
-  TOGGLE_WALLET_EDIT
+  TOGGLE_WALLET_EDIT,
+  TOGGLE_CONTACT_EDIT
 } from "./ui";
 
 let state = undefined;
@@ -488,6 +490,54 @@ it('73 publish clicked', () => {
 
 it('74 publish saved successfully', () => {
   const act = publishDoneAct(prepareDraftForSave(state.draft, false));
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('75 contact dialog opened', () => {
+  const act = {type: TOGGLE_CONTACT_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('76 email set', () => {
+  const act = setContactAct('email', 'foo@bar.com');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('77 address set', () => {
+  const act = setContactAct('address', 'lorem ipsum street NY');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('78 contact dialog closed', () => {
+  const act = {type: TOGGLE_CONTACT_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('79 contact dialog opened', () => {
+  const act = {type: TOGGLE_CONTACT_EDIT};
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('80 website set', () => {
+  const act = setContactAct('website', 'https://mybusiness.com');
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('81 save draft clicked', () => {
+  const act = saveDraftAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('82 draft saved successfully', () => {
+  const act = saveDraftDoneAct(prepareDraftForSave(state.draft, true));
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });

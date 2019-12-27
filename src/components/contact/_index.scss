@@ -1,0 +1,73 @@
+.contact {
+  @include editable-control;
+  margin-top: 12px;
+
+  display: flex;
+  justify-content: center;
+
+  .contact-button {
+    align-items: center;
+    background: lighten($blue, 2);
+    border-radius: $border-radius;
+    display: flex;
+    height: 30px;
+    padding: 20px;
+    justify-content: center;
+    color: $white !important;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  &:not(.edit-mode) {
+    .contact-button {
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($blue, 10);
+      }
+
+      &:active {
+        background: $blue;
+      }
+    }
+  }
+}
+
+
+.contact-dialog {
+  .modal-header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    .modal-title {
+      font-size: 1.4rem;
+    }
+  }
+
+  .contact-dialog-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    justify-content: center;
+
+    .contact-section {
+      display: flex;
+      margin-bottom: 20px;
+
+      .section-icon {
+        color: lighten($blue, 20);
+        flex-grow: 0;
+        margin-right: 6px;
+
+        svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      .section-label {
+        line-height: 168%;
+      }
+    }
+  }
+}

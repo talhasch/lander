@@ -3,7 +3,6 @@
   @include editable-control;
   display: flex;
   justify-content: center;
-  margin-bottom: 22px;
 
   .social-button {
     align-items: center;
@@ -43,8 +42,18 @@
     }
   }
 
-  &.edit-mode {
-    margin-bottom: 14px;
+  &:not(.edit-mode) {
+    .social-button {
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($blue, 10);
+      }
+
+      &:active {
+        background: $blue;
+      }
+    }
   }
 }
 

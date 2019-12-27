@@ -1,6 +1,7 @@
 
 .wallet-accounts {
   @include editable-control;
+  margin-top: 12px;
 
   .wallet-account {
     background-color: #f8f8f8;

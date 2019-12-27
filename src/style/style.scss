@@ -95,11 +95,11 @@ html, body {
 
 @import '../components/pages/home/index';
 @import '../components/pages/app/profile-editor/index';
-@import '../components/pages/app/profile-editor/extra-menu';
 @import '../components/pages/app/welcome/index';
 @import '../components/pages/profile/index';
 @import '../components/pages/app/auth/index';
 
+@import '../components/pages/app/profile-editor/extra-menu/index';
 @import '../components/pages/app/shared/navbar/index';
 
 @import '../components/profile-bg/index';
@@ -109,6 +109,7 @@ html, body {
 @import '../components/profile-bio/index';
 @import '../components/social-accounts/index';
 @import '../components/wallet-accounts/index';
+@import '../components/contact/index';
 
 @import '../components/dialogs/settings/index';
 @import '../components/dialogs/style/index';
@@ -121,6 +122,7 @@ html, body {
 @import '../components/dialogs/wallet-edit/index';
 @import '../components/dialogs/share/index';
 @import '../components/dialogs/alias-edit/index';
+@import '../components/dialogs/contact-edit/index';
 
 @import '../components/elements/spinner/index';
 @import '../components/elements/edit-btn/index';

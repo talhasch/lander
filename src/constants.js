@@ -29,6 +29,12 @@ export const dataModel = () => (
       color: '#4a96f7',
       blur: '2'
     },
+    contact: {
+      email: '',
+      phone: '',
+      address: '',
+      website: ''
+    },
     updated: '010101'
   }
 );

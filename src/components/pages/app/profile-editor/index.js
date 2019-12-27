@@ -7,6 +7,7 @@ import ProfileBg from '../../../profile-bg';
 import SocialAccounts from '../../../social-accounts';
 import WalletAccounts from '../../../wallet-accounts';
 import ProfileBio from '../../../profile-bio';
+import Contact from '../../../contact';
 
 import SettingsDialog from '../../../dialogs/settings';
 import PreferencesDialog from '../../../dialogs/preferences';
@@ -19,6 +20,7 @@ import WalletEditDialog from '../../../dialogs/wallet-edit';
 import ShareDialog from '../../../dialogs/share';
 import AliasEditDialog from '../../../dialogs/alias-edit';
 import BioEditDialog from '../../../dialogs/bio-edit';
+import ContactEditDialog from '../../../dialogs/contact-edit';
 
 import ExtraMenu from './extra-menu';
 
@@ -74,6 +76,7 @@ class EditorPage extends Component {
         {ui.bioEdit && <BioEditDialog {...this.props} />}
         {ui.accountEdit && <AccountEditDialog {...this.props} />}
         {ui.walletEdit && <WalletEditDialog {...this.props} />}
+        {ui.contactEdit && <ContactEditDialog {...this.props} />}
         {ui.style && <StyleDialog {...this.props} />}
         {ui.settings && <SettingsDialog {...this.props} />}
         {ui.preferences && <PreferencesDialog {...this.props} />}
@@ -90,7 +93,8 @@ class EditorPage extends Component {
               <ProfileBio bio={user.draft.bio} editMode={!ui.preview} {...this.props}/>
               <SocialAccounts accounts={user.draft.accounts} editMode={!ui.preview} {...this.props}/>
               <WalletAccounts accounts={user.draft.wallets} editMode={!ui.preview} {...this.props}/>
-              <ExtraMenu {...this.props} />
+              <Contact contact={user.draft.contact} name={user.draft.name} editMode={!ui.preview} {...this.props}/>
+              {!ui.preview && <ExtraMenu draft={user.draft} {...this.props} />}
             </div>
           </div>
         </div>
