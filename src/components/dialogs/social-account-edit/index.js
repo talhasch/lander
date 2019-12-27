@@ -45,7 +45,7 @@ class AccountEditDialog extends Component {
 
     return (
       <>
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.hide}>
           <Modal.Header closeButton>
             <Modal.Title>Social Accounts</Modal.Title>
           </Modal.Header>
