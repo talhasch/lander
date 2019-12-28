@@ -47,9 +47,9 @@ exports[`1- ContactDialogContent - render 1`] = `
     </div>
     <a
       className="section-label"
-      href="tel:+90 5012 223 34 43"
+      href="tel:+905012233443"
     >
-      +90 5012 223 34 43
+      +90 501 223 34 43
     </a>
   </div>
   <div

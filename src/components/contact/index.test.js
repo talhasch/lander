@@ -7,7 +7,7 @@ it('1- ContactDialogContent - render', () => {
   const props = {
     contact: {
       email: 'foo@bar.com',
-      phone: '+90 5012 223 34 43',
+      phone: '+90 501 223 34 43',
       website: 'http://www.zoogle.com',
       address: 'foo bar baz street 12 NY'
     }
