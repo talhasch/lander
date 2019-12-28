@@ -2,19 +2,34 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
+import {Modal, Button, InputGroup, FormControl, Form} from 'react-bootstrap';
 
 import {FormattedMessage} from 'react-intl';
+
+import {parsePhoneNumberFromString} from 'libphonenumber-js';
+
+import validateEmail from '../../../utils/validate-email';
+
+import validateUrl from '../../../utils/validate-url';
 
 import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify';
 
 class ContactEditDialog extends Component {
-  mailInput = React.createRef();
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      errors: null
+    }
+  }
+
+  firstInput = React.createRef();
 
   onOpened = () => {
-    const i = this.mailInput.current;
+    const i = this.firstInput.current;
     if (i.value === '') {
       i.focus();
     }
@@ -33,6 +48,35 @@ class ContactEditDialog extends Component {
   };
 
   save = () => {
+    this.setState({errors: null});
+
+    const {user} = this.props;
+    const {contact} = user.draft;
+
+    const {email, phone, website} = contact;
+
+    if (email !== '') {
+      if (!validateEmail(email)) {
+        this.setState({errors: {email: 'Not a valid email address'}});
+        return;
+      }
+    }
+
+    if (phone !== '') {
+      const p = parsePhoneNumberFromString(phone);
+      if (!p || !p.isPossible()) {
+        this.setState({errors: {phone: 'Not a valid phone number'}});
+        return;
+      }
+    }
+
+    if (website !== '') {
+      if (!validateUrl(website)) {
+        this.setState({errors: {website: 'Not a valid website address'}});
+        return;
+      }
+    }
+
     const {afterSave, saveDraft, saveDraftDone, saveDraftError, toggleUiProp} = this.props;
     saveDraft().then((newData) => {
       toggleUiProp('contactEdit');
@@ -51,10 +95,12 @@ class ContactEditDialog extends Component {
     const changed = stringify(contact) !== stringify(contactTemp);
 
     const {email, phone, address, website} = contact;
+    const {errors} = this.state;
 
     return (
       <>
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide} onEntered={this.onOpened}>
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.hide}
+               onEntered={this.onOpened}>
           <Modal.Header closeButton>
             <Modal.Title>Contact</Modal.Title>
           </Modal.Header>
@@ -69,18 +115,29 @@ class ContactEditDialog extends Component {
                 </InputGroup.Prepend>
                 <FormControl placeholder="email address" value={email} maxLength={50} type="email" onChange={(e) => {
                   this.changed(e, 'email')
-                }} ref={this.mailInput}/>
-              </InputGroup>
+                }} ref={this.firstInput} isInvalid={errors && errors.email}/>
 
+                {errors && errors.email && (
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                )}
+              </InputGroup>
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text>
                     <span className="prop-name">Phone</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="phone number" value={phone} maxLength={20} type="tel" onChange={(e) => {
+                <FormControl placeholder="phone number" value={phone} maxLength={30} type="tel" onChange={(e) => {
                   this.changed(e, 'phone')
-                }}/>
+                }} isInvalid={errors && errors.phone}/>
+
+                {errors && errors.phone && (
+                  <Form.Control.Feedback type="invalid">
+                    {errors.phone}
+                  </Form.Control.Feedback>
+                )}
               </InputGroup>
 
               <InputGroup className="mb-3">
@@ -91,7 +148,13 @@ class ContactEditDialog extends Component {
                 </InputGroup.Prepend>
                 <FormControl placeholder="https://" value={website} maxLength={60} type="text" onChange={(e) => {
                   this.changed(e, 'website')
-                }}/>
+                }} isInvalid={errors && errors.website}/>
+
+                {errors && errors.website && (
+                  <Form.Control.Feedback type="invalid">
+                    {errors.website}
+                  </Form.Control.Feedback>
+                )}
               </InputGroup>
 
               <InputGroup className="mb-3">
