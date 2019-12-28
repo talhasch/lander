@@ -17,6 +17,7 @@ import ProfilePhoto from '../../profile-photo';
 import ProfileName from '../../profile-name';
 import ProfileDescription from '../../profile-description';
 import ProfileBio from '../../profile-bio';
+import Contact from '../../contact';
 import SocialAccounts from '../../social-accounts';
 import WalletAccounts from '../../wallet-accounts';
 import Spinner from '../../elements/spinner';
@@ -132,6 +133,7 @@ class ProfilePage extends Component {
           <ProfileBio bio={data.bio} {...this.props}/>
           <SocialAccounts accounts={data.accounts} {...this.props}/>
           <WalletAccounts accounts={data.wallets} {...this.props}/>
+          <Contact contact={data.contact} name={data.name} {...this.props}/>
         </div>
       </div>
     </div>
