@@ -13,6 +13,16 @@ import stringify from '../../../utils/stringify';
 import {accountTypes} from '../../../social';
 
 class AccountEditDialog extends Component {
+  firstInput = React.createRef();
+
+  onOpened = () => {
+    const i = this.firstInput.current;
+    if (i.value === '') {
+      i.focus();
+    }
+  };
+
+
   hide = () => {
     const {afterHide, toggleUiProp} = this.props;
     toggleUiProp('accountEdit');
@@ -45,23 +55,37 @@ class AccountEditDialog extends Component {
 
     return (
       <>
-        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.hide}>
+        <Modal show className="drawer" backdropClassName="drawer-backdrop" backdrop="static" onHide={this.hide}
+               onEntered={this.onOpened}>
           <Modal.Header closeButton>
             <Modal.Title>Social Accounts</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="account-edit-dialog-content">
-              {accountTypes.map((i) =>
-                (<InputGroup className="mb-3" key={i.id}>
-                  <InputGroup.Prepend>
-                    <InputGroup.Text>
-                      <span className="network-name">{i.label}</span>
-                    </InputGroup.Text>
-                  </InputGroup.Prepend>
-                  <FormControl placeholder={i.placeholder} disabled={user.saving} value={accounts[i.id]} onChange={(e) => {
-                    this.changed(e, i.id)
-                  }}/>
-                </InputGroup>)
+              {accountTypes.map((x, i) => {
+
+                  const props = {
+                    placeholder: x.placeholder,
+                    disabled: user.saving,
+                    value: accounts[x.id] || '',
+                    onChange: (e) => {
+                      this.changed(e, x.id)
+                    }
+                  };
+
+                  if (i === 0) {
+                    props['ref'] = this.firstInput;
+                  }
+
+                  return <InputGroup className="mb-3" key={x.id}>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text>
+                        <span className="network-name">{x.label}</span>
+                      </InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl {...props}/>
+                  </InputGroup>
+                }
               )}
             </div>
           </Modal.Body>
