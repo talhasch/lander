@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 
 import {Modal} from 'react-bootstrap';
 
+import {parsePhoneNumberFromString} from 'libphonenumber-js';
+
 import EditBtn from '../elements/edit-btn';
 
 import {envelopeSvg, phoneSvg, globeSvg, mapMarker} from '../../svg';
@@ -16,6 +18,11 @@ export class ContactDialogContent extends Component {
   render() {
     const {contact} = this.props;
     const {email, phone, website, address} = contact;
+
+    let phoneO;
+    if (phone) {
+      phoneO = parsePhoneNumberFromString(phone);
+    }
 
     return (
       <>
@@ -29,11 +36,11 @@ export class ContactDialogContent extends Component {
           </div>)
           }
 
-          {phone && (<div className="contact-section">
+          {phoneO && (<div className="contact-section">
             <div className="section-icon">
               {phoneSvg}
             </div>
-            <a href={`tel:${phone}`} className="section-label">{phone}</a>
+            <a href={phoneO.format('RFC3966')} className="section-label">{phoneO.format('INTERNATIONAL')}</a>
           </div>)
           }
 

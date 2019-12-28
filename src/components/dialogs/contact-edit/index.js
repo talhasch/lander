@@ -115,7 +115,7 @@ class ContactEditDialog extends Component {
                 </InputGroup.Prepend>
                 <FormControl placeholder="email address" value={email} maxLength={50} type="email" onChange={(e) => {
                   this.changed(e, 'email')
-                }} ref={this.firstInput} isInvalid={errors && errors.email}/>
+                }} ref={this.firstInput} isInvalid={errors && errors.email} spellCheck={false}/>
 
                 {errors && errors.email && (
                   <Form.Control.Feedback type="invalid">
@@ -129,9 +129,9 @@ class ContactEditDialog extends Component {
                     <span className="prop-name">Phone</span>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="phone number" value={phone} maxLength={30} type="tel" onChange={(e) => {
+                <FormControl placeholder="+1-202-555-0166" value={phone} maxLength={30} type="tel" onChange={(e) => {
                   this.changed(e, 'phone')
-                }} isInvalid={errors && errors.phone}/>
+                }} isInvalid={errors && errors.phone} spellCheck={false}/>
 
                 {errors && errors.phone && (
                   <Form.Control.Feedback type="invalid">
@@ -148,7 +148,7 @@ class ContactEditDialog extends Component {
                 </InputGroup.Prepend>
                 <FormControl placeholder="https://" value={website} maxLength={60} type="text" onChange={(e) => {
                   this.changed(e, 'website')
-                }} isInvalid={errors && errors.website}/>
+                }} isInvalid={errors && errors.website} spellCheck={false}/>
 
                 {errors && errors.website && (
                   <Form.Control.Feedback type="invalid">
@@ -165,7 +165,7 @@ class ContactEditDialog extends Component {
                 </InputGroup.Prepend>
                 <FormControl placeholder="street address" value={address} maxLength={140} type="text" onChange={(e) => {
                   this.changed(e, 'address')
-                }}/>
+                }} spellCheck={false}/>
               </InputGroup>
 
             </div>
