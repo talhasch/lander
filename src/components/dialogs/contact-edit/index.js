@@ -57,7 +57,7 @@ class ContactEditDialog extends Component {
 
     if (email !== '') {
       if (!validateEmail(email)) {
-        this.setState({errors: {email: 'Not a valid email address'}});
+        this.setState({errors: {email: 'Please enter a valid email address'}});
         return;
       }
     }
@@ -65,14 +65,14 @@ class ContactEditDialog extends Component {
     if (phone !== '') {
       const p = parsePhoneNumberFromString(phone);
       if (!p || !p.isPossible()) {
-        this.setState({errors: {phone: 'Not a valid phone number'}});
+        this.setState({errors: {phone: 'Please enter a valid international phone number.'}});
         return;
       }
     }
 
     if (website !== '') {
       if (!validateUrl(website)) {
-        this.setState({errors: {website: 'Not a valid website address'}});
+        this.setState({errors: {website: 'Please enter a valid website address'}});
         return;
       }
     }
