@@ -60,11 +60,12 @@ const findUsers = async () => {
 
 
   while (allNames.length > 0) {
-    const names = allNames.splice(0, 4);
+    const names = allNames.splice(0, 20);
     const promises = names.map(x => findUser(x));
-
     const resp = await Promise.all(promises);
-    rv = [...rv, ...resp.filter(x => x)]
+    rv = [...rv, ...resp.filter(x => x)];
+
+    await new Promise(r => setTimeout(r, 6000));
   }
 
   return rv;
