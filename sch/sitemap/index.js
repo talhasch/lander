@@ -22,42 +22,54 @@ const getData = async () => {
   return await collection.find({radiksType: 'BlockstackUser'}).toArray();
 };
 
-const findUsers = async () => {
-  const data = await getData();
-  const users = [];
 
-  for (let row of data) {
-    // skip non-username accounts
-    if (!row.username) {
-      continue;
+const findUser = async (username) => {
+  let file;
+
+  try {
+    file = await blockStack.getUserAppFileUrl(publishedFile, username, baseUrl);
+    // can be null
+    if (!file) {
+      return;
     }
-
-    let file;
-    try {
-      file = await blockStack.getUserAppFileUrl(publishedFile, row.username, baseUrl);
-    } catch (e) {
-      console.error(String(e));
-      continue;
-    }
-
-    let resp;
-    try {
-      resp = await axios.get(file);
-
-      // deleted by user
-      if (resp.data === '') {
-        continue;
-      }
-    } catch (e) {
-      console.error(String(e));
-      continue;
-    }
-
-    users.push({username: row.username, lastMod: resp.headers['last-modified'] || null});
+  } catch (e) {
+    console.error(String(e));
+    return;
   }
 
-  return users;
+  let resp;
+  try {
+    resp = await axios.get(file);
+
+    // deleted by user
+    if (resp.data === '') {
+      return;
+    }
+  } catch (e) {
+    console.error(String(e));
+    return;
+  }
+
+  return {username, lastMod: resp.headers['last-modified'] || null}
 };
+
+const findUsers = async () => {
+  const data = await getData();
+  const allNames = data.map(x => x.username).filter(x => x);
+  let rv = [];
+
+
+  while (allNames.length > 0) {
+    const names = allNames.splice(0, 4);
+    const promises = names.map(x => findUser(x));
+
+    const resp = await Promise.all(promises);
+    rv = [...rv, ...resp.filter(x => x)]
+  }
+
+  return rv;
+};
+
 
 const main = () => {
   findUsers().then(list => {
@@ -92,6 +104,4 @@ const main = () => {
 };
 
 main();
-
-
 
