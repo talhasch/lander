@@ -29,3 +29,6 @@ yarn-error.log*
 src/config.js
 
 sitemap.xml
+
+
+env.sh

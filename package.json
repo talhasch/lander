@@ -55,6 +55,7 @@
     "mongodb": "^3.4.1",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pg": "^7.17.0",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
