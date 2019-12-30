@@ -13,11 +13,13 @@ import {
   TOGGLE_STYLE
 } from './ui';
 
-import {dataModel, draftFile, publishedFile, defaultBgImage} from '../constants';
+import {dataModel, defaultBgImage} from '../constants';
 
 import {userSession} from '../blockstack-config';
 
 import {Alias} from '../model';
+
+import {putDraftFile, putPublishedFile, getDraftFile, getPublishedFile} from "../dbl";
 
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/LOGOUT';
@@ -319,7 +321,7 @@ export const login = (userData) => {
 
     let draft;
     try {
-      const file = await userSession.getFile(draftFile);
+      const file = await getDraftFile()
       draft = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -329,7 +331,7 @@ export const login = (userData) => {
     if (draft === null) {
       const obj = dataModel();
       try {
-        await userSession.putFile(draftFile, JSON.stringify(obj), {encrypt: true});
+        await putDraftFile(obj);
         draft = Object.assign({}, obj);
       } catch (e) {
         console.error(`File put error. ${e}`);
@@ -338,7 +340,7 @@ export const login = (userData) => {
 
     let published;
     try {
-      const file = await userSession.getFile(publishedFile, {decrypt: false});
+      const file = await getPublishedFile();
       published = JSON.parse(file);
     } catch (e) {
       console.error(`File get error. ${e}`);
@@ -434,7 +436,7 @@ export const saveDraft = () => {
     const {user} = getState();
     const draftData1 = prepareDraftForSave(user.draft, true);
 
-    return userSession.putFile(draftFile, JSON.stringify(draftData1), {encrypt: true}).then(() => {
+    return putDraftFile(draftData1).then(() => {
       return draftData1;
     })
   }
@@ -462,7 +464,7 @@ export const publish = () => {
     const {user} = getState();
     const publicData = prepareDraftForSave(user.draft, false);
 
-    return userSession.putFile(publishedFile, JSON.stringify(publicData), {encrypt: false}).then(() => {
+    return putPublishedFile(publicData).then(() => {
       return publicData;
     });
   }
