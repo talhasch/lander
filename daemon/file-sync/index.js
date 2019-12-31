@@ -49,6 +49,8 @@ const worker = async () => {
 
   pgClient.query('BEGIN');
 
+  let done = 1;
+
   for (let row of users) {
     if (!(row.profile.apps && row.profile.apps[appOrigin])) {
       console.info(row.username + ': app definition not found');
@@ -69,6 +71,7 @@ const worker = async () => {
     await pgClient.query('DELETE FROM file_cache WHERE url=$1', [url]);
     await pgClient.query('INSERT INTO file_cache (url, contents, updated) VALUES ($1, $2, $3)', [url, contents, row.updatedAt]);
 
+    done += 1;
     console.log(row.username + ': ok');
   }
 
@@ -80,8 +83,8 @@ const worker = async () => {
   }
 
   // If there is nothing new then wait some
-  if (users.length === 0) {
-    await new Promise(r => setTimeout(r, 1000));
+  if (done === 0) {
+    await new Promise(r => setTimeout(r, 2000));
   }
 
   await worker();
