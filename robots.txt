@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /app/editor
+
+Sitemap: https://landr.me/sitemap.xml

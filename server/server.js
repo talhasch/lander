@@ -10,9 +10,6 @@ import {aliasRe, publishedFile} from '../src/constants';
 import isRealUsername from '../src/helper/is-real-username';
 
 const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
-const robotsTxt = fs.readFileSync(path.resolve('./build-live/robots.txt'), 'utf8');
-const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
-const reservedUserJson = fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8');
 
 const getBaseUrl = (req) => {
   return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
@@ -41,14 +38,25 @@ router.use('^/favicon.ico$', (req, res, next) => {
   res.send('ok');
 });
 
+const robotsTxt = fs.readFileSync(path.resolve('./robots.txt'), 'utf8');
 router.use('^/robots.txt', (req, res, next) => {
-  res.send(robotsTxt);
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write(robotsTxt);
+  res.end();
 });
 
+router.use('^/sitemap.xml', (req, res, next) => {
+  const resp = fs.readFileSync(path.resolve('./sitemap.xml'), 'utf8');
+  res.header('Content-Type', 'text/xml');
+  res.send(resp);
+});
+
+const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
 router.use('^/manifest.json', (req, res, next) => {
   res.send(manifestJson);
 });
 
+const reservedUserJson = fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8');
 router.use('^/reserved-user-names.json', (req, res, next) => {
   res.send(reservedUserJson);
 });
