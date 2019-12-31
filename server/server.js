@@ -85,6 +85,7 @@ const prepareMeta = (title, description, url, image) => {
 
   return items.join('');
 };
+
 const defaultRenderer = (req, res, next) => {
 
   const title = 'Lander';
@@ -142,7 +143,7 @@ const pageRenderer = async (req, res, next) => {
 
     const {name, photo} = published;
 
-    const title = `${name} - Lander`;
+    const title = `${name} | Lander`;
     const description = `${name}'s personal home page`;
     const url = `https://landr.me/${username}`;
     const metas = prepareMeta(title, description, url, photo);
