@@ -68,6 +68,8 @@ const worker = async () => {
     // More than 1 user with same file can be exists due to https://github.com/blockstack/radiks/issues/61
     await pgClient.query('DELETE FROM file_cache WHERE url=$1', [url]);
     await pgClient.query('INSERT INTO file_cache (url, contents, updated) VALUES ($1, $2, $3)', [url, contents, row.updatedAt]);
+
+    console.log(row.username + ': ok');
   }
 
   try {
