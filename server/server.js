@@ -10,6 +10,7 @@ import {aliasRe, publishedFile} from '../src/constants';
 import isRealUsername from '../src/helper/is-real-username';
 
 const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
+const robotsTxt = fs.readFileSync(path.resolve('./build-live/robots.txt'), 'utf8');
 const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
 const reservedUserJson = fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8');
 
@@ -38,6 +39,10 @@ const router = express.Router();
 
 router.use('^/favicon.ico$', (req, res, next) => {
   res.send('ok');
+});
+
+router.use('^/robots.txt', (req, res, next) => {
+  res.send(robotsTxt);
 });
 
 router.use('^/manifest.json', (req, res, next) => {
