@@ -51,14 +51,14 @@ router.use('^/sitemap.xml', (req, res, next) => {
   res.send(resp);
 });
 
-const manifestJson = fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8');
+const manifestJson = JSON.parse(fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8'));
 router.use('^/manifest.json', (req, res, next) => {
-  res.send(manifestJson);
+  res.json(manifestJson);
 });
 
-const reservedUserJson = fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8');
+const reservedUserJson = JSON.parse(fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8'));
 router.use('^/reserved-user-names.json', (req, res, next) => {
-  res.send(reservedUserJson);
+  res.json(reservedUserJson);
 });
 
 const prepareMeta = (title, description, url, image) => {
