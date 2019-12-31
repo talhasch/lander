@@ -1,5 +1,4 @@
 import {userSession} from './blockstack-config';
-import {User} from 'radiks-patch';
 
 import {draftFile, publishedFile, flagFile} from './constants';
 
@@ -16,10 +15,7 @@ export const getPublishedFile = () => {
 };
 
 export const putPublishedFile = (data) => {
-  return userSession.putFile(publishedFile, JSON.stringify(data), {encrypt: false}).then(x => {
-    const curr = User.currentUser();
-    return curr.save().then(() => x);
-  })
+  return userSession.putFile(publishedFile, JSON.stringify(data), {encrypt: false});
 };
 
 export const getFlagFile = () => {
