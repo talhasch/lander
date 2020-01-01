@@ -57,5 +57,9 @@ export const getFileContents = async (url) => {
     return null;
   }
 
-  return JSON.parse(resp.rows[0].contents);
+  try {
+    return JSON.parse(resp.rows[0].contents);
+  } catch (e) {
+    return null;
+  }
 };
