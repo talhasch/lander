@@ -54,11 +54,16 @@ const worker = async () => {
 
     const fileUrl = row.profile.apps[appOrigin] + publishedFile;
 
-    const res = await pgClient.query('SELECT updated FROM file_cache WHERE url=$1 LIMIT 1', [fileUrl]);
+    const res = await pgClient.query('SELECT updated, contents FROM file_cache WHERE url=$1 LIMIT 1', [fileUrl]);
     const [r,] = res.rows;
 
     // file not found for the user
     if (!r) {
+      continue;
+    }
+
+    // not published
+    if (!r.contents) {
       continue;
     }
 
