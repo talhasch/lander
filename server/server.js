@@ -109,8 +109,10 @@ const pageRenderer = async (req, res) => {
   let fileUrl;
 
   if (isRealUsername(username)) {
+    // Handle blockstack ids
     fileUrl = await getUserAppFileUrl(username);
   } else {
+    // Handle non-username accounts
     const bUrl = await getBucketUrl(username);
 
     if (bUrl) {
