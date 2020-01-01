@@ -36,10 +36,10 @@ const getUsers = async (uDate) => {
 
 
 const getMinDate = async () => {
-  const sql = 'SELECT updated FROM file_cache ORDER BY updated DESC LIMIT 1';
+  const sql = 'SELECT min_date FROM state LIMIT 1';
   return await pgClient.query(sql).then(r => {
     const [row,] = r.rows;
-    return Number(row && row.updated ? row.updated : 0);
+    return Number(row && row.min_date ? row.min_date : 0);
   });
 };
 
@@ -47,11 +47,15 @@ const worker = async () => {
   const minDate = await getMinDate();
   const users = await getUsers(minDate);
 
-  pgClient.query('BEGIN');
+  if (users.length > 0) {
+    pgClient.query('BEGIN');
+  }
 
-  let done = 1;
+  let mDate = null;
 
   for (let row of users) {
+    mDate = row.updatedAt;
+
     if (!(row.profile.apps && row.profile.apps[appOrigin])) {
       console.info(row.username + ': app definition not found');
       continue;
@@ -71,19 +75,24 @@ const worker = async () => {
     await pgClient.query('DELETE FROM file_cache WHERE url=$1', [url]);
     await pgClient.query('INSERT INTO file_cache (url, contents, updated) VALUES ($1, $2, $3)', [url, contents, row.updatedAt]);
 
-    done += 1;
     console.log(row.username + ': ok');
   }
 
-  try {
-    await pgClient.query('COMMIT');
-  } catch (e) {
-    await pgClient.query('ROLLBACK');
-    throw e
+  if (mDate) {
+    pgClient.query('UPDATE state SET min_date=$1', [mDate]);
+  }
+
+  if (users.length > 0) {
+    try {
+      await pgClient.query('COMMIT');
+    } catch (e) {
+      await pgClient.query('ROLLBACK');
+      throw e
+    }
   }
 
   // If there is nothing new then wait some
-  if (done === 0) {
+  if (mDate === null) {
     await new Promise(r => setTimeout(r, 2000));
   }
 
