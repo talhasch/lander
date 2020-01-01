@@ -1,28 +1,19 @@
 import path from 'path';
+
 import fs from 'fs';
 
 import express from 'express';
-import * as blockStack from 'blockstack';
-import * as axios from 'axios';
 
 import {aliasRe, publishedFile} from '../src/constants';
 
 import isRealUsername from '../src/helper/is-real-username';
 
-const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
+import {getUsernameFromAlias, getBucketUrl, getFileContents, getUserAppFileUrl} from './db';
 
-const getBaseUrl = (req) => {
-  return (req.get('x-from-nginx') ? 'https' : 'http') + '://' + req.get('host');
-};
+const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
 
 const PORT = 3000;
 const app = express();
-
-if (!process.env.RADIKS_URL) {
-  console.error('RADIKS_URL environment variable required!');
-  process.exit(1);
-}
-const radiskUrl = process.env.RADIKS_URL;
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -34,30 +25,30 @@ app.use(function (req, res, next) {
 
 const router = express.Router();
 
-router.use('^/favicon.ico$', (req, res, next) => {
+router.use('^/favicon.ico$', (req, res) => {
   res.send('ok');
 });
 
 const robotsTxt = fs.readFileSync(path.resolve('./robots.txt'), 'utf8');
-router.use('^/robots.txt', (req, res, next) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
+router.use('^/robots.txt', (req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write(robotsTxt);
   res.end();
 });
 
-router.use('^/sitemap.xml', (req, res, next) => {
+router.use('^/sitemap.xml', (req, res) => {
   const resp = fs.readFileSync(path.resolve('./sitemap.xml'), 'utf8');
   res.header('Content-Type', 'text/xml');
   res.send(resp);
 });
 
 const manifestJson = JSON.parse(fs.readFileSync(path.resolve('./build-live/manifest.json'), 'utf8'));
-router.use('^/manifest.json', (req, res, next) => {
+router.use('^/manifest.json', (req, res) => {
   res.json(manifestJson);
 });
 
 const reservedUserJson = JSON.parse(fs.readFileSync(path.resolve('./build-live/reserved-user-names.json'), 'utf8'));
-router.use('^/reserved-user-names.json', (req, res, next) => {
+router.use('^/reserved-user-names.json', (req, res) => {
   res.json(reservedUserJson);
 });
 
@@ -86,7 +77,7 @@ const prepareMeta = (title, description, url, image) => {
   return items.join('');
 };
 
-const defaultRenderer = (req, res, next) => {
+const defaultRenderer = (req, res) => {
 
   const title = 'Lander';
   const description = 'Your personal home page on decentralized internet';
@@ -101,66 +92,57 @@ const defaultRenderer = (req, res, next) => {
 
 router.use(['^/$', '^/app/auth/?$', '^/app/welcome/?$', '^/app/editor/?$'], defaultRenderer);
 
-const pageRenderer = async (req, res, next) => {
+const pageRenderer = async (req, res) => {
   const {username} = req.params;
 
   // Alias check
   if (aliasRe.test(username)) {
-    const u = `${radiskUrl}/radiks/models/find?alias=${username}&radiksType=alias&sort=createdAt`;
-
-    try {
-      const resp = await axios.get(u).then(x => x.data);
-      if (resp.total > 0) {
-        // Redirect to real username
-        res.redirect(`/${resp.results[0].username}`);
-        return;
-      }
-    } catch (e) {
+    const realUsername = await getUsernameFromAlias(username);
+    if (realUsername) {
+      res.redirect(`/${realUsername}`);
+    } else {
       res.send(indexHtml);
-      return;
     }
+    return;
   }
 
   let fileUrl;
 
   if (isRealUsername(username)) {
-    fileUrl = await blockStack.getUserAppFileUrl(publishedFile, username, getBaseUrl(req));
+    fileUrl = await getUserAppFileUrl(username);
   } else {
-    const u = `${radiskUrl}/radiks/models/find?username=${username}&radiksType=user_bucket_url&sort=createdAt`;
-    try {
-      const resp = await axios.get(u).then(x => x.data);
-      if (resp.total > 0) {
-        fileUrl = `${resp.results[0].url}${publishedFile}`;
-      }
-    } catch (e) {
+    const bUrl = await getBucketUrl(username);
+
+    if (bUrl) {
+      fileUrl = `${bUrl}${publishedFile}`;
+    } else {
       res.send(indexHtml);
       return;
     }
   }
 
-  try {
-    const published = await axios.get(fileUrl).then(x => x.data);
+  const published = await getFileContents(fileUrl);
 
-    const {name, photo} = published;
-
-    const title = `${name} | Lander`;
-    const description = `${name}'s personal home page`;
-    const url = `https://landr.me/${username}`;
-    const metas = prepareMeta(title, description, url, photo);
-    const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
-    const inject = `${metas}${script}`;
-
-    const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
-
-    res.send(resp);
+  if (!published) {
+    res.send(indexHtml);
     return;
-
-  } catch (e) {
-    // Client side will handle 404
-    // res.status(404).send('404 - Not found');
   }
 
-  res.send(indexHtml);
+  const {name, photo} = published;
+  let {description} = published;
+  if (!description) {
+    description = `${name}'s personal home page`;
+  }
+
+  const title = `${name} | Lander`;
+  const url = `https://landr.me/${username}`;
+  const metas = prepareMeta(title, description, url, photo);
+  const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
+  const inject = `${metas}${script}`;
+
+  const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
+
+  res.send(resp);
 };
 
 router.use('^/:username/?$', pageRenderer);
