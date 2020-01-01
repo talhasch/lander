@@ -6,6 +6,8 @@ import React, {Component} from 'react';
 
 import {User} from 'radiks-patch';
 
+import {reservedUserNames} from '../../../../dbl';
+
 import {userSession, getUsername, getUserAppBucketUrl} from '../../../../blockstack-config';
 
 import isRealUsername from '../../../../helper/is-real-username';
@@ -43,13 +45,9 @@ class AuthPage extends Component {
   }
 
   componentDidMount() {
-    fetch('/reserved-user-names.json')
-      .then(r => r.json())
-      .then(d => {
-        window._reservedUsersNames = d;
-
-        return this.doAuth();
-      });
+    reservedUserNames().then(() => {
+      return this.doAuth();
+    });
   }
 
   doAuth = async () => {
