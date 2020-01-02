@@ -10,7 +10,6 @@ import landerLogo from '../../../images/lander-512.png';
 
 import jasmine from '../../../images/jasmine.jpg';
 import melissa from '../../../images/melissa.jpg';
-import steven from '../../../images/steven.jpg';
 
 import beautifulPng from '../../../images/features/beautiful.png';
 import freePng from '../../../images/features/free.png';
@@ -63,8 +62,18 @@ class HomePage extends Component {
     super(props);
 
     this.state = {
-      signIn: false
+      signIn: false,
+      explore: []
     }
+  }
+
+  componentDidMount() {
+    fetch('/showcase.json')
+      .then(r => r.json())
+      .then(r => {
+        const s = r.sort(() => 0.5 - Math.random()).slice(0, 24);
+        this.setState({explore: s})
+      })
   }
 
   toggleSignIn = (e) => {
@@ -86,7 +95,7 @@ class HomePage extends Component {
   };
 
   render() {
-    const {signIn} = this.state;
+    const {signIn, explore} = this.state;
 
     return (
       <div className="home-wrapper">
@@ -97,7 +106,7 @@ class HomePage extends Component {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
                 <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#get-started">Get Started</Nav.Link>
+                <Nav.Link href="#explore">Explore</Nav.Link>
                 <Nav.Link href="#login" onClick={this.toggleSignIn}>Sign In</Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -129,7 +138,6 @@ class HomePage extends Component {
             <div className="section-header">
               <h2><a name="features">Lander</a></h2>
             </div>
-
             <Row className="feature-list">
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
@@ -145,7 +153,6 @@ class HomePage extends Component {
                   </div>
                 </div>
               </Col>
-
               <Col className="feature mm" sm={12} md={{span: 6}}>
                 <div className="image">
                   <img src={freePng} alt="Free & Unlimited"/>
@@ -160,7 +167,6 @@ class HomePage extends Component {
                   </div>
                 </div>
               </Col>
-
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
                   <img src={cryptoPng} alt="Cryptocurrency Friendly"/>
@@ -174,7 +180,6 @@ class HomePage extends Component {
                   </div>
                 </div>
               </Col>
-
               <Col className="feature" sm={12} md={{span: 6}}>
                 <div className="image">
                   <img src={responsivePng} alt="Responsive"/>
@@ -191,11 +196,6 @@ class HomePage extends Component {
             </Row>
           </div>
         </section>
-        <div className="aM">
-          <Button onClick={this.toggleSignIn} variant="sign-in" size="lg">
-            Get your free page
-          </Button>
-        </div>
         <div className="aX">
           <div className="section-container">
             <div className="showcase">
@@ -211,34 +211,22 @@ class HomePage extends Component {
             <h3>Create a home page to present yourself and what you do in one link.</h3>
           </div>
         </div>
-        <section className="get-started" id="get-started">
-          <div className="section-container">
-            <div className="section-header">
-              <h2><a name="get-started">Get Started</a></h2>
-            </div>
-            <p>This video shows how you create your Lander page in a few minutes.</p>
-            <div className="get-started-video">
-              <iframe title="Getting Started With Lander" allowFullScreen frameBorder="0"
-                      src="https://www.youtube.com/embed/Zy8m1jg-yIM?rel=0&origin=https://landr.me"
-              />
-            </div>
+        <section className="explore" id="explore">
+          <div className="section-header">
+            <h2><a name="get-started">Explore</a></h2>
+          </div>
+          <div className="explore-list">
+            {explore.map(x => {
+              return <a key={x.username} href={`/${x.username}`} title={x.name} className="explore-item"
+                        style={{backgroundImage: `url(${x.photo})`}}>
+              </a>
+            })}
           </div>
         </section>
-        <div className="aY">
-          <div className="section-container">
-            <div className="showcase">
-              <div className="showcase-header">
-                <div className="address-bar">
-                  https://landr.me/steven.id
-                </div>
-              </div>
-              <div className="showcase-content">
-                <img src={steven} alt="Steven"/>
-              </div>
-            </div>
-
-            <h3>You're somebody who deserves a beautiful personal home page.</h3>
-          </div>
+        <div className="aM">
+          <Button onClick={this.toggleSignIn} variant="sign-in" size="lg">
+            Get your free page
+          </Button>
         </div>
         <div className="footer">
           <div className="section-container section-container-footer">
@@ -251,7 +239,7 @@ class HomePage extends Component {
                   <a href="#features">Features</a>
                 </div>
                 <div className="menu-item">
-                  <a href="#get-started">Get Started</a>
+                  <a href="#explore">Explore</a>
                 </div>
                 <div className="menu-item">
                   <a href="#sign-in" onClick={this.toggleSignIn}>Sign In</a>
