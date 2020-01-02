@@ -52,6 +52,11 @@ router.use('^/reserved-user-names.json', (req, res) => {
   res.json(reservedUserJson);
 });
 
+const showcaseJSON = JSON.parse(fs.readFileSync(path.resolve('./build-live/showcase.json'), 'utf8'));
+router.use('^/showcase.json', (req, res) => {
+  res.json(showcaseJSON);
+});
+
 const prepareMeta = (title, description, url, image) => {
   const items = [];
 
