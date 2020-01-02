@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import PropTypes from 'prop-types';
-
 import * as axios from 'axios';
 import * as blockStack from 'blockstack';
 
@@ -105,7 +103,7 @@ class ProfilePage extends Component {
 
   render() {
     const {loading, notFound} = this.state;
-    const {location, user} = this.props;
+    const {location} = this.props;
 
     if (loading) {
       return <Spinner/>;
@@ -123,7 +121,7 @@ class ProfilePage extends Component {
     return <div className="main-wrapper-profile">
       <ProfileBg bg={data.bg}/>
       <div className="profile-header">
-        {!user && <ProfileC2a  {...this.props} />}
+        <ProfileC2a  {...this.props} />
       </div>
       <div className="inner-wrapper">
         <div className="profile-box">
@@ -142,10 +140,6 @@ class ProfilePage extends Component {
 
 ProfilePage.defaultProps = {};
 
-ProfilePage.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string.isRequired
-  })
-};
+ProfilePage.propTypes = {};
 
 export default ProfilePage;
