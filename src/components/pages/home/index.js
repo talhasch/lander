@@ -125,8 +125,8 @@ class HomePage extends Component {
               </div>
             </div>
             <div className="intro-content">
-              <h1 className="main-title">Your personal home page on decentralized internet</h1>
-              <p className="description">Lander lets you create your personal home page in just a few minutes.</p>
+              <h1 className="main-title">Your personal home page</h1>
+              <p className="description">Lander lets you create your personal home page in just a few minutes</p>
               <Button onClick={this.toggleSignIn} variant="sign-in" size="lg">
                 Get your free page
               </Button>
