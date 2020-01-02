@@ -215,12 +215,14 @@ class HomePage extends Component {
           <div className="section-header">
             <h2><a name="get-started">Explore</a></h2>
           </div>
-          <div className="explore-list">
-            {explore.map(x => {
-              return <a key={x.username} href={`/${x.username}`} title={x.name} className="explore-item"
-                        style={{backgroundImage: `url(${x.photo})`}}>
-              </a>
-            })}
+          <div className="list-container">
+            <div className="explore-list">
+              {explore.map(x => {
+                return <a key={x.username} href={`/${x.username}`} title={x.name} className="explore-item"
+                          style={{backgroundImage: `url(${x.photo})`}}>
+                </a>
+              })}
+            </div>
           </div>
         </section>
         <div className="aM">

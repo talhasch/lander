@@ -161,7 +161,6 @@
     .section-header {
       margin-bottom: 40px;
 
-
       h2 {
         border-bottom: 4px solid lighten($primary, 26);
         color: $gray-700;
@@ -191,6 +190,7 @@
 
         @media (min-width: $lg-break) {
           flex-direction: row;
+          padding-left: 0;
         }
 
         .image {
@@ -355,8 +355,6 @@
 
   .explore {
     margin-bottom: 60px;
-    background: #f4f7f9;
-    padding: 20px;
 
     @media (min-width: $md-break) {
       margin-bottom: 120px;
@@ -364,51 +362,56 @@
 
     .section-header {
       margin-bottom: 40px;
-      text-align: center;
 
       h2 {
-        color: $gray-800;
+        border-bottom: 4px solid lighten($primary, 26);
+        color: $gray-700;
+        display: table;
         font-size: 1.4em;
-        font-weight: 700;
-        margin: 0;
+        margin: 0 auto;
+        padding-bottom: 6px;
 
-        @media (min-width: $md-break) {
+        @media (min-width: $lg-break) {
           font-size: 1.8em;
         }
       }
     }
 
-    .explore-list {
-      display: grid;
-      margin: auto;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .list-container {
+      padding: 20px;
+      background: #f4f7f9;
 
-      @media (min-width: $md-break) {
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(6, 1fr);
+      .explore-list {
+        display: grid;
+        margin: auto;
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        max-width: 600px;
-      }
 
-      .explore-item {
-        width: 80px;
-        height: 80px;
-        display: block;
-        background-position: center;
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-color: #fff;
-        border-radius: 40px;
-        box-shadow: $box-shadow;
+        @media (min-width: $md-break) {
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-columns: repeat(6, 1fr);
+          gap: 20px;
+          max-width: 600px;
+        }
 
-        &:hover {
-          box-shadow: none;
-          border: 2px solid #c2c4c6;
+        .explore-item {
+          width: 80px;
+          height: 80px;
+          display: block;
+          background-position: center;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-color: #fff;
+          border-radius: 40px;
+          box-shadow: $box-shadow;
+
+          &:hover {
+            box-shadow: none;
+            border: 2px solid #c2c4c6;
+          }
         }
       }
     }
-
   }
 
   .footer {
