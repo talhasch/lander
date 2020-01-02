@@ -29,6 +29,6 @@ yarn-error.log*
 src/config.js
 
 sitemap.xml
-
+showcase.json
 
 env.sh
