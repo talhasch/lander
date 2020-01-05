@@ -57,25 +57,30 @@ router.use('^/showcase.json', (req, res) => {
   res.json(showcaseJSON);
 });
 
+
+const escape = (s) => {
+  return s.replace(/</g, '&lt;').replace(/>/g, '&ht;');
+};
+
 const prepareMeta = (title, description, url, image) => {
   const items = [];
 
   items.push(`<title>${title}</title>`);
-  items.push(`<meta property="og:title" content="${title}"/>`);
-  items.push(`<meta name="twitter:title" content="${title}"/>`);
+  items.push(`<meta property="og:title" content="${escape(title)}"/>`);
+  items.push(`<meta name="twitter:title" content="${escape(title)}"/>`);
 
-  items.push(`<meta name="description" content="${description}">`);
-  items.push(`<meta property="og:description" content="${description}"/>`);
-  items.push(`<meta name="twitter:description" content="${description}"/>`);
+  items.push(`<meta name="description" content="${escape(description)}">`);
+  items.push(`<meta property="og:description" content="${escape(description)}"/>`);
+  items.push(`<meta name="twitter:description" content="${escape(description)}"/>`);
 
   if (image) {
-    items.push(`<meta property="og:image" content="${image}"/>`);
-    items.push(`<meta name="twitter:image" content="${image}"/>`);
-    items.push(`<meta itemprop="image" content="${image}"/>`);
+    items.push(`<meta property="og:image" content="${escape(image)}"/>`);
+    items.push(`<meta name="twitter:image" content="${escape(image)}"/>`);
+    items.push(`<meta itemprop="image" content="${escape(image)}"/>`);
   }
 
-  items.push(`<link rel="canonical" href="${url}" />`);
-  items.push(`<meta property="og:url" content="${url}"/>`);
+  items.push(`<link rel="canonical" href="${escape(url)}" />`);
+  items.push(`<meta property="og:url" content="${escape(url)}"/>`);
   items.push(`<meta property="og:site_name" content="Lander"/>`);
   items.push(`<meta name="twitter:card" content="summary_large_image"/>`);
 
@@ -144,7 +149,7 @@ const pageRenderer = async (req, res) => {
   const title = `${name} | Lander`;
   const url = `https://landr.me/${username}`;
   const metas = prepareMeta(title, description, url, photo);
-  const script = `<script>window.__p = ${JSON.stringify(published)}</script>`;
+  const script = `<script>window.__p = ${escape(JSON.stringify(published))}</script>`;
   const inject = `${metas}${script}`;
 
   const resp = indexHtml.replace('<meta name="replace" content="here">', inject);
