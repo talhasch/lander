@@ -62,25 +62,29 @@ const escape = (s) => {
   return s.replace(/</g, '&lt;').replace(/>/g, '&ht;');
 };
 
+const escapeMeta = (s) => {
+  return escape(s).replace(/"/g, '&quot;');
+};
+
 const prepareMeta = (title, description, url, image) => {
   const items = [];
 
   items.push(`<title>${title}</title>`);
-  items.push(`<meta property="og:title" content="${escape(title)}"/>`);
-  items.push(`<meta name="twitter:title" content="${escape(title)}"/>`);
+  items.push(`<meta property="og:title" content="${escapeMeta(title)}"/>`);
+  items.push(`<meta name="twitter:title" content="${escapeMeta(title)}"/>`);
 
-  items.push(`<meta name="description" content="${escape(description)}">`);
-  items.push(`<meta property="og:description" content="${escape(description)}"/>`);
-  items.push(`<meta name="twitter:description" content="${escape(description)}"/>`);
+  items.push(`<meta name="description" content="${escapeMeta(description)}">`);
+  items.push(`<meta property="og:description" content="${escapeMeta(description)}"/>`);
+  items.push(`<meta name="twitter:description" content="${escapeMeta(description)}"/>`);
 
   if (image) {
-    items.push(`<meta property="og:image" content="${escape(image)}"/>`);
-    items.push(`<meta name="twitter:image" content="${escape(image)}"/>`);
-    items.push(`<meta itemprop="image" content="${escape(image)}"/>`);
+    items.push(`<meta property="og:image" content="${escapeMeta(image)}"/>`);
+    items.push(`<meta name="twitter:image" content="${escapeMeta(image)}"/>`);
+    items.push(`<meta itemprop="image" content="${escapeMeta(image)}"/>`);
   }
 
-  items.push(`<link rel="canonical" href="${escape(url)}" />`);
-  items.push(`<meta property="og:url" content="${escape(url)}"/>`);
+  items.push(`<link rel="canonical" href="${escapeMeta(url)}" />`);
+  items.push(`<meta property="og:url" content="${escapeMeta(url)}"/>`);
   items.push(`<meta property="og:site_name" content="Lander"/>`);
   items.push(`<meta name="twitter:card" content="summary_large_image"/>`);
 
