@@ -69,7 +69,7 @@ const escapeMeta = (s) => {
 const prepareMeta = (title, description, url, image) => {
   const items = [];
 
-  items.push(`<title>${title}</title>`);
+  items.push(`<title>${escapeMeta(title)}</title>`);
   items.push(`<meta property="og:title" content="${escapeMeta(title)}"/>`);
   items.push(`<meta name="twitter:title" content="${escapeMeta(title)}"/>`);
 
