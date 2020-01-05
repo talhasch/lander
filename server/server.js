@@ -59,7 +59,7 @@ router.use('^/showcase.json', (req, res) => {
 
 
 const escape = (s) => {
-  return s.replace(/</g, '&lt;').replace(/>/g, '&ht;');
+  return s.replace(/</g, '&lt;').replace(/>/g, '&ht;').replace(/"/g, '&quot;');
 };
 
 const prepareMeta = (title, description, url, image) => {
