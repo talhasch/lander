@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import * as axios from 'axios';
 import * as blockStack from 'blockstack';
 
 import {publishedFile} from '../../../constants';
@@ -93,7 +92,7 @@ class ProfilePage extends Component {
     }
 
     try {
-      data = await axios.get(fileUrl).then(x => x.data);
+      data = await fetch(fileUrl).then(r => r.json());
     } catch (e) {
       return false;
     }
