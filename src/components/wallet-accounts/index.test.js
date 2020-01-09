@@ -2,15 +2,12 @@ import React from 'react';
 import WalletAccounts from './index';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../utils/test-helper';
-
-
 it('1- in edit mode. no accounts provided. should return null', () => {
   const props = {
     editMode: true
   };
 
-  const component = wrapWithIntl(<WalletAccounts {...props} />);
+  const component = <WalletAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -26,7 +23,7 @@ it('2- in edit mode. bitcoin provided.', () => {
     accounts: {bitcoin: '1321321312321efwfwe12321'}
   };
 
-  const component = wrapWithIntl(<WalletAccounts {...props} />);
+  const component = <WalletAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -39,7 +36,7 @@ it('2- in edit mode. bitcoin provided.', () => {
 it('3- not in edit mode. no accounts provided. should render null', () => {
   const props = {};
 
-  const component = wrapWithIntl(<WalletAccounts {...props} />);
+  const component = <WalletAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -55,7 +52,7 @@ it('4- not in edit mode. ethereum provided', () => {
     }
   };
 
-  const component = wrapWithIntl(<WalletAccounts {...props} />);
+  const component = <WalletAccounts {...props} />;
 
   const tree = renderer
     .create(component)

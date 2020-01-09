@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import {FormattedMessage, injectIntl} from 'react-intl';
-
 import to from 'await-to-js';
 
 import {UserPref} from '../../../model';
 
 import {getUsername} from '../../../blockstack-config';
+
+import {_t} from '../../../i18n';
 
 class PreferencesDialog extends Component {
 
@@ -80,20 +80,20 @@ class PreferencesDialog extends Component {
   };
 
   render() {
-    const {intl} = this.props;
     const {inProgress, directory} = this.state;
 
     return (
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
-            <Modal.Title><FormattedMessage id="preferences.title"/></Modal.Title>
+            <Modal.Title>{_t('preferences.title')}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="preferences-dialog-content">
               <Form>
                 <Form.Group controlId="form-directory">
-                  <Form.Check type="checkbox" label={intl.formatMessage({id: 'preferences.directory-label'})}
+                  <Form.Check type="checkbox"
+                              label={_t('preferences.directory-label')}
                               checked={directory} onChange={this.directoryChanged}/>
                 </Form.Group>
               </Form>
@@ -101,10 +101,10 @@ class PreferencesDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide} disabled={inProgress}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
             <Button variant="primary" onClick={this.save} disabled={inProgress}>
-              <FormattedMessage id="g.save"/> {inProgress && '...'}
+              {_t('g.save')} {inProgress && '...'}
             </Button>
           </Modal.Footer>
         </Modal>
@@ -126,4 +126,4 @@ PreferencesDialog.propTypes = {
   }).isRequired
 };
 
-export default injectIntl(PreferencesDialog);
+export default PreferencesDialog;

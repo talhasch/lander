@@ -4,9 +4,7 @@ exports[`in edit mode. name is empty. should show placeholder and show edit btn 
 <div
   className="profile-name edit-mode not-set"
 >
-  <span>
-    Your name goes here...
-  </span>
+  Your name goes here...
   <div
     className="edit-btn"
     onClick={[Function]}

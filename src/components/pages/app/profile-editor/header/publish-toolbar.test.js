@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../../../../utils/test-helper';
-
 import PublishToolbar from './publish-toolbar';
 
 it('not published', () => {
@@ -20,7 +18,7 @@ it('not published', () => {
     }
   };
 
-  const component = wrapWithIntl(<PublishToolbar {...props} />);
+  const component = <PublishToolbar {...props} />;
 
   const tree = renderer
     .create(component)
@@ -44,7 +42,7 @@ it('first publishing', () => {
     }
   };
 
-  const component = wrapWithIntl(<PublishToolbar {...props} />);
+  const component = <PublishToolbar {...props} />;
 
   const tree = renderer
     .create(component)
@@ -71,7 +69,7 @@ it('changed and not published', () => {
     }
   };
 
-  const component = wrapWithIntl(<PublishToolbar {...props} />);
+  const component = <PublishToolbar {...props} />;
 
   const tree = renderer
     .create(component)
@@ -97,7 +95,7 @@ it('changed and publishing', () => {
     }
   };
 
-  const component = wrapWithIntl(<PublishToolbar {...props} />);
+  const component = <PublishToolbar {...props} />;
 
   const tree = renderer
     .create(component)
@@ -124,7 +122,7 @@ it('up to date', () => {
     }
   };
 
-  const component = wrapWithIntl(<PublishToolbar {...props} />);
+  const component = <PublishToolbar {...props} />;
 
   const tree = renderer
     .create(component)

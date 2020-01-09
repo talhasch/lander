@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {FormattedMessage} from "react-intl";
-
 import EditBtn from '../elements/edit-btn';
 
 import fixClassNames from '../../utils/fix-class-names';
+
+import {_t} from '../../i18n';
 
 class ProfileDescription extends Component {
 
@@ -27,7 +27,7 @@ class ProfileDescription extends Component {
 
     if (editMode && !description) {
       return <div className="profile-description edit-mode not-set">
-        <FormattedMessage id="editor.description-placeholder"/>
+        {_t('editor.description-placeholder')}
         <EditBtn {...this.props} onClick={this.edit}/>
       </div>
     }

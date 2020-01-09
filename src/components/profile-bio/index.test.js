@@ -2,15 +2,13 @@ import React from 'react';
 import ProfileBio from './index';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../utils/test-helper';
-
 it('not in edit mode and bio is empty. should render null', () => {
   const props = {
     toggleUiProp: () => {
     }
   };
 
-  const component = wrapWithIntl(<ProfileBio {...props} />);
+  const component = <ProfileBio {...props} />;
 
   const tree = renderer
     .create(component)
@@ -24,7 +22,7 @@ it('in edit mode. bio is empty. should show placeholder', () => {
     editMode: true
   };
 
-  const component = wrapWithIntl(<ProfileBio {...props} />);
+  const component = <ProfileBio {...props} />;
 
   const tree = renderer
     .create(component)
@@ -39,7 +37,7 @@ it('bio is not empty in edit mode. should render bio', () => {
     bio: 'Lorem ipsum dolor sit amet'
   };
 
-  const component = wrapWithIntl(<ProfileBio {...props} />);
+  const component = <ProfileBio {...props} />;
 
   const tree = renderer
     .create(component)
@@ -54,7 +52,7 @@ it('bio is not empty in not edit mode. should render bio (without onclick event)
     bio: 'Lorem ipsum dolor sit amet'
   };
 
-  const component = wrapWithIntl(<ProfileBio {...props} />);
+  const component = <ProfileBio {...props} />;
 
   const tree = renderer
     .create(component)

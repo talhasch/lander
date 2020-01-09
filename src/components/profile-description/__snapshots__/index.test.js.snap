@@ -40,9 +40,7 @@ exports[`in edit mode. description is empty. should show placeholder and show ed
 <div
   className="profile-description edit-mode not-set"
 >
-  <span>
-    Your description goes here...
-  </span>
+  Your description goes here...
   <div
     className="edit-btn"
     onClick={[Function]}

@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {FormattedMessage} from 'react-intl';
-
 import fixClassNames from '../../utils/fix-class-names';
 
 import EditBtn from "../elements/edit-btn";
 
 import bioRenderer from '../../helper/bio-renderer';
+
+import {_t} from '../../i18n';
 
 class ProfileBio extends Component {
 
@@ -31,7 +31,7 @@ class ProfileBio extends Component {
 
     if (editMode && !bio) {
       return <div className="profile-bio not-set edit-mode">
-        <FormattedMessage id="editor.bio-placeholder"/>
+        {_t('editor.bio-placeholder')}
         <EditBtn {...this.props} onClick={this.edit}/>
       </div>
     }

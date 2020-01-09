@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
-
 import showError from '../../../utils/show-error';
+
+import {_t} from '../../../i18n';
 
 class NameEditDialog extends Component {
 
@@ -71,10 +71,10 @@ class NameEditDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
             <Button variant="primary" onClick={this.save} disabled={!changed || name.trim() === '' || user.saving}>
-              <FormattedMessage id="g.save"/> {user.saving && '...'}
+              {_t('g.save')} {user.saving && '...'}
             </Button>
           </Modal.Footer>
         </Modal>

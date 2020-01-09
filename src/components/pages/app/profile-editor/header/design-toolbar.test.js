@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../../../../utils/test-helper';
-
 import DesignToolbar from './design-toolbar';
 
 // to fix [Invariant Violation: Unable to find node on an unmounted component.] error
@@ -20,7 +18,7 @@ it('default', () => {
     }
   };
 
-  const component = wrapWithIntl(<DesignToolbar {...props} />);
+  const component = <DesignToolbar {...props} />;
 
   const tree = renderer
     .create(component)
@@ -39,7 +37,7 @@ it('in preview', () => {
     }
   };
 
-  const component = wrapWithIntl(<DesignToolbar {...props} />);
+  const component = <DesignToolbar {...props} />;
 
   const tree = renderer
     .create(component)

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button} from 'react-bootstrap';
 
-import {FormattedMessage, injectIntl} from 'react-intl';
-
 import ConfirmDialog from '../confirm'
 
 import {putDraftFile, putPublishedFile, putFlagFile, deleteFlagLocal} from '../../../dbl';
+
+import {_t} from '../../../i18n';
 
 class SettingsDialog extends Component {
 
@@ -61,21 +61,21 @@ class SettingsDialog extends Component {
         {deleteConfirm && <ConfirmDialog onCancel={this.deleteCancelled} onConfirm={this.deleteConfirmed}/>}
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
-            <Modal.Title><FormattedMessage id="settings.title"/></Modal.Title>
+            <Modal.Title>{_t('settings.title')}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="settings-dialog-content">
 
               <div className="delete-account">
                 <Button variant="danger" onClick={this.deleteClicked} disabled={deleting}>
-                  <FormattedMessage id="settings.delete"/> {deleting && '...'}
+                  {_t('settings.delete')} {deleting && '...'}
                 </Button>
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
           </Modal.Footer>
         </Modal>
@@ -99,4 +99,4 @@ SettingsDialog.propTypes = {
   }).isRequired
 };
 
-export default injectIntl(SettingsDialog);
+export default SettingsDialog;

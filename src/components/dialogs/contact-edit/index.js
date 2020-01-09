@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, InputGroup, FormControl, Form} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
-
 import {parsePhoneNumberFromString} from 'libphonenumber-js';
 
 import validateEmail from '../../../utils/validate-email';
@@ -15,6 +13,8 @@ import validateUrl from '../../../utils/validate-url';
 import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify';
+
+import {_t} from '../../../i18n';
 
 class ContactEditDialog extends Component {
 
@@ -172,10 +172,10 @@ class ContactEditDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
             <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
-              <FormattedMessage id="g.save"/> {user.saving && '...'}
+              {_t('g.save')} {user.saving && '...'}
             </Button>
           </Modal.Footer>
         </Modal>

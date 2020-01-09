@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../../../../utils/test-helper';
-
 import NavBar from '../../shared/navbar';
 
 // to fix [Invariant Violation: Unable to find node on an unmounted component.] error
@@ -26,7 +24,7 @@ it('default render', () => {
     }
   };
 
-  const component = wrapWithIntl(<NavBar {...props} />);
+  const component = <NavBar {...props} />;
 
   const tree = renderer
     .create(component)

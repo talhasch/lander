@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
-
 import stringify from '../../../utils/stringify';
 
 import showError from '../../../utils/show-error';
+
+import {_t} from '../../../i18n';
 
 import {mDownSvg} from '../../../svg';
 
@@ -66,7 +66,7 @@ class BioEditDialog extends Component {
       <>
         <Modal show className="drawer" backdropClassName="drawer-backdrop" onHide={this.hide}>
           <Modal.Header closeButton>
-            <Modal.Title><FormattedMessage id="bio.title"/></Modal.Title>
+            <Modal.Title>{_t('bio.title')}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="bio-edit-dialog-content">
@@ -95,10 +95,10 @@ class BioEditDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
             <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
-              <FormattedMessage id="g.save"/> {user.saving && '...'}
+              {_t('g.save')} {user.saving && '...'}
             </Button>
           </Modal.Footer>
         </Modal>

@@ -10,14 +10,5 @@ exports[`Render 1`] = `
     className="logo"
     src="lander-512.png"
   />
-  <span
-    className="c2a-text"
-  >
-    Get your free 
-    <span>
-      Lander
-    </span>
-     page
-  </span>
 </a>
 `;

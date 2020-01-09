@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
-
 import showError from '../../../utils/show-error';
 
 import stringify from '../../../utils/stringify';
+
+import {_t} from '../../../i18n';
 
 class WalletEditDialog extends Component {
   hide = () => {
@@ -76,10 +76,10 @@ class WalletEditDialog extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.hide}>
-              <FormattedMessage id="g.cancel"/>
+              {_t('g.cancel')}
             </Button>
             <Button variant="primary" onClick={this.save} disabled={!changed || user.saving}>
-              <FormattedMessage id="g.save"/> {user.saving && '...'}
+              {_t('g.save')} {user.saving && '...'}
             </Button>
           </Modal.Footer>
         </Modal>

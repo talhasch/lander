@@ -2,8 +2,6 @@ import React from 'react';
 import SocialAccounts from './index';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../utils/test-helper';
-
 // to fix [Invariant Violation: Unable to find node on an unmounted component.] error
 jest.mock('react-dom', () => ({
   findDOMNode: () => ({}),
@@ -15,7 +13,7 @@ it('1- in edit mode. no accounts provided. should show some buttons with icons',
     editMode: true
   };
 
-  const component = wrapWithIntl(<SocialAccounts {...props} />);
+  const component = <SocialAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -33,7 +31,7 @@ it('2- in edit mode. twitter provided. should show only twitter button.', () => 
     }
   };
 
-  const component = wrapWithIntl(<SocialAccounts {...props} />);
+  const component = <SocialAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -46,7 +44,7 @@ it('2- in edit mode. twitter provided. should show only twitter button.', () => 
 it('3- not in edit mode. no accounts provided. should render null', () => {
   const props = {};
 
-  const component = wrapWithIntl(<SocialAccounts {...props} />);
+  const component = <SocialAccounts {...props} />;
 
   const tree = renderer
     .create(component)
@@ -61,7 +59,7 @@ it('4- not in edit mode. twitter and github provided', () => {
     accounts: {twitter: 'talhasch', 'github': 'talhasch'}
   }
 
-  const component = wrapWithIntl(<SocialAccounts {...props} />);
+  const component = <SocialAccounts {...props} />;
 
   const tree = renderer
     .create(component)

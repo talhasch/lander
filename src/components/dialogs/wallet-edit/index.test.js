@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import wrapWithIntl from '../../../utils/test-helper';
-
 import WalletEditDialog from './index';
 
 it('Render dialog', () => {
@@ -28,5 +26,5 @@ it('Render dialog', () => {
   };
 
   const div = document.createElement('div');
-  ReactDOM.render(wrapWithIntl(<WalletEditDialog {...props} />), div);
+  ReactDOM.render(<WalletEditDialog {...props} />, div);
 });

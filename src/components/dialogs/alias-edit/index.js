@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button, FormControl, FormText, InputGroup, Tooltip, OverlayTrigger} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
-
 import {Alias} from '../../../model';
 
 import ConfirmDialog from '../confirm';
@@ -15,6 +13,8 @@ import {getUsername} from '../../../blockstack-config';
 import {aliasRe} from '../../../constants';
 
 import {infoSvg} from "../../../svg";
+
+import {_t} from '../../../i18n';
 
 class AliasEditDialog extends Component {
 
@@ -176,7 +176,7 @@ class AliasEditDialog extends Component {
             </Button>
             }
             <Button variant="primary" onClick={this.save} disabled={updating}>
-              <FormattedMessage id="g.save"/> {updating ? '...' : ''}
+              {_t('g.save')} {updating ? '...' : ''}
             </Button>
           </Modal.Footer>
         </Modal>

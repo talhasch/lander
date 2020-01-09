@@ -2,12 +2,10 @@ import React from 'react';
 import ProfileDescription from './index';
 import renderer from 'react-test-renderer';
 
-import wrapWithIntl from '../../utils/test-helper';
-
 it('not in edit mode and description is empty. should render null', () => {
   const props = {};
 
-  const component = wrapWithIntl(<ProfileDescription {...props} />);
+  const component = <ProfileDescription {...props} />;
 
   const tree = renderer
     .create(component)
@@ -21,7 +19,7 @@ it('in edit mode. description is empty. should show placeholder and show edit bt
     editMode: true
   };
 
-  const component = wrapWithIntl(<ProfileDescription {...props} />);
+  const component = <ProfileDescription {...props} />;
 
   const tree = renderer
     .create(component)
@@ -36,7 +34,7 @@ it('description is not empty in edit mode. should render description and show ed
     description: 'Lorem ipsum dolor sit amet'
   };
 
-  const component = wrapWithIntl(<ProfileDescription {...props} />);
+  const component = <ProfileDescription {...props} />;
 
   const tree = renderer
     .create(component)
@@ -51,7 +49,7 @@ it('description is not empty in not edit mode. should render description.', () =
     description: 'Lorem ipsum dolor sit amet'
   };
 
-  const component = wrapWithIntl(<ProfileDescription {...props} />);
+  const component = <ProfileDescription {...props} />;
 
   const tree = renderer
     .create(component)

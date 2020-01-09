@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {Modal, Button} from 'react-bootstrap';
 
-import {FormattedMessage} from 'react-intl';
+import {_t} from '../../../i18n';
 
 
 class ConfirmDialog extends Component {
@@ -26,14 +26,14 @@ class ConfirmDialog extends Component {
     return (
       <Modal show onHide={this.cancel}>
         <Modal.Body>
-          <FormattedMessage id="g.are-you-sure"/>
+          {_t('g.are-you-sure')}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.cancel}>
-            <FormattedMessage id="g.cancel"/>
+            {_t('g.cancel')}
           </Button>
           <Button variant="primary" onClick={this.confirm}>
-            <FormattedMessage id="g.confirm"/>
+            {_t('g.confirm')}
           </Button>
         </Modal.Footer>
       </Modal>
