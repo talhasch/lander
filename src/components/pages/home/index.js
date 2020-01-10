@@ -6,6 +6,8 @@ import {userSession} from '../../../blockstack-config';
 
 import {Nav, Navbar, Button, Row, Col, Modal} from 'react-bootstrap';
 
+import {b64EncodeUnicode} from '../../../utils/base64';
+
 import landerLogo from '../../../images/lander-512.png';
 
 import jasmine from '../../../images/jasmine.jpg';
@@ -219,7 +221,7 @@ class HomePage extends Component {
             <div className="explore-list">
               {explore.map(x => {
                 return <a key={x.username} href={`/${x.username}`} title={x.name} className="explore-item"
-                          style={{backgroundImage: `url(${x.photo})`}}>
+                          style={{backgroundImage: `url('https://landr.me/i-p/${b64EncodeUnicode(x.photo)}/120x120')`}}>
                 </a>
               })}
             </div>

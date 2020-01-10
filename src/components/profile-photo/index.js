@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import {imageSvg, penSvg} from '../../svg';
 
+import {b64EncodeUnicode} from '../../utils/base64';
+
 class ProfilePhoto extends Component {
 
   editClicked = () => {
@@ -17,8 +19,10 @@ class ProfilePhoto extends Component {
     const editOverlay = <div onClick={this.editClicked} className="edit-btn">{penSvg}</div>;
 
     if (imageUrl) {
+      let url = imageUrl.indexOf('https://') === 0 ? `https://landr.me/i-p/${b64EncodeUnicode(imageUrl)}` : imageUrl;
+
       return <div className="profile-photo"
-                  style={{backgroundImage: `url('${imageUrl}')`}}>{editMode && editOverlay}</div>
+                  style={{backgroundImage: `url('${url}')`}}>{editMode && editOverlay}</div>
     }
 
     return <div className="profile-photo">{imageSvg} {editMode && editOverlay}</div>

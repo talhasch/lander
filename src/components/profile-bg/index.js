@@ -6,11 +6,12 @@ import Color from 'color';
 
 import detectBgImageUrl from '../../helper/detect-bg-image-url';
 
+import {b64EncodeUnicode} from '../../utils/base64';
+
 class ProfileBg extends Component {
 
   render() {
     const {bg} = this.props;
-
 
     const {image} = bg;
     let {color, blur} = bg;
@@ -41,7 +42,10 @@ class ProfileBg extends Component {
 
     if (image) {
       const imageUrl = detectBgImageUrl(image);
-      style.backgroundImage = `url('${imageUrl}')`;
+
+      let url = imageUrl.indexOf('https://') === 0 ? `https://landr.me/i-p/${b64EncodeUnicode(imageUrl)}` : imageUrl;
+
+      style.backgroundImage = `url('${url}')`;
     }
 
     return <div className="bg" style={style}/>
@@ -49,9 +53,7 @@ class ProfileBg extends Component {
 }
 
 
-ProfileBg.defaultProps = {
-
-};
+ProfileBg.defaultProps = {};
 
 ProfileBg.propTypes = {
   bg: PropTypes.shape({

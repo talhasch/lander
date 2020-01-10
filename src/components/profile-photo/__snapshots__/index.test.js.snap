@@ -48,7 +48,7 @@ exports[`in edit mode and image is not empty. should render image and edit btn 1
   className="profile-photo"
   style={
     Object {
-      "backgroundImage": "url('https://foo.bar/baz.jpg')",
+      "backgroundImage": "url('https://landr.me/i-p/aHR0cHM6Ly9mb28uYmFyL2Jhei5qcGc=')",
     }
   }
 >
@@ -103,7 +103,7 @@ exports[`not in edit mode and image is not empty. should render image  1`] = `
   className="profile-photo"
   style={
     Object {
-      "backgroundImage": "url('https://foo.bar/baz.jpg')",
+      "backgroundImage": "url('https://landr.me/i-p/aHR0cHM6Ly9mb28uYmFyL2Jhei5qcGc=')",
     }
   }
 />
