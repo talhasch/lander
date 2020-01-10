@@ -153,7 +153,8 @@ const pageRenderer = async (req, res) => {
   const title = `${name} | Lander`;
   const url = `https://landr.me/${username}`;
   const metas = prepareMeta(title, description, url, photo);
-  const script = `<script>window.__p = ${escape(JSON.stringify(published))}</script>`;
+  const data = Buffer.from(JSON.stringify(published)).toString('base64');
+  const script = `<script>window.__p = '${data}';</script>`;
   const inject = `${metas}${script}`;
 
   const resp = indexHtml.replace('<meta name="replace" content="here">', inject);

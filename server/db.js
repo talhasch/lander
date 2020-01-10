@@ -1,17 +1,16 @@
 const {Pool} = require('pg');
 const {MongoClient} = require('mongodb');
 
-['MONGO_URL', 'PG_URL'].forEach(x => {
+['MONGO_URL', 'PG_URL', 'APP_ORIGIN'].forEach(x => {
   if (!process.env[x]) {
     console.error(x + ' environment variable required!');
     process.exit(1);
   }
 });
 
-const appOrigin = 'https://landr.me';
 const publishedFile = 'lander.public.file.db.json';
 
-const {MONGO_URL, PG_URL} = process.env;
+const {MONGO_URL, PG_URL, APP_ORIGIN} = process.env;
 
 const pgClient = new Pool({connectionString: PG_URL});
 
@@ -32,11 +31,11 @@ export const getUserAppFileUrl = async (username) => {
 
   const row = resp[0];
 
-  if (!(row.profile.apps && row.profile.apps[appOrigin])) {
+  if (!(row.profile.apps && row.profile.apps[APP_ORIGIN])) {
     return null;
   }
 
-  return row.profile.apps[appOrigin] + publishedFile;
+  return row.profile.apps[APP_ORIGIN] + publishedFile;
 };
 
 export const getUsernameFromAlias = async (alias) => {

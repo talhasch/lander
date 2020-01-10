@@ -7,6 +7,7 @@ import {publishedFile} from '../../../constants';
 import getBaseUrl from '../../../utils/get-base-url';
 
 import isRealUsername from '../../../helper/is-real-username';
+
 import {UserBucketUrl} from '../../../model';
 
 import ProfileBg from '../../profile-bg';
@@ -21,7 +22,10 @@ import Spinner from '../../elements/spinner';
 import ProfileC2a from '../../elements/profile-c2a';
 
 import {aliasRe} from '../../../constants';
+
 import {Alias} from '../../../model';
+
+import {b64DecodeUnicode} from '../../../utils/base64';
 
 class ProfilePage extends Component {
 
@@ -36,10 +40,13 @@ class ProfilePage extends Component {
   }
 
   async componentDidMount() {
-
     if (window.__p) {
-      this.setState({data: window.__p, loading: false});
-      return;
+      try {
+        const data = JSON.parse(b64DecodeUnicode(window.__p));
+        this.setState({data, loading: false});
+        return;
+      } catch (e) {
+      }
     }
 
     const {match} = this.props;
