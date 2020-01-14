@@ -58,9 +58,8 @@ class ShareDialog extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className="networks">
-              <a className="network" target="_blank" rel="noopener noreferrer" href={this.twitterUrl()}>{twitterSvg}</a>
-              <a className="network" target="_blank" rel="noopener noreferrer"
-                 href={this.facebookUrl()}>{facebookSvg}</a>
+              <a className="network" href={this.twitterUrl()}>{twitterSvg}</a>
+              <a className="network" href={this.facebookUrl()}>{facebookSvg}</a>
             </div>
             <Form.Group>
               <Form.Control readOnly value={this.userUrl()} onClick={this.urlClicked}/>

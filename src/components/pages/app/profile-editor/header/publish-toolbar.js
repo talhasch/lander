@@ -52,7 +52,7 @@ class PublishToolbar extends Component {
 
     return <div className="publish-toolbar">
       <span className="btn-qr">{qrCodeSvg}</span>
-      <a className="user-address" href={userUrl} target="_blank" rel="noopener noreferrer">{userUrl}</a>
+      <a className="user-address" href={userUrl}>{userUrl}</a>
       <span className="btn-edit-alias" onClick={() => {
         const {toggleUiProp} = this.props;
         toggleUiProp('alias')

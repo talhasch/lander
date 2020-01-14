@@ -48,7 +48,7 @@ export class ContactDialogContent extends Component {
             <div className="section-icon">
               {globeSvg}
             </div>
-            <a href={website} target="_blank" rel="noopener noreferrer" className="section-label">{website}</a>
+            <a href={website} className="section-label">{website}</a>
           </div>)
           }
 

@@ -60,7 +60,7 @@ class SocialAccounts extends Component {
       const ac = userAccounts[t.id];
 
       if (ac) {
-        return <a key={t.id} target="_blank" rel="noopener noreferrer" href={socialAccountLink(t.id, ac)}
+        return <a key={t.id} href={socialAccountLink(t.id, ac)}
                   className="social-button">{t.icon}</a>;
       }
       return null;

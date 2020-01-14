@@ -254,12 +254,10 @@ class HomePage extends Component {
                   Blockstack
                 </div>
                 <div className="menu-item">
-                  <a href="https://blockstack.org/what-is-blockstack/" target="_blank"
-                     rel="noopener noreferrer">What is blockstack?</a>
+                  <a href="https://blockstack.org/what-is-blockstack/">What is blockstack?</a>
                 </div>
                 <div className="menu-item">
-                  <a href="https://github.com/blockstack/gaia" target="_blank"
-                     rel="noopener noreferrer">Gaia storage</a>
+                  <a href="https://github.com/blockstack/gaia">Gaia storage</a>
                 </div>
               </Col>
               <Col className="footer-menu" sm={12} md={3}>
@@ -271,16 +269,13 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col className="social-menu" sm={12} md={3}>
-                <a className="social-link" href="https://twitter.com/landr_me" target="_blank"
-                   rel="noopener noreferrer">
+                <a className="social-link" href="https://twitter.com/landr_me">
                   {twitterSvg}
                 </a>
-                <a className="social-link" href="https://github.com/talhasch/lander" target="_blank"
-                   rel="noopener noreferrer">
+                <a className="social-link" href="https://github.com/talhasch/lander">
                   {githubSvg}
                 </a>
-                <a className="social-link" href="https://www.producthunt.com/posts/lander-2" target="_blank"
-                   rel="noopener noreferrer">
+                <a className="social-link" href="https://www.producthunt.com/posts/lander-2">
                   {phSvg}
                 </a>
               </Col>
