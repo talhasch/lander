@@ -32,6 +32,11 @@
     "go-button-title": "Go to Blockstack Browser",
     "dont-show": "Don't show this again"
   },
+  "wallet-edit-dialog": {
+    "title": "Wallet Addresses",
+    "btc-error": "Not a valid bitcoin address",
+    "eth-error": "Not a valid ethereum address"
+  },
   "bio": {
     "title": "Longer Description",
     "help-text": "Edit your longer description below"
