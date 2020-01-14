@@ -119,8 +119,6 @@ exports[`4- not in edit mode. twitter and github provided 1`] = `
   <a
     className="social-button"
     href="https://twitter.com/talhasch"
-    rel="noopener noreferrer"
-    target="_blank"
   >
     <svg
       data-icon="twitter"
@@ -136,8 +134,6 @@ exports[`4- not in edit mode. twitter and github provided 1`] = `
   <a
     className="social-button"
     href="https://github.com/talhasch"
-    rel="noopener noreferrer"
-    target="_blank"
   >
     <svg
       data-icon="github"

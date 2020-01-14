@@ -72,8 +72,6 @@ exports[`1- ContactDialogContent - render 1`] = `
     <a
       className="section-label"
       href="http://www.zoogle.com"
-      rel="noopener noreferrer"
-      target="_blank"
     >
       http://www.zoogle.com
     </a>
