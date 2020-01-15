@@ -27,18 +27,19 @@ class WalletAccounts extends Component {
       wAccounts[i.id] = accounts[i.id];
     }
 
-    if(!userHasAny){
-      return null;
-    }
 
     if (editMode) {
+      if (!userHasAny) {
+        return null;
+      }
+
       return <div className="wallet-accounts edit-mode">
         <EditBtn {...this.props} onClick={this.edit}/>
 
         {accountTypes.map((t) => {
           const ac = wAccounts[t.id];
 
-          if(!ac){
+          if (!ac) {
             return null;
           }
 
@@ -67,7 +68,7 @@ class WalletAccounts extends Component {
       return <div className="wallet-accounts">{l}</div>;
     }
 
-    return null;
+    return <div className="wallet-sep"/>;
   }
 }
 

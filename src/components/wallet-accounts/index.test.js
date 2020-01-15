@@ -33,7 +33,7 @@ it('2- in edit mode. bitcoin provided.', () => {
 });
 
 
-it('3- not in edit mode. no accounts provided. should render null', () => {
+it('3- not in edit mode. no accounts provided. should render separator', () => {
   const props = {};
 
   const component = <WalletAccounts {...props} />;

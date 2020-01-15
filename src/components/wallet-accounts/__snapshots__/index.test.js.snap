@@ -52,7 +52,11 @@ exports[`2- in edit mode. bitcoin provided. 1`] = `
 </div>
 `;
 
-exports[`3- not in edit mode. no accounts provided. should render null 1`] = `null`;
+exports[`3- not in edit mode. no accounts provided. should render separator 1`] = `
+<div
+  className="wallet-sep"
+/>
+`;
 
 exports[`4- not in edit mode. ethereum provided 1`] = `
 <div

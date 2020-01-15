@@ -46,12 +46,12 @@ class WalletEditDialog extends Component {
 
     const {bitcoin, ethereum} = wallets;
 
-    if (!cryptoAddress('btc').test(bitcoin)) {
+    if (bitcoin && !cryptoAddress('btc').test(bitcoin)) {
       this.setState({errors: {bitcoin: _t('wallet-edit-dialog.btc-error')}});
       return;
     }
 
-    if (!cryptoAddress('eth').test(ethereum)) {
+    if (ethereum && !cryptoAddress('eth').test(ethereum)) {
       this.setState({errors: {ethereum: _t('wallet-edit-dialog.eth-error')}});
       return;
     }
